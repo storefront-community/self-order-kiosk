@@ -1,16 +1,15 @@
 version : 2.1
-default: &default
-  docker:
-    image: circleci/node:latest-browsers
 jobs:
   build:
-    <<: *default
+    docker:
+      - image: circleci/node:latest-browsers
     steps:
       - checkout
       - run: npm install
       - run: npm run test:e2e
   deploy:
-    <<: *default
+    docker:
+      - image: circleci/node:latest
     steps:
       - checkout
       - run: npm install
