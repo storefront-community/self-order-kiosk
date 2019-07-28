@@ -1,0 +1,13 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+
+  &::before, &::after { // Vertical centering
+    content: '';
+    margin: auto;
+  }
+}
