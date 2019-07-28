@@ -1,0 +1,38 @@
+version : 2.1
+default: &default
+  machine:
+    image: circleci/classic:latest
+jobs:
+  build:
+    <<: *default
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm run test:e2e
+  deploy:
+    <<: *default
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm run build
+      - run: git checkout gh-pages
+      - run: cp -r dist/* .
+      - run: git add .
+      - run: git commit -m "Deploy $CIRCLE_TAG"
+      - run: git push origin gh-pages
+workflows:
+  version: 2.1
+  build_and_deploy:
+    jobs:
+      - build:
+          filters:
+            tags:
+              only: /.*/
+      - deploy:
+          requires:
+            - build
+          filters:
+            tags:
+              only: /^v\d\.\d\.\d/
+            branches:
+              ignore: /.*/
