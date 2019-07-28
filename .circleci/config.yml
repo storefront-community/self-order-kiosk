@@ -6,7 +6,7 @@ jobs:
     steps:
       - checkout
       - run: npm install
-      - run: npm run test:e2e
+      - run: npm run test:e2e:ci
   deploy:
     docker:
       - image: circleci/node:latest
