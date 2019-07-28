@@ -1,7 +1,7 @@
 version : 2.1
 default: &default
-  machine:
-    image: circleci/classic:latest
+  docker:
+    image: circleci/node:latest-browsers
 jobs:
   build:
     <<: *default
