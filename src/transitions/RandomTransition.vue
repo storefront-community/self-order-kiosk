@@ -25,7 +25,7 @@ export default {
         ZoomTransition
       ]
 
-      const current = Math.floor(Math.random() * transitions.length);
+      const current = Math.floor(Math.random() * transitions.length)
 
       return transitions[current]
     }

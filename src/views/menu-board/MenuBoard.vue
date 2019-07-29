@@ -13,7 +13,7 @@ import RandomTransition from '@/transitions/RandomTransition'
 export default {
   name: 'menuBoard',
   mounted() {
-    this.interval = setInterval(() => this.nextContent(), 5000);
+    this.interval = setInterval(() => this.nextContent(), 5000)
   },
   destroyed() {
     clearInterval(this.interval)

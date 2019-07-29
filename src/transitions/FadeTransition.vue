@@ -20,7 +20,7 @@ export default {
         transformOrigin: '50% 50%',
         ease: Power4.easeOut,
         onComplete: done
-      });
+      })
     },
     leave(el, done) {
       TweenMax.fromTo(el, 1, {
@@ -31,7 +31,7 @@ export default {
         scale: 0.8,
         ease: Power4.easeOut,
         onComplete: done
-      });
+      })
     }
   }
 }
