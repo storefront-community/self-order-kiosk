@@ -1,71 +1,52 @@
 <template>
   <div class="loader">
-    <div class="circle circle-salad"></div>
-    <div class="circle circle-ketchup"></div>
-    <div class="circle circle-mustard"></div>
+    <div ref="salad" class="circle circle-salad"></div>
+    <div ref="ketchup" class="circle circle-ketchup"></div>
+    <div ref="mustard" class="circle circle-mustard"></div>
   </div>
 </template>
 
 <script>
-import anime from 'animejs/lib/anime.es.js'
+import { TweenMax, Elastic } from "gsap/TweenMax"
 
 export default {
   name: 'loader',
   mounted () {
+    var easing = Elastic.easeIn.config(1.1, 0.4)
+    var duration = .7
+    var delay = 1
     var borderRadius = '12px'
-    var direction = 'alternate'
-    var loop = true
-    var elasticity = 400
-    var easing = 'easeInElastic'
-    var duration = 800
-    var delay = 600
-    var endDelay = 600
     var height = '36px'
     var width = '36px'
 
-    anime ({
-      targets: ['.circle-salad'],
-      direction: direction,
-      loop: loop,
-      elasticity: elasticity,
-      easing: easing,
-      duration: duration,
-      delay: delay,
-      endDelay: endDelay,
-      translateY: -18,
-      translateX: 24,
+    TweenMax.to(this.$refs.salad, duration, {
+      yoyo: true,
+      repeat: -1,
+      repeatDelay: delay,
+      ease: easing,
+      transform: 'translate(24px, -18px)',
       borderRadius: borderRadius,
       height: height,
       width: width
     })
 
-    anime ({
-      targets: ['.circle-ketchup'],
-      direction: direction,
-      loop: loop,
-      elasticity: elasticity,
-      easing: easing,
-      duration: duration,
-      delay: delay,
-      endDelay: endDelay,
-      translateY: 22,
-      translateX: -18,
+    TweenMax.to(this.$refs.ketchup, duration, {
+      yoyo: true,
+      repeat: -1,
+      repeatDelay: delay,
+      ease: easing,
+      transform: 'translate(-18px, 22px)',
       borderRadius: borderRadius,
       height: height,
       width: width
     })
 
-    anime ({
-      targets: ['.circle-mustard'],
-      direction: direction,
-      loop: loop,
-      elasticity: elasticity,
-      easing: easing,
-      duration: duration,
-      delay: delay,
-      endDelay: endDelay,
-      translateY: -18,
-      translateX: -22,
+    TweenMax.to(this.$refs.mustard, duration, {
+      yoyo: true,
+      repeat: -1,
+      repeatDelay: delay,
+      ease: easing,
+      transform: 'translate(-22px, -18px)',
       borderRadius: borderRadius,
       height: height,
       width: width
