@@ -4,44 +4,16 @@ Point of sale app designed for touchscreen.
 
 ## Live demo
 
-See it in action! View the [live demo](https://pos.storefront.community).
+- View the [POS](https://pos.storefront.community)
+- View the [menu board](https://pos.storefront.community/#/menu-board)
 
 ## Status
 
 [![CircleCI](https://circleci.com/gh/storefront-community/pos.svg?style=shield)](https://circleci.com/gh/storefront-community/pos)
 
-## How to debug locally
+## Changelog
 
-Before you start:
-- Install [Node JS](https://nodejs.org/)
-- Install [VS Code](https://code.visualstudio.com/)
-
-### NPM commands
-
-Install NPM packages:
-```
-npm install
-```
-
-Compiles and hot-reloads for development:
-```
-npm run serve
-```
-
-Compiles and minifies for production:
-```
-npm run build
-```
-
-Lints and fixes files:
-```
-npm run lint
-```
-
-Run end-to-end tests:
-```
-npm run test:e2e
-```
+Changes are documented in the [release notes](https://github.com/storefront-community/pos/releases).
 
 ## Bugs and features
 
@@ -49,6 +21,6 @@ Please, fell free to [open a new issue](https://github.com/storefront-community/
 
 ## License
 
-Code released under the [Apache License 2.0](https://github.com/storefront-community/pos/blob/master/LICENSE).
+[Apache License 2.0](https://github.com/storefront-community/pos/blob/master/LICENSE)
 
-Developed and maintained by [Marx J. Moura](https://github.com/marxjmoura).
+Copyright (c) 2019-present, [Marx J. Moura](https://github.com/marxjmoura)
