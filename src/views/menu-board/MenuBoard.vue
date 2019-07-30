@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     exitMenuBoard() {
-      this.$router.push({ name: 'home' })
+      this.$router.push({ name: 'root' })
     },
     nextContent() {
       const params = { contentId: this.contentId + 1 }
