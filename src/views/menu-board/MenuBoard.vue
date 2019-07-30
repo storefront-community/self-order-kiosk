@@ -1,5 +1,5 @@
 <template>
-  <div class="menu-board">
+  <div class="menu-board" @click="exitMenuBoard">
     <RandomTransition>
       <MenuBoardContent :id="contentId" :key="contentId"/>
     </RandomTransition>
@@ -19,6 +19,9 @@ export default {
     clearInterval(this.interval)
   },
   methods: {
+    exitMenuBoard() {
+      this.$router.push({ name: 'home' })
+    },
     nextContent() {
       const params = { contentId: this.contentId + 1 }
       this.$router.push({ name: 'menuBoard', params: params })
