@@ -33,7 +33,6 @@ export default {
         ease: Power4.easeOut,
         onComplete: done
       })
-
     }
   }
 }
