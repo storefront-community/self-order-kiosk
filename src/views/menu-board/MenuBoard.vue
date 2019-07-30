@@ -24,9 +24,9 @@ export default {
       currentIndex: 0,
       currentPage: null,
       pages: [
-        { id: 1, imageUrl: '/img/menu-board/beef-bottle-bread.jpg', loading: true },
-        { id: 2, imageUrl: '/img/menu-board/beverage-chilled-citrus.jpg', loading: true },
-        { id: 3, imageUrl: '/img/menu-board/delicious-dinner-fast-food.jpg', loading: true }
+        { id: 1, imageUrl: '/livedemo/img/beef-bottle-bread.jpg', loading: true },
+        { id: 2, imageUrl: '/livedemo/img/beverage-chilled-citrus.jpg', loading: true },
+        { id: 3, imageUrl: '/livedemo/img/delicious-dinner-fast-food.jpg', loading: true }
       ]
     }
   },
@@ -74,11 +74,6 @@ export default {
     Loader,
     MenuBoardPage,
     RandomTransition
-  },
-  computed: {
-    contentId () {
-      return parseInt(this.$route.params.contentId)
-    }
   }
 }
 </script>
