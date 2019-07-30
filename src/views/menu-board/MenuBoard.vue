@@ -6,7 +6,7 @@
       <MenuBoardPage
         v-for="page in pages"
         v-show="page.id == currentPage.id"
-        :content="page"
+        :page="page"
         :key="page.id"/>
     </RandomTransition>
   </div>
@@ -31,10 +31,15 @@ export default {
   async mounted() {
     this.pages = await this.$api.menuBoard.pages()
 
+    this.pages = this.pages.map(page => {
+      page.loading = true
+      return page
+    })
+
     this.pages.forEach(page => {
       const image = new Image();
       image.onload = () => this.pageLoaded(page)
-      image.src = page.imageUrl
+      image.src = page.background
     });
   },
   destroyed() {

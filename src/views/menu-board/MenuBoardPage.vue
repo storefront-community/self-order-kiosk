@@ -7,14 +7,14 @@ import $ from 'jquery'
 
 export default {
   name: 'menuBoardPage',
-  props: ['content'],
+  props: ['page'],
   mounted() {
     const black = 'rgba(0, 0, 0, .5)'
     const transparent = 'rgba(0, 0, 0, 0)'
     const gradient = `linear-gradient(to bottom, ${black}, ${transparent})`
 
     $(this.$el).css({
-      backgroundImage: `${gradient}, url(${this.content.imageUrl})`
+      backgroundImage: `${gradient}, url(${this.page.background})`
     })
   }
 }
