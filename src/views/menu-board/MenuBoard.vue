@@ -46,6 +46,10 @@ export default {
     this.stop()
   },
   methods: {
+    exitMenuBoard() {
+      this.stop()
+      this.$router.push({ name: 'root' })
+    },
     pageLoaded(page) {
       page.loading = false
       this.loading = this.pages.map(p => p.loading).includes(true)
@@ -54,10 +58,6 @@ export default {
 
       this.currentPage = this.pages[this.currentIndex]
       this.start()
-    },
-    exitMenuBoard() {
-      this.stop()
-      this.$router.push({ name: 'root' })
     },
     nextPage() {
       this.currentIndex++
