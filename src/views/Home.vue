@@ -1,5 +1,6 @@
 <template>
   <div class="d-flex flex-column">
+    <IdleTime @timeout="showMenuBoard"/>
     <Loader class="mb-3"/>
     <h1 class="text-center">
       Storefront Community
@@ -11,11 +12,18 @@
 </template>
 
 <script>
+import IdleTime from '@/components/IdleTime'
 import Loader from '@/components/Loader'
 
 export default {
   name: 'home',
+  methods: {
+    showMenuBoard() {
+      this.$router.push({ name: 'menuBoard' })
+    }
+  },
   components: {
+    IdleTime,
     Loader
   }
 }

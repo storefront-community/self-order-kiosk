@@ -1,0 +1,16 @@
+{
+  "pages": [
+    {
+      "id": 1,
+      "background": "/livedemo/img/beef-bottle-bread.jpg"
+    },
+    {
+      "id": 2,
+      "background": "/livedemo/img/beverage-chilled-citrus.jpg"
+    },
+    {
+      "id": 3,
+      "background": "/livedemo/img/delicious-dinner-fast-food.jpg"
+    }
+  ]
+}

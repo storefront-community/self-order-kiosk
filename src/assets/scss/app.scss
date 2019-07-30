@@ -2,5 +2,8 @@
 
 @import 'node_modules/bootstrap/scss/bootstrap';
 
+@import "mixins/flex-mixins";
+
 @import "body";
 @import "loader";
+@import "menu-board";

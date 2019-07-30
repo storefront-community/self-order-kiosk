@@ -1,0 +1,7 @@
+@mixin flex-vertical-align {
+  &::before,
+  &::after {
+    content: '';
+    margin: auto;
+  }
+}
