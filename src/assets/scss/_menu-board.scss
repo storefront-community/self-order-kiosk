@@ -13,6 +13,21 @@
   &.loading {
     background-color: $white;
   }
+
+  .menu-board-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: fixed;
+    padding: 30px;
+    z-index: $zindex-fixed;
+    width: 100vw;
+
+    .menu-board-title {
+      color: $white;
+      font-size: 18pt;
+    }
+  }
 }
 
 .menu-board-content {

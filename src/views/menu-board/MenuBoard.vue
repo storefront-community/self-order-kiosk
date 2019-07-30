@@ -1,5 +1,6 @@
 <template>
   <div class="menu-board" :class="{ 'loading': loading }" @click="exitMenuBoard">
+    <MenuBoardHeader/>
     <Loader v-if="loading"/>
     <RandomTransition v-else>
       <MenuBoardPage
@@ -13,6 +14,7 @@
 
 <script>
 import Loader from '@/components/Loader'
+import MenuBoardHeader from './MenuBoardHeader'
 import MenuBoardPage from './MenuBoardPage'
 import RandomTransition from '@/transitions/RandomTransition'
 
@@ -72,6 +74,7 @@ export default {
   },
   components: {
     Loader,
+    MenuBoardHeader,
     MenuBoardPage,
     RandomTransition
   }

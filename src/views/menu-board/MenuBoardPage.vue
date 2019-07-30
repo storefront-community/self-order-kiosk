@@ -9,7 +9,13 @@ export default {
   name: 'menuBoardPage',
   props: ['content'],
   mounted() {
-    $(this.$el).css("background-image", `url(${this.content.imageUrl})`)
+    const black = 'rgba(0, 0, 0, .5)'
+    const transparent = 'rgba(0, 0, 0, 0)'
+    const gradient = `linear-gradient(to bottom, ${black}, ${transparent})`
+
+    $(this.$el).css({
+      backgroundImage: `${gradient}, url(${this.content.imageUrl})`
+    })
   }
 }
 </script>
