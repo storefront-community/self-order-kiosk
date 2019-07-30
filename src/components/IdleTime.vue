@@ -8,7 +8,7 @@ export default {
   },
   mounted() {
     this.idleMinutes = 0
-    this.interval = setInterval(() => this.incrementIdleMinutes(), 1000) // 60000)
+    this.interval = setInterval(() => this.incrementIdleMinutes(), 60000)
 
     $(document).on('mousemove keypress', () => {
       this.idleMinutes = 0
