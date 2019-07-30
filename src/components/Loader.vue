@@ -12,7 +12,7 @@ import { TweenMax, Elastic } from "gsap/TweenMax"
 export default {
   name: 'loader',
   mounted () {
-    const duration = .7
+    const duration = .9
 
     const options = {
       yoyo: true,
