@@ -1,6 +1,6 @@
 <template>
   <div class="menu-board" :class="{ 'loading': loading }" @click="exitMenuBoard">
-    <MenuBoardHeader/>
+    <MenuBoardHeader v-if="!loading"/>
     <Loader v-if="loading"/>
     <RandomTransition v-else>
       <MenuBoardPage
@@ -25,14 +25,12 @@ export default {
       loading: true,
       currentIndex: 0,
       currentPage: null,
-      pages: [
-        { id: 1, imageUrl: '/livedemo/img/beef-bottle-bread.jpg', loading: true },
-        { id: 2, imageUrl: '/livedemo/img/beverage-chilled-citrus.jpg', loading: true },
-        { id: 3, imageUrl: '/livedemo/img/delicious-dinner-fast-food.jpg', loading: true }
-      ]
+      pages: []
     }
   },
-  mounted() {
+  async mounted() {
+    this.pages = await this.$api.menuBoard.pages()
+
     this.pages.forEach(page => {
       const image = new Image();
       image.onload = () => this.pageLoaded(page)

@@ -1,0 +1,7 @@
+{
+  "pages": [
+    { "id": 1, "imageUrl": "/livedemo/img/beef-bottle-bread.jpg", "loading": true },
+    { "id": 2, "imageUrl": "/livedemo/img/beverage-chilled-citrus.jpg", "loading": true },
+    { "id": 3, "imageUrl": "/livedemo/img/delicious-dinner-fast-food.jpg", "loading": true }
+  ]
+}
