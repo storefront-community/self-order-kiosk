@@ -19,8 +19,7 @@ export default {
   name: 'home',
   methods: {
     showMenuBoard() {
-      const params = { contentId: 1 }
-      this.$router.push({ name: 'menuBoard', params: params })
+      this.$router.push({ name: 'menuBoard' })
     }
   },
   components: {
