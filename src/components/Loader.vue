@@ -12,45 +12,25 @@ import { TweenMax, Elastic } from "gsap/TweenMax"
 export default {
   name: 'loader',
   mounted () {
-    var easing = Elastic.easeIn.config(1.1, 0.4)
-    var duration = .7
-    var delay = 1
-    var borderRadius = '12px'
-    var height = '36px'
-    var width = '36px'
+    const duration = .7
 
-    TweenMax.to(this.$refs.salad, duration, {
+    const options = {
       yoyo: true,
       repeat: -1,
-      repeatDelay: delay,
-      ease: easing,
-      transform: 'translate(24px, -18px)',
-      borderRadius: borderRadius,
-      height: height,
-      width: width
-    })
+      repeatDelay: 1,
+      ease: Elastic.easeIn.config(1.1, 0.4),
+      borderRadius: '12px',
+      height: '36px',
+      width: '36px'
+    }
 
-    TweenMax.to(this.$refs.ketchup, duration, {
-      yoyo: true,
-      repeat: -1,
-      repeatDelay: delay,
-      ease: easing,
-      transform: 'translate(-18px, 22px)',
-      borderRadius: borderRadius,
-      height: height,
-      width: width
-    })
+    const salad = { transform: 'translate(24px, -18px)' }
+    const ketchup = { transform: 'translate(-18px, 22px)' }
+    const mustard = { transform: 'translate(-22px, -18px)' }
 
-    TweenMax.to(this.$refs.mustard, duration, {
-      yoyo: true,
-      repeat: -1,
-      repeatDelay: delay,
-      ease: easing,
-      transform: 'translate(-22px, -18px)',
-      borderRadius: borderRadius,
-      height: height,
-      width: width
-    })
+    TweenMax.to(this.$refs.salad, duration, Object.assign(salad, options))
+    TweenMax.to(this.$refs.ketchup, duration, Object.assign(ketchup, options))
+    TweenMax.to(this.$refs.mustard, duration, Object.assign(mustard, options))
   }
 }
 </script>
