@@ -5,7 +5,7 @@
     <RandomTransition v-else>
       <MenuBoardPage
         v-for="page in pages"
-        v-show="page.id == currentPage.id"
+        v-show="page.id === currentPage.id"
         :page="page"
         :key="page.id"/>
     </RandomTransition>
