@@ -1,7 +1,7 @@
 <template>
-  <transition @enter="enter" @leave="leave" appear>
+  <transition-group @enter="enter" @leave="leave" appear>
     <slot></slot>
-  </transition>
+  </transition-group>
 </template>
 
 <script>

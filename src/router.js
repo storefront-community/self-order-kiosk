@@ -13,7 +13,7 @@ export default new Router({
       component: Home
     },
     {
-      path: '/menu-board/:contentId',
+      path: '/menu-board',
       name: 'menuBoard',
       component: MenuBoard
     }

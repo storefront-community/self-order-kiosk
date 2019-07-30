@@ -1,13 +1,27 @@
 .menu-board {
-  background: $black;
+  background-color: $black;
   overflow: hidden;
   position: relative;
+  display: flex;
+  flex-direction: column;
   width: 100vw;
   height: 100vh;
+  transition: background-color 0.5s ease;
+
+  &::before, &::after { // Vertical centering
+    content: '';
+    margin: auto;
+  }
+
+  &.loading {
+    background-color: $white;
+  }
 }
 
 .menu-board-content {
-  background: $primary;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -15,9 +29,4 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-
-  &::before, &::after { // Vertical centering
-    content: '';
-    margin: auto;
-  }
 }
