@@ -37,7 +37,7 @@ export default {
     })
 
     this.pages.forEach(page => {
-      const image = new Image();
+      const image = new Image()
       image.onload = () => this.pageLoaded(page)
       image.src = page.background
     });
