@@ -2,7 +2,9 @@
 
 Point of sale app designed for touchscreen.
 
-See a [live demo](https://storefront-community.github.io/pos/).
+## Live demo
+
+See it in action! View the [live demo](https://pos.storefront.community).
 
 ## Status
 
