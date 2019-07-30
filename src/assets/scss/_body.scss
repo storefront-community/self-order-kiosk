@@ -6,8 +6,5 @@ body, #app {
   display: flex;
   flex-direction: column;
 
-  &::before, &::after { // Vertical centering
-    content: '';
-    margin: auto;
-  }
+  @include flex-vertical-align();
 }
