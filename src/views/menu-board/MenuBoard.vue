@@ -3,28 +3,29 @@
     <MenuBoardHeader v-if="!loading"/>
     <Loader v-if="loading"/>
     <div class="text-right" v-else v-for="page in pages" :key="page.id">
-      <RandomTransition>
+      <BackgroundTransition>
         <MenuBoardBackground
           v-show="page.id === currentPage.id"
           :page="page"
           :key="page.id"/>
-      </RandomTransition>
-      <RandomTransition :delayEnter="1">
+      </BackgroundTransition>
+      <ContentTransition>
         <MenuBoardContent
           v-show="page.id === currentPage.id"
           :page="page"
           :key="page.id"/>
-      </RandomTransition>
+      </ContentTransition>
     </div>
   </div>
 </template>
 
 <script>
+import BackgroundTransition from './BackgroundTransition'
+import ContentTransition from './ContentTransition'
 import Loader from '@/components/Loader'
 import MenuBoardHeader from './MenuBoardHeader'
 import MenuBoardBackground from './MenuBoardBackground'
 import MenuBoardContent from './MenuBoardContent'
-import RandomTransition from '@/transitions/RandomTransition'
 
 export default {
   name: 'menuBoard',
@@ -84,11 +85,12 @@ export default {
     }
   },
   components: {
+    BackgroundTransition,
+    ContentTransition,
     Loader,
     MenuBoardHeader,
     MenuBoardBackground,
-    MenuBoardContent,
-    RandomTransition
+    MenuBoardContent
   }
 }
 </script>
