@@ -12,11 +12,11 @@ export default {
   props: {
     delayEnter: {
       type: Number,
-      default: 0
+      default: () => 0
     },
     delayLeave: {
       type: Number,
-      default: 0
+      default: () => 0
     }
   },
   methods: {
