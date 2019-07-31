@@ -20,16 +20,15 @@ export default {
   props: {
     delayEnter: {
       type: Number,
-      default: 0
+      default: () => 0
     },
     delayLeave: {
       type: Number,
-      default: 0
-    }
-  },
-  methods: {
-    transitionComponent() {
-      const transitions = [
+      default: () => 0
+    },
+    transitions: {
+      type: Array,
+      default: () => [
         FadeTransition,
         FlipXTransition,
         FlipYTransition,
@@ -37,10 +36,14 @@ export default {
         SlideUpTransition,
         ZoomTransition
       ]
+    }
+  },
+  methods: {
+    transitionComponent() {
+      const random = Math.random() * this.transitions.length
+      const current = Math.floor(random)
 
-      const current = Math.floor(Math.random() * transitions.length)
-
-      return transitions[current]
+      return this.transitions[current]
     }
   }
 }
