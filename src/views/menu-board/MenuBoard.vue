@@ -1,20 +1,22 @@
 <template>
   <div class="menu-board" :class="{ 'loading': loading }" @click="exitMenuBoard">
-    <MenuBoardHeader v-if="!loading"/>
     <Loader v-if="loading"/>
-    <div class="text-right" v-else v-for="page in pages" :key="page.id">
-      <RandomTransition>
-        <MenuBoardBackground
-          v-show="page.id === currentPage.id"
-          :page="page"
-          :key="page.id"/>
-      </RandomTransition>
-      <RandomTransition :transitions="contentTransictions" :delayEnter="1">
-        <MenuBoardContent
-          v-show="page.id === currentPage.id"
-          :page="page"
-          :key="page.id"/>
-      </RandomTransition>
+    <div v-else>
+      <MenuBoardHeader/>
+      <div class="text-right" v-for="page in pages" :key="page.id">
+        <RandomTransition>
+          <MenuBoardBackground
+            v-show="page.id === currentPage.id"
+            :page="page"
+            :key="page.id"/>
+        </RandomTransition>
+        <RandomTransition :transitions="contentTransictions" :delayEnter="1">
+          <MenuBoardContent
+            v-show="page.id === currentPage.id"
+            :page="page"
+            :key="page.id"/>
+        </RandomTransition>
+      </div>
     </div>
   </div>
 </template>
