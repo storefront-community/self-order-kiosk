@@ -2,15 +2,21 @@
   "pages": [
     {
       "id": 1,
-      "background": "/livedemo/img/beef-bottle-bread.jpg"
+      "background": "/livedemo/img/beef-bottle-bread.jpg",
+      "title": "Beef bottle bread",
+      "price": 7.99
     },
     {
       "id": 2,
-      "background": "/livedemo/img/beverage-chilled-citrus.jpg"
+      "background": "/livedemo/img/beverage-chilled-citrus.jpg",
+      "title": "Beverage chilled citrus",
+      "price": 3.99
     },
     {
       "id": 3,
-      "background": "/livedemo/img/delicious-dinner-fast-food.jpg"
+      "background": "/livedemo/img/delicious-dinner-fast-food.jpg",
+      "title": "Delicious dinner fast food",
+      "price": 12.99
     }
   ]
 }
