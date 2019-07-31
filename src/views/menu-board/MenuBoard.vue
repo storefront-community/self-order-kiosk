@@ -78,7 +78,7 @@ export default {
       this.currentPage = this.pages[this.currentIndex]
     },
     start() {
-      this.interval = setInterval(() => this.nextPage(), 10000)
+      this.interval = setInterval(() => this.nextPage(), 7000)
     },
     stop() {
       clearInterval(this.interval)
