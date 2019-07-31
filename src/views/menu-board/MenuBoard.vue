@@ -2,20 +2,28 @@
   <div class="menu-board" :class="{ 'loading': loading }" @click="exitMenuBoard">
     <MenuBoardHeader v-if="!loading"/>
     <Loader v-if="loading"/>
-    <RandomTransition v-else>
-      <MenuBoardPage
-        v-for="page in pages"
-        v-show="page.id === currentPage.id"
-        :page="page"
-        :key="page.id"/>
-    </RandomTransition>
+    <div class="text-right" v-else v-for="page in pages" :key="page.id">
+      <RandomTransition>
+        <MenuBoardBackground
+          v-show="page.id === currentPage.id"
+          :page="page"
+          :key="page.id"/>
+      </RandomTransition>
+      <RandomTransition :delayEnter="1">
+        <MenuBoardContent
+          v-show="page.id === currentPage.id"
+          :page="page"
+          :key="page.id"/>
+      </RandomTransition>
+    </div>
   </div>
 </template>
 
 <script>
 import Loader from '@/components/Loader'
 import MenuBoardHeader from './MenuBoardHeader'
-import MenuBoardPage from './MenuBoardPage'
+import MenuBoardBackground from './MenuBoardBackground'
+import MenuBoardContent from './MenuBoardContent'
 import RandomTransition from '@/transitions/RandomTransition'
 
 export default {
@@ -69,7 +77,7 @@ export default {
       this.currentPage = this.pages[this.currentIndex]
     },
     start() {
-      this.interval = setInterval(() => this.nextPage(), 5000)
+      this.interval = setInterval(() => this.nextPage(), 10000)
     },
     stop() {
       clearInterval(this.interval)
@@ -78,7 +86,8 @@ export default {
   components: {
     Loader,
     MenuBoardHeader,
-    MenuBoardPage,
+    MenuBoardBackground,
+    MenuBoardContent,
     RandomTransition
   }
 }
