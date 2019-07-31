@@ -15,15 +15,15 @@
     margin: 0 4px;
 
     &.circle-salad {
-      border: 5px solid #2ecc71;
+      border: 5px solid $success;
     }
 
     &.circle-ketchup {
-      border: 5px solid #fc1460;
+      border: 5px solid $danger;
     }
 
     &.circle-mustard {
-      border: 5px solid #f39c12;
+      border: 5px solid $warning;
     }
   }
 }
