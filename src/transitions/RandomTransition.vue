@@ -1,5 +1,8 @@
 <template>
-  <component :is="transitionComponent()">
+  <component
+    :is="transitionComponent()"
+    :delayEnter="delayEnter"
+    :delayLeave="delayLeave">
     <slot></slot>
   </component>
 </template>
@@ -14,6 +17,16 @@ import ZoomTransition from './ZoomTransition'
 
 export default {
   name: 'randomTransition',
+  props: {
+    delayEnter: {
+      type: Number,
+      default: 0
+    },
+    delayLeave: {
+      type: Number,
+      default: 0
+    }
+  },
   methods: {
     transitionComponent() {
       const transitions = [

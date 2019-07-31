@@ -9,6 +9,16 @@ import { TweenMax, Power4, TimelineMax } from "gsap/TweenMax"
 
 export default {
   name: 'zoomTransition',
+  props: {
+    delayEnter: {
+      type: Number,
+      default: 0
+    },
+    delayLeave: {
+      type: Number,
+      default: 0
+    }
+  },
   methods: {
     enter(el, done) {
       const timeLineMax = new TimelineMax({
@@ -22,6 +32,7 @@ export default {
       })
 
       timeLineMax.to(el, 1, {
+        delay: this.delayEnter,
         autoAlpha: 1,
         scale: 1,
         ease: Power4.easeOut
@@ -29,6 +40,7 @@ export default {
     },
     leave(el, done) {
       TweenMax.to(el, 1, {
+        delay: this.delayLeave,
         scale: 0,
         ease: Power4.easeOut,
         onComplete: done
