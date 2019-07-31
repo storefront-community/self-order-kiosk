@@ -1,5 +1,5 @@
 <template>
-  <component :is="transitionComponent()" :delayEnter="1" @leave="noop">
+  <component :is="transitionComponent()" :delayEnter="1">
     <slot></slot>
   </component>
 </template>
@@ -12,7 +12,6 @@ import FlipYTransition from '@/transitions/FlipYTransition'
 export default {
   name: 'backgroundTransition',
   methods: {
-    noop() {},
     transitionComponent() {
       const transitions = [
         FadeTransition,
