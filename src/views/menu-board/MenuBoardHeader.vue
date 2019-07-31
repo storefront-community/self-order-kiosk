@@ -1,9 +1,7 @@
 <template>
   <div class="menu-board-header">
     <Logo class="mr-3"/>
-    <div class="menu-board-title">
-      Storefront Community
-    </div>
+    <h1>Storefront Community</h1>
   </div>
 </template>
 

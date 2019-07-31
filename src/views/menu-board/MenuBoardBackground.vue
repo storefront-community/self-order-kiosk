@@ -1,5 +1,5 @@
 <template>
-  <div class="menu-board-page"></div>
+  <div class="menu-board-background"></div>
 </template>
 
 <script>

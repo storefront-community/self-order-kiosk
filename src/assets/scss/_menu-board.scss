@@ -2,13 +2,9 @@
   background-color: $black;
   overflow: hidden;
   position: relative;
-  display: flex;
-  flex-direction: column;
   width: 100vw;
   height: 100vh;
   transition: background-color 0.5s ease;
-
-  @include flex-vertical-align();
 
   &.loading {
     background-color: $white;
@@ -23,13 +19,15 @@
     z-index: $zindex-fixed;
     width: 100vw;
 
-    .menu-board-title {
+    h1 {
       color: $white;
       font-size: 18pt;
+      font-weight: 400;
+      margin: 0;
     }
   }
 
-  .menu-board-page {
+  .menu-board-background {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -38,5 +36,33 @@
     left: 0;
     width: 100vw;
     height: 100vh;
+  }
+
+  .menu-board-content {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Raleway', sans-serif;
+    text-shadow: 2px 2px $black;
+    padding: 0 128px;
+
+    @include flex-vertical-align();
+
+    h2 {
+      color: $gray-200;
+      font-size: 42pt;
+      font-weight: 900;
+    }
+
+    h3 {
+      color: $success;
+      font-size: 72pt;
+      font-weight: 900;
+
+      sup {
+        font-size: 36pt;
+      }
+    }
   }
 }
