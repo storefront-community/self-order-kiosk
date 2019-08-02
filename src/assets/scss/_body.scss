@@ -8,3 +8,8 @@ body, #app {
 
   @include flex-vertical-align();
 }
+
+#app {
+  position: relative;
+  overflow-x: hidden;
+}
