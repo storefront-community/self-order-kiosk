@@ -1,6 +1,6 @@
 {
-  "name": "Storefront POS",
-  "short_name": "Storefront POS",
+  "name": "Store POS",
+  "short_name": "Store POS",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",
