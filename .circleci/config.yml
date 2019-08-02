@@ -14,11 +14,15 @@ jobs:
       - checkout
       - run: npm install
       - run: npm run build
-      - run: git checkout gh-pages
+      - run: git checkout --orphan gh-pages
+      - run: ls -A | grep -v ".git\|dist" | xargs rm -rf
       - run: cp -r dist/* .
+      - run: echo "pos.storefront.community" > CNAME
+      - run: git config --global user.name "$GIT_CONFIG_NAME"
+      - run: git config --global user.email "$GIT_CONFIG_EMAIL"
       - run: git add .
-      - run: git commit -m "Deploy $CIRCLE_TAG"
-      - run: git push origin gh-pages
+      - run: git commit -m "[skip ci] Deploy $CIRCLE_TAG"
+      - run: git push -f https://$GITHUB_USER:$GITHUB_TOKEN@github.com/storefront-community/pos.git HEAD:gh-pages
 workflows:
   version: 2.1
   build_and_deploy:
