@@ -2,7 +2,7 @@
   <div class="screen">
     <div class="container container-identification d-flex flex-column">
       <p class="mb-5">
-        What would you like today?
+        Your order summary.
       </p>
     </div>
     <div class="app-footer">
@@ -11,8 +11,8 @@
           <i class="fa fa-arrow-left"></i>
           <span class="ml-3">Back</span>
         </button>
-        <button type="submit" class="btn btn-primary btn-lg ml-auto px-5 py-3" @click="next">
-          <span class="mr-3">Next</span>
+        <button type="submit" class="btn btn-primary btn-lg ml-auto px-5 py-3" @click="complete">
+          <span class="mr-3">Complete</span>
           <i class="fa fa-arrow-right"></i>
         </button>
       </div>
@@ -22,13 +22,13 @@
 
 <script>
 export default {
-  name: 'chooseFood',
+  name: 'orderSummary',
   methods: {
     back() {
-      this.$router.push({ name: 'identification' })
+      this.$router.push({ name: 'chooseFood' })
     },
-    next() {
-      this.$router.push({ name: 'customizeFood' })
+    complete() {
+      this.$router.push({ name: 'orderComplete' })
     }
   }
 }

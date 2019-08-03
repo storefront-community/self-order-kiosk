@@ -2,7 +2,7 @@
   <div class="screen">
     <div class="container container-identification d-flex flex-column">
       <p class="mb-5">
-        What would you like today?
+        Customize your food.
       </p>
     </div>
     <div class="app-footer">
@@ -22,13 +22,13 @@
 
 <script>
 export default {
-  name: 'chooseFood',
+  name: 'customizeFood',
   methods: {
     back() {
-      this.$router.push({ name: 'identification' })
+      this.$router.push({ name: 'chooseFood' })
     },
     next() {
-      this.$router.push({ name: 'customizeFood' })
+      this.$router.push({ name: 'orderSummary' })
     }
   }
 }

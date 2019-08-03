@@ -1,0 +1,8 @@
+.app-footer {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  bottom: 0;
+  z-index: $zindex-fixed;
+  width: 100vw;
+}
