@@ -8,7 +8,7 @@
 import { TweenMax, Power4 } from "gsap/TweenMax"
 
 export default {
-  name: 'slideTransition',
+  name: 'screenTransition',
   props: {
     direction: {
       type: String,

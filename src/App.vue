@@ -1,12 +1,8 @@
 <template>
   <div id="app">
-    <div class="app-header">
-      <Logo class="mr-3"/>
-      <h1>Storefront Community</h1>
-    </div>
-    <SlideTransition :direction="slide">
+    <ScreenTransition :direction="slide">
       <router-view/>
-    </SlideTransition>
+    </ScreenTransition>
   </div>
 </template>
 
@@ -14,14 +10,12 @@
 </style>
 
 <script>
-import Logo from '@/components/Logo'
-import SlideTransition from '@/transitions/SlideTransition'
+import ScreenTransition from '@/transitions/ScreenTransition'
 
 export default {
-  name: 'selfServiceTerminal',
+  name: 'app',
   components: {
-    Logo,
-    SlideTransition
+    ScreenTransition
   },
   data() {
     return {
