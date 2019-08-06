@@ -1,23 +1,24 @@
 <template>
-  <div class="screen">
-    <div class="container container-identification d-flex flex-column">
-      <p class="mb-5">
-        Customize your food.
-      </p>
+  <form class="app-body">
+    <div class="app-header">
+      <h1>Customize your food.</h1>
+    </div>
+    <div class="app-content">
+      <!-- TODO -->
     </div>
     <div class="app-footer">
       <div class="container d-flex">
-        <button type="button" class="btn btn-outline-primary btn-lg mr-auto px-5 py-3" @click="back">
+        <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="back">
           <i class="fa fa-arrow-left"></i>
           <span class="ml-3">Back</span>
         </button>
-        <button type="submit" class="btn btn-primary btn-lg ml-auto px-5 py-3" @click="next">
+        <button type="submit" class="btn btn-primary btn-lg ml-auto" @click="next">
           <span class="mr-3">Next</span>
           <i class="fa fa-arrow-right"></i>
         </button>
       </div>
     </div>
-  </div>
+  </form>
 </template>
 
 <script>
