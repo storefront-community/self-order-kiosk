@@ -36,6 +36,9 @@
     </div>
     <div class="app-footer">
       <div class="container d-flex">
+        <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="cancel">
+          Cancel order
+        </button>
         <button type="submit" class="btn btn-primary btn-lg ml-auto">
           <span class="mr-4">Next</span>
           <i class="fa fa-arrow-right"></i>
@@ -51,6 +54,9 @@ import Logo from '@/components/Logo'
 export default {
   name: 'identification',
   methods: {
+    cancel() {
+      this.$router.push({ name: 'welcome' })
+    },
     next() {
       this.$router.push({ name: 'chooseFood' })
     }

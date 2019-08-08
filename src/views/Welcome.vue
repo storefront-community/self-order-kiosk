@@ -1,0 +1,64 @@
+<template>
+  <div class="app-body">
+    <div class="app-header">
+      <Logo class="mr-3"/>
+      <h1>Storefront Community</h1>
+    </div>
+    <div class="app-content">
+      <div class="container">
+        <div class="row">
+          <div class="col d-flex flex-column">
+            <h1 class="display-3 text-center mb-5">
+              Make your order here
+            </h1>
+            <p class="text-center mb-5">
+              Use this terminal to order your food
+            </p>
+            <button type="button" class="btn btn-primary btn-lg m-auto p-5" @click="start">
+              <span class="text-uppercase">
+                Touch to start
+              </span>
+            </button>
+          </div>
+          <div class="col d-flex flex-column">
+            <h1 class="display-3 text-center mb-5">
+              Use your mobile phone
+            </h1>
+            <p class="text-center">
+              You can also order your food using your mobile phone
+            </p>
+            <div class="d-flex justify-content-center">
+              <QRCode value="https://storefront.community" :options="{ width: 256 }"/>
+            </div>
+            <div class="text-center">
+              <small>
+                Do not have an app?<br>
+                <span class="text-primary">
+                  qrcode.watch
+                </span>
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import Logo from '@/components/Logo'
+import QRCode from '@chenfengyuan/vue-qrcode';
+
+export default {
+  name: 'welcome',
+  methods: {
+    start() {
+      this.$router.push({ name: 'identification' })
+    }
+  },
+  components: {
+    Logo,
+    QRCode
+  }
+}
+</script>

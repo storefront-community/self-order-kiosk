@@ -5,6 +5,7 @@ import CustomizeFood from './views/CustomizeFood.vue'
 import Identification from './views/Identification.vue'
 import OrderComplete from './views/OrderComplete.vue'
 import OrderSummary from './views/OrderSummary.vue'
+import Welcome from './views/Welcome.vue'
 
 Vue.use(Router)
 
@@ -12,6 +13,12 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'welcome',
+      component: Welcome,
+      meta: { step: 0 }
+    },
+    {
+      path: '/identification',
       name: 'identification',
       component: Identification,
       meta: { step: 1 }
