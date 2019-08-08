@@ -1,7 +1,11 @@
 <template>
   <form class="app-body">
     <div class="app-header">
-      <h1>Yay! Your order is complete.</h1>
+      <div class="container">
+        <h1 class="display-3 text-center">
+          Yay! Your order is complete.
+        </h1>
+      </div>
     </div>
     <div class="app-content">
       <div class="container">

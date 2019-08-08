@@ -1,9 +1,11 @@
 <template>
   <form class="app-body" @submit.prevent="add">
     <div class="app-header">
-      <h1 class="display-3 text-center">
-        What would you like today?
-      </h1>
+      <div class="container">
+        <h1 class="display-3 text-center">
+          What would you like today?
+        </h1>
+      </div>
     </div>
     <div class="app-content">
       <div class="container">

@@ -1,9 +1,11 @@
 <template>
   <div class="app-body">
     <div class="app-header">
-      <h1 class="display-3 text-center">
-        Where would you like to eat?
-      </h1>
+      <div class="container">
+        <h1 class="display-3 text-center">
+          Where would you like to eat?
+        </h1>
+      </div>
     </div>
     <div class="app-content">
       <div class="container">
