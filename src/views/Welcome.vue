@@ -12,7 +12,7 @@
             </p>
             <button type="button" class="btn btn-primary btn-lg m-auto p-5" @click="start">
               <span class="text-uppercase">
-                Touch to start
+                Start order
               </span>
             </button>
           </div>
@@ -21,7 +21,7 @@
               Use your mobile phone
             </h1>
             <p class="text-center">
-              You can also order your food using your mobile phone
+              Scan the QR code and order your food
             </p>
             <div class="d-flex justify-content-center">
               <QRCode value="https://storefront.community" :options="{ width: 256 }"/>
