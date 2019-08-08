@@ -33,7 +33,7 @@
     <div class="app-footer">
       <div class="container d-flex">
         <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="cancel">
-          Cancel
+          Cancel order
         </button>
         <button type="submit" class="btn btn-primary btn-lg ml-auto">
           <span class="mr-4">Next</span>
@@ -52,7 +52,7 @@ export default {
       this.$router.push({ name: 'welcome' })
     },
     next() {
-      this.$router.push({ name: 'chooseFood' })
+      this.$router.push({ name: 'eatLocation' })
     }
   }
 }

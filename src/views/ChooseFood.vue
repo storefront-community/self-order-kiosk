@@ -69,7 +69,7 @@ export default {
       this.$router.push({ name: 'customizeFood' })
     },
     back() {
-      this.$router.push({ name: 'identification' })
+      this.$router.push({ name: 'eatLocation' })
     }
   },
   components: {
