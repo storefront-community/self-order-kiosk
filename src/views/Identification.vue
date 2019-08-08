@@ -1,9 +1,5 @@
 <template>
   <form class="app-body" @submit.prevent="next">
-    <div class="app-header">
-      <Logo class="mr-3"/>
-      <h1>Storefront Community</h1>
-    </div>
     <div class="app-content">
       <div class="container container-sm d-flex flex-column">
         <h1 class="display-3 mb-4">
@@ -37,7 +33,7 @@
     <div class="app-footer">
       <div class="container d-flex">
         <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="cancel">
-          Cancel order
+          Cancel
         </button>
         <button type="submit" class="btn btn-primary btn-lg ml-auto">
           <span class="mr-4">Next</span>
@@ -49,8 +45,6 @@
 </template>
 
 <script>
-import Logo from '@/components/Logo'
-
 export default {
   name: 'identification',
   methods: {
@@ -60,9 +54,6 @@ export default {
     next() {
       this.$router.push({ name: 'chooseFood' })
     }
-  },
-  components: {
-    Logo
   }
 }
 </script>

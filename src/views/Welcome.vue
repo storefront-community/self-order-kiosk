@@ -1,9 +1,5 @@
 <template>
   <div class="app-body">
-    <div class="app-header">
-      <Logo class="mr-3"/>
-      <h1>Storefront Community</h1>
-    </div>
     <div class="app-content">
       <div class="container">
         <div class="row">
@@ -46,7 +42,6 @@
 </template>
 
 <script>
-import Logo from '@/components/Logo'
 import QRCode from '@chenfengyuan/vue-qrcode';
 
 export default {
@@ -57,7 +52,6 @@ export default {
     }
   },
   components: {
-    Logo,
     QRCode
   }
 }
