@@ -33,10 +33,10 @@
     <div class="app-footer">
       <div class="container d-flex">
         <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="cancel">
-          Cancel order
+          Never mind
         </button>
         <button type="submit" class="btn btn-primary btn-lg ml-auto">
-          <span class="mr-4">Next</span>
+          <span class="mr-4">Continue</span>
           <i class="fa fa-arrow-right"></i>
         </button>
       </div>

@@ -12,10 +12,9 @@
     </div>
     <div class="app-footer">
       <div class="container d-flex">
-        <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="back">
-          <i class="fa fa-arrow-left"></i>
-          <span class="ml-3">Back</span>
-        </button>
+        <router-link :to="{ name: 'cancelOrder' }" class="btn btn-outline-primary btn-lg mr-auto">
+          Cancel order
+        </router-link>
         <button type="submit" class="btn btn-primary btn-lg ml-auto" @click="next">
           <span class="mr-3">Next</span>
           <i class="fa fa-arrow-right"></i>
@@ -29,9 +28,6 @@
 export default {
   name: 'customizeFood',
   methods: {
-    back() {
-      this.$router.push({ name: 'chooseFood' })
-    },
     next() {
       this.$router.push({ name: 'orderSummary' })
     }

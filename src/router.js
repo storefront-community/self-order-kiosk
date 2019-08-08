@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import CancelOrder from './views/CancelOrder.vue'
 import ChooseFood from './views/ChooseFood.vue'
 import CustomizeFood from './views/CustomizeFood.vue'
 import EatLocation from './views/EatLocation.vue'
@@ -47,6 +48,12 @@ export default new Router({
       name: 'orderSummary',
       component: OrderSummary,
       meta: { step: 5 }
+    },
+    {
+      path: '/cancel-order',
+      name: 'cancelOrder',
+      component: CancelOrder,
+      meta: { step: 6 }
     },
     {
       path: '/order-complete',

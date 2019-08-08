@@ -12,10 +12,9 @@
     </div>
     <div class="app-footer">
       <div class="container d-flex">
-        <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="back">
-          <i class="fa fa-arrow-left"></i>
-          <span class="ml-3">Back</span>
-        </button>
+        <router-link :to="{ name: 'cancelOrder' }" class="btn btn-outline-primary btn-lg mr-auto">
+          Cancel order
+        </router-link>
         <button type="submit" class="btn btn-primary btn-lg ml-auto" @click="complete">
           <i class="fa fa-check"></i>
           <span class="ml-3">Complete</span>
@@ -29,9 +28,6 @@
 export default {
   name: 'orderSummary',
   methods: {
-    back() {
-      this.$router.push({ name: 'customizeFood' })
-    },
     complete() {
       this.$router.push({ name: 'orderComplete' })
     }

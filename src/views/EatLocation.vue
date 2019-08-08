@@ -27,9 +27,9 @@
     </div>
     <div class="app-footer">
       <div class="container d-flex">
-        <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="cancel">
+        <router-link :to="{ name: 'cancelOrder' }" class="btn btn-outline-primary btn-lg mr-auto">
           Cancel order
-        </button>
+        </router-link>
       </div>
     </div>
   </div>
@@ -39,9 +39,6 @@
 export default {
   name: 'eatLocation',
   methods: {
-    cancel() {
-      this.$router.push({ name: 'welcome' })
-    },
     next() {
       this.$router.push({ name: 'chooseFood' })
     }

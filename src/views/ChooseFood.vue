@@ -29,10 +29,9 @@
     </div>
     <div class="app-footer">
       <div class="container d-flex">
-        <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="back">
-          <i class="fa fa-arrow-left"></i>
-          <span class="ml-3">Back</span>
-        </button>
+        <router-link :to="{ name: 'cancelOrder' }" class="btn btn-outline-primary btn-lg mr-auto">
+          Cancel order
+        </router-link>
         <div class="ml-auto px-3 py-3 text-right text-primary">
           Touch the food to select
         </div>
@@ -69,9 +68,6 @@ export default {
   methods: {
     add() {
       this.$router.push({ name: 'customizeFood' })
-    },
-    back() {
-      this.$router.push({ name: 'eatLocation' })
     }
   },
   components: {
