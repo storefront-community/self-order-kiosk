@@ -1,0 +1,11 @@
+button.card {
+  color: $body-color;
+  outline: none;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+
+  .card-body {
+    width: 100%
+  }
+}
