@@ -11,7 +11,7 @@
       <div class="container">
         <FoodTransition ref="carousel">
           <div class="d-flex" v-for="item in items" :key="item.id">
-            <div class="card bg-transparent flex-grow-1">
+            <button type="button" class="card bg-transparent flex-grow-1" @click="add(item)">
               <img :src="item.imageUrl" class="card-img-top" :alt="item.name">
               <div class="card-body d-flex flex-column">
                 <p class="card-title flex-grow-1">
@@ -22,7 +22,7 @@
                   {{ item.price }}
                 </p>
               </div>
-            </div>
+            </button>
           </div>
         </FoodTransition>
       </div>
@@ -35,10 +35,6 @@
         <div class="ml-auto px-3 py-3 text-right text-primary">
           Swipe to navigate and tap to select
         </div>
-        <!-- <button type="submit" class="btn btn-primary btn-lg ml-auto">
-          <span class="mr-3">Add</span>
-          <i class="fa fa-plus"></i>
-        </button> -->
       </div>
     </div>
   </form>
@@ -50,6 +46,12 @@ import FoodTransition from '@/transitions/FoodTransition'
 
 export default {
   name: 'chooseFood',
+  data() {
+    return {
+      isSliding: false,
+      items: []
+    }
+  },
   async mounted() {
     this.catalog = await this.$api.catalog.load()
     this.items = this.catalog.itemGroups[0].items
@@ -63,15 +65,17 @@ export default {
         slidesToShow: 3,
         slidesToScroll: 3
       })
+      .on('beforeChange', () => {
+        this.isSliding = true;
+      })
+      .on('afterChange', () => {
+        this.isSliding = false;
+      })
     })
-  },
-  data() {
-    return {
-      items: []
-    }
   },
   methods: {
     add() {
+      if (this.isSliding) return
       this.$router.push({ name: 'customizeFood' })
     }
   },
