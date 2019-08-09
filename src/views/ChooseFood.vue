@@ -19,7 +19,7 @@
                 </p>
                 <p class="card-text text-right">
                   <small><sup>$</sup></small>
-                  {{ item.price }}
+                  {{ item.price | numeral }}
                 </p>
               </div>
             </button>
