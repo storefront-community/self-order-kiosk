@@ -9,9 +9,9 @@
     </div>
     <div class="app-content">
       <div class="container">
-        <FoodTransition class="row mt-3">
-          <div class="col-12 col-md-4 col-lg-3 d-flex" v-for="item in items" :key="item.id">
-            <div class="card flex-grow-1 mb-4">
+        <FoodTransition ref="carousel">
+          <div class="d-flex" v-for="item in items" :key="item.id">
+            <div class="card bg-transparent flex-grow-1">
               <img :src="item.imageUrl" class="card-img-top" :alt="item.name">
               <div class="card-body d-flex flex-column">
                 <p class="card-title flex-grow-1">
@@ -45,24 +45,29 @@
 </template>
 
 <script>
+import $ from 'jquery'
 import FoodTransition from '@/transitions/FoodTransition'
 
 export default {
   name: 'chooseFood',
   async mounted() {
-    const chunk = (arr, size) =>
-      Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
-        arr.slice(i * size, i * size + size)
-      );
-
     this.catalog = await this.$api.catalog.load()
     this.items = this.catalog.itemGroups[0].items
-    this.chunk = chunk(this.items, 4)
+
+    this.$nextTick(() => {
+      $(this.$refs.carousel.$el).slick({
+        arrows: false,
+        dots: false,
+        infinite: false,
+        rows: 1,
+        slidesToShow: 3,
+        slidesToScroll: 3
+      })
+    })
   },
   data() {
     return {
-      items: [],
-      chunk: []
+      items: []
     }
   },
   methods: {
