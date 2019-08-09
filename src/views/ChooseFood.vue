@@ -33,7 +33,7 @@
           Cancel order
         </router-link>
         <div class="ml-auto px-3 py-3 text-right text-primary">
-          Touch the food to select
+          Swipe to navigate and tap to select
         </div>
         <!-- <button type="submit" class="btn btn-primary btn-lg ml-auto">
           <span class="mr-3">Add</span>
