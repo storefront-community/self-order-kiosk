@@ -1,6 +1,7 @@
 @import 'variables';
 
 @import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/slick-carousel/slick/slick.scss';
 
 @import "mixins/flex-mixins";
 
@@ -11,3 +12,4 @@
 @import "header";
 @import "loader";
 @import "screen";
+@import "slick-carousel";

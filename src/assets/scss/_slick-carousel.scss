@@ -1,0 +1,17 @@
+.slick-slider {
+  .slick-list {
+    margin: 0 -$container-padding-x;
+  }
+
+  .slick-track {
+    display: flex;
+
+    .slick-slide {
+      height: inherit;
+
+      > div {
+        padding: 0 $container-padding-x;
+      }
+    }
+  }
+}
