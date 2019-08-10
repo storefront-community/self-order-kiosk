@@ -43,14 +43,13 @@
 
 <script>
 import QRCode from '@chenfengyuan/vue-qrcode'
+import { Order } from '@/models'
 
 export default {
-  name: 'welcome',
+  name: 'start',
   data() {
     return {
-      order: {
-        startedAt: new Date()
-      }
+      order: new Order()
     }
   },
   methods: {

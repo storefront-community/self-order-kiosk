@@ -15,7 +15,8 @@
                 <i class="lni-user ml-3"></i>
               </span>
             </div>
-            <input type="text" class="form-control form-control-lg border-left-0" placeholder="Your name">
+            <input type="text" class="form-control form-control-lg border-left-0" placeholder="Your name"
+              v-model="order.name" maxlength="20">
           </div>
         </div>
         <div class="mb-4">
@@ -25,7 +26,8 @@
                 <i class="lni-mobile ml-3"></i>
               </span>
             </div>
-            <input type="text" class="form-control form-control-lg border-left-0" placeholder="Mobile number">
+            <input type="text" class="form-control form-control-lg border-left-0" placeholder="Mobile number"
+              v-model="order.mobile" maxlength="20">
           </div>
         </div>
       </div>

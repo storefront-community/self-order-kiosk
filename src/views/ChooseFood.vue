@@ -78,8 +78,9 @@ export default {
     })
   },
   methods: {
-    add() {
+    add(item) {
       if (this.isSliding) return
+      this.order.addItem(item)
       const params = { order: this.order }
       this.$router.push({ name: 'customizeFood', params })
     }
