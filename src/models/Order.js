@@ -10,4 +10,9 @@ export default class Order {
     this._items.push(item)
     this.total += item.price
   }
+
+  lastItem() {
+    const last = this._items.length - 1
+    return this._items[last]
+  }
 }

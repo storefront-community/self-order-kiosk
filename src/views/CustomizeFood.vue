@@ -1,9 +1,12 @@
 <template>
   <form class="app-body" @submit.prevent="next" v-if="order">
     <div class="app-header">
-      <div class="container">
-        <h1 class="display-3 text-center">
-          Customize your food.
+      <div class="container d-flex align-items-center">
+        <div class="rounded-clipping mr-3">
+          <img :src="item.imageUrl" class="bla">
+        </div>
+        <h1 class="display-3">
+          {{ item.name }}
         </h1>
       </div>
     </div>
@@ -37,6 +40,11 @@ export default {
     next() {
       const params = { order: this.order }
       this.$router.push({ name: 'orderSummary', params })
+    }
+  },
+  computed: {
+    item() {
+      return this.order.lastItem()
     }
   }
 }
