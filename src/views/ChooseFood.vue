@@ -71,10 +71,10 @@ export default {
         slidesToScroll: 3
       })
       .on('beforeChange', () => {
-        this.isSliding = true;
+        this.isSliding = true
       })
       .on('afterChange', () => {
-        this.isSliding = false;
+        this.isSliding = false
       })
     })
   },

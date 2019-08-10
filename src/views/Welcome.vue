@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import QRCode from '@chenfengyuan/vue-qrcode';
+import QRCode from '@chenfengyuan/vue-qrcode'
 
 export default {
   name: 'welcome',
