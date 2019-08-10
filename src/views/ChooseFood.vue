@@ -58,8 +58,7 @@ export default {
     }
   },
   async mounted() {
-    this.catalog = await this.$api.catalog.load()
-    this.items = this.catalog.itemGroups[0].items
+    this.items = await this.$api.items.list('burgers')
 
     this.$nextTick(() => {
       $(this.$refs.carousel.$el).slick({

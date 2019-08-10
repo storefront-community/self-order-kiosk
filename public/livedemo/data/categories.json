@@ -1,0 +1,19 @@
+{
+  "categories": [
+    {
+      "id": "burgers",
+      "name": "Burgers",
+      "imageUrl": ""
+    },
+    {
+      "id": "juices",
+      "name": "Juices",
+      "imageUrl": ""
+    },
+    {
+      "id": "desserts",
+      "name": "Desserts",
+      "imageUrl": ""
+    }
+  ]
+}

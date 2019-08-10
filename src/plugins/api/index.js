@@ -1,9 +1,11 @@
-import catalog from './catalog'
+import categories from './categories'
+import items from './items'
 
 export default {
   install (Vue) {
     Vue.prototype.$api = {
-      catalog: catalog
+      categories,
+      items
     }
   }
 }
