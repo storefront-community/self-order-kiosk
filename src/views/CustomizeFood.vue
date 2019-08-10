@@ -1,5 +1,5 @@
 <template>
-  <form class="app-body">
+  <form class="app-body" @submit.prevent="next" v-if="order">
     <div class="app-header">
       <div class="container">
         <h1 class="display-3 text-center">
@@ -12,10 +12,10 @@
     </div>
     <div class="app-footer">
       <div class="container d-flex">
-        <router-link :to="{ name: 'cancelOrder' }" class="btn btn-outline-primary btn-lg mr-auto">
+        <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="cancelOrder">
           Cancel order
-        </router-link>
-        <button type="submit" class="btn btn-primary btn-lg ml-auto" @click="next">
+        </button>
+        <button type="submit" class="btn btn-primary btn-lg ml-auto">
           <span class="mr-3">Next</span>
           <i class="fa fa-arrow-right"></i>
         </button>
@@ -25,11 +25,18 @@
 </template>
 
 <script>
+import { orderPropMixin, cancelOrderMixin } from '@/mixins'
+
 export default {
   name: 'customizeFood',
+  mixins: [
+    orderPropMixin,
+    cancelOrderMixin
+  ],
   methods: {
     next() {
-      this.$router.push({ name: 'orderSummary' })
+      const params = { order: this.order }
+      this.$router.push({ name: 'orderSummary', params })
     }
   }
 }

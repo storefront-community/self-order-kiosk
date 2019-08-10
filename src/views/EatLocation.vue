@@ -1,5 +1,5 @@
 <template>
-  <div class="app-body">
+  <div class="app-body" v-if="order">
     <div class="app-header">
       <div class="container">
         <h1 class="display-3 text-center">
@@ -27,20 +27,27 @@
     </div>
     <div class="app-footer">
       <div class="container d-flex">
-        <router-link :to="{ name: 'cancelOrder' }" class="btn btn-outline-primary btn-lg mr-auto">
+        <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="cancelOrder">
           Cancel order
-        </router-link>
+        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { orderPropMixin, cancelOrderMixin } from '@/mixins'
+
 export default {
   name: 'eatLocation',
+  mixins: [
+    orderPropMixin,
+    cancelOrderMixin
+  ],
   methods: {
     next() {
-      this.$router.push({ name: 'chooseFood' })
+      const params = { order: this.order }
+      this.$router.push({ name: 'chooseFood', params })
     }
   }
 }

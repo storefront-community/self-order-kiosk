@@ -1,5 +1,5 @@
 <template>
-  <form class="app-body">
+  <form class="app-body" @submit.prevent="complete" v-if="order">
     <div class="app-header">
       <div class="container">
         <h1 class="display-3 text-center">
@@ -12,10 +12,10 @@
     </div>
     <div class="app-footer">
       <div class="container d-flex">
-        <router-link :to="{ name: 'cancelOrder' }" class="btn btn-outline-primary btn-lg mr-auto">
+        <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="cancelOrder">
           Cancel order
-        </router-link>
-        <button type="submit" class="btn btn-primary btn-lg ml-auto" @click="complete">
+        </button>
+        <button type="submit" class="btn btn-primary btn-lg ml-auto">
           <i class="fa fa-check"></i>
           <span class="ml-3">Complete</span>
         </button>
@@ -25,11 +25,18 @@
 </template>
 
 <script>
+import { orderPropMixin, cancelOrderMixin } from '@/mixins'
+
 export default {
   name: 'orderSummary',
+  mixins: [
+    orderPropMixin,
+    cancelOrderMixin
+  ],
   methods: {
     complete() {
-      this.$router.push({ name: 'orderComplete' })
+      const params = { order: this.order }
+      this.$router.push({ name: 'orderComplete', params })
     }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <form class="app-body" @submit.prevent="add">
+  <form class="app-body" @submit.prevent="add" v-if="order">
     <div class="app-header">
       <div class="container">
         <h1 class="display-3 text-center">
@@ -29,9 +29,9 @@
     </div>
     <div class="app-footer">
       <div class="container d-flex">
-        <router-link :to="{ name: 'cancelOrder' }" class="btn btn-outline-primary btn-lg mr-auto">
+        <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="cancelOrder">
           Cancel order
-        </router-link>
+        </button>
         <div class="ml-auto px-3 py-3 text-right text-primary">
           Swipe to navigate and tap to select
         </div>
@@ -42,10 +42,15 @@
 
 <script>
 import $ from 'jquery'
+import { orderPropMixin, cancelOrderMixin } from '@/mixins'
 import FoodTransition from '@/transitions/FoodTransition'
 
 export default {
   name: 'chooseFood',
+  mixins: [
+    orderPropMixin,
+    cancelOrderMixin
+  ],
   data() {
     return {
       isSliding: false,
@@ -76,7 +81,8 @@ export default {
   methods: {
     add() {
       if (this.isSliding) return
-      this.$router.push({ name: 'customizeFood' })
+      const params = { order: this.order }
+      this.$router.push({ name: 'customizeFood', params })
     }
   },
   components: {

@@ -1,5 +1,5 @@
 <template>
-  <form class="app-body">
+  <form class="app-body" @submit.prevent="exit" v-if="order">
     <div class="app-header">
       <div class="container">
         <h1 class="display-3 text-center">
@@ -19,9 +19,9 @@
     </div>
     <div class="app-footer">
       <div class="container d-flex">
-        <button type="submit" class="btn btn-primary btn-lg ml-auto" @click="restart">
-          <span class="mr-3">Restart</span>
-          <i class="fa fa-redo"></i>
+        <button type="submit" class="btn btn-primary btn-lg mr-auto">
+          <i class="fa fa-arrow-left"></i>
+          <span class="ml-3">Exit</span>
         </button>
       </div>
     </div>
@@ -29,11 +29,14 @@
 </template>
 
 <script>
+import { orderPropMixin } from '@/mixins'
+
 export default {
   name: 'orderComplete',
+  mixins: [orderPropMixin],
   methods: {
-    restart() {
-      this.$router.push({ name: 'identification' })
+    exit() {
+      this.$router.push({ name: 'welcome' })
     }
   }
 }

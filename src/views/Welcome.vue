@@ -46,9 +46,17 @@ import QRCode from '@chenfengyuan/vue-qrcode';
 
 export default {
   name: 'welcome',
+  data() {
+    return {
+      order: {
+        startedAt: new Date()
+      }
+    }
+  },
   methods: {
     start() {
-      this.$router.push({ name: 'identification' })
+      const params = { order: this.order }
+      this.$router.push({ name: 'identification', params })
     }
   },
   components: {
