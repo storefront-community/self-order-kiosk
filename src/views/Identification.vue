@@ -55,7 +55,7 @@ export default {
   ],
   methods: {
     cancel() {
-      this.$router.push({ name: 'welcome' })
+      this.$router.push({ name: 'start' })
     },
     next() {
       const params = { order: this.order }

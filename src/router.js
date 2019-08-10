@@ -7,7 +7,7 @@ import EatLocation from './views/EatLocation.vue'
 import Identification from './views/Identification.vue'
 import OrderComplete from './views/OrderComplete.vue'
 import OrderSummary from './views/OrderSummary.vue'
-import Welcome from './views/Welcome.vue'
+import Start from './views/Start.vue'
 
 Vue.use(Router)
 
@@ -15,8 +15,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'welcome',
-      component: Welcome,
+      name: 'start',
+      component: Start,
       meta: { step: 0 }
     },
     {

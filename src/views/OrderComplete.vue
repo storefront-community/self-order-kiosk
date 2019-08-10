@@ -36,7 +36,7 @@ export default {
   mixins: [orderPropMixin],
   methods: {
     exit() {
-      this.$router.push({ name: 'welcome' })
+      this.$router.push({ name: 'start' })
     }
   }
 }

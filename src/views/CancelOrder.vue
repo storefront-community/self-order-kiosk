@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     cancel() {
-      this.$router.push({ name: 'welcome' })
+      this.$router.push({ name: 'start' })
     },
     neverMind() {
       const params = { order: this.order }

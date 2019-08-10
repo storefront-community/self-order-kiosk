@@ -7,7 +7,7 @@ export default {
   mounted() {
     if (!this.order) {
       // Without setTimeout() the route changes but view does not render
-      setTimeout(() => this.$router.push({ name: 'welcome' }))
+      setTimeout(() => this.$router.push({ name: 'start' }))
     }
   }
 }
