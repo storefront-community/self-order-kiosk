@@ -67,7 +67,8 @@ export default {
         infinite: false,
         rows: 1,
         slidesToShow: 3,
-        slidesToScroll: 3
+        slidesToScroll: 1,
+        swipeToSlide: true
       })
       .on('beforeChange', () => {
         this.isSliding = true
