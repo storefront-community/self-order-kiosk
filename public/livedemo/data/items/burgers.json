@@ -3,63 +3,63 @@
     {
       "id": "b001",
       "name": "Barbecue Burger",
-      "imageUrl": "/livedemo/img/burgers/barbecue-burger.jpg",
+      "imageUrl": "/livedemo/img/items/burgers/barbecue-burger.jpg",
       "price": 3.99,
       "options": []
     },
     {
       "id": "b002",
       "name": "Beef Blur Bread",
-      "imageUrl": "/livedemo/img/burgers/beef-blur-bread.jpg",
+      "imageUrl": "/livedemo/img/items/burgers/beef-blur-bread.jpg",
       "price": 4.50,
       "options": []
     },
     {
       "id": "b003",
       "name": "Beef Bread Bun",
-      "imageUrl": "/livedemo/img/burgers/beef-bread-bun.jpg",
+      "imageUrl": "/livedemo/img/items/burgers/beef-bread-bun.jpg",
       "price": 4.99,
       "options": []
     },
     {
       "id": "b004",
       "name": "Big Burger",
-      "imageUrl": "/livedemo/img/burgers/big-burger.jpg",
+      "imageUrl": "/livedemo/img/items/burgers/big-burger.jpg",
       "price": 5.00,
       "options": []
     },
     {
       "id": "b005",
       "name": "Blur Buns Burger",
-      "imageUrl": "/livedemo/img/burgers/blur-buns-burger.jpg",
+      "imageUrl": "/livedemo/img/items/burgers/blur-buns-burger.jpg",
       "price": 2.99,
       "options": []
     },
     {
       "id": "b006",
       "name": "Cheeseburger with Fries",
-      "imageUrl": "/livedemo/img/burgers/cheeseburger-with-fries.jpg",
+      "imageUrl": "/livedemo/img/items/burgers/cheeseburger-with-fries.jpg",
       "price": 4.99,
       "options": []
     },
     {
       "id": "b007",
       "name": "Light Burger",
-      "imageUrl": "/livedemo/img/burgers/light-burger.jpg",
+      "imageUrl": "/livedemo/img/items/burgers/light-burger.jpg",
       "price": 1.99,
       "options": []
     },
     {
       "id": "b008",
       "name": "Portion of Fries",
-      "imageUrl": "/livedemo/img/burgers/portion-of-fries.jpg",
+      "imageUrl": "/livedemo/img/items/burgers/portion-of-fries.jpg",
       "price": 1.75,
       "options": []
     },
     {
       "id": "b009",
       "name": "Salad Burger",
-      "imageUrl": "/livedemo/img/burgers/salad-burger.jpg",
+      "imageUrl": "/livedemo/img/items/burgers/salad-burger.jpg",
       "price": 2.75,
       "options": []
     }
