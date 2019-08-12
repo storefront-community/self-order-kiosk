@@ -3,17 +3,17 @@
     {
       "id": "burgers",
       "name": "Burgers",
-      "imageUrl": ""
-    },
-    {
-      "id": "juices",
-      "name": "Juices",
-      "imageUrl": ""
+      "imageUrl": "/livedemo/img/categories/burgers.jpg"
     },
     {
       "id": "desserts",
       "name": "Desserts",
-      "imageUrl": ""
+      "imageUrl": "/livedemo/img/categories/desserts.jpg"
+    },
+    {
+      "id": "juices",
+      "name": "Juices",
+      "imageUrl": "/livedemo/img/categories/juices.jpg"
     }
   ]
 }
