@@ -48,7 +48,7 @@ export default {
     select(location) {
       this.order.takeOut = location === 'takeOut'
       const params = { order: this.order }
-      this.$router.push({ name: 'chooseFood', params })
+      this.$router.push({ name: 'chooseCategory', params })
     }
   }
 }

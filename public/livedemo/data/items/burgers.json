@@ -5,7 +5,17 @@
       "name": "Barbecue Burger",
       "imageUrl": "/livedemo/img/items/burgers/barbecue-burger.jpg",
       "price": 3.99,
-      "options": []
+      "optionGroups": [
+        {
+          "title": "",
+          "options": [
+            {
+              "name": "",
+              "price": 0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "b002",

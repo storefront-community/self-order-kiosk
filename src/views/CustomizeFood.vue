@@ -5,9 +5,18 @@
         <div class="rounded-clipping mr-3">
           <img :src="item.imageUrl" class="bla">
         </div>
-        <h1 class="display-3">
-          {{ item.name }}
+        <h1 class="display-3 text-right">
+          {{ item.name }}<br>
+          <small class="text-primary">
+            <small>
+              <sup>$</sup>
+            </small>
+            {{ item.price | numeral }}
+          </small>
         </h1>
+        <button type="button" class="btn btn-outline-primary ml-auto" @click="change">
+          Change
+        </button>
       </div>
     </div>
     <div class="app-content">
@@ -19,7 +28,7 @@
           Cancel order
         </button>
         <button type="submit" class="btn btn-primary btn-lg ml-auto">
-          <span class="mr-3">Next</span>
+          <span class="mr-3">1 of 3</span>
           <i class="fa fa-arrow-right"></i>
         </button>
       </div>
@@ -37,6 +46,9 @@ export default {
     cancelOrderMixin
   ],
   methods: {
+    change() {
+      // TODO
+    },
     next() {
       const params = { order: this.order }
       this.$router.push({ name: 'orderSummary', params })

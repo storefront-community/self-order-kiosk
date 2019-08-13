@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import CancelOrder from './views/CancelOrder.vue'
-import ChooseFood from './views/ChooseFood.vue'
+import ChooseCategory from './views/categories/ChooseCategory.vue'
+import ChooseFood from './views/foods/ChooseFood.vue'
 import CustomizeFood from './views/CustomizeFood.vue'
 import EatLocation from './views/EatLocation.vue'
 import Identification from './views/Identification.vue'
@@ -34,38 +35,45 @@ export default new Router({
       props: true
     },
     {
+      path: '/choose-category',
+      name: 'chooseCategory',
+      component: ChooseCategory,
+      meta: { step: 3 },
+      props: true
+    },
+    {
       path: '/choose-food',
       name: 'chooseFood',
       component: ChooseFood,
-      meta: { step: 3 },
+      meta: { step: 4 },
       props: true
     },
     {
       path: '/customize-food',
       name: 'customizeFood',
       component: CustomizeFood,
-      meta: { step: 4 },
+      meta: { step: 5 },
       props: true
     },
     {
       path: '/order-summary',
       name: 'orderSummary',
       component: OrderSummary,
-      meta: { step: 5 },
+      meta: { step: 6 },
       props: true
     },
     {
       path: '/cancel-order',
       name: 'cancelOrder',
       component: CancelOrder,
-      meta: { step: 6 },
+      meta: { step: 7 },
       props: true
     },
     {
       path: '/order-complete',
       name: 'orderComplete',
       component: OrderComplete,
-      meta: { step: 6 },
+      meta: { step: 8 },
       props: true
     }
   ]
