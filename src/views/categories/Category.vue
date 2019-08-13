@@ -1,5 +1,5 @@
 <template>
-  <FoodTransition class="d-flex">
+  <ScaleTransition class="d-flex">
     <button type="button" class="card border-0 bg-transparent align-items-center flex-grow-1"
       @click="$emit('click', category)" :key="category.id">
       <div class="rounded-clipping rounded-clipping-lg">
@@ -11,11 +11,11 @@
         </h1>
       </div>
     </button>
-  </FoodTransition>
+  </ScaleTransition>
 </template>
 
 <script>
-import FoodTransition from '@/transitions/FoodTransition'
+import ScaleTransition from '@/transitions/ScaleTransition'
 import { Category } from '@/models'
 
 export default {
@@ -27,7 +27,7 @@ export default {
     }
   },
   components: {
-    FoodTransition
+    ScaleTransition
   },
 }
 </script>
