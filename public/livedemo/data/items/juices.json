@@ -1,0 +1,60 @@
+{
+  "items": [
+    {
+      "id": "j001",
+      "name": "Antioxidant Apples",
+      "imageUrl": "/livedemo/img/items/juices/antioxidant-apples.jpg",
+      "price": 4.50,
+      "options": []
+    },
+    {
+      "id": "j002",
+      "name": "Banana Berry Beverage",
+      "imageUrl": "/livedemo/img/items/juices/banana-berry-beverage.jpg",
+      "price": 4.50,
+      "options": []
+    },
+    {
+      "id": "j003",
+      "name": "Berries Berry Beverage",
+      "imageUrl": "/livedemo/img/items/juices/berries-berry-beverage.jpg",
+      "price": 4.50,
+      "options": []
+    },
+    {
+      "id": "j004",
+      "name": "Berries Beverage Chilled",
+      "imageUrl": "/livedemo/img/items/juices/berries-beverage-chilled.jpg",
+      "price": 5.00,
+      "options": []
+    },
+    {
+      "id": "j005",
+      "name": "Beverage Blended Citrus",
+      "imageUrl": "/livedemo/img/items/juices/beverage-blended-citrus.jpg",
+      "price": 4.99,
+      "options": []
+    },
+    {
+      "id": "j006",
+      "name": "Beverage Blended Cocktail",
+      "imageUrl": "/livedemo/img/items/juices/beverage-blended-cocktail.jpg",
+      "price": 4.50,
+      "options": []
+    },
+    {
+      "id": "j007",
+      "name": "Beverage Citrus Lemon",
+      "imageUrl": "/livedemo/img/items/juices/beverage-citrus-lemon.jpg",
+      "price": 2.99,
+      "options": []
+    },
+    {
+      "id": "j008",
+      "name": "Carrot Juice",
+      "imageUrl": "/livedemo/img/items/juices/carrot-juice.jpg",
+      "price": 2.25,
+      "options": []
+    }
+  ]
+}
