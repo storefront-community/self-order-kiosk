@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <ScreenTransition :direction="slide">
+    <SlideTransition :direction="slide">
       <router-view/>
-    </ScreenTransition>
+    </SlideTransition>
   </div>
 </template>
 
@@ -10,12 +10,12 @@
 </style>
 
 <script>
-import ScreenTransition from '@/transitions/ScreenTransition'
+import SlideTransition from '@/transitions/SlideTransition'
 
 export default {
   name: 'app',
   components: {
-    ScreenTransition
+    SlideTransition
   },
   data() {
     return {
