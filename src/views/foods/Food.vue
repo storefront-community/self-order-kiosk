@@ -1,5 +1,5 @@
 <template>
-  <ScaleTransition class="d-flex">
+  <ScaleTransition class="d-flex h-100">
     <button type="button" class="card bg-transparent flex-grow-1" @click="$emit('click', food)" :key="food.id">
       <img :src="food.imageUrl" class="card-img-top" :alt="food.name">
       <div class="card-body d-flex flex-column">
