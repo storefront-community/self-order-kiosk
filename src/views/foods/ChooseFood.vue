@@ -30,6 +30,7 @@
 <script>
 import { Carousel } from '@/components'
 import { orderPropMixin, cancelOrderMixin } from '@/mixins'
+import { Category } from '@/models'
 import Food from './Food'
 
 export default {
@@ -42,13 +43,20 @@ export default {
     Carousel,
     Food
   },
+  props: {
+    category: {
+      type: Category
+    }
+  },
   data() {
     return {
       foods: []
     }
   },
   async mounted() {
-    this.foods = await this.$api.items.list('burgers')
+    if (!this.category) return
+
+    this.foods = await this.$api.items.list(this.category.id)
 
     this.$nextTick(() => {
       this.$refs.carousel && this.$refs.carousel.load()
