@@ -1,7 +1,7 @@
 <template>
   <ScaleTransition class="d-flex h-100">
     <button type="button" class="card border-0 bg-transparent align-items-center flex-grow-1"
-      @click="$emit('click', category)" :key="category.id">
+      @click="$emit('click', category)">
       <div class="rounded-clipping rounded-clipping-lg">
         <img :src="category.imageUrl" class="card-img-top" :alt="category.name">
       </div>
