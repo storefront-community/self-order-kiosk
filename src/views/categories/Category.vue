@@ -6,7 +6,7 @@
         <img :src="category.imageUrl" class="card-img-top" :alt="category.name">
       </div>
       <div class="card-body d-flex flex-column">
-        <h1 class="card-title display-3 flex-grow-1">
+        <h1 class="card-title display-3 flex-grow-1 text-center">
           {{ category.name }}
         </h1>
       </div>
