@@ -2,7 +2,7 @@
   <form class="app-body" @submit.prevent="complete">
     <div class="app-header">
       <div class="container">
-        <h1 class="display-3 text-center">
+        <h1 class="display-3 py-2 text-center">
           Your order summary.
         </h1>
       </div>

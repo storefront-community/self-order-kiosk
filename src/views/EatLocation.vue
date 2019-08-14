@@ -2,7 +2,7 @@
   <div class="app-body">
     <div class="app-header">
       <div class="container">
-        <h1 class="display-3 text-center">
+        <h1 class="display-3 py-2 text-center">
           Where would you like to eat?
         </h1>
       </div>
