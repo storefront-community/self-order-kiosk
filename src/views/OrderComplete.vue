@@ -1,5 +1,5 @@
 <template>
-  <form class="app-body" @submit.prevent="exit" v-if="order">
+  <form class="app-body" @submit.prevent="exit">
     <div class="app-header">
       <div class="container">
         <h1 class="display-3 text-center">
@@ -29,11 +29,13 @@
 </template>
 
 <script>
-import { orderPropMixin } from '@/mixins'
-
 export default {
   name: 'orderComplete',
-  mixins: [orderPropMixin],
+  data() {
+    return {
+      order: this.$state.order
+    }
+  },
   methods: {
     exit() {
       this.$router.push({ name: 'start' })

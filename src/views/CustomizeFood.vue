@@ -1,5 +1,5 @@
 <template>
-  <form class="app-body" @submit.prevent="next" v-if="order">
+  <form class="app-body" @submit.prevent="next">
     <div class="app-header">
       <div class="container d-flex align-items-center">
         <div class="rounded-clipping mr-3">
@@ -14,9 +14,6 @@
             {{ item.price | numeral }}
           </small>
         </h1>
-        <button type="button" class="btn btn-outline-primary ml-auto" @click="change">
-          Change
-        </button>
       </div>
     </div>
     <div class="app-content">
@@ -24,8 +21,8 @@
     </div>
     <div class="app-footer">
       <div class="container d-flex">
-        <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="cancelOrder">
-          Cancel order
+        <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="back">
+          Back
         </button>
         <button type="submit" class="btn btn-primary btn-lg ml-auto">
           <span class="mr-3">1 of 3</span>
@@ -37,26 +34,19 @@
 </template>
 
 <script>
-import { orderPropMixin, cancelOrderMixin } from '@/mixins'
-
 export default {
   name: 'customizeFood',
-  mixins: [
-    orderPropMixin,
-    cancelOrderMixin
-  ],
   methods: {
-    change() {
-      // TODO
+    back() {
+      this.$router.push({ name: 'chooseFood' })
     },
     next() {
-      const params = { order: this.order }
-      this.$router.push({ name: 'orderSummary', params })
+      this.$router.push({ name: 'orderSummary' })
     }
   },
   computed: {
     item() {
-      return this.order.lastItem()
+      return this.$state.item
     }
   }
 }

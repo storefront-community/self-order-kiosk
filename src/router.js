@@ -24,57 +24,49 @@ export default new Router({
       path: '/identification',
       name: 'identification',
       component: Identification,
-      meta: { step: 1 },
-      props: true
+      meta: { step: 1 }
     },
     {
       path: '/eat-location',
       name: 'eatLocation',
       component: EatLocation,
-      meta: { step: 2 },
-      props: true
+      meta: { step: 2 }
     },
     {
       path: '/choose-category',
       name: 'chooseCategory',
       component: ChooseCategory,
-      meta: { step: 3 },
-      props: true
+      meta: { step: 3 }
     },
     {
       path: '/choose-food',
       name: 'chooseFood',
       component: ChooseFood,
-      meta: { step: 4 },
-      props: true
+      meta: { step: 4 }
     },
     {
       path: '/customize-food',
       name: 'customizeFood',
       component: CustomizeFood,
-      meta: { step: 5 },
-      props: true
+      meta: { step: 5 }
     },
     {
       path: '/order-summary',
       name: 'orderSummary',
       component: OrderSummary,
-      meta: { step: 6 },
-      props: true
+      meta: { step: 6 }
     },
     {
       path: '/cancel-order',
       name: 'cancelOrder',
       component: CancelOrder,
-      meta: { step: 7 },
-      props: true
+      meta: { step: 7 }
     },
     {
       path: '/order-complete',
       name: 'orderComplete',
       component: OrderComplete,
-      meta: { step: 8 },
-      props: true
+      meta: { step: 8 }
     }
   ]
 })

@@ -1,5 +1,5 @@
 <template>
-  <form class="app-body" @submit.prevent="complete" v-if="order">
+  <form class="app-body" @submit.prevent="complete">
     <div class="app-header">
       <div class="container">
         <h1 class="display-3 text-center">
@@ -25,18 +25,19 @@
 </template>
 
 <script>
-import { orderPropMixin, cancelOrderMixin } from '@/mixins'
-
 export default {
   name: 'orderSummary',
-  mixins: [
-    orderPropMixin,
-    cancelOrderMixin
-  ],
+  data() {
+    return {
+      order: this.$state.order
+    }
+  },
   methods: {
+    cancelOrder() {
+      this.$router.push({ name: 'cancelOrder' })
+    },
     complete() {
-      const params = { order: this.order }
-      this.$router.push({ name: 'orderComplete', params })
+      this.$router.push({ name: 'orderComplete' })
     }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <form class="app-body" @submit.prevent="add" v-if="order">
+  <form class="app-body" @submit.prevent="add">
     <div class="app-header">
       <div class="container">
         <h1 class="display-3 text-center">
@@ -29,25 +29,23 @@
 
 <script>
 import { Carousel } from '@/components'
-import { orderPropMixin, cancelOrderMixin } from '@/mixins'
 import Category from './Category'
 
 export default {
   name: 'chooseCategory',
-  mixins: [
-    orderPropMixin,
-    cancelOrderMixin
-  ],
   components: {
     Carousel,
     Category
   },
   data() {
     return {
+      order: this.$state.order,
       categories: []
     }
   },
   async mounted() {
+    if (!this.$state.initialized) return
+
     this.categories = await this.$api.categories.list()
 
     this.$nextTick(() => {
@@ -55,16 +53,14 @@ export default {
     })
   },
   methods: {
+    cancelOrder() {
+      this.$router.push({ name: 'cancelOrder' })
+    },
     select(category) {
       if (this.$refs.carousel.isSliding) return
 
-      this.$router.push({
-        name: 'chooseFood',
-        params: {
-          order: this.order,
-          category: category
-        }
-      })
+      this.$state.category = category
+      this.$router.push({ name: 'chooseFood' })
     }
   }
 }

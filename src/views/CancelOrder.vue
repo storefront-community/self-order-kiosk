@@ -1,5 +1,5 @@
 <template>
-  <form class="app-body" v-if="order">
+  <form class="app-body">
     <div class="app-content">
       <div class="container">
         <p class="text-center text-primary">
@@ -27,11 +27,8 @@
 </template>
 
 <script>
-import { orderPropMixin } from '@/mixins'
-
 export default {
   name: 'orderComplete',
-  mixins: [orderPropMixin],
   beforeRouteEnter(to, from, next) {
     next(vm => {
       vm.previousRoute = from.name
@@ -47,8 +44,7 @@ export default {
       this.$router.push({ name: 'start' })
     },
     neverMind() {
-      const params = { order: this.order }
-      this.$router.push({ name: this.previousRoute, params })
+      this.$router.push({ name: this.previousRoute })
     }
   }
 }

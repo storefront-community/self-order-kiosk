@@ -43,19 +43,15 @@
 
 <script>
 import QRCode from '@chenfengyuan/vue-qrcode'
-import { Order } from '@/models'
 
 export default {
   name: 'start',
-  data() {
-    return {
-      order: new Order()
-    }
+  mounted() {
+    this.$state.init()
   },
   methods: {
     start() {
-      const params = { order: this.order }
-      this.$router.push({ name: 'identification', params })
+      this.$router.push({ name: 'identification' })
     }
   },
   components: {

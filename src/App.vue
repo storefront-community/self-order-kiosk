@@ -17,6 +17,13 @@ export default {
   components: {
     SlideTransition
   },
+  mounted() {
+    if (this.$state.initialized) return
+
+    if (this.$route.name !== 'start') {
+      location = '/'
+    }
+  },
   data() {
     return {
       slide: 'left'

@@ -1,5 +1,5 @@
 <template>
-  <div class="app-body" v-if="order">
+  <div class="app-body">
     <div class="app-header">
       <div class="container">
         <h1 class="display-3 text-center">
@@ -36,19 +36,20 @@
 </template>
 
 <script>
-import { orderPropMixin, cancelOrderMixin } from '@/mixins'
-
 export default {
   name: 'eatLocation',
-  mixins: [
-    orderPropMixin,
-    cancelOrderMixin
-  ],
+  data() {
+    return {
+      order: this.$state.order
+    }
+  },
   methods: {
+    cancelOrder() {
+      this.$router.push({ name: 'cancelOrder' })
+    },
     select(location) {
       this.order.takeOut = location === 'takeOut'
-      const params = { order: this.order }
-      this.$router.push({ name: 'chooseCategory', params })
+      this.$router.push({ name: 'chooseCategory' })
     }
   }
 }
