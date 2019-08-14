@@ -1,7 +1,7 @@
-import State from './State'
+import AppState from './AppState'
 
 export default {
   install (Vue) {
-    Vue.prototype.$state = new State()
+    Vue.prototype.$state = new AppState()
   }
 }

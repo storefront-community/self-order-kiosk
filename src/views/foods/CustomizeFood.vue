@@ -53,7 +53,7 @@ export default {
   async mounted() {
     if (!this.$state.initialized) return
 
-    this.optionals = await this.$api.optionals.list(this.$state.category.id)
+    this.optionals = await this.$api.optionals.list(this.$state.selectedCategory.id)
     this.hasOptionals = !!this.optionals.length
 
     if (!this.hasOptionals) {
@@ -105,7 +105,7 @@ export default {
       return this.optionals[this.currentIndex]
     },
     item() {
-      return this.$state.item
+      return this.$state.selectedItem
     }
   },
   watch: {

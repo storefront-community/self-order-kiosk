@@ -59,7 +59,7 @@ export default {
     select(category) {
       if (this.$refs.carousel.isSliding) return
 
-      this.$state.category = category
+      this.$state.selectedCategory = category
       this.$router.push({ name: 'chooseFood' })
     }
   }
