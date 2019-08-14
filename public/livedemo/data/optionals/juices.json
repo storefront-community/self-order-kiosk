@@ -1,0 +1,48 @@
+{
+  "options": [
+    {
+      "title": "How much sugar do you like?",
+      "multichoice": false,
+      "options": [
+        {
+          "name": "No sugar",
+          "price": 0
+        },
+        {
+          "name": "Minimum",
+          "price": 0
+        },
+        {
+          "name": "Normal",
+          "price": 0
+        },
+        {
+          "name": "Maximum",
+          "price": 0
+        }
+      ]
+    },
+    {
+      "title": "Would you like to add ice?",
+      "multichoice": false,
+      "options": [
+        {
+          "name": "No ice",
+          "price": 0
+        },
+        {
+          "name": "Minimum",
+          "price": 0
+        },
+        {
+          "name": "Normal",
+          "price": 0
+        },
+        {
+          "name": "Maximum",
+          "price": 0
+        }
+      ]
+    }
+  ]
+}

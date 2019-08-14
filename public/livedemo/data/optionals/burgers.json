@@ -1,0 +1,70 @@
+{
+  "optionals": [
+    {
+      "title": "How about adding more flavor to your burger?",
+      "multichoice": true,
+      "options": [
+        {
+          "name": "Extra bacon",
+          "price": 1.99
+        },
+        {
+          "name": "Extra cheese",
+          "price": 1.25
+        },
+        {
+          "name": "Double onion",
+          "price": 0.99
+        },
+        {
+          "name": "Double pickles",
+          "price": 0.99
+        }
+      ]
+    },
+    {
+      "title": "How much ketchup do you like?",
+      "multichoice": false,
+      "options": [
+        {
+          "name": "No ketchup",
+          "price": 0
+        },
+        {
+          "name": "Minimum",
+          "price": 0
+        },
+        {
+          "name": "Normal",
+          "price": 0
+        },
+        {
+          "name": "Maximum",
+          "price": 0
+        }
+      ]
+    },
+    {
+      "title": "How much mustard do you like?",
+      "multichoice": false,
+      "options": [
+        {
+          "name": "No mustard",
+          "price": 0
+        },
+        {
+          "name": "Minimum",
+          "price": 0
+        },
+        {
+          "name": "Normal",
+          "price": 0
+        },
+        {
+          "name": "Maximum",
+          "price": 0
+        }
+      ]
+    }
+  ]
+}
