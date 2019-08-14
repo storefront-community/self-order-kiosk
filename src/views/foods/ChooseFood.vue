@@ -3,7 +3,7 @@
     <div class="app-header">
       <div class="container">
         <h1 class="display-3 text-center">
-          What would you like today?
+          {{ category.name }}
         </h1>
       </div>
     </div>
@@ -39,6 +39,7 @@ export default {
   },
   data() {
     return {
+      category: this.$state.category,
       foods: []
     }
   },
