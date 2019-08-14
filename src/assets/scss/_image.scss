@@ -1,6 +1,6 @@
 .rounded-clipping {
-  width: 48px;
-  height: 48px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   position: relative;
   overflow: hidden;
@@ -14,7 +14,7 @@
   }
 
   &.rounded-clipping-lg {
-    width: 128px;
-    height: 128px;
+    width: 192px;
+    height: 192px;
   }
 }
