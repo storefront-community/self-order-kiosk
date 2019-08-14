@@ -1,6 +1,7 @@
 {
-  "options": [
+  "optionals": [
     {
+      "id": "jo001",
       "title": "How much sugar do you like?",
       "multichoice": false,
       "options": [
@@ -23,6 +24,7 @@
       ]
     },
     {
+      "id": "jo002",
       "title": "Would you like to add ice?",
       "multichoice": false,
       "options": [

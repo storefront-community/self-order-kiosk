@@ -1,6 +1,7 @@
 {
   "optionals": [
     {
+      "id": "bo001",
       "title": "How about adding more flavor to your burger?",
       "multichoice": true,
       "options": [
@@ -23,6 +24,7 @@
       ]
     },
     {
+      "id": "bo002",
       "title": "How much ketchup do you like?",
       "multichoice": false,
       "options": [
@@ -45,6 +47,7 @@
       ]
     },
     {
+      "id": "bo003",
       "title": "How much mustard do you like?",
       "multichoice": false,
       "options": [
