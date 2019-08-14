@@ -6,18 +6,22 @@
       "multichoice": true,
       "options": [
         {
+          "id": "boo001",
           "name": "Extra bacon",
           "price": 1.99
         },
         {
+          "id": "boo002",
           "name": "Extra cheese",
           "price": 1.25
         },
         {
+          "id": "boo003",
           "name": "Double onion",
           "price": 0.99
         },
         {
+          "id": "boo004",
           "name": "Double pickles",
           "price": 0.99
         }
@@ -29,18 +33,22 @@
       "multichoice": false,
       "options": [
         {
+          "id": "boo005",
           "name": "No ketchup",
           "price": 0
         },
         {
+          "id": "boo006",
           "name": "Minimum",
           "price": 0
         },
         {
+          "id": "boo007",
           "name": "Normal",
           "price": 0
         },
         {
+          "id": "boo008",
           "name": "Maximum",
           "price": 0
         }
@@ -52,18 +60,22 @@
       "multichoice": false,
       "options": [
         {
+          "id": "boo009",
           "name": "No mustard",
           "price": 0
         },
         {
+          "id": "boo010",
           "name": "Minimum",
           "price": 0
         },
         {
+          "id": "boo011",
           "name": "Normal",
           "price": 0
         },
         {
+          "id": "boo012",
           "name": "Maximum",
           "price": 0
         }

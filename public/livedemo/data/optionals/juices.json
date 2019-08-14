@@ -6,19 +6,23 @@
       "multichoice": false,
       "options": [
         {
-          "name": "No sugar",
-          "price": 0
-        },
-        {
-          "name": "Minimum",
-          "price": 0
-        },
-        {
+          "id": "joo001",
           "name": "Normal",
           "price": 0
         },
         {
+          "id": "joo002",
+          "name": "Minimum",
+          "price": 0
+        },
+        {
+          "id": "joo003",
           "name": "Maximum",
+          "price": 0
+        },
+        {
+          "id": "joo004",
+          "name": "No sugar",
           "price": 0
         }
       ]
@@ -27,21 +31,26 @@
       "id": "jo002",
       "title": "Would you like to add ice?",
       "multichoice": false,
+      "default": 2,
       "options": [
         {
-          "name": "No ice",
-          "price": 0
-        },
-        {
-          "name": "Minimum",
-          "price": 0
-        },
-        {
+          "id": "joo005",
           "name": "Normal",
           "price": 0
         },
         {
+          "id": "joo006",
+          "name": "Minimum",
+          "price": 0
+        },
+        {
+          "id": "joo007",
           "name": "Maximum",
+          "price": 0
+        },
+        {
+          "id": "joo008",
+          "name": "No ice",
           "price": 0
         }
       ]
