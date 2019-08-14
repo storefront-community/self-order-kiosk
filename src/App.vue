@@ -11,6 +11,7 @@
 
 <script>
 import SlideTransition from '@/transitions/SlideTransition'
+import waitTransition from '@/hacks/waitTransition'
 
 export default {
   name: 'app',
@@ -19,14 +20,17 @@ export default {
   },
   mounted() {
     if (this.$state.initialized) return
-
-    if (this.$route.name !== 'start') {
-      location = '/'
-    }
+    waitTransition(() => this.start())
   },
   data() {
     return {
       slide: 'left'
+    }
+  },
+  methods: {
+    start() {
+      if (this.$route.name === 'start') return
+      this.$router.push({ name: 'start' })
     }
   },
   watch: {
