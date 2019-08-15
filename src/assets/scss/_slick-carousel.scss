@@ -15,4 +15,10 @@
       }
     }
   }
+
+  &.slick-vertical {
+    .slick-track {
+      flex-direction: column;
+    }
+  }
 }

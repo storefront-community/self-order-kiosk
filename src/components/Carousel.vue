@@ -9,6 +9,12 @@ import $ from 'jquery'
 
 export default {
   name: 'carousel',
+  props: {
+    vertical: {
+      type: Boolean,
+      default: () => false
+    }
+  },
   data() {
     return {
       isSliding: false
@@ -23,6 +29,8 @@ export default {
         slidesToShow: 3,
         slidesToScroll: 1,
         swipeToSlide: true,
+        vertical: this.vertical,
+        verticalSwiping: this.vertical,
         rows: 1
       })
       .on('beforeChange', () => {
