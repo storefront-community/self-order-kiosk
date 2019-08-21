@@ -40,7 +40,7 @@ export default {
   name: 'eatLocation',
   data() {
     return {
-      order: this.$state.order
+      order: this.$session.order
     }
   },
   methods: {

@@ -33,7 +33,7 @@ export default {
   name: 'orderComplete',
   data() {
     return {
-      order: this.$state.order
+      order: this.$session.order
     }
   },
   methods: {

@@ -39,14 +39,14 @@ export default {
   },
   data() {
     return {
-      category: this.$state.selectedCategory,
+      category: this.$session.category,
       foods: []
     }
   },
   async mounted() {
-    if (!this.$state.initialized) return
+    if (!this.$session.initialized) return
 
-    this.foods = await this.$api.items.list(this.$state.selectedCategory.id)
+    this.foods = await this.$api.items.list(this.$session.category.id)
 
     this.$nextTick(() => {
       this.$refs.carousel && this.$refs.carousel.load()
@@ -59,7 +59,7 @@ export default {
     select(food) {
       if (this.$refs.carousel.isSliding) return
 
-      this.$state.selectedItem = food
+      this.$session.item = food
       this.$router.push({ name: 'customizeFood' })
     }
   }

@@ -19,7 +19,7 @@ export default {
     SlideTransition
   },
   mounted() {
-    if (this.$state.initialized) return
+    if (this.$session.initialized) return
     waitTransition(() => this.start())
   },
   data() {

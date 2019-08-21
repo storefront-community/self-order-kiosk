@@ -51,9 +51,9 @@ export default {
     SlideTransition
   },
   async mounted() {
-    if (!this.$state.initialized) return
+    if (!this.$session.initialized) return
 
-    this.optionals = await this.$api.optionals.list(this.$state.selectedCategory.id)
+    this.optionals = await this.$api.optionals.list(this.$session.category.id)
     this.hasOptionals = !!this.optionals.length
 
     if (!this.hasOptionals) {
@@ -105,7 +105,7 @@ export default {
       return this.optionals[this.currentIndex]
     },
     item() {
-      return this.$state.selectedItem
+      return this.$session.item
     }
   },
   watch: {

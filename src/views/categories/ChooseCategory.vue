@@ -39,12 +39,12 @@ export default {
   },
   data() {
     return {
-      order: this.$state.order,
+      order: this.$session.order,
       categories: []
     }
   },
   async mounted() {
-    if (!this.$state.initialized) return
+    if (!this.$session.initialized) return
 
     this.categories = await this.$api.categories.list()
 
@@ -59,7 +59,7 @@ export default {
     select(category) {
       if (this.$refs.carousel.isSliding) return
 
-      this.$state.selectedCategory = category
+      this.$session.category = category
       this.$router.push({ name: 'chooseFood' })
     }
   }
