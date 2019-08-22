@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="app-content">
-      <div class="container">
+      <div class="container" v-if="hasOptionals">
         <SlideTransition :direction="slide">
           <Optional :optional="optional" :key="optional.id" />
         </SlideTransition>

@@ -7,7 +7,11 @@
       <Carousel ref="carousel" :vertical="true" class="flex-grow-1">
         <div class="card mb-3" v-for="option in optional.options" :key="option.id">
           <div class="card-body d-flex">
-            <label class="radio radio-primary">
+            <label class="checkbox checkbox-primary" v-if="optional.multichoice">
+              <input type="checkbox">
+              <span class="check-mark"></span> {{ option.name }}
+            </label>
+            <label class="radio radio-primary" v-else>
               <input type="radio" name="radio-group">
               <span class="check-mark"></span> {{ option.name }}
             </label>
