@@ -1,5 +1,5 @@
 <template>
-  <div class="app-body">
+  <div class="app-body" v-if="$session.started">
     <div class="app-header">
       <div class="container">
         <h1 class="display-3 py-2 text-center">

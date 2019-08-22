@@ -1,5 +1,5 @@
 <template>
-  <form class="app-body" @submit.prevent="exit">
+  <form class="app-body" @submit.prevent="exit" v-if="$session.started">
     <div class="app-header">
       <div class="container">
         <h1 class="display-3 py-2 text-center">

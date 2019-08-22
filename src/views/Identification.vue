@@ -1,5 +1,5 @@
 <template>
-  <form class="app-body" @submit.prevent="next">
+  <form class="app-body" @submit.prevent="next" v-if="$session.started">
     <div class="app-content">
       <div class="container container-sm d-flex flex-column">
         <h1 class="display-3 mb-4">

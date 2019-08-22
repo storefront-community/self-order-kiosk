@@ -1,5 +1,5 @@
 <template>
-  <form class="app-body">
+  <form class="app-body" v-if="$session.started">
     <div class="app-content">
       <div class="container">
         <p class="text-center text-primary">

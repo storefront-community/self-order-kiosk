@@ -1,5 +1,5 @@
 <template>
-  <div class="app-body" v-if="hasOptionals">
+  <div class="app-body" v-if="$session.started">
     <div class="app-header">
       <div class="container d-flex align-items-center">
         <div class="rounded-clipping mr-3">
