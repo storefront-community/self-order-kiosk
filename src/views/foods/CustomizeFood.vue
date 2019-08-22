@@ -1,5 +1,5 @@
 <template>
-  <div class="app-body" v-if="$session.started">
+  <div class="app-body" v-if="hasOptionals">
     <div class="app-header">
       <div class="container d-flex align-items-center">
         <div class="rounded-clipping mr-3">
@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="app-content">
-      <div class="container" v-if="hasOptionals">
+      <div class="container">
         <SlideTransition :direction="slide">
           <Optional :optional="optional" :key="optional.id" />
         </SlideTransition>
@@ -54,7 +54,6 @@ export default {
     if (!this.$session.started) return
 
     this.optionals = await this.$api.optionals.list(this.$session.category.id)
-    this.hasOptionals = !!this.optionals.length
 
     if (!this.hasOptionals) {
       waitTransition(() => this.next())
@@ -62,7 +61,6 @@ export default {
   },
   data() {
     return {
-      hasOptionals: false,
       optionals: [],
       currentIndex: 0,
       slide: 'left'
@@ -106,6 +104,9 @@ export default {
     },
     item() {
       return this.$session.item
+    },
+    hasOptionals() {
+      return this.$session.started && this.optionals.length
     }
   },
   watch: {
