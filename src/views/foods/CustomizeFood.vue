@@ -51,7 +51,7 @@ export default {
     SlideTransition
   },
   async mounted() {
-    if (!this.$session.initialized) return
+    if (!this.$session.started) return
 
     this.optionals = await this.$api.optionals.list(this.$session.category.id)
     this.hasOptionals = !!this.optionals.length

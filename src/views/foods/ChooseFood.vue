@@ -44,7 +44,7 @@ export default {
     }
   },
   async mounted() {
-    if (!this.$session.initialized) return
+    if (!this.$session.started) return
 
     this.foods = await this.$api.items.list(this.$session.category.id)
 

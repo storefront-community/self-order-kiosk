@@ -47,7 +47,7 @@ import QRCode from '@chenfengyuan/vue-qrcode'
 export default {
   name: 'start',
   mounted() {
-    this.$session.init()
+    this.$session.start()
   },
   methods: {
     start() {

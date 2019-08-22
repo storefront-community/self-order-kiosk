@@ -44,7 +44,7 @@ export default {
     }
   },
   async mounted() {
-    if (!this.$session.initialized) return
+    if (!this.$session.started) return
 
     this.categories = await this.$api.categories.list()
 

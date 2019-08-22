@@ -1,16 +1,18 @@
 import { Order } from '@/models'
 
 export default class AppSession {
-  order = null
-  category = null
-  item = null
-  initialized = false
+  constructor() {
+    this.order = null
+    this.category = null
+    this.item = null
+    this.started = false
+  }
 
-  init() {
+  start() {
     this.order = new Order()
     this.category = null
     this.item = null
-    this.initialized = true
+    this.started = true
   }
 
   addItem() {
