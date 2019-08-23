@@ -8,7 +8,7 @@
 import { Power4, TimelineMax } from "gsap/TweenMax"
 
 export default {
-  name: 'foodTransition',
+  name: 'scaleTransition',
   methods: {
     enter(el, done) {
       const timeLineMax = new TimelineMax({
