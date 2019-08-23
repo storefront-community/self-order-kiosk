@@ -10,13 +10,11 @@ export default class AppSession {
 
   start() {
     this.order = new Order()
-    this.category = null
-    this.item = null
     this.started = true
   }
 
-  addItem() {
-    this.order.addItem(this.item)
+  addItemToOrder() {
+    this.order.add(this.item)
     this.category = null
     this.item = null
   }

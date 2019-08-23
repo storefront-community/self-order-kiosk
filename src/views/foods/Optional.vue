@@ -8,11 +8,11 @@
         <div class="card mb-3" v-for="option in optional.options" :key="option.id">
           <div class="card-body d-flex">
             <label class="checkbox checkbox-primary" v-if="optional.multichoice">
-              <input type="checkbox">
+              <input type="checkbox" v-model="option.checked">
               <span class="check-mark"></span> {{ option.name }}
             </label>
             <label class="radio radio-primary" v-else>
-              <input type="radio" name="radio-group">
+              <input type="checkbox" v-model="option.checked" @change="toggle($event, option)">
               <span class="check-mark"></span> {{ option.name }}
             </label>
             <div class="ml-auto text-primary" v-if="option.price > 0">
@@ -52,6 +52,16 @@ export default {
     this.$nextTick(() => {
       this.$refs.carousel && this.$refs.carousel.load()
     })
+  },
+  methods: {
+    toggle($event, current) {
+      this.optional.options
+        .filter(option => option.id !== current.id)
+        .forEach(option => option.checked = false)
+
+      $event.target.checked = true
+      current.checked = true
+    }
   }
 }
 </script>

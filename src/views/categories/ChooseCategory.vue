@@ -3,7 +3,7 @@
     <div class="app-header">
       <div class="container">
         <h1 class="display-3 py-2 text-center">
-          What <span v-if="order.hasItem()">else</span> would you like today?
+          What <span v-if="orderHasItem">else</span> would you like today?
         </h1>
       </div>
     </div>
@@ -61,6 +61,11 @@ export default {
 
       this.$session.category = category
       this.$router.push({ name: 'chooseFood' })
+    }
+  },
+  computed: {
+    orderHasItem() {
+      return !!this.$session.order.items.length
     }
   }
 }

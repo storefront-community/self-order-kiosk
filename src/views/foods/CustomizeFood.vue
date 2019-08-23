@@ -1,5 +1,5 @@
 <template>
-  <div class="app-body" v-if="hasOptionals">
+  <form class="app-body" @submit.prevent="next" v-if="hasOptionals">
     <div class="app-header">
       <div class="container d-flex align-items-center">
         <div class="rounded-clipping mr-3">
@@ -19,7 +19,7 @@
     <div class="app-content">
       <div class="container">
         <SlideTransition :direction="slide">
-          <Optional :optional="optional" :key="optional.id" />
+          <Optional :optional="currentOptional" :key="currentOptional.id"/>
         </SlideTransition>
       </div>
     </div>
@@ -28,32 +28,38 @@
         <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="back">
           Back
         </button>
-        <button type="button" class="btn btn-primary btn-lg ml-auto" @click="next">
-          <span class="mr-3">
-            {{ currentPage }} of {{ numberOfPages }}
-          </span>
-          <i class="fa fa-arrow-right"></i>
-        </button>
+        <SlideUpTransition>
+          <button type="submit" class="btn btn-primary btn-lg ml-auto" v-if="currentOptional.isValid()">
+            <span class="mr-3" v-if="isLastPage">Add</span>
+            <span class="mr-3" v-else>{{ currentPage }} of {{ numberOfPages }}</span>
+            <i class="fa fa-arrow-right"></i>
+          </button>
+          <p class="d-flex flex-column justify-content-center text-primary m-0"  v-else>
+            <span>{{ currentPage }} of {{ numberOfPages }}</span>
+            <small>Please choose an option</small>
+          </p>
+        </SlideUpTransition>
       </div>
     </div>
-  </div>
+  </form>
 </template>
 
 <script>
 import Optional from './Optional'
-import SlideTransition from '@/transitions/SlideTransition'
+import { SlideTransition, SlideUpTransition } from '@/transitions'
 import waitTransition from '@/hacks/waitTransition'
 
 export default {
   name: 'customizeFood',
   components: {
     Optional,
-    SlideTransition
+    SlideTransition,
+    SlideUpTransition
   },
   async mounted() {
     if (!this.$session.started) return
 
-    this.optionals = await this.$api.optionals.list(this.$session.category.id)
+    this.item.optionals = await this.$api.optionals.list(this.$session.category.id)
 
     if (!this.hasOptionals) {
       waitTransition(() => this.next())
@@ -61,15 +67,12 @@ export default {
   },
   data() {
     return {
-      optionals: [],
+      item: this.$session.item,
       currentIndex: 0,
       slide: 'left'
     }
   },
   methods: {
-    addItemToOrder() {
-      this.$router.push({ name: 'orderSummary' })
-    },
     back() {
       if (this.hasPreviousPage > 0) {
         this.currentIndex--;
@@ -78,10 +81,12 @@ export default {
       }
     },
     next() {
+      if (!this.currentOptional.isValid()) return
+
       if (this.hasNextPage) {
         this.currentIndex++;
       } else {
-        // TODO: Add item to order
+        this.$session.addItemToOrder()
         this.$router.push({ name: 'orderSummary' })
       }
     }
@@ -91,22 +96,22 @@ export default {
       return this.currentIndex > 0
     },
     hasNextPage() {
-      return this.currentIndex < this.optionals.length - 1
+      return this.currentPage < this.numberOfPages
     },
     numberOfPages() {
-      return this.optionals.length
+      return this.item.optionals.length
+    },
+    isLastPage() {
+      return this.currentPage === this.numberOfPages
     },
     currentPage() {
       return this.currentIndex + 1
     },
-    optional() {
-      return this.optionals[this.currentIndex]
-    },
-    item() {
-      return this.$session.item
+    currentOptional() {
+      return this.item.optionals[this.currentIndex]
     },
     hasOptionals() {
-      return this.$session.started && this.optionals.length
+      return this.$session.started && this.item.optionals.length
     }
   },
   watch: {

@@ -1,22 +1,18 @@
 export default class Order {
-  _items = []
-  startedAt = new Date()
-  name = ''
-  mobile = ''
-  takeOut = false
-  total = 0
-
-  addItem(item) {
-    this._items.push(item)
-    this.total += item.price
+  constructor() {
+    this.startedAt = new Date()
+    this.name = ''
+    this.mobile = ''
+    this.takeOut = false
+    this.items = []
+    this.total = 0
   }
 
-  hasItem() {
-    return !!this._items.length
-  }
+  add(item) {
+    this.items.push(item)
 
-  lastItem() {
-    const last = this._items.length - 1
-    return this._items[last]
+    this.total = this.items
+      .map(item => item.total())
+      .reduce((total, subtotal) => total + subtotal, 0)
   }
 }
