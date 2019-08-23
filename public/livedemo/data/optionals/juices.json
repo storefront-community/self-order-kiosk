@@ -4,6 +4,7 @@
       "id": "jo001",
       "title": "How much sugar do you like?",
       "multichoice": false,
+      "required": true,
       "options": [
         {
           "id": "joo001",
@@ -31,7 +32,7 @@
       "id": "jo002",
       "title": "Would you like to add ice?",
       "multichoice": false,
-      "default": 2,
+      "required": true,
       "options": [
         {
           "id": "joo005",
