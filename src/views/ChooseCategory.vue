@@ -3,21 +3,21 @@
     <div class="app-header">
       <div class="container">
         <h1 class="display-3 py-2 text-center">
-          {{ category.name }}
+          What <span v-if="orderHasItem">else</span> would you like today?
         </h1>
       </div>
     </div>
     <div class="app-content">
       <div class="container">
         <Carousel ref="carousel">
-          <Food v-for="food in foods" :key="food.id" :food="food" @click="select(food)" />
+          <Category v-for="category in categories" :key="category.id" :category="category" @click="select(category)" />
         </Carousel>
       </div>
     </div>
     <div class="app-footer">
       <div class="container d-flex">
-        <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="back">
-          Back
+        <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="cancelOrder">
+          Cancel order
         </button>
         <div class="ml-auto px-3 py-3 text-right text-primary">
           Swipe to navigate and tap to select
@@ -29,38 +29,43 @@
 
 <script>
 import { Carousel } from '@/components'
-import Food from './Food'
+import Category from './partials/Category'
 
 export default {
-  name: 'chooseFood',
+  name: 'chooseCategory',
   components: {
     Carousel,
-    Food
+    Category
   },
   data() {
     return {
-      category: this.$session.category,
-      foods: []
+      order: this.$session.order,
+      categories: []
     }
   },
   async mounted() {
     if (!this.$session.started) return
 
-    this.foods = await this.$api.items.list(this.$session.category.id)
+    this.categories = await this.$api.categories.list()
 
     this.$nextTick(() => {
       this.$refs.carousel && this.$refs.carousel.load()
     })
   },
   methods: {
-    back() {
-      this.$router.push({ name: 'chooseCategory' })
+    cancelOrder() {
+      this.$router.push({ name: 'cancelOrder' })
     },
-    select(food) {
+    select(category) {
       if (this.$refs.carousel.isSliding) return
 
-      this.$session.item = food
-      this.$router.push({ name: 'customizeFood' })
+      this.$session.category = category
+      this.$router.push({ name: 'chooseFood' })
+    }
+  },
+  computed: {
+    orderHasItem() {
+      return !!this.$session.order.items.length
     }
   }
 }

@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import Optional from './Optional'
+import Optional from './partials/Optional'
 import { SlideTransition, SlideUpTransition } from '@/transitions'
 import waitTransition from '@/hacks/waitTransition'
 
