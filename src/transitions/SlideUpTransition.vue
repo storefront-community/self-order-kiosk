@@ -16,7 +16,6 @@ export default {
         yPercent: 10
       }, {
         autoAlpha: 1,
-        delay: .1,
         yPercent: 0,
         ease: Power4.easeIn,
         onComplete: done
