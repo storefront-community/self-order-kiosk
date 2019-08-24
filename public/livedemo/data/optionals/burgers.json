@@ -41,17 +41,17 @@
         },
         {
           "id": "boo006",
-          "name": "Minimum",
+          "name": "Minimum ketchup",
           "price": 0
         },
         {
           "id": "boo007",
-          "name": "Normal",
+          "name": "Normal ketchup",
           "price": 0
         },
         {
           "id": "boo008",
-          "name": "Maximum",
+          "name": "Maximum ketchup",
           "price": 0
         }
       ]
@@ -69,17 +69,17 @@
         },
         {
           "id": "boo010",
-          "name": "Minimum",
+          "name": "Minimum mustard",
           "price": 0
         },
         {
           "id": "boo011",
-          "name": "Normal",
+          "name": "Normal mustard",
           "price": 0
         },
         {
           "id": "boo012",
-          "name": "Maximum",
+          "name": "Maximum mustard",
           "price": 0
         }
       ]
