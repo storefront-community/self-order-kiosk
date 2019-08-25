@@ -5,6 +5,19 @@ export default class Item {
     this.price = params.price || 0
     this.imageUrl = params.imageUrl || ''
     this.optionals = []
+    this.quantity = 1
+  }
+
+  increment() {
+    if (this.quantity < 9) {
+      this.quantity++
+    }
+  }
+
+  decrement() {
+    if (this.quantity > 1) {
+      this.quantity--
+    }
   }
 
   options() {
@@ -20,6 +33,8 @@ export default class Item {
     total += this.options()
       .map(option => option.price)
       .reduce((total, subtotal) => total + subtotal, 0)
+
+    total *= this.quantity
 
     return total
   }
