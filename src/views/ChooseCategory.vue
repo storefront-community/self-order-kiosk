@@ -8,10 +8,12 @@
       </div>
     </div>
     <div class="app-content">
-      <div class="container">
-        <Carousel ref="carousel">
-          <Category v-for="category in categories" :key="category.id" :category="category" @click="select(category)" />
-        </Carousel>
+      <div ref="swiper" class="container swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" v-for="category in categories" :key="category.id">
+            <Category :category="category" @click="select(category)" />
+          </div>
+        </div>
       </div>
     </div>
     <div class="app-footer">
@@ -20,7 +22,7 @@
           Cancel order
         </button>
         <div class="ml-auto px-3 py-3 text-right text-primary">
-          Swipe to navigate and tap to select
+          Tap to select
         </div>
       </div>
     </div>
@@ -28,13 +30,12 @@
 </template>
 
 <script>
-import { Carousel } from '@/components'
+import Swiper from 'swiper';
 import Category from './partials/Category'
 
 export default {
   name: 'chooseCategory',
   components: {
-    Carousel,
     Category
   },
   data() {
@@ -49,7 +50,11 @@ export default {
     this.categories = await this.$api.categories.list()
 
     this.$nextTick(() => {
-      this.$refs.carousel && this.$refs.carousel.load()
+      new Swiper(this.$refs.swiper, {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        direction: 'horizontal'
+      })
     })
   },
   methods: {
@@ -57,8 +62,6 @@ export default {
       this.$router.push({ name: 'cancelOrder' })
     },
     select(category) {
-      if (this.$refs.carousel.isSliding) return
-
       this.$session.category = category
       this.$router.push({ name: 'chooseFood' })
     }

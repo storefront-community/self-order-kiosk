@@ -8,10 +8,12 @@
       </div>
     </div>
     <div class="app-content">
-      <div class="container">
-        <Carousel ref="carousel">
-          <Food v-for="food in foods" :key="food.id" :food="food" @click="select(food)" />
-        </Carousel>
+      <div ref="swiper" class="container swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" v-for="food in foods" :key="food.id">
+            <Food :food="food" @click="select(food)" />
+          </div>
+        </div>
       </div>
     </div>
     <div class="app-footer">
@@ -20,7 +22,7 @@
           Back
         </button>
         <div class="ml-auto px-3 py-3 text-right text-primary">
-          Swipe to navigate and tap to select
+          Tap to select
         </div>
       </div>
     </div>
@@ -28,13 +30,12 @@
 </template>
 
 <script>
-import { Carousel } from '@/components'
+import Swiper from 'swiper'
 import Food from './partials/Food'
 
 export default {
   name: 'chooseFood',
   components: {
-    Carousel,
     Food
   },
   data() {
@@ -49,7 +50,11 @@ export default {
     this.foods = await this.$api.items.list(this.$session.category.id)
 
     this.$nextTick(() => {
-      this.$refs.carousel && this.$refs.carousel.load()
+      new Swiper(this.$refs.swiper, {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        direction: 'horizontal'
+      })
     })
   },
   methods: {
@@ -57,8 +62,6 @@ export default {
       this.$router.push({ name: 'chooseCategory' })
     },
     select(food) {
-      if (this.$refs.carousel.isSliding) return
-
       this.$session.item = food
       this.$router.push({ name: 'customizeFood' })
     }

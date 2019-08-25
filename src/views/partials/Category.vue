@@ -1,5 +1,5 @@
 <template>
-  <ScaleTransition class="d-flex h-100">
+  <ScaleTransition>
     <button type="button" class="card border-0 bg-transparent align-items-center flex-grow-1"
       @click="$emit('click', category)">
       <div class="rounded-clipping rounded-clipping-lg">
