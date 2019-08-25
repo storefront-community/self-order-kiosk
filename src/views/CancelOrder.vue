@@ -28,7 +28,7 @@
 
 <script>
 export default {
-  name: 'orderComplete',
+  name: 'cancelOrder',
   beforeRouteEnter(to, from, next) {
     next(vm => {
       vm.previousRoute = from.name
