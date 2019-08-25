@@ -16,7 +16,7 @@
               </span>
             </button>
           </div>
-          <div class="col d-flex flex-column">
+          <div class="col d-flex flex-column" v-if="false">
             <h1 class="display-3 text-center mb-5">
               Use your mobile phone
             </h1>
@@ -46,6 +46,9 @@ import QRCode from '@chenfengyuan/vue-qrcode'
 
 export default {
   name: 'start',
+  components: {
+    QRCode
+  },
   mounted() {
     this.$session.start()
   },
@@ -53,9 +56,6 @@ export default {
     start() {
       this.$router.push({ name: 'chooseCategory' })
     }
-  },
-  components: {
-    QRCode
   }
 }
 </script>
