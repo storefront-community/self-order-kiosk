@@ -7,8 +7,7 @@
           {{ food.name }}
         </p>
         <p class="card-text text-right">
-          <small><sup>$</sup></small>
-          {{ food.price | numeral }}
+          <Currency :amount="food.price"/>
         </p>
       </div>
     </button>
@@ -16,6 +15,7 @@
 </template>
 
 <script>
+import { Currency } from '@/components'
 import ScaleTransition from '@/transitions/ScaleTransition'
 import { Item } from '@/models'
 
@@ -28,6 +28,7 @@ export default {
     }
   },
   components: {
+    Currency,
     ScaleTransition
   },
 }
