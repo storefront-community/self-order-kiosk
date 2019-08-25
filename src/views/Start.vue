@@ -24,7 +24,7 @@
               Scan the QR code and order your food
             </p>
             <div class="d-flex justify-content-center">
-              <QRCode value="https://storefront.community" :options="{ width: 256 }"/>
+              <QRCode value="https://kiosk.storefront.community" :options="{ width: 256 }"/>
             </div>
             <div class="text-center">
               <small>
