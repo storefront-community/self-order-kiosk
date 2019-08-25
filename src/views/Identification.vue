@@ -1,33 +1,28 @@
 <template>
   <form class="app-body" @submit.prevent="next" v-if="$session.started">
+    <div class="app-header">
+      <div class="container">
+        <h1 class="display-3 py-2 text-center">
+          Please tell us your name so we can call you.
+        </h1>
+      </div>
+    </div>
     <div class="app-content">
-      <div class="container container-sm d-flex flex-column">
-        <p class="mb-5">
-          We will only use this information to contact you if necessary.
-        </p>
-        <div class="mb-4">
+      <div class="container container-sm">
+        <div class="form-group">
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text">
                 <i class="lni-user ml-3"></i>
               </span>
             </div>
-            <input type="text" class="form-control form-control-lg border-left-0" placeholder="Your name"
-              v-model="order.name" maxlength="20">
-          </div>
-        </div>
-        <div class="mb-4">
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text">
-                <i class="lni-mobile ml-3"></i>
-              </span>
+            <div class="form-control form-control-lg border-left-0">
+              {{ order.name }}_
             </div>
-            <input type="text" class="form-control form-control-lg border-left-0" placeholder="Mobile number"
-              v-model="order.mobile" maxlength="20">
           </div>
         </div>
       </div>
+      <Keyboard v-model="order.name" :maxlength="20"/>
     </div>
     <div class="app-footer">
       <div class="container d-flex">
@@ -45,6 +40,8 @@
 </template>
 
 <script>
+import { Keyboard } from '@/components'
+
 export default {
   name: 'identification',
   data() {
@@ -52,11 +49,15 @@ export default {
       order: this.$session.order
     }
   },
+  components: {
+    Keyboard
+  },
   methods: {
     back() {
       this.$router.push({ name: 'eatLocation' })
     },
     next() {
+      this.order.name = this.order.name.trim()
       this.$router.push({ name: 'orderComplete' })
     }
   }
