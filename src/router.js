@@ -6,7 +6,7 @@ import ChooseFood from './views/ChooseFood.vue'
 import CustomizeFood from './views/CustomizeFood.vue'
 import EatLocation from './views/EatLocation.vue'
 import Identification from './views/Identification.vue'
-import OrderComplete from './views/OrderComplete.vue'
+import OrderCompleted from './views/OrderCompleted.vue'
 import OrderSummary from './views/OrderSummary.vue'
 import Start from './views/Start.vue'
 
@@ -63,9 +63,9 @@ export default new Router({
       meta: { step: 7 }
     },
     {
-      path: '/order-complete',
-      name: 'orderComplete',
-      component: OrderComplete,
+      path: '/order-completed',
+      name: 'orderCompleted',
+      component: OrderCompleted,
       meta: { step: 8 }
     }
   ]

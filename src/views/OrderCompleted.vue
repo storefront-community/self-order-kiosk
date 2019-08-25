@@ -33,7 +33,7 @@
 
 <script>
 export default {
-  name: 'orderComplete',
+  name: 'orderCompleted',
   data() {
     return {
       order: this.$session.order

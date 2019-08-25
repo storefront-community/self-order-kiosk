@@ -58,7 +58,7 @@ export default {
     },
     next() {
       this.order.name = this.order.name.trim()
-      this.$router.push({ name: 'orderComplete' })
+      this.$router.push({ name: 'orderCompleted' })
     }
   }
 }
