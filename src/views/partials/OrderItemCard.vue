@@ -25,13 +25,13 @@
       </div>
     </div>
     <div class="card-footer border-top-0 d-flex align-items-center">
-      <button type="button" class="btn btn-outline-primary" @click="decrement" style="border-radius: 50%">
+      <button type="button" class="btn btn-outline-primary rounded-pill" @click="decrement">
         <i class="fa fa-minus"></i>
       </button>
       <span class="mx-3">
         {{ item.quantity }}
       </span>
-      <button type="button" class="btn btn-outline-primary" @click="increment" style="border-radius: 50%">
+      <button type="button" class="btn btn-outline-primary rounded-pill" @click="increment">
         <i class="fa fa-plus"></i>
       </button>
       <h4 class="text-primary text-right m-0 ml-auto">
