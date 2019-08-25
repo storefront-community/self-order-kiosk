@@ -18,8 +18,9 @@
     </div>
     <div class="app-footer">
       <div class="container d-flex">
-        <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="cancelOrder">
-          Cancel order
+        <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="back">
+          <i class="fa fa-arrow-left"></i>
+          <span class="ml-3">Back</span>
         </button>
         <div class="ml-auto px-3 py-3 text-right text-primary">
           Tap to select
@@ -58,8 +59,9 @@ export default {
     })
   },
   methods: {
-    cancelOrder() {
-      this.$router.push({ name: 'cancelOrder' })
+    back() {
+      const routeName = this.orderHasItem ? 'orderSummary' : 'start'
+      this.$router.push({ name: routeName })
     },
     select(category) {
       this.$session.category = category

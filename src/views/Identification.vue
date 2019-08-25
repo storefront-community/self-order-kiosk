@@ -2,9 +2,6 @@
   <form class="app-body" @submit.prevent="next" v-if="$session.started">
     <div class="app-content">
       <div class="container container-sm d-flex flex-column">
-        <h1 class="display-3 mb-4">
-          Hi!
-        </h1>
         <p class="mb-5">
           We will only use this information to contact you if necessary.
         </p>
@@ -34,12 +31,13 @@
     </div>
     <div class="app-footer">
       <div class="container d-flex">
-        <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="cancel">
-          Never mind
+        <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="back">
+          <i class="fa fa-arrow-left"></i>
+          <span class="ml-3">Back</span>
         </button>
         <button type="submit" class="btn btn-primary btn-lg ml-auto">
-          <span class="mr-4">Continue</span>
-          <i class="fa fa-arrow-right"></i>
+          <i class="fa fa-check"></i>
+          <span class="ml-3">Complete</span>
         </button>
       </div>
     </div>
@@ -55,11 +53,11 @@ export default {
     }
   },
   methods: {
-    cancel() {
-      this.$router.push({ name: 'start' })
+    back() {
+      this.$router.push({ name: 'eatLocation' })
     },
     next() {
-      this.$router.push({ name: 'eatLocation' })
+      this.$router.push({ name: 'orderComplete' })
     }
   }
 }

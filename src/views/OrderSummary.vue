@@ -23,8 +23,8 @@
           Cancel order
         </button>
         <button type="submit" class="btn btn-primary btn-lg ml-auto">
-          <i class="fa fa-check"></i>
-          <span class="ml-3">Complete</span>
+          <span class="mr-4">Continue</span>
+          <i class="fa fa-arrow-right"></i>
         </button>
       </div>
     </div>
@@ -61,7 +61,7 @@ export default {
       this.$router.push({ name: 'cancelOrder' })
     },
     complete() {
-      this.$router.push({ name: 'orderComplete' })
+      this.$router.push({ name: 'eatLocation' })
     }
   }
 }

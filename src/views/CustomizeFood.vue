@@ -25,7 +25,8 @@
     <div class="app-footer">
       <div class="container d-flex">
         <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="back">
-          Back
+          <i class="fa fa-arrow-left"></i>
+          <span class="ml-3">Back</span>
         </button>
         <SlideUpTransition>
           <button type="submit" class="btn btn-primary btn-lg ml-auto" v-if="formIsValid">

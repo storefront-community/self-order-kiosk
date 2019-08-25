@@ -21,39 +21,39 @@ export default new Router({
       meta: { step: 0 }
     },
     {
-      path: '/identification',
-      name: 'identification',
-      component: Identification,
-      meta: { step: 1 }
-    },
-    {
-      path: '/eat-location',
-      name: 'eatLocation',
-      component: EatLocation,
-      meta: { step: 2 }
-    },
-    {
       path: '/choose-category',
       name: 'chooseCategory',
       component: ChooseCategory,
-      meta: { step: 3 }
+      meta: { step: 1 }
     },
     {
       path: '/choose-food',
       name: 'chooseFood',
       component: ChooseFood,
-      meta: { step: 4 }
+      meta: { step: 2 }
     },
     {
       path: '/customize-food',
       name: 'customizeFood',
       component: CustomizeFood,
-      meta: { step: 5 }
+      meta: { step: 3 }
     },
     {
       path: '/order-summary',
       name: 'orderSummary',
       component: OrderSummary,
+      meta: { step: 4 }
+    },
+    {
+      path: '/eat-location',
+      name: 'eatLocation',
+      component: EatLocation,
+      meta: { step: 5 }
+    },
+    {
+      path: '/identification',
+      name: 'identification',
+      component: Identification,
       meta: { step: 6 }
     },
     {

@@ -51,7 +51,7 @@ export default {
   },
   methods: {
     start() {
-      this.$router.push({ name: 'identification' })
+      this.$router.push({ name: 'chooseCategory' })
     }
   },
   components: {

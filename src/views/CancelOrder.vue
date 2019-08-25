@@ -2,13 +2,13 @@
   <form class="app-body" v-if="$session.started">
     <div class="app-content">
       <div class="container">
-        <p class="text-center text-primary">
+        <p class="text-center text-primary mb-4">
           <i class="fa fa-4x fa-times-circle"></i><br>
         </p>
-        <p class="display-3 text-center mb-5">
-          <span class="pt-3">Cancel order?</span>
-        </p>
         <p class="display-4 text-center">
+          Cancel order?
+        </p>
+        <p class="text-center">
           Your order will be permanently canceled. We can't undo this.
         </p>
       </div>

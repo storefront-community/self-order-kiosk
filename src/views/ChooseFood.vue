@@ -19,7 +19,8 @@
     <div class="app-footer">
       <div class="container d-flex">
         <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="back">
-          Back
+          <i class="fa fa-arrow-left"></i>
+          <span class="ml-3">Back</span>
         </button>
         <div class="ml-auto px-3 py-3 text-right text-primary">
           Tap to select
