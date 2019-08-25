@@ -19,7 +19,7 @@ import ScaleTransition from '@/transitions/ScaleTransition'
 import { Category } from '@/models'
 
 export default {
-  name: 'category',
+  name: 'categoryButton',
   props: {
     category: {
       type: Category,

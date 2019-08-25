@@ -31,7 +31,7 @@ import { Currency } from '@/components'
 import { SlideTransition } from '@/transitions'
 
 export default {
-  name: 'optionList',
+  name: 'optionSelect',
   props: {
     options: {
       type: Array,

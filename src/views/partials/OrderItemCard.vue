@@ -44,7 +44,7 @@ import { Currency } from '@/components'
 import { Item } from '@/models'
 
 export default {
-  name: 'orderItem',
+  name: 'orderItemCard',
   props: {
     item: {
       type: Item,

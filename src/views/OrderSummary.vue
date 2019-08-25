@@ -13,7 +13,7 @@
     <div class="app-content">
       <div ref="swiper" class="container swiper-container">
         <div class="swiper-wrapper">
-          <OrderItem class="swiper-slide" v-for="item in order.items" :key="item.id" :item="item"/>
+          <OrderItemCard class="swiper-slide" v-for="item in order.items" :key="item.id" :item="item"/>
         </div>
       </div>
     </div>
@@ -34,13 +34,13 @@
 <script>
 import Swiper from 'swiper'
 import { Currency } from '@/components'
-import OrderItem from './partials/OrderItem'
+import OrderItemCard from './partials/OrderItemCard'
 
 export default {
   name: 'orderSummary',
   components: {
     Currency,
-    OrderItem
+    OrderItemCard
   },
   data() {
     return {

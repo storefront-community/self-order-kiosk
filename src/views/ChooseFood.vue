@@ -11,7 +11,7 @@
       <div ref="swiper" class="container swiper-container">
         <div class="swiper-wrapper">
           <div class="swiper-slide" v-for="food in foods" :key="food.id">
-            <Food :food="food" @click="select(food)" />
+            <FoodButton :food="food" @click="select(food)" />
           </div>
         </div>
       </div>
@@ -31,12 +31,12 @@
 
 <script>
 import Swiper from 'swiper'
-import Food from './partials/Food'
+import FoodButton from './partials/FoodButton'
 
 export default {
   name: 'chooseFood',
   components: {
-    Food
+    FoodButton
   },
   data() {
     return {

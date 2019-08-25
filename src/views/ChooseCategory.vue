@@ -11,7 +11,7 @@
       <div ref="swiper" class="container swiper-container">
         <div class="swiper-wrapper">
           <div class="swiper-slide" v-for="category in categories" :key="category.id">
-            <Category :category="category" @click="select(category)" />
+            <CategoryButton :category="category" @click="select(category)" />
           </div>
         </div>
       </div>
@@ -31,12 +31,12 @@
 
 <script>
 import Swiper from 'swiper';
-import Category from './partials/Category'
+import CategoryButton from './partials/CategoryButton'
 
 export default {
   name: 'chooseCategory',
   components: {
-    Category
+    CategoryButton
   },
   data() {
     return {

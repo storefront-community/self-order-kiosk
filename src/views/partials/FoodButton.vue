@@ -20,7 +20,7 @@ import ScaleTransition from '@/transitions/ScaleTransition'
 import { Item } from '@/models'
 
 export default {
-  name: 'food',
+  name: 'foodButton',
   props: {
     food: {
       type: Item,

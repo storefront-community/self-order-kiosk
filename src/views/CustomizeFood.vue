@@ -16,7 +16,7 @@
     </div>
     <div class="app-content">
       <SlideTransition :direction="slide">
-        <OptionList
+        <OptionSelect
           :options="currentOptional.options"
           :multichoice="currentOptional.multichoice"
           :key="currentOptional.id"/>
@@ -44,14 +44,14 @@
 </template>
 
 <script>
-import OptionList from './partials/OptionList'
+import OptionSelect from './partials/OptionSelect'
 import { SlideTransition, SlideUpTransition } from '@/transitions'
 import waitTransition from '@/hacks/waitTransition'
 
 export default {
   name: 'customizeFood',
   components: {
-    OptionList,
+    OptionSelect,
     SlideTransition,
     SlideUpTransition
   },
