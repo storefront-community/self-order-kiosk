@@ -9,10 +9,13 @@
     </div>
     <div class="app-content">
       <div class="container">
-        <p class="display-2 text-center">
-          Thank you!
+        <p class="text-center mb-4">
+          <i class="far fa-4x fa-smile"></i>
         </p>
         <p class="display-3 text-center">
+          Thank you!
+        </p>
+        <p class="display-4 text-center">
           We'll let you know when we finish cooking.
         </p>
       </div>
