@@ -1,14 +1,21 @@
 <template>
   <form class="app-body" @submit.prevent="complete" v-if="$session.started">
     <div class="app-header">
-      <div class="container">
-        <h1 class="display-3 py-2 text-center">
-          Your order summary.
+      <div class="container d-flex">
+        <router-link :to="{ name: 'chooseCategory' }" class="btn btn-link">
+          <i class="fa fa-plus mr-2"></i> Add item
+        </router-link>
+        <h1 class="display-3 py-2 text-center ml-auto">
+          Total: <Currency :amount="order.total" class="text-primary"/>
         </h1>
       </div>
     </div>
     <div class="app-content">
-      <!-- TODO -->
+      <div ref="swiper" class="container swiper-container">
+        <div class="swiper-wrapper">
+          <OrderItem class="swiper-slide" v-for="item in order.items" :key="item.id" :item="item"/>
+        </div>
+      </div>
     </div>
     <div class="app-footer">
       <div class="container d-flex">
@@ -25,12 +32,29 @@
 </template>
 
 <script>
+import Swiper from 'swiper'
+import { Currency } from '@/components'
+import OrderItem from './partials/OrderItem'
+
 export default {
   name: 'orderSummary',
+  components: {
+    Currency,
+    OrderItem
+  },
   data() {
     return {
       order: this.$session.order
     }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      new Swiper(this.$refs.swiper, {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        direction: 'vertical'
+      })
+    })
   },
   methods: {
     cancelOrder() {

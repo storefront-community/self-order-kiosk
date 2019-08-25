@@ -7,14 +7,18 @@ export default class Item {
     this.optionals = []
   }
 
+  options() {
+    return this.optionals
+      .map(optional => optional.options
+        .filter(option => option.checked))
+      .reduce((all, options) => all.concat(options), [])
+  }
+
   total() {
     let total = this.price
 
-    total += this.optionals
-      .map(optional => optional.options
-        .filter(option => option.checked)
-        .map(option => option.price))
-      .reduce((all, options) => all.concat(options))
+    total += this.options()
+      .map(option => option.price)
       .reduce((total, subtotal) => total + subtotal, 0)
 
     return total

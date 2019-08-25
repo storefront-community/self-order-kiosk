@@ -6,22 +6,21 @@
           <img :src="item.imageUrl">
         </div>
         <h1 class="display-3 text-right">
-          {{ item.name }}<br>
-          <small class="text-primary">
-            <small>
-              <sup>$</sup>
-            </small>
-            {{ item.price | numeral }}
-          </small>
+          <SlideUpTransition :direction="slide">
+            <span :key="currentOptional.id">
+              {{ currentOptional.title }}
+            </span>
+          </SlideUpTransition>
         </h1>
       </div>
     </div>
     <div class="app-content">
-      <div class="container">
-        <SlideTransition :direction="slide">
-          <Optional :optional="currentOptional" :key="currentOptional.id"/>
-        </SlideTransition>
-      </div>
+      <SlideTransition :direction="slide">
+        <OptionList
+          :options="currentOptional.options"
+          :multichoice="currentOptional.multichoice"
+          :key="currentOptional.id"/>
+      </SlideTransition>
     </div>
     <div class="app-footer">
       <div class="container d-flex">
@@ -29,7 +28,7 @@
           Back
         </button>
         <SlideUpTransition>
-          <button type="submit" class="btn btn-primary btn-lg ml-auto" v-if="currentOptional.isValid()">
+          <button type="submit" class="btn btn-primary btn-lg ml-auto" v-if="formIsValid">
             <span class="mr-3" v-if="isLastPage">Add</span>
             <span class="mr-3" v-else>{{ currentPage }} of {{ numberOfPages }}</span>
             <i class="fa fa-arrow-right"></i>
@@ -45,14 +44,14 @@
 </template>
 
 <script>
-import Optional from './partials/Optional'
+import OptionList from './partials/OptionList'
 import { SlideTransition, SlideUpTransition } from '@/transitions'
 import waitTransition from '@/hacks/waitTransition'
 
 export default {
   name: 'customizeFood',
   components: {
-    Optional,
+    OptionList,
     SlideTransition,
     SlideUpTransition
   },
@@ -81,7 +80,7 @@ export default {
       }
     },
     next() {
-      if (!this.currentOptional.isValid()) return
+      if (!this.formIsValid) return
 
       if (this.hasNextPage) {
         this.currentIndex++;
@@ -106,6 +105,9 @@ export default {
     },
     currentPage() {
       return this.currentIndex + 1
+    },
+    formIsValid() {
+      return !this.item.optionals.length || this.currentOptional.isValid()
     },
     currentOptional() {
       return this.item.optionals[this.currentIndex]
