@@ -8,7 +8,7 @@
       "options": [
         {
           "id": "joo001",
-          "name": "Normal sugar",
+          "name": "No sugar",
           "price": 0
         },
         {
@@ -18,12 +18,12 @@
         },
         {
           "id": "joo003",
-          "name": "Maximum sugar",
+          "name": "Normal sugar",
           "price": 0
         },
         {
           "id": "joo004",
-          "name": "No sugar",
+          "name": "Maximum sugar",
           "price": 0
         }
       ]
@@ -36,7 +36,7 @@
       "options": [
         {
           "id": "joo005",
-          "name": "Normal ice",
+          "name": "No ice",
           "price": 0
         },
         {
@@ -46,12 +46,12 @@
         },
         {
           "id": "joo007",
-          "name": "Maximum ice",
+          "name": "Normal ice",
           "price": 0
         },
         {
           "id": "joo008",
-          "name": "No ice",
+          "name": "Maximum ice",
           "price": 0
         }
       ]
