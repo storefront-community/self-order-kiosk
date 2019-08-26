@@ -14,11 +14,11 @@ jobs:
       - checkout
       - run: npm install --only=production
       - run: npm run build
+      - run: git config --global user.name "$GIT_CONFIG_NAME"
+      - run: git config --global user.email "$GIT_CONFIG_EMAIL"
       - run: git worktree add ./gh-pages gh-pages
       - run: cp -r ./dist/* ./gh-pages/
       - run: echo "kiosk.storefront.community" > ./gh-pages/CNAME
-      - run: git config --global user.name "$GIT_CONFIG_NAME"
-      - run: git config --global user.email "$GIT_CONFIG_EMAIL"
       - run: cd ./gh-pages && git commit -am "[skip ci] Deploy $CIRCLE_TAG"
       - run: cd ./gh-pages && git push -f https://$GITHUB_USER:$GITHUB_TOKEN@github.com/storefront-community/self-order-kiosk.git HEAD:gh-pages
 workflows:
