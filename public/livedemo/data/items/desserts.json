@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "id": "d001",
+      "name": "Bake Baked Bakery",
+      "imageUrl": "/livedemo/img/items/desserts/bake-baked-bakery.jpg",
+      "price": 4.25
+    },
+    {
+      "id": "d002",
+      "name": "Baked Baking Cake",
+      "imageUrl": "/livedemo/img/items/desserts/baked-baking-cake.jpg",
+      "price": 3.50
+    },
+    {
+      "id": "d003",
+      "name": "Bananas Cake Ceramic",
+      "imageUrl": "/livedemo/img/items/desserts/bananas-cake-ceramic.jpg",
+      "price": 4.99
+    },
+    {
+      "id": "d004",
+      "name": "Chocolate Cake",
+      "imageUrl": "/livedemo/img/items/desserts/chocolate-cake.jpg",
+      "price": 3.50
+    },
+    {
+      "id": "d005",
+      "name": "Ice Cream",
+      "imageUrl": "/livedemo/img/items/desserts/ice-cream.jpg",
+      "price": 2.99
+    }
+  ]
+}

@@ -1,55 +1,44 @@
 <template>
-  <transition-group @enter="enter" @leave="leave" appear>
+  <transition @enter="enter" @leave="leave" mode="out-in" appear>
     <slot></slot>
-  </transition-group>
+  </transition>
 </template>
 
 <script>
-import { TweenMax, Power4, TimelineMax } from "gsap/TweenMax"
+import { TweenMax, Power4 } from "gsap/TweenMax"
 
 export default {
   name: 'slideTransition',
   props: {
-    delayEnter: {
-      type: Number,
-      default: () => 0
-    },
-    delayLeave: {
-      type: Number,
-      default: () => 0
+    direction: {
+      type: String,
+      required: true,
+      validator(value) {
+        return ['left', 'right'].includes(value)
+      }
     }
   },
   methods: {
     enter(el, done) {
-      const timeLineMax = new TimelineMax({
+      TweenMax.fromTo(el, .2, {
+        autoAlpha: 0,
+        xPercent: this.direction === 'left' ? 10 : -10
+      }, {
+        autoAlpha: 1,
+        delay: .1,
+        xPercent: 0,
+        ease: Power4.easeIn,
         onComplete: done
-      })
-
-      timeLineMax.set(el, {
-        x: window.innerWidth * 1.5,
-        scale: 0.8,
-        transformOrigin: '50% 50%'
-      })
-
-      timeLineMax.to(el, 0.5, {
-        delay: this.delayEnter,
-        x: 0,
-        ease: Power4.easeOut
-      })
-
-      timeLineMax.to(el, 1, {
-        delay: this.delayEnter,
-        scale: 1,
-        ease: Power4.easeOut
       })
     },
     leave(el, done) {
-      TweenMax.fromTo(el, 1, {
-        autoAlpha: 1
+      TweenMax.fromTo(el, .2, {
+        autoAlpha: 1,
+        xPercent: 0
       }, {
-        delay: this.delayLeave,
         autoAlpha: 0,
-        ease: Power4.easeOut,
+        xPercent: this.direction === 'left' ? -10 : 10,
+        ease: Power4.easeIn,
         onComplete: done
       })
     }

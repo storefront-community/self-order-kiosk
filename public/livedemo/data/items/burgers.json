@@ -1,0 +1,52 @@
+{
+  "items": [
+    {
+      "id": "b001",
+      "name": "Barbecue Burger",
+      "imageUrl": "/livedemo/img/items/burgers/barbecue-burger.jpg",
+      "price": 3.99
+    },
+    {
+      "id": "b002",
+      "name": "Beef Blur Bread",
+      "imageUrl": "/livedemo/img/items/burgers/beef-blur-bread.jpg",
+      "price": 4.50
+    },
+    {
+      "id": "b003",
+      "name": "Beef Bread Bun",
+      "imageUrl": "/livedemo/img/items/burgers/beef-bread-bun.jpg",
+      "price": 4.99
+    },
+    {
+      "id": "b004",
+      "name": "Big Burger",
+      "imageUrl": "/livedemo/img/items/burgers/big-burger.jpg",
+      "price": 5.00
+    },
+    {
+      "id": "b005",
+      "name": "Blur Buns Burger",
+      "imageUrl": "/livedemo/img/items/burgers/blur-buns-burger.jpg",
+      "price": 2.99
+    },
+    {
+      "id": "b006",
+      "name": "Cheeseburger with Fries",
+      "imageUrl": "/livedemo/img/items/burgers/cheeseburger-with-fries.jpg",
+      "price": 4.99
+    },
+    {
+      "id": "b007",
+      "name": "Light Burger",
+      "imageUrl": "/livedemo/img/items/burgers/light-burger.jpg",
+      "price": 1.99
+    },
+    {
+      "id": "b008",
+      "name": "Salad Burger",
+      "imageUrl": "/livedemo/img/items/burgers/salad-burger.jpg",
+      "price": 2.75
+    }
+  ]
+}

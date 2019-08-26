@@ -1,0 +1,25 @@
+.rounded-clipping {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+
+  > img {
+    display: inline-block;
+    margin: 0 auto;
+    margin-left: -25%; // centers the image
+    height: 100%;
+    width: auto;
+  }
+
+  &.rounded-clipping-sm {
+    width: 48px;
+    height: 48px;
+  }
+
+  &.rounded-clipping-lg {
+    width: 192px;
+    height: 192px;
+  }
+}

@@ -1,6 +1,6 @@
 $font-family-base: 'Maven Pro', sans-serif, Arial;
 
-$white:  #fff;
+$white: #fff;
 $gray-100: #f8f9fa;
 $gray-200: #e9ecef;
 $gray-300: #dee2e6;
@@ -10,12 +10,41 @@ $gray-600: #6c757d;
 $gray-700: #495057;
 $gray-800: #343a40;
 $gray-900: #212529;
-$black:  #000;
+$black: #000;
 
-$primary: #007bff;
+$primary: #fc1460;
 $secondary: $gray-100;
-$info: #3ca2e0;
+$info: #39d;
 $success: #2ecc71;
-$danger: #fc1460;
+$danger: #e43;
 $warning: #f39c12;
 $light: $white;
+
+$body-color: $gray-700;
+
+$font-size-base: 1.2rem;
+$font-weight-base: 300;
+
+$display1-size: 3.5rem;
+$display2-size: 3rem;
+$display3-size: 2.5rem;
+$display4-size: 2rem;
+
+$border-color: $gray-200;
+$border-radius: 0;
+$border-radius-lg: 0;
+$border-radius-sm: 0;
+
+$input-padding-y: 1rem;
+$input-padding-x: 1rem;
+$input-btn-padding-y-lg: 1rem;
+$input-btn-padding-x-lg: 2.5rem;
+$input-group-addon-color: $gray-500;
+$input-group-addon-bg: $white;
+$input-placeholder-color: $gray-500;
+
+$container-padding-x: 15px;
+
+$card-cap-bg: $gray-100;
+
+$link-hover-decoration: none;

@@ -1,0 +1,89 @@
+@mixin radio-color($name, $color) {
+  .radio.radio-#{$name} {
+    input[type=radio],
+    input[type=checkbox] {
+      + .check-mark,
+      + .check-mark:after {
+        background: $color;
+      }
+
+      &:focus + .check-mark {
+        box-shadow: 0 0 0 .2rem rgba($color, .25);
+      }
+    }
+  }
+}
+
+.radio {
+  display: flex;
+  position: relative;
+  align-items: center;
+  font-size: 1.5rem;
+  user-select: none;
+  margin: 0;
+
+  input[type=radio],
+  input[type=checkbox] {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+
+    + .check-mark {
+      position: relative;
+      margin-right: 1rem;
+      height: 1.375rem;
+      width: 1.375rem;
+      border-radius: 50%;
+      transition: box-shadow .2s ease;
+
+      &:before,
+      &:after {
+        border-radius: 50%;
+        content: "";
+        position: absolute;
+        top: .125rem;
+        left: .125rem;
+        width: 1.125rem;
+        height: 1.125rem;
+      }
+
+      &:before {
+        background: $white;
+      }
+
+      &:after {
+        border: .1875rem solid $white;
+        transform: scale(0);
+        transition: transform .2s ease;
+      }
+    }
+
+    + .check-mark,
+    + .check-mark:after {
+      background: darken($gray-500, 20%);
+    }
+
+    &:focus + .check-mark {
+      box-shadow: 0 0 0 .2rem rgba(darken($gray-500, 20%), .25);
+    }
+
+    &:checked + .check-mark:after {
+      transform: scale(1);
+    }
+
+    &:disabled + .check-mark {
+      cursor: not-allowed;
+
+      &:after {
+        opacity: .5;
+      }
+    }
+  }
+}
+
+@include radio-color(danger, $danger);
+@include radio-color(info, $info);
+@include radio-color(primary, $primary);
+@include radio-color(success, $success);
+@include radio-color(warning, $warning);

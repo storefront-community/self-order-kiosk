@@ -1,8 +1,21 @@
 @import 'variables';
 
 @import 'node_modules/bootstrap/scss/bootstrap';
+@import "node_modules/swiper/dist/css/swiper";
 
 @import "mixins/flex-mixins";
 
+@import "beta-badge";
 @import "body";
+@import "border";
+@import "button";
+@import "container";
+@import "content";
+@import "checkbox";
+@import "footer";
+@import "header";
+@import "image";
+@import "keyboard";
 @import "loader";
+@import "radio-button";
+@import "swiper";

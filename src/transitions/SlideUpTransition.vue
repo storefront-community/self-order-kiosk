@@ -1,53 +1,34 @@
 <template>
-  <transition-group @enter="enter" @leave="leave" appear>
+  <transition @enter="enter" @leave="leave" mode="out-in" appear>
     <slot></slot>
-  </transition-group>
+  </transition>
 </template>
 
 <script>
-import { TweenMax, Power4, TimelineMax } from "gsap/TweenMax"
+import { TweenMax, Power4 } from "gsap/TweenMax"
 
 export default {
   name: 'slideUpTransition',
-  props: {
-    delayEnter: {
-      type: Number,
-      default: () => 0
-    },
-    delayLeave: {
-      type: Number,
-      default: () => 0
-    }
-  },
   methods: {
     enter(el, done) {
-      const timeLineMax = new TimelineMax({
+      TweenMax.fromTo(el, .2, {
+        autoAlpha: 0,
+        yPercent: 10
+      }, {
+        autoAlpha: 1,
+        yPercent: 0,
+        ease: Power4.easeIn,
         onComplete: done
-      })
-
-      timeLineMax.set(el, {
-        y: window.innerWidth * 1.5,
-        scale: 0.8,
-        transformOrigin: '50% 50%'
-      })
-
-      timeLineMax.to(el, 0.5, {
-        delay: this.delayEnter,
-        y: 0,
-        ease: Power4.easeOut
-      })
-
-      timeLineMax.to(el, 1, {
-        delay: this.delayEnter,
-        scale: 1,
-        ease: Power4.easeOut
       })
     },
     leave(el, done) {
-      TweenMax.to(el, 1, {
-        delay: this.delayLeave,
-        y: window.innerHeight * -1.5,
-        ease: Power4.easeOut,
+      TweenMax.fromTo(el, .2, {
+        autoAlpha: 1,
+        yPercent: 0
+      }, {
+        autoAlpha: 0,
+        yPercent: -10,
+        ease: Power4.easeIn,
         onComplete: done
       })
     }

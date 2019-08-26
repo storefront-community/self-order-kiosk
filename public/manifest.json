@@ -1,6 +1,6 @@
 {
-  "name": "Storefront POS",
-  "short_name": "Storefront POS",
+  "name": "Self-Order",
+  "short_name": "Self-Order",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",

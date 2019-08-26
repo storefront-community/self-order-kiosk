@@ -1,10 +1,19 @@
-html, body, #app {
-  height: 100%;
+html, body {
+  height: 100vh;
 }
 
-body, #app {
+#app {
+  position: absolute;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+#app .app-body {
   display: flex;
   flex-direction: column;
-
-  @include flex-vertical-align();
+  flex-wrap: nowrap;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
 }
