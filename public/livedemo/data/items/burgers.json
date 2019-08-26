@@ -44,12 +44,6 @@
     },
     {
       "id": "b008",
-      "name": "Portion of Fries",
-      "imageUrl": "/livedemo/img/items/burgers/portion-of-fries.jpg",
-      "price": 1.75
-    },
-    {
-      "id": "b009",
       "name": "Salad Burger",
       "imageUrl": "/livedemo/img/items/burgers/salad-burger.jpg",
       "price": 2.75
