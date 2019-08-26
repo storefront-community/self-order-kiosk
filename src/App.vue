@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <div class="beta-badge"></div>
     <SlideTransition :direction="slide">
       <router-view/>
     </SlideTransition>
