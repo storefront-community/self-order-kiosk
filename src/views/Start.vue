@@ -63,6 +63,7 @@ export default {
   methods: {
     changeLocale(locale) {
       this.$i18n.locale = locale
+      this.$session.locale = locale
     },
     start() {
       this.$router.push({ name: 'chooseCategory' })

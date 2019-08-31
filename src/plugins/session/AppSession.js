@@ -6,6 +6,7 @@ export default class AppSession {
     this.category = null
     this.item = null
     this.started = false
+    this.locale = /br/i.test(navigator.language) ? 'br' : 'en'
   }
 
   start() {
