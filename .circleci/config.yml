@@ -14,10 +14,9 @@ jobs:
       - checkout
       - run: npm install
       - run: npm run build
-      - run: git checkout --orphan gh-pages
-      - run: ls -A | grep -v ".git\|dist" | xargs rm -rf
-      - run: cp -r dist/* .
+      - run: ls -A | grep -v ".git$\|dist" | xargs rm -rf && cp -r dist/* .
       - run: echo "kiosk.storefront.community" > CNAME
+      - run: git checkout --orphan gh-pages
       - run: git config --global user.name "$GIT_CONFIG_NAME"
       - run: git config --global user.email "$GIT_CONFIG_EMAIL"
       - run: git add .
