@@ -35,7 +35,7 @@
             <i class="fa fa-check"></i>
             <span class="ml-3">Complete</span>
           </button>
-          <div class="ml-auto px-3 py-3 text-right text-primary" v-else>
+          <div class="ml-auto p-3 text-right text-primary" v-else>
             Please type your name
           </div>
         </SlideUpTransition>
