@@ -30,12 +30,12 @@
 
     &.shadow-start::before {
       left: 0;
-      background: linear-gradient(to right, rgba($black, .1) 0%, transparent 100%);
+      background: linear-gradient(to right, rgba($black, .05) 0%, transparent 100%);
     }
 
     &.shadow-end::after {
       right: 0;
-      background: linear-gradient(to left, rgba($black, .1) 0%, transparent 100%);
+      background: linear-gradient(to left, rgba($black, .05) 0%, transparent 100%);
     }
   }
 
@@ -56,12 +56,12 @@
 
     &.shadow-start::before {
       top: 0;
-      background: linear-gradient(to bottom, rgba($black, .1) 0%, transparent 100%);
+      background: linear-gradient(to bottom, rgba($black, .05) 0%, transparent 100%);
     }
 
     &.shadow-end::after {
       bottom: 0;
-      background: linear-gradient(to top, rgba($black, .1) 0%, transparent 100%);
+      background: linear-gradient(to top, rgba($black, .05) 0%, transparent 100%);
     }
   }
 }
