@@ -8,13 +8,11 @@
       </div>
     </div>
     <div class="app-content">
-      <div ref="swiper" class="container swiper-container">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide" v-for="category in categories" :key="category.id">
+      <SwiperContainer ref="swiper">
+        <SwiperSlide v-for="category in categories" :key="category.id">
             <CategoryButton :category="category" @click="select(category)" />
-          </div>
-        </div>
-      </div>
+        </SwiperSlide>
+      </SwiperContainer>
     </div>
     <div class="app-footer">
       <div class="container d-flex">
@@ -31,13 +29,15 @@
 </template>
 
 <script>
-import Swiper from 'swiper';
+import { SwiperContainer, SwiperSlide } from '@/components'
 import CategoryButton from './partials/CategoryButton'
 
 export default {
   name: 'chooseCategory',
   components: {
-    CategoryButton
+    CategoryButton,
+    SwiperContainer,
+    SwiperSlide
   },
   data() {
     return {
@@ -50,12 +50,11 @@ export default {
 
     this.categories = await this.$api.categories.list()
 
-    this.$nextTick(() => {
-      new Swiper(this.$refs.swiper, {
-        slidesPerView: 3,
-        spaceBetween: 30,
-        direction: 'horizontal'
-      })
+    this.$refs.swiper.init({
+      slidesPerView: Math.min(this.categories.length, 3.5),
+      spaceBetween: 30,
+      direction: 'horizontal',
+      shadowEnabled: this.categories.length > 3
     })
   },
   methods: {

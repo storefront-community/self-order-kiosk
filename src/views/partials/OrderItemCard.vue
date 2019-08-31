@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card h-100">
     <div class="card-body d-flex">
       <div class="rounded-clipping mr-4">
         <img :src="item.imageUrl">

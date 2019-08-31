@@ -8,13 +8,11 @@
       </div>
     </div>
     <div class="app-content">
-      <div ref="swiper" class="container swiper-container">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide" v-for="food in foods" :key="food.id">
-            <FoodButton :food="food" @click="select(food)" />
-          </div>
-        </div>
-      </div>
+      <SwiperContainer ref="swiper">
+        <SwiperSlide v-for="food in foods" :key="food.id">
+          <FoodButton :food="food" @click="select(food)" />
+        </SwiperSlide>
+      </SwiperContainer>
     </div>
     <div class="app-footer">
       <div class="container d-flex">
@@ -31,13 +29,15 @@
 </template>
 
 <script>
-import Swiper from 'swiper'
+import { SwiperContainer, SwiperSlide } from '@/components'
 import FoodButton from './partials/FoodButton'
 
 export default {
   name: 'chooseFood',
   components: {
-    FoodButton
+    FoodButton,
+    SwiperContainer,
+    SwiperSlide
   },
   data() {
     return {
@@ -50,12 +50,11 @@ export default {
 
     this.foods = await this.$api.items.list(this.$session.category.id)
 
-    this.$nextTick(() => {
-      new Swiper(this.$refs.swiper, {
-        slidesPerView: 3,
-        spaceBetween: 30,
-        direction: 'horizontal'
-      })
+    this.$refs.swiper.init({
+      slidesPerView: Math.min(this.foods.length, 3.5),
+      spaceBetween: 30,
+      direction: 'horizontal',
+      shadowEnabled: this.foods.length > 3
     })
   },
   methods: {

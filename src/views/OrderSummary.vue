@@ -11,11 +11,11 @@
       </div>
     </div>
     <div class="app-content">
-      <div ref="swiper" class="container swiper-container">
-        <div class="swiper-wrapper">
-          <OrderItemCard class="swiper-slide" v-for="item in order.items" :key="item.id" :item="item"/>
-        </div>
-      </div>
+      <SwiperContainer ref="swiper" class="h-100">
+        <SwiperSlide class="h-100" v-for="item in order.items" :key="item.id">
+          <OrderItemCard class="swiper-slide" :item="item"/>
+        </SwiperSlide>
+      </SwiperContainer>
     </div>
     <div class="app-footer">
       <div class="container d-flex">
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import Swiper from 'swiper'
+import { SwiperContainer, SwiperSlide } from '@/components'
 import { Currency } from '@/components'
 import OrderItemCard from './partials/OrderItemCard'
 
@@ -40,7 +40,9 @@ export default {
   name: 'orderSummary',
   components: {
     Currency,
-    OrderItemCard
+    OrderItemCard,
+    SwiperContainer,
+    SwiperSlide
   },
   data() {
     return {
@@ -48,12 +50,11 @@ export default {
     }
   },
   mounted() {
-    this.$nextTick(() => {
-      new Swiper(this.$refs.swiper, {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        direction: 'vertical'
-      })
+    this.$refs.swiper.init({
+      slidesPerView: Math.min(this.order.items.length, 1.25),
+      spaceBetween: 20,
+      direction: 'horizontal',
+      shadowEnabled: this.order.items.length > 1
     })
   },
   methods: {
