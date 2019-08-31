@@ -1,5 +1,43 @@
 .swiper-container {
   display: flex;
+  position: relative;
+
+  .swiper-wrapper {
+    flex-grow: 1;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: $zindex-fixed;
+    opacity: 0;
+    transition: opacity .3s ease-in;
+  }
+
+  &.shadow-start::before,
+  &.shadow-end::after {
+    opacity: 1;
+  }
+
+  &.swiper-container-horizontal {
+    &::before,
+    &::after {
+      width: 15px;
+      height: 100%;
+    }
+
+    &.shadow-start::before {
+      left: 0;
+      background: linear-gradient(to right, rgba($black, .05) 0%, transparent 100%);
+    }
+
+    &.shadow-end::after {
+      right: 0;
+      background: linear-gradient(to left, rgba($black, .05) 0%, transparent 100%);
+    }
+  }
 
   &.swiper-container-vertical {
     flex: 1;
@@ -9,13 +47,21 @@
     .swiper-wrapper {
       flex-direction: column;
     }
-  }
 
-  &.container {
-    @extend .container;
-  }
+    &::before,
+    &::after {
+      width: 100%;
+      height: 15px;
+    }
 
-  .swiper-wrapper {
-    flex-grow: 1;
+    &.shadow-start::before {
+      top: 0;
+      background: linear-gradient(to bottom, rgba($black, .05) 0%, transparent 100%);
+    }
+
+    &.shadow-end::after {
+      bottom: 0;
+      background: linear-gradient(to top, rgba($black, .05) 0%, transparent 100%);
+    }
   }
 }
