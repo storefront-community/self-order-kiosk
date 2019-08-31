@@ -2,13 +2,13 @@
   <ScaleTransition>
     <button type="button" class="card bg-transparent h-100" @click="$emit('click', food)">
       <img :src="food.imageUrl" class="card-img-top" :alt="food.name">
-      <div class="card-body d-flex flex-column">
-        <p class="card-title flex-grow-1">
-          {{ food.name }}
-        </p>
-        <p class="card-text text-right">
+      <div class="card-body d-flex align-items-center">
+        <div class="card-text">
+          <div class="mb-2">
+            {{ food.name }}
+          </div>
           <Currency :amount="food.price"/>
-        </p>
+        </div>
       </div>
     </button>
   </ScaleTransition>
