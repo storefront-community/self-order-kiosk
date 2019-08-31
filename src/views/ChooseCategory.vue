@@ -20,7 +20,7 @@
           <i class="fa fa-arrow-left"></i>
           <span class="ml-3">Back</span>
         </button>
-        <div class="ml-auto px-3 py-3 text-right text-primary">
+        <div class="ml-auto p-3 text-right text-primary">
           Tap to select
         </div>
       </div>
