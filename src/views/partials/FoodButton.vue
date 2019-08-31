@@ -4,8 +4,10 @@
       <img :src="food.imageUrl" class="card-img-top" :alt="food.name">
       <div class="card-body d-flex align-items-center">
         <div class="card-text">
-          <div class="mb-2">{{ food.name }}</div>
-          <div><Currency :amount="food.price"/></div>
+          <div class="mb-2">
+            {{ food.name }}
+          </div>
+          <Currency :amount="food.price"/>
         </div>
       </div>
     </button>
