@@ -9,3 +9,12 @@ button.card {
     width: 100%
   }
 }
+
+.btn.btn-flag {
+  box-shadow: none;
+
+  .flag-icon {
+    width: 5rem;
+    height: 5rem;
+  }
+}
