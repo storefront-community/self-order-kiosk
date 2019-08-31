@@ -3,12 +3,12 @@
     <button type="button" class="card bg-transparent h-100" @click="$emit('click', food)">
       <img :src="food.imageUrl" class="card-img-top" :alt="food.name">
       <div class="card-body d-flex flex-column">
-        <p class="card-title flex-grow-1">
+        <div class="card-title flex-grow-1">
           {{ food.name }}
-        </p>
-        <p class="card-text text-right">
+        </div>
+        <div class="card-text">
           <Currency :amount="food.price"/>
-        </p>
+        </div>
       </div>
     </button>
   </ScaleTransition>
