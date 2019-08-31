@@ -3,7 +3,7 @@
     <div ref="swiper" class="container swiper-container">
       <div class="swiper-wrapper">
         <div class="swiper-slide card" v-for="option in options" :key="option.id">
-          <div class="card-body d-flex">
+          <div class="card-body d-flex align-items-center">
             <label class="checkbox checkbox-primary" v-if="multichoice">
               <input type="checkbox" v-model="option.checked">
               <span class="check-mark"></span> {{ option.name }}
@@ -49,7 +49,7 @@ export default {
   mounted() {
     this.$nextTick(() => {
       new Swiper(this.$refs.swiper, {
-        slidesPerView: 4,
+        slidesPerView: 5,
         spaceBetween: 20,
         direction: 'vertical'
       })
