@@ -3,7 +3,7 @@
     <div class="app-header">
       <div class="container">
         <h1 class="display-3 py-2 text-center">
-          Please tell us your name so we can call you.
+          How can we call you?
         </h1>
       </div>
     </div>
@@ -30,10 +30,15 @@
           <i class="fa fa-arrow-left"></i>
           <span class="ml-3">Back</span>
         </button>
-        <button type="submit" class="btn btn-primary btn-lg ml-auto">
-          <i class="fa fa-check"></i>
-          <span class="ml-3">Complete</span>
-        </button>
+        <SlideUpTransition>
+          <button type="submit" class="btn btn-primary btn-lg ml-auto" v-if="formIsValid">
+            <i class="fa fa-check"></i>
+            <span class="ml-3">Complete</span>
+          </button>
+          <div class="ml-auto px-3 py-3 text-right text-primary" v-else>
+            Please type your name
+          </div>
+        </SlideUpTransition>
       </div>
     </div>
   </form>
@@ -41,16 +46,18 @@
 
 <script>
 import { Keyboard } from '@/components'
+import { SlideUpTransition } from '@/transitions'
 
 export default {
   name: 'identification',
+  components: {
+    Keyboard,
+    SlideUpTransition
+  },
   data() {
     return {
       order: this.$session.order
     }
-  },
-  components: {
-    Keyboard
   },
   methods: {
     back() {
@@ -59,6 +66,11 @@ export default {
     next() {
       this.order.name = this.order.name.trim()
       this.$router.push({ name: 'orderCompleted' })
+    }
+  },
+  computed: {
+    formIsValid() {
+      return this.order.name.trim().length >= 3
     }
   }
 }
