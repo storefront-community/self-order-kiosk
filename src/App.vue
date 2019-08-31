@@ -20,7 +20,10 @@ export default {
     SlideTransition
   },
   mounted() {
+    this.$i18n.locale = /br/i.test(navigator.language) ? 'br' : 'en';
+
     if (this.$session.started) return
+
     waitTransition(() => this.start())
   },
   data() {
