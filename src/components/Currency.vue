@@ -1,6 +1,6 @@
 <template>
   <span>
-    <small><sup>$</sup></small>{{ amount | numeral }}
+    <small><sup>{{ symbol }}</sup></small>{{ amount | numeral(locale) }}
   </span>
 </template>
 
@@ -11,6 +11,14 @@ export default {
     amount: {
       type: Number,
       default: () => 0
+    }
+  },
+  computed: {
+    locale() {
+      return this.$session.locale
+    },
+    symbol() {
+      return this.locale === 'br' ? 'R$' : '$'
     }
   }
 }
