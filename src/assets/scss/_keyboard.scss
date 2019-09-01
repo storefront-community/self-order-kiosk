@@ -1,12 +1,22 @@
 .keyboard {
   margin: 40px 0;
 
-  .btn-key {
+  .btn-key,
+  .btn-space {
     border: $border-width $gray-500 solid;
-    border-radius: 50%;
     margin: 5px;
     box-shadow: none;
     height: 64px;
+  }
+
+  .btn-key {
+    border-radius: 64px;
     width: 64px;
+  }
+
+  .btn-space {
+    border-radius: 32px;
+    max-width: 480px;
+    width: 100%;
   }
 }

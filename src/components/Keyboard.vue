@@ -22,10 +22,8 @@
       <button type="button" class="btn btn-key" @click="type('J')">J</button>
       <button type="button" class="btn btn-key" @click="type('K')">K</button>
       <button type="button" class="btn btn-key" @click="type('L')">L</button>
-      <button type="button" class="btn btn-key" @click="type('Ç')">Ç</button>
     </div>
     <div class="text-center">
-      <button type="button" class="btn btn-key" @click="type(' ')">_</button>
       <button type="button" class="btn btn-key" @click="type('Z')">Z</button>
       <button type="button" class="btn btn-key" @click="type('X')">X</button>
       <button type="button" class="btn btn-key" @click="type('C')">C</button>
@@ -35,6 +33,11 @@
       <button type="button" class="btn btn-key" @click="type('M')">M</button>
       <button type="button" class="btn btn-key" @click="backspace()">
         <i class="fa fa-backspace"></i>
+      </button>
+    </div>
+    <div class="text-center">
+      <button type="button" class="btn btn-space" @click="type(' ')">
+        {{ $t('space') }}
       </button>
     </div>
   </div>
@@ -66,3 +69,14 @@ export default {
   }
 }
 </script>
+
+<i18n>
+{
+  "br": {
+    "space": "espaço"
+  },
+  "en": {
+    "space": "space"
+  }
+}
+</i18n>
