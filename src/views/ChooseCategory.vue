@@ -57,6 +57,8 @@ export default {
 
     this.categories = await this.$api.categories.list()
 
+    if (!this.$refs.swiper) return
+
     this.$refs.swiper.init({
       slidesPerView: Math.min(this.categories.length, 3.5),
       spaceBetween: 30,

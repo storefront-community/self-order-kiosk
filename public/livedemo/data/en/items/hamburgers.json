@@ -1,0 +1,52 @@
+{
+  "items": [
+    {
+      "id": "b001",
+      "name": "Barbecue burger",
+      "imageUrl": "/livedemo/img/items/hamburgers/barbecue-burger.jpg",
+      "price": 3.99
+    },
+    {
+      "id": "b002",
+      "name": "Milanese steak",
+      "imageUrl": "/livedemo/img/items/hamburgers/milanese-steak.jpg",
+      "price": 4.50
+    },
+    {
+      "id": "b003",
+      "name": "Flambe meat",
+      "imageUrl": "/livedemo/img/items/hamburgers/flambe-meat.jpg",
+      "price": 4.99
+    },
+    {
+      "id": "b004",
+      "name": "Cheddar cheese and white sauce",
+      "imageUrl": "/livedemo/img/items/hamburgers/cheese-and-white-sauce.jpg",
+      "price": 5.00
+    },
+    {
+      "id": "b005",
+      "name": "Spicy burger",
+      "imageUrl": "/livedemo/img/items/hamburgers/spicy-burger.jpg",
+      "price": 2.99
+    },
+    {
+      "id": "b006",
+      "name": "Cheeseburger with fries",
+      "imageUrl": "/livedemo/img/items/hamburgers/cheeseburger-with-fries.jpg",
+      "price": 4.99
+    },
+    {
+      "id": "b007",
+      "name": "Light burger",
+      "imageUrl": "/livedemo/img/items/hamburgers/light-burger.jpg",
+      "price": 1.99
+    },
+    {
+      "id": "b008",
+      "name": "Vegetarian",
+      "imageUrl": "/livedemo/img/items/hamburgers/salad-burger.jpg",
+      "price": 2.75
+    }
+  ]
+}

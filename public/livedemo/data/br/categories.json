@@ -1,18 +1,18 @@
 {
   "categories": [
     {
-      "id": "burgers",
-      "name": "Burgers",
-      "imageUrl": "/livedemo/img/categories/burgers.jpg"
+      "id": "hamburgers",
+      "name": "Hambúrguer",
+      "imageUrl": "/livedemo/img/categories/hamburgers.jpg"
     },
     {
       "id": "desserts",
-      "name": "Desserts",
+      "name": "Sobremesa",
       "imageUrl": "/livedemo/img/categories/desserts.jpg"
     },
     {
       "id": "juices",
-      "name": "Juices",
+      "name": "Suco",
       "imageUrl": "/livedemo/img/categories/juices.jpg"
     }
   ]
