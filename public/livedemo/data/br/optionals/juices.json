@@ -2,56 +2,56 @@
   "optionals": [
     {
       "id": "jo001",
-      "title": "How much sugar do you like?",
+      "title": "Quanto de açúcar você gosta?",
       "multichoice": false,
       "required": true,
       "options": [
         {
           "id": "joo001",
-          "name": "No sugar",
+          "name": "Sem açúcar",
           "price": 0
         },
         {
           "id": "joo002",
-          "name": "Minimum sugar",
+          "name": "Pouco açúcar",
           "price": 0
         },
         {
           "id": "joo003",
-          "name": "Normal sugar",
+          "name": "Médio açúcar",
           "price": 0
         },
         {
           "id": "joo004",
-          "name": "Maximum sugar",
+          "name": "Bastante açúcar",
           "price": 0
         }
       ]
     },
     {
       "id": "jo002",
-      "title": "Would you like to add ice?",
+      "title": "Gostaria de adicionar gelo?",
       "multichoice": false,
       "required": true,
       "options": [
         {
           "id": "joo005",
-          "name": "No ice",
+          "name": "Sem gelo",
           "price": 0
         },
         {
           "id": "joo006",
-          "name": "Minimum ice",
+          "name": "Pouco gelo",
           "price": 0
         },
         {
           "id": "joo007",
-          "name": "Normal ice",
+          "name": "Médio gelo",
           "price": 0
         },
         {
           "id": "joo008",
-          "name": "Maximum ice",
+          "name": "Bastante gelo",
           "price": 0
         }
       ]
