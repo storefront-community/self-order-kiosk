@@ -16,7 +16,7 @@
               <Currency :amount="option.price"/>
             </div>
             <div class="pl-3 ml-auto text-muted" v-else>
-              no cost
+              {{ $t('no_cost') }}
             </div>
           </div>
         </div>
@@ -67,3 +67,14 @@ export default {
   }
 }
 </script>
+
+<i18n>
+{
+  "br": {
+    "no_cost": "sem custo"
+  },
+  "en": {
+    "no_cost": "no cost"
+  }
+}
+</i18n>
