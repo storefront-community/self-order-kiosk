@@ -6,20 +6,20 @@
           <i class="fa fa-4x fa-times-circle"></i><br>
         </p>
         <p class="display-4 text-center">
-          Cancel order?
+          {{ $t('cancel_order') }}
         </p>
         <p class="text-center">
-          Your order will be permanently canceled. We can't undo this.
+          {{ $t('warning') }}
         </p>
       </div>
     </div>
     <div class="app-footer">
       <div class="container d-flex">
         <button type="button" class="btn btn-primary btn-lg mr-auto" @click="neverMind">
-          No, do not cancel
+          {{ $t('no') }}
         </button>
         <button type="button" class="btn btn-outline-primary btn-lg ml-auto" @click="cancel">
-          Yes, cancel order
+          {{ $t('yes') }}
         </button>
       </div>
     </div>
@@ -49,3 +49,20 @@ export default {
   }
 }
 </script>
+
+<i18n>
+{
+  "br": {
+    "cancel_order": "Cancelar pedido?",
+    "warning": "Seu pedido será cancelado. Nós não poderemos desfazer essa ação.",
+    "no": "Não, não cancele",
+    "yes": "Sim, cancele o pedido"
+  },
+  "en": {
+    "cancel_order": "Cancel order?",
+    "warning": "Your order will be canceled. We can't undo this action.",
+    "no": "No, do not cancel",
+    "yes": "Yes, cancel order"
+  }
+}
+</i18n>

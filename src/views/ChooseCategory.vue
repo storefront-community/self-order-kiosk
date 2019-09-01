@@ -3,7 +3,12 @@
     <div class="app-header">
       <div class="container">
         <h1 class="display-3 py-2 text-center">
-          What <span v-if="orderHasItem">else</span> would you like today?
+          <span v-if="orderHasItem">
+            {{ $t('title_with_items') }}
+          </span>
+          <span v-else>
+            {{ $t('title_without_items') }}
+          </span>
         </h1>
       </div>
     </div>
@@ -18,10 +23,10 @@
       <div class="container d-flex">
         <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="back">
           <i class="fa fa-arrow-left"></i>
-          <span class="ml-3">Back</span>
+          <span class="ml-3">{{ $t('back') }}</span>
         </button>
         <div class="ml-auto p-3 text-right text-primary">
-          Tap to select
+          {{ $t('tap_to_select') }}
         </div>
       </div>
     </div>
@@ -46,6 +51,8 @@ export default {
     }
   },
   async mounted() {
+    this.$i18n.locale = this.$session.locale
+
     if (!this.$session.started) return
 
     this.categories = await this.$api.categories.list()
@@ -74,3 +81,20 @@ export default {
   }
 }
 </script>
+
+<i18n>
+{
+  "br": {
+    "back": "Voltar",
+    "tap_to_select": "Toque para selecionar",
+    "title_with_items": "O que mais você gostaria hoje?",
+    "title_without_items": "O que você gostaria hoje?"
+  },
+  "en": {
+    "back": "Back",
+    "tap_to_select": "Tap to select",
+    "title_with_items": "What else would you like today?",
+    "title_without_items": "What would you like today?"
+  }
+}
+</i18n>

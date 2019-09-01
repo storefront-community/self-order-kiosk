@@ -26,17 +26,17 @@
       <div class="container d-flex">
         <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="back">
           <i class="fa fa-arrow-left"></i>
-          <span class="ml-3">Back</span>
+          <span class="ml-3">{{ $t('back') }}</span>
         </button>
         <SlideUpTransition>
           <button type="submit" class="btn btn-primary btn-lg ml-auto" v-if="formIsValid">
-            <span class="mr-3" v-if="isLastPage">Add</span>
-            <span class="mr-3" v-else>{{ currentPage }} of {{ numberOfPages }}</span>
+            <span class="mr-3" v-if="isLastPage">{{ $t('add') }}</span>
+            <span class="mr-3" v-else>{{ currentPage }} {{ $t('of') }} {{ numberOfPages }}</span>
             <i class="fa fa-arrow-right"></i>
           </button>
           <p class="d-flex flex-column justify-content-center text-primary m-0"  v-else>
-            <span>{{ currentPage }} of {{ numberOfPages }}</span>
-            <small>Please choose an option</small>
+            <span>{{ currentPage }} {{ $t('of') }} {{ numberOfPages }}</span>
+            <small>{{ $t('choose_an_option') }}</small>
           </p>
         </SlideUpTransition>
       </div>
@@ -125,3 +125,20 @@ export default {
   }
 }
 </script>
+
+<i18n>
+{
+  "br": {
+    "add": "Adicionar",
+    "back": "Voltar",
+    "of": "de",
+    "choose_an_option": "Escolha uma opção"
+  },
+  "en": {
+    "add": "Add",
+    "back": "Back",
+    "of": "of",
+    "choose_an_option": "Choose an option"
+  }
+}
+</i18n>

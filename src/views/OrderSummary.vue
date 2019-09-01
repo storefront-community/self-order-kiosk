@@ -3,10 +3,10 @@
     <div class="app-header">
       <div class="container d-flex">
         <router-link :to="{ name: 'chooseCategory' }" class="btn btn-link">
-          <i class="fa fa-plus mr-2"></i> Add item
+          <i class="fa fa-plus mr-2"></i> {{ $t('add_item') }}
         </router-link>
         <h1 class="display-3 py-2 text-center ml-auto">
-          Total: <Currency :amount="order.total" class="text-primary"/>
+          {{ $t('total') }}: <Currency :amount="order.total" class="text-primary"/>
         </h1>
       </div>
     </div>
@@ -20,10 +20,10 @@
     <div class="app-footer">
       <div class="container d-flex">
         <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="cancelOrder">
-          Cancel order
+          {{ $t('cancel_order') }}
         </button>
         <button type="submit" class="btn btn-primary btn-lg ml-auto">
-          <span class="mr-4">Continue</span>
+          <span class="mr-4">{{ $t('continue') }}</span>
           <i class="fa fa-arrow-right"></i>
         </button>
       </div>
@@ -67,3 +67,20 @@ export default {
   }
 }
 </script>
+
+<i18n>
+{
+  "br": {
+    "add_item": "Adicionar item",
+    "cancel_order": "Cancelar pedido",
+    "continue": "Continuar",
+    "total": "Total"
+  },
+  "en": {
+    "add_item": "Add item",
+    "cancel_order": "Cancel order",
+    "continue": "Continue",
+    "total": "Total"
+  }
+}
+</i18n>
