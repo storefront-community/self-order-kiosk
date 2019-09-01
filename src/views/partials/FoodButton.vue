@@ -16,7 +16,7 @@
 
 <script>
 import { Currency } from '@/components'
-import ScaleTransition from '@/transitions/ScaleTransition'
+import { ScaleTransition } from '@/transitions'
 import { Item } from '@/models'
 
 export default {

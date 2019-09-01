@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import ScaleTransition from '@/transitions/ScaleTransition'
+import { ScaleTransition } from '@/transitions'
 import { Category } from '@/models'
 
 export default {

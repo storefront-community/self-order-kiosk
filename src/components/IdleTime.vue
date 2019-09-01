@@ -7,11 +7,11 @@ export default {
     return createElement()
   },
   mounted() {
-    this.idleMinutes = 0
-    this.interval = setInterval(() => this.incrementIdleMinutes(), 60000)
+    this.idleSeconds = 0
+    this.interval = setInterval(() => this.incrementIdleMinutes(), 1000)
 
     $(document).on('mousemove keypress', () => {
-      this.idleMinutes = 0
+      this.idleSeconds = 0
     })
   },
   destroyed() {
@@ -19,7 +19,8 @@ export default {
   },
   methods: {
     incrementIdleMinutes() {
-      if (++this.idleMinutes >= 20) {
+      if (++this.idleSeconds >= 60) {
+        this.idleSeconds = 0
         this.$emit('timeout')
       }
     }

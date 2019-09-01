@@ -4,6 +4,7 @@
     <SlideTransition :direction="slide">
       <router-view/>
     </SlideTransition>
+    <IdleTime @timeout="start"/>
   </div>
 </template>
 
@@ -11,12 +12,14 @@
 </style>
 
 <script>
-import SlideTransition from '@/transitions/SlideTransition'
+import { IdleTime } from '@/components'
+import { SlideTransition } from '@/transitions'
 import waitTransition from '@/hacks/waitTransition'
 
 export default {
   name: 'app',
   components: {
+    IdleTime,
     SlideTransition
   },
   mounted() {
