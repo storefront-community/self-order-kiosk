@@ -50,6 +50,8 @@ export default {
 
     this.foods = await this.$api.items.list(this.$session.category.id)
 
+    if (!this.$refs.swiper) return
+
     this.$refs.swiper.init({
       slidesPerView: Math.min(this.foods.length, 3.5),
       spaceBetween: 30,

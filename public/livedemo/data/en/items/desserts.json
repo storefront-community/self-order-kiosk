@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "id": "d001",
+      "name": "Chocolate cupcake",
+      "imageUrl": "/livedemo/img/items/desserts/chocolate-cupcake.jpg",
+      "price": 4.25
+    },
+    {
+      "id": "d002",
+      "name": "Strawberry cake",
+      "imageUrl": "/livedemo/img/items/desserts/strawberry-cake.jpg",
+      "price": 3.50
+    },
+    {
+      "id": "d003",
+      "name": "Banana petit gateau",
+      "imageUrl": "/livedemo/img/items/desserts/banana-petit-gateau.jpg",
+      "price": 4.99
+    },
+    {
+      "id": "d004",
+      "name": "Chocolate pie",
+      "imageUrl": "/livedemo/img/items/desserts/chocolate-pie.jpg",
+      "price": 3.50
+    },
+    {
+      "id": "d005",
+      "name": "Ice cream",
+      "imageUrl": "/livedemo/img/items/desserts/ice-cream.jpg",
+      "price": 2.99
+    }
+  ]
+}

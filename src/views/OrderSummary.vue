@@ -50,6 +50,8 @@ export default {
     }
   },
   mounted() {
+    if (!this.$refs.swiper) return
+
     this.$refs.swiper.init({
       slidesPerView: Math.min(this.order.items.length, 1.25),
       spaceBetween: 20,
