@@ -1,7 +1,8 @@
 import { Order } from '@/models'
 
 export default class AppSession {
-  constructor() {
+  constructor(locale) {
+    this.locale = locale
     this.order = null
     this.category = null
     this.item = null

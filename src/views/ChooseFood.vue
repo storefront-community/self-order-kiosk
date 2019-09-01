@@ -18,10 +18,10 @@
       <div class="container d-flex">
         <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="back">
           <i class="fa fa-arrow-left"></i>
-          <span class="ml-3">Back</span>
+          <span class="ml-3">{{ $t('back') }}</span>
         </button>
         <div class="ml-auto p-3 text-right text-primary">
-          Tap to select
+          {{ $t('tap_to_select') }}
         </div>
       </div>
     </div>
@@ -68,3 +68,16 @@ export default {
   }
 }
 </script>
+
+<i18n>
+{
+  "br": {
+    "back": "Voltar",
+    "tap_to_select": "Toque para selecionar"
+  },
+  "en": {
+    "back": "Back",
+    "tap_to_select": "Tap to select"
+  }
+}
+</i18n>

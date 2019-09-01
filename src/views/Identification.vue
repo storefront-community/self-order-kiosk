@@ -3,7 +3,7 @@
     <div class="app-header">
       <div class="container">
         <h1 class="display-3 py-2 text-center">
-          How can we call you?
+          {{ $t('title') }}
         </h1>
       </div>
     </div>
@@ -28,15 +28,15 @@
       <div class="container d-flex">
         <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="back">
           <i class="fa fa-arrow-left"></i>
-          <span class="ml-3">Back</span>
+          <span class="ml-3">{{ $t('back') }}</span>
         </button>
         <SlideUpTransition>
           <button type="submit" class="btn btn-primary btn-lg ml-auto" v-if="formIsValid">
             <i class="fa fa-check"></i>
-            <span class="ml-3">Complete</span>
+            <span class="ml-3">{{ $t('complete') }}</span>
           </button>
           <div class="ml-auto p-3 text-right text-primary" v-else>
-            Please type your name
+            {{ $t('type_your_name') }}
           </div>
         </SlideUpTransition>
       </div>
@@ -75,3 +75,20 @@ export default {
   }
 }
 </script>
+
+<i18n>
+{
+  "br": {
+    "title": "Como podemos te chamar?",
+    "back": "Voltar",
+    "complete": "Finalizar",
+    "type_your_name": "Por favor digite seu nome"
+  },
+  "en": {
+    "title": "How can we call you?",
+    "back": "Back",
+    "complete": "Complete",
+    "type_your_name": "Please type your name"
+  }
+}
+</i18n>
