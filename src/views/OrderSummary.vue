@@ -2,12 +2,13 @@
   <form class="app-body" @submit.prevent="complete" v-if="$session.started">
     <div class="app-header">
       <div class="container d-flex">
-        <router-link :to="{ name: 'chooseCategory' }" class="btn btn-link">
-          <i class="fa fa-plus mr-2"></i> {{ $t('add_item') }}
+        <router-link :to="{ name: 'chooseCategory' }" class="btn btn-link font-size-lg">
+
+          <i class="fa fa-plus mr-3"></i> {{ $t('add_item') }}
         </router-link>
-        <h1 class="display-3 py-2 text-center ml-auto">
+        <div class="font-size-lg py-2 text-center ml-auto">
           {{ $t('total') }}: <Currency :amount="order.total" class="text-primary"/>
-        </h1>
+        </div>
       </div>
     </div>
     <div class="app-content">
