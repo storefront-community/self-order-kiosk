@@ -5,15 +5,15 @@
 
 @import "mixins/flex-mixins";
 
+@import "app-body";
+@import "app-content";
+@import "app-footer";
+@import "app-header";
 @import "beta-badge";
-@import "body";
 @import "border";
 @import "button";
 @import "container";
-@import "content";
 @import "checkbox";
-@import "footer";
-@import "header";
 @import "image";
 @import "keyboard";
 @import "loader";
