@@ -4,6 +4,14 @@ Touch screen app for ordering food in restaurants and cafes.
 
 View the [live demo](https://kiosk.storefront.community).
 
+## Sponsors
+
+This project is supported by this awesome backer:
+
+<a href="http://inventione.com.br/">
+  <img src="https://raw.githubusercontent.com/storefront-community/.github/master/sponsors/inventione.png" alt="Inventione">
+</a>
+
 ## Status
 
 [![CircleCI](https://circleci.com/gh/storefront-community/self-order-kiosk.svg?style=shield)](https://circleci.com/gh/storefront-community/self-order-kiosk)
