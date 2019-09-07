@@ -1,13 +1,13 @@
 <template>
   <form class="app-body" @submit.prevent="complete" v-if="$session.started">
     <div class="app-header">
-      <div class="container d-flex">
-        <router-link :to="{ name: 'chooseCategory' }" class="btn btn-link font-size-lg">
-
-          <i class="fa fa-plus mr-3"></i> {{ $t('add_item') }}
-        </router-link>
-        <div class="font-size-lg py-2 text-center ml-auto">
-          {{ $t('total') }}: <Currency :amount="order.total" class="text-primary"/>
+      <div class="container d-flex align-items-center">
+        <h1 class="display-3 py-2">
+          {{ $t('title') }}
+        </h1>
+        <div class="text-right ml-auto">
+          <div>{{ $t('total') }}</div>
+          <Currency :amount="order.total" class="text-primary font-size-lg"/>
         </div>
       </div>
     </div>
@@ -23,10 +23,15 @@
         <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="cancelOrder">
           {{ $t('cancel_order') }}
         </button>
-        <button type="submit" class="btn btn-primary btn-lg ml-auto">
-          <span class="mr-4">{{ $t('continue') }}</span>
-          <i class="fa fa-arrow-right"></i>
-        </button>
+        <div class="btn-group">
+          <router-link :to="{ name: 'chooseCategory' }" class="btn btn-outline-primary btn-lg">
+            <i class="fa fa-plus mr-3"></i> {{ $t('add_item') }}
+          </router-link>
+          <button type="submit" class="btn btn-primary btn-lg ml-auto">
+            <span class="mr-4">{{ $t('continue') }}</span>
+            <i class="fa fa-arrow-right"></i>
+          </button>
+        </div>
       </div>
     </div>
   </form>
@@ -74,15 +79,17 @@ export default {
 <i18n>
 {
   "br": {
-    "add_item": "Adicionar item",
+    "add_item": "Item",
     "cancel_order": "Cancelar pedido",
     "continue": "Continuar",
+    "title": "Itens do pedido",
     "total": "Total"
   },
   "en": {
-    "add_item": "Add item",
+    "add_item": "Item",
     "cancel_order": "Cancel order",
     "continue": "Continue",
+    "title": "Order items",
     "total": "Total"
   }
 }

@@ -10,7 +10,7 @@
     <div class="app-content">
       <SwiperContainer ref="swiper">
         <SwiperSlide v-for="food in foods" :key="food.id">
-          <FoodButton :food="food" @click="select(food)" />
+          <ItemCardButton :food="food" @click="select(food)" />
         </SwiperSlide>
       </SwiperContainer>
     </div>
@@ -30,12 +30,12 @@
 
 <script>
 import { SwiperContainer, SwiperSlide } from '@/components'
-import FoodButton from './partials/FoodButton'
+import ItemCardButton from './partials/ItemCardButton'
 
 export default {
   name: 'chooseFood',
   components: {
-    FoodButton,
+    ItemCardButton,
     SwiperContainer,
     SwiperSlide
   },

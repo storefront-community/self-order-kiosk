@@ -1,5 +1,5 @@
 @mixin checkbox-color($name, $color) {
-  label.checkbox-#{$name} input[type=checkbox] {
+  .checkbox-#{$name} input[type=checkbox] {
     + .check-mark {
       border-color: $color;
     }
@@ -19,7 +19,7 @@
   }
 }
 
-label.checkbox {
+.checkbox {
   display: inline-flex;
   position: relative;
   align-items: center;
