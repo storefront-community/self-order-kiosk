@@ -1,7 +1,7 @@
 <template>
   <div class="app-body">
     <div class="ap-header text-center">
-      <img :src="`/livedemo/logo/${$i18n.locale}.svg`" class="logo">
+      <img :src="`/livedemo/logo/${$i18n.locale}.png`" class="logo">
     </div>
     <div class="app-content">
       <div class="container">
@@ -76,7 +76,7 @@ export default {
 <i18n>
 {
   "br": {
-    "title": "Faça seu pedido aqui",
+    "title": "Com fome?",
     "subtitle": "Use este totem para pedir seu prato",
     "start_button": "Iniciar pedido",
     "mobile": {
@@ -85,7 +85,7 @@ export default {
     }
   },
   "en": {
-    "title": "Make your order here",
+    "title": "Hungry?",
     "subtitle": "Use this terminal to order your food",
     "start_button": "Start order",
     "mobile": {
