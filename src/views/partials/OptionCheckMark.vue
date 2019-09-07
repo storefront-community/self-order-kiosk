@@ -2,16 +2,16 @@
   <SlideTransition direction="left">
     <div ref="swiper" class="container swiper-container">
       <div class="swiper-wrapper">
-        <div class="swiper-slide card" v-for="option in options" :key="option.id">
+        <label class="swiper-slide card" v-for="option in options" :key="option.id">
           <div class="card-body d-flex align-items-center">
-            <label class="checkbox checkbox-primary" v-if="multichoice">
+            <div class="checkbox checkbox-primary" v-if="multichoice">
               <input type="checkbox" v-model="option.checked">
               <span class="check-mark"></span> {{ option.name }}
-            </label>
-            <label class="radio radio-primary" v-else>
+            </div>
+            <div class="radio radio-primary" v-else>
               <input type="checkbox" v-model="option.checked" @change="toggle($event, option)">
               <span class="check-mark"></span> {{ option.name }}
-            </label>
+            </div>
             <div class="ml-auto text-primary" v-if="option.price > 0">
               <Currency :amount="option.price"/>
             </div>
@@ -19,7 +19,7 @@
               {{ $t('no_cost') }}
             </div>
           </div>
-        </div>
+        </label>
       </div>
     </div>
   </SlideTransition>
