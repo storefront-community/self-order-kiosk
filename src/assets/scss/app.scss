@@ -3,6 +3,7 @@
 @import 'node_modules/bootstrap/scss/bootstrap';
 @import "node_modules/swiper/dist/css/swiper";
 
+@import "mixins/breakpoints";
 @import "mixins/flex";
 
 @import "app-body";
