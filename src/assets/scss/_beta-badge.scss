@@ -14,4 +14,9 @@
   &::after {
     content: "beta";
   }
+
+  @include breakpoint-down-to-sm {
+    top: 5px;
+    left: -70px;
+  }
 }

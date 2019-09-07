@@ -50,7 +50,6 @@ export default {
     this.$nextTick(() => {
       new Swiper(this.$refs.swiper, {
         slidesPerView: 5,
-        spaceBetween: 20,
         direction: 'vertical'
       })
     })

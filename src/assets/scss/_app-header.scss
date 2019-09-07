@@ -4,11 +4,15 @@
   flex-direction: row;
   align-items: center;
   border-bottom: $border-width $border-color solid;
-  padding: 20px 30px;
+  padding: $grid-gutter-width;
 
   h1 {
     font-size: 18pt;
     font-weight: 400;
     margin: 0;
+  }
+
+  @include breakpoint-down-to-sm {
+    padding: $grid-gutter-width / 2;
   }
 }

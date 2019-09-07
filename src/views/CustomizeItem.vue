@@ -1,20 +1,19 @@
 <template>
   <form class="app-body" @submit.prevent="next" v-if="hasOptionals">
     <div class="app-header">
-      <div class="container d-flex align-items-center">
-        <div class="rounded-clipping mr-3 flex-shrink-0">
-          <img :src="item.imageUrl">
-        </div>
-        <h1 class="display-3">
+      <div class="container d-block d-md-flex align-items-center">
+        <div class="d-flex align-items-center">
+          <div class="rounded-clipping mr-3 flex-shrink-0">
+            <img :src="item.imageUrl">
+          </div>
           <SlideUpTransition :direction="slide">
             <span :key="currentOptional.id">
               {{ currentOptional.title }}
             </span>
           </SlideUpTransition>
-        </h1>
+        </div>
         <div class="text-right ml-auto">
-          <div>{{ $t('subtotal') }}</div>
-          <Currency :amount="subtotal" class="text-primary font-size-lg"/>
+          <Currency :amount="subtotal" class="text-primary"/>
         </div>
       </div>
     </div>
@@ -28,20 +27,20 @@
     </div>
     <div class="app-footer">
       <div class="container d-flex">
-        <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="back">
+        <button type="button" class="btn btn-outline-primary mr-auto px-md-5 py-md-4 text-nowrap" @click="back">
           <i class="fa fa-arrow-left"></i>
           <span class="ml-3">{{ $t('back') }}</span>
         </button>
         <SlideUpTransition>
-          <button type="submit" class="btn btn-primary btn-lg ml-auto" v-if="formIsValid">
+          <button type="submit" class="btn btn-primary ml-auto px-md-5 py-md-4 text-nowrap" v-if="formIsValid">
             <span class="mr-3" v-if="isLastPage">{{ $t('add') }}</span>
             <span class="mr-3" v-else>{{ currentPage }} {{ $t('of') }} {{ numberOfPages }}</span>
             <i class="fa fa-arrow-right"></i>
           </button>
-          <p class="d-flex flex-column justify-content-center text-primary m-0"  v-else>
+          <div class="d-flex flex-column justify-content-center text-primary px-2"  v-else>
             <span>{{ currentPage }} {{ $t('of') }} {{ numberOfPages }}</span>
             <small>{{ $t('choose_an_option') }}</small>
-          </p>
+          </div>
         </SlideUpTransition>
       </div>
     </div>
@@ -141,15 +140,13 @@ export default {
     "add": "Adicionar",
     "back": "Voltar",
     "of": "de",
-    "choose_an_option": "Escolha uma opção",
-    "subtotal": "Subtotal"
+    "choose_an_option": "Escolha uma opção"
   },
   "en": {
     "add": "Add",
     "back": "Back",
     "of": "of",
-    "choose_an_option": "Choose an option",
-    "subtotal": "Subtotal"
+    "choose_an_option": "Choose an option"
   }
 }
 </i18n>

@@ -2,12 +2,9 @@
   <form class="app-body" @submit.prevent="complete" v-if="$session.started">
     <div class="app-header">
       <div class="container d-flex align-items-center">
-        <h1 class="display-3 py-2">
-          {{ $t('title') }}
-        </h1>
+        <div>{{ $t('title') }}</div>
         <div class="text-right ml-auto">
-          <div>{{ $t('total') }}</div>
-          <Currency :amount="order.total" class="text-primary font-size-lg"/>
+          <Currency :amount="order.total" class="text-primary"/>
         </div>
       </div>
     </div>
@@ -20,15 +17,16 @@
     </div>
     <div class="app-footer">
       <div class="container d-flex">
-        <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="cancelOrder">
+        <button type="button" class="btn btn-outline-primary mr-auto px-md-5 py-md-4 text-nowrap" @click="cancelOrder">
           {{ $t('cancel_order') }}
         </button>
         <div class="btn-group">
-          <router-link :to="{ name: 'chooseCategory' }" class="btn btn-outline-primary btn-lg">
-            <i class="fa fa-plus mr-3"></i> {{ $t('add_item') }}
-          </router-link>
-          <button type="submit" class="btn btn-primary btn-lg ml-auto">
-            <span class="mr-4">{{ $t('continue') }}</span>
+          <button type="button" class="btn btn-outline-primary px-md-5 py-md-4 text-nowrap" @click="addItem">
+            <i class="fa fa-plus"></i>
+            <span class="ml-2">{{ $t('add_item') }}</span>
+          </button>
+          <button type="submit" class="btn btn-primary ml-auto px-md-5 py-md-4 text-nowrap">
+            <span class="mr-3">{{ $t('continue') }}</span>
             <i class="fa fa-arrow-right"></i>
           </button>
         </div>
@@ -41,6 +39,7 @@
 import { SwiperContainer, SwiperSlide } from '@/components'
 import { Currency } from '@/components'
 import OrderItemCard from './partials/OrderItemCard'
+import breakpoints from '@/constants/breakpoints'
 
 export default {
   name: 'orderSummary',
@@ -59,13 +58,22 @@ export default {
     if (!this.$refs.swiper) return
 
     this.$refs.swiper.init({
-      slidesPerView: Math.min(this.order.items.length, 1.25),
+      slidesPerView: Math.min(this.order.items.length, 2.25),
+      centeredSlides: false,
       spaceBetween: 20,
       direction: 'horizontal',
-      shadowEnabled: this.order.items.length > 1
+      shadowEnabled: this.order.items.length > 1,
+      breakpoints: {
+        [breakpoints.LG]: {
+          slidesPerView: Math.min(this.order.items.length, 1.25)
+        }
+      }
     })
   },
   methods: {
+    addItem() {
+      this.$router.push({ name: 'chooseCategory' })
+    },
     cancelOrder() {
       this.$router.push({ name: 'cancelOrder' })
     },
@@ -80,17 +88,15 @@ export default {
 {
   "br": {
     "add_item": "Item",
-    "cancel_order": "Cancelar pedido",
+    "cancel_order": "Cancelar",
     "continue": "Continuar",
-    "title": "Itens do pedido",
-    "total": "Total"
+    "title": "Meu pedido"
   },
   "en": {
     "add_item": "Item",
-    "cancel_order": "Cancel order",
+    "cancel_order": "Cancel",
     "continue": "Continue",
-    "title": "Order items",
-    "total": "Total"
+    "title": "My order"
   }
 }
 </i18n>

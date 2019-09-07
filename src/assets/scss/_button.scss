@@ -18,3 +18,21 @@ button.card {
     height: 4rem;
   }
 }
+
+.btn.btn-rounded {
+  width: 42px;
+  height: 42px;
+  border-radius: 42px;
+}
+
+@include breakpoint-up-to-md {
+  .btn {
+    font-size: $font-size-base-lg;
+
+    &.btn-rounded {
+      width: 48px;
+      height: 48px;
+      border-radius: 48px;
+    }
+  }
+}

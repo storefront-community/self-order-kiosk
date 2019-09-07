@@ -31,12 +31,12 @@
       <button type="button" class="btn btn-key" @click="type('B')">B</button>
       <button type="button" class="btn btn-key" @click="type('N')">N</button>
       <button type="button" class="btn btn-key" @click="type('M')">M</button>
-      <button type="button" class="btn btn-key" @click="backspace()">
+      <button type="button" class="btn btn-key btn-backspace" @click="backspace()">
         <i class="fa fa-backspace"></i>
       </button>
     </div>
     <div class="text-center">
-      <button type="button" class="btn btn-space" @click="type(' ')">
+      <button type="button" class="btn btn-key btn-space" @click="type(' ')">
         {{ $t('space') }}
       </button>
     </div>

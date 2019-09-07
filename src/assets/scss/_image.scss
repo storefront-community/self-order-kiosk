@@ -18,6 +18,11 @@
     width: auto;
   }
 
+  @include breakpoint-down-to-sm {
+    width: 48px;
+    height: 48px;
+  }
+
   &.rounded-clipping-sm {
     width: 48px;
     height: 48px;

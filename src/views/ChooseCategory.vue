@@ -2,14 +2,14 @@
   <form class="app-body" @submit.prevent="add" v-if="$session.started">
     <div class="app-header">
       <div class="container">
-        <h1 class="display-3 py-2 text-center">
+        <div class="text-center">
           <span v-if="orderHasItem">
             {{ $t('title_with_items') }}
           </span>
           <span v-else>
             {{ $t('title_without_items') }}
           </span>
-        </h1>
+        </div>
       </div>
     </div>
     <div class="app-content">
@@ -21,13 +21,10 @@
     </div>
     <div class="app-footer">
       <div class="container d-flex">
-        <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="back">
+        <button type="button" class="btn btn-outline-primary mr-auto px-md-5 py-md-4 text-nowrap" @click="back">
           <i class="fa fa-arrow-left"></i>
           <span class="ml-3">{{ $t('back') }}</span>
         </button>
-        <div class="ml-auto p-3 text-right text-primary">
-          {{ $t('tap_to_select') }}
-        </div>
       </div>
     </div>
   </form>
@@ -36,6 +33,7 @@
 <script>
 import { SwiperContainer, SwiperSlide } from '@/components'
 import CategoryButton from './partials/CategoryButton'
+import breakpoints from '@/constants/breakpoints'
 
 export default {
   name: 'chooseCategory',
@@ -61,9 +59,19 @@ export default {
 
     this.$refs.swiper.init({
       slidesPerView: Math.min(this.categories.length, 3.5),
+      centeredSlides: false,
       spaceBetween: 30,
       direction: 'horizontal',
-      shadowEnabled: this.categories.length > 3
+      shadowEnabled: this.categories.length > 3,
+      breakpoints: {
+        [breakpoints.MD]: {
+          slidesPerView: Math.min(this.categories.length, 2.5)
+        },
+        [breakpoints.SM]: {
+          slidesPerView: Math.min(this.categories.length, 1.5),
+          centeredSlides: true
+        }
+      }
     })
   },
   methods: {

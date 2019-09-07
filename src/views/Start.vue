@@ -4,12 +4,14 @@
       <img :src="`/livedemo/logo/${$i18n.locale}.png`" class="logo">
     </div>
     <div class="app-content">
-      <div class="container">
-        <h1 class="display-2 text-center mb-5">
-          {{ $t('title') }}
-        </h1>
+      <div class="container d-flex flex-column h-100">
+        <h2 class="font-weight-normal text-center d-flex flex-grow-1 align-items-center">
+          <span class="m-auto">
+            {{ $t('title') }}
+          </span>
+        </h2>
         <div class="row">
-          <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end">
+          <div class="col-12 col-md-6 d-flex flex-grow-1 justify-content-center justify-content-md-end">
             <div class="d-flex flex-column mr-md-5">
               <button type="button" class="btn btn-primary btn-lg m-auto p-5" @click="start">
                 <span class="text-uppercase">

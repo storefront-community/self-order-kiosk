@@ -5,20 +5,20 @@
         <p class="text-center text-primary mb-4">
           <i class="fa fa-4x fa-times-circle"></i><br>
         </p>
-        <p class="display-4 text-center">
+        <h3 class="text-center px-3 p-md-0 mb-4">
           {{ $t('cancel_order') }}
-        </p>
-        <p class="text-center">
+        </h3>
+        <p class="text-center px-3 p-md-0">
           {{ $t('warning') }}
         </p>
       </div>
     </div>
     <div class="app-footer">
       <div class="container d-flex">
-        <button type="button" class="btn btn-primary btn-lg mr-auto" @click="neverMind">
+        <button type="button" class="btn btn-primary mr-auto px-md-5 py-md-4" @click="neverMind">
           {{ $t('no') }}
         </button>
-        <button type="button" class="btn btn-outline-primary btn-lg ml-auto" @click="cancel">
+        <button type="button" class="btn btn-outline-primary ml-auto px-md-5 py-md-4" @click="cancel">
           {{ $t('yes') }}
         </button>
       </div>
