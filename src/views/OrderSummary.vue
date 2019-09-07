@@ -4,7 +4,7 @@
       <div class="container d-flex align-items-center">
         <div>{{ $t('title') }}</div>
         <div class="text-right ml-auto">
-          <Currency :amount="order.total" class="text-primary"/>
+          <Currency :amount="order.total" class="text-primary font-weight-bold"/>
         </div>
       </div>
     </div>
@@ -90,13 +90,13 @@ export default {
     "add_item": "Item",
     "cancel_order": "Cancelar",
     "continue": "Continuar",
-    "title": "Meu pedido"
+    "title": "Seu pedido"
   },
   "en": {
     "add_item": "Item",
     "cancel_order": "Cancel",
     "continue": "Continue",
-    "title": "My order"
+    "title": "Your order"
   }
 }
 </i18n>

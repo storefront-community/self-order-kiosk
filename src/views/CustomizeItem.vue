@@ -12,8 +12,8 @@
             </span>
           </SlideUpTransition>
         </div>
-        <div class="text-right ml-auto">
-          <Currency :amount="subtotal" class="text-primary"/>
+        <div class="text-right text-primary font-weight-bold ml-auto">
+          <Currency :amount="subtotal"/>
         </div>
       </div>
     </div>

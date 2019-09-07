@@ -34,9 +34,9 @@
       <button type="button" class="btn btn-outline-primary btn-rounded d-flex justify-content-center" @click="increment">
         <i class="fa fa-plus m-auto"></i>
       </button>
-      <h4 class="text-primary text-right m-0 ml-auto">
+      <div class="text-primary text-right font-weight-bold m-0 ml-auto">
         <Currency :amount="item.total()"/>
-      </h4>
+      </div>
     </div>
   </div>
 </template>
