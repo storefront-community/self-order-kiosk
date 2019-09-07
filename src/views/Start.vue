@@ -76,12 +76,12 @@ export default {
 <i18n>
 {
   "br": {
-    "title": "Com fome?",
-    "start_button": "Iniciar pedido"
+    "title": "Bateu aquela fome?",
+    "start_button": "Faça seu pedido"
   },
   "en": {
-    "title": "Hungry?",
-    "start_button": "Start order"
+    "title": "Are you hungry?",
+    "start_button": "Make your order"
   }
 }
 </i18n>
