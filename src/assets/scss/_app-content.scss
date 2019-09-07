@@ -8,4 +8,8 @@
   margin: 40px 0;
 
   @include flex-vertical-align();
+
+  @include breakpoint-down-to-sm {
+    margin: 20px 0;
+  }
 }
