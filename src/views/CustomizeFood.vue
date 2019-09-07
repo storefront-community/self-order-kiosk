@@ -14,7 +14,7 @@
         </h1>
         <div class="text-right ml-auto">
           <div>{{ $t('subtotal') }}</div>
-          <Currency :amount="subtotal" class="text-primary font-size-lg "/>
+          <Currency :amount="subtotal" class="text-primary font-size-lg"/>
         </div>
       </div>
     </div>
