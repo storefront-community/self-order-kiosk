@@ -1,18 +1,18 @@
 <template>
   <div class="card h-100">
-    <div class="card-body d-flex">
-      <div class="rounded-clipping mr-4">
+    <div class="card-body d-block d-md-flex">
+      <div class="rounded-clipping mr-3 flex-shrink-0">
         <img :src="item.imageUrl">
       </div>
       <div class="flex-grow-1">
-        <h5 class="d-flex py-3">
+        <div class="d-flex font-weight-bold py-3">
           <span>
             {{ item.name }}
           </span>
           <span class="ml-auto">
             <Currency :amount="item.price"/>
           </span>
-        </h5>
+        </div>
         <div class="d-flex border-bottom border-bottom-dashed mb-3"
           v-for="option in item.options()" :key="option.id">
           <span>
@@ -25,18 +25,18 @@
       </div>
     </div>
     <div class="card-footer border-top-0 d-flex align-items-center">
-      <button type="button" class="btn btn-outline-primary rounded-pill" @click="decrement">
-        <i class="fa fa-minus"></i>
+      <button type="button" class="btn btn-outline-primary btn-rounded d-flex justify-content-center" @click="decrement">
+        <i class="fa fa-minus m-auto"></i>
       </button>
       <span class="mx-3">
         {{ item.quantity }}
       </span>
-      <button type="button" class="btn btn-outline-primary rounded-pill" @click="increment">
-        <i class="fa fa-plus"></i>
+      <button type="button" class="btn btn-outline-primary btn-rounded d-flex justify-content-center" @click="increment">
+        <i class="fa fa-plus m-auto"></i>
       </button>
-      <h4 class="text-primary text-right m-0 ml-auto">
+      <div class="text-primary text-right font-weight-bold m-0 ml-auto">
         <Currency :amount="item.total()"/>
-      </h4>
+      </div>
     </div>
   </div>
 </template>

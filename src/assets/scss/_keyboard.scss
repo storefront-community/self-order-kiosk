@@ -1,22 +1,63 @@
 .keyboard {
   margin: 40px 0;
 
-  .btn-key,
-  .btn-space {
+  .btn-key {
     border: $border-width $gray-500 solid;
     margin: 5px;
     box-shadow: none;
     height: 64px;
-  }
-
-  .btn-key {
-    border-radius: 64px;
     width: 64px;
+    padding: 0;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 1.25rem;
+
+    &.btn-space {
+      border-radius: 32px;
+      max-width: 50%;
+      width: 480px;
+    }
   }
 
-  .btn-space {
-    border-radius: 32px;
-    max-width: 480px;
-    width: 100%;
+  @include breakpoint-down-to-md {
+    margin: 20px 0;
+
+    .btn-key {
+      height: 48px;
+      width: 48px;
+      margin: 5px;
+      border-radius: 48px;
+
+      &.btn-backspace {
+        font-size: 1rem;
+      }
+
+      &.btn-space {
+        border-radius: 32px;
+        max-width: 480px;
+      }
+    }
+  }
+
+  @include breakpoint-down-to-sm {
+    margin: 20px 0;
+
+    .btn-key {
+      height: 48px;
+      width: 28px;
+      border-radius: 5px;
+      margin: 5px 2px;
+      font-size: inherit;
+
+      &.btn-backspace {
+        font-size: .75rem;
+      }
+
+      &.btn-space {
+        border-radius: 5px;
+        margin: 5px 0;
+        max-width: 320px;
+      }
+    }
   }
 }

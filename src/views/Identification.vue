@@ -2,9 +2,9 @@
   <form class="app-body" @submit.prevent="next" v-if="$session.started">
     <div class="app-header">
       <div class="container">
-        <h1 class="display-3 py-2 text-center">
+        <div class="text-center">
           {{ $t('title') }}
-        </h1>
+        </div>
       </div>
     </div>
     <div class="app-content">
@@ -26,12 +26,12 @@
     </div>
     <div class="app-footer">
       <div class="container d-flex">
-        <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="back">
+        <button type="button" class="btn btn-outline-primary mr-auto px-md-5 py-md-4 text-nowrap" @click="back">
           <i class="fa fa-arrow-left"></i>
           <span class="ml-3">{{ $t('back') }}</span>
         </button>
         <SlideUpTransition>
-          <button type="submit" class="btn btn-primary btn-lg ml-auto" v-if="formIsValid">
+          <button type="submit" class="btn btn-primary ml-auto px-md-5 py-md-4 text-nowrap" v-if="formIsValid">
             <i class="fa fa-check"></i>
             <span class="ml-3">{{ $t('complete') }}</span>
           </button>
@@ -82,13 +82,13 @@ export default {
     "title": "Como podemos te chamar?",
     "back": "Voltar",
     "complete": "Finalizar",
-    "type_your_name": "Por favor digite seu nome"
+    "type_your_name": "Digite seu nome"
   },
   "en": {
     "title": "How can we call you?",
     "back": "Back",
     "complete": "Complete",
-    "type_your_name": "Please type your name"
+    "type_your_name": "Type your name"
   }
 }
 </i18n>

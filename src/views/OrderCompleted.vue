@@ -2,9 +2,9 @@
   <form class="app-body" @submit.prevent="exit" v-if="$session.started">
     <div class="app-header">
       <div class="container">
-        <h1 class="display-3 py-2 text-center">
+        <div class="text-center">
           {{ $t('title') }}
-        </h1>
+        </div>
       </div>
     </div>
     <div class="app-content">
@@ -12,9 +12,9 @@
         <p class="text-center mb-4">
           <i class="far fa-4x fa-smile"></i>
         </p>
-        <p class="display-4 text-center">
+        <h3 class="text-center mb-4">
           {{ $t('thank_you') }}
-        </p>
+        </h3>
         <p class="text-center">
           {{ $t('instructions') }}
         </p>
@@ -22,7 +22,7 @@
     </div>
     <div class="app-footer">
       <div class="container d-flex">
-        <button type="submit" class="btn btn-primary btn-lg mr-auto">
+        <button type="submit" class="btn btn-primary px-md-5 py-md-4 mx-auto">
           {{ $t('exit') }}
         </button>
       </div>

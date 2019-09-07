@@ -1,3 +1,8 @@
+.logo {
+  height: 64px;
+  margin: 2rem 0;
+}
+
 .rounded-clipping {
   width: 64px;
   height: 64px;
@@ -11,6 +16,11 @@
     margin-left: -25%; // centers the image
     height: 100%;
     width: auto;
+  }
+
+  @include breakpoint-down-to-sm {
+    width: 48px;
+    height: 48px;
   }
 
   &.rounded-clipping-sm {

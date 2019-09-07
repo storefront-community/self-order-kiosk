@@ -2,9 +2,9 @@
   <div class="app-body" v-if="$session.started">
     <div class="app-header">
       <div class="container">
-        <h1 class="display-3 py-2 text-center">
+        <div class="text-center">
           {{ $t('title') }}
-        </h1>
+        </div>
       </div>
     </div>
     <div class="app-content">
@@ -13,13 +13,13 @@
           <div class="col d-flex flex-column">
             <button type="button" class="btn btn-outline-primary py-5" @click="select('eatHere')">
               <i class="fa fa-4x fa-utensils mb-5"></i>
-              <p class="display-3">{{ $t('eat_here') }}</p>
+              <h4 class="font-weight-normal">{{ $t('eat_here') }}</h4>
             </button>
           </div>
           <div class="col d-flex flex-column">
             <button type="button" class="btn btn-outline-primary py-5" @click="select('takeOut')">
               <i class="fa fa-4x fa-shopping-bag mb-5"></i>
-              <p class="display-3">{{ $t('take_out') }}</p>
+              <h4 class="font-weight-normal">{{ $t('take_out') }}</h4>
             </button>
           </div>
         </div>
@@ -27,7 +27,7 @@
     </div>
     <div class="app-footer">
       <div class="container d-flex">
-        <button type="button" class="btn btn-outline-primary btn-lg mr-auto" @click="back">
+        <button type="button" class="btn btn-outline-primary mr-auto px-md-5 py-md-4 text-nowrap" @click="back">
           <i class="fa fa-arrow-left"></i>
           <span class="ml-3">{{ $t('back') }}</span>
         </button>

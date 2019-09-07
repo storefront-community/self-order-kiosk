@@ -6,9 +6,9 @@
         <img :src="category.imageUrl" class="card-img-top" :alt="category.name">
       </div>
       <div class="card-body d-flex flex-column">
-        <h1 class="card-title display-3 flex-grow-1 text-center">
+        <h2 class="card-title flex-grow-1 text-center font-weight-normal">
           {{ category.name }}
-        </h1>
+        </h2>
       </div>
     </button>
   </ScaleTransition>
