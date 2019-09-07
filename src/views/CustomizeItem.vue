@@ -55,7 +55,7 @@ import OptionCheckMark from './partials/OptionCheckMark'
 import waitTransition from '@/hacks/waitTransition'
 
 export default {
-  name: 'customizeFood',
+  name: 'customizeItem',
   components: {
     Currency,
     OptionCheckMark,
@@ -83,7 +83,7 @@ export default {
       if (this.hasPreviousPage > 0) {
         this.currentIndex--;
       } else {
-        this.$router.push({ name: 'chooseFood' })
+        this.$router.push({ name: 'chooseItem' })
       }
     },
     next() {

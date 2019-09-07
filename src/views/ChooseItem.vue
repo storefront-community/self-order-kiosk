@@ -9,8 +9,8 @@
     </div>
     <div class="app-content">
       <SwiperContainer ref="swiper">
-        <SwiperSlide v-for="food in foods" :key="food.id">
-          <ItemCardButton :food="food" @click="select(food)" />
+        <SwiperSlide v-for="item in items" :key="item.id">
+          <ItemCardButton :item="item" @click="select(item)" />
         </SwiperSlide>
       </SwiperContainer>
     </div>
@@ -33,7 +33,7 @@ import { SwiperContainer, SwiperSlide } from '@/components'
 import ItemCardButton from './partials/ItemCardButton'
 
 export default {
-  name: 'chooseFood',
+  name: 'chooseItem',
   components: {
     ItemCardButton,
     SwiperContainer,
@@ -42,30 +42,30 @@ export default {
   data() {
     return {
       category: this.$session.category,
-      foods: []
+      items: []
     }
   },
   async mounted() {
     if (!this.$session.started) return
 
-    this.foods = await this.$api.items.list(this.$session.category.id)
+    this.items = await this.$api.items.list(this.$session.category.id)
 
     if (!this.$refs.swiper) return
 
     this.$refs.swiper.init({
-      slidesPerView: Math.min(this.foods.length, 3.5),
+      slidesPerView: Math.min(this.items.length, 3.5),
       spaceBetween: 30,
       direction: 'horizontal',
-      shadowEnabled: this.foods.length > 3
+      shadowEnabled: this.items.length > 3
     })
   },
   methods: {
     back() {
       this.$router.push({ name: 'chooseCategory' })
     },
-    select(food) {
-      this.$session.item = food
-      this.$router.push({ name: 'customizeFood' })
+    select(item) {
+      this.$session.item = item
+      this.$router.push({ name: 'customizeItem' })
     }
   }
 }

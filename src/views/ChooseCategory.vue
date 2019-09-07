@@ -73,7 +73,7 @@ export default {
     },
     select(category) {
       this.$session.category = category
-      this.$router.push({ name: 'chooseFood' })
+      this.$router.push({ name: 'chooseItem' })
     }
   },
   computed: {
