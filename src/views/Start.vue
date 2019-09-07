@@ -5,42 +5,40 @@
     </div>
     <div class="app-content">
       <div class="container">
+        <h1 class="display-2 text-center mb-5">
+          {{ $t('title') }}
+        </h1>
         <div class="row">
-          <div class="col d-flex flex-column">
-            <h1 class="display-3 text-center mb-5">
-              {{ $t('title') }}
-            </h1>
-            <button type="button" class="btn btn-primary btn-lg m-auto p-5" @click="start">
-              <span class="text-uppercase">
-                {{ $t('start_button') }}
-              </span>
-            </button>
-            <div class="text-center">
-              <button type="button" class="btn btn-flag" @click="changeLocale('br')">
-                <span class="flag-icon flag-icon-br"></span>
+          <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end">
+            <div class="d-flex flex-column mr-md-5">
+              <button type="button" class="btn btn-primary btn-lg m-auto p-5" @click="start">
+                <span class="text-uppercase">
+                  {{ $t('start_button') }}
+                </span>
               </button>
-              <button type="button" class="btn btn-flag" @click="changeLocale('en')">
-                <span class="flag-icon flag-icon-us"></span>
-              </button>
+              <div class="text-center">
+                <button type="button" class="btn btn-flag" @click="changeLocale('br')">
+                  <span class="flag-icon flag-icon-br"></span>
+                </button>
+                <button type="button" class="btn btn-flag" @click="changeLocale('en')">
+                  <span class="flag-icon flag-icon-us"></span>
+                </button>
+              </div>
             </div>
           </div>
-          <div class="col d-flex flex-column" v-if="false">
-            <h1 class="display-3 text-center mb-5">
-              {{ $t('mobile.title') }}
-            </h1>
-            <p class="text-center">
-              {{ $t('mobile.subtitle') }}
-            </p>
-            <div class="d-flex justify-content-center">
-              <QRCode value="https://kiosk.storefront.community" :options="{ width: 256 }"/>
-            </div>
-            <div class="text-center">
-              <small>
-                Do not have an app?<br>
-                <span class="text-primary">
-                  qrcode.watch
-                </span>
-              </small>
+          <div class="col-12 col-md-6 d-none d-md-flex">
+            <div class="d-flex flex-column ml-md-5">
+              <div class="d-flex justify-content-center">
+                <QRCode value="https://kiosk.storefront.community" :options="{ width: 256 }"/>
+              </div>
+              <div class="text-center d-none">
+                <small>
+                  Do not have an app?<br>
+                  <span class="text-primary">
+                    qrcode.watch
+                  </span>
+                </small>
+              </div>
             </div>
           </div>
         </div>
@@ -77,21 +75,11 @@ export default {
 {
   "br": {
     "title": "Com fome?",
-    "subtitle": "Use este totem para pedir seu prato",
-    "start_button": "Iniciar pedido",
-    "mobile": {
-      "title": "Use seu smartphone",
-      "subtitle": "Escaneia o QR Code e peça seu prato"
-    }
+    "start_button": "Iniciar pedido"
   },
   "en": {
     "title": "Hungry?",
-    "subtitle": "Use this terminal to order your food",
-    "start_button": "Start order",
-    "mobile": {
-      "title": "Use your mobile phone",
-      "subtitle": "Scan the QR code and order your food"
-    }
+    "start_button": "Start order"
   }
 }
 </i18n>
