@@ -1,12 +1,13 @@
 <template>
   <form class="app-body" @submit.prevent="complete" v-if="$session.started">
     <div class="app-header">
-      <div class="container d-flex">
+      <div class="container d-flex align-items-center">
         <h1 class="display-3 py-2">
           {{ $t('title') }}
         </h1>
-        <div class="font-size-lg py-2 text-center ml-auto">
-          {{ $t('total') }}: <Currency :amount="order.total" class="text-primary"/>
+        <div class="text-right ml-auto">
+          <div>{{ $t('total') }}</div>
+          <Currency :amount="order.total" class="text-primary font-size-lg"/>
         </div>
       </div>
     </div>

@@ -2,16 +2,20 @@
   <form class="app-body" @submit.prevent="next" v-if="hasOptionals">
     <div class="app-header">
       <div class="container d-flex align-items-center">
-        <div class="rounded-clipping mr-3">
+        <div class="rounded-clipping mr-3 flex-shrink-0">
           <img :src="item.imageUrl">
         </div>
-        <h1 class="display-3 text-right">
+        <h1 class="display-3">
           <SlideUpTransition :direction="slide">
             <span :key="currentOptional.id">
               {{ currentOptional.title }}
             </span>
           </SlideUpTransition>
         </h1>
+        <div class="text-right ml-auto">
+          <div>{{ $t('subtotal') }}</div>
+          <Currency :amount="subtotal" class="text-primary font-size-lg "/>
+        </div>
       </div>
     </div>
     <div class="app-content">
@@ -45,13 +49,15 @@
 </template>
 
 <script>
-import OptionCheckMark from './partials/OptionCheckMark'
+import { Currency } from '@/components'
 import { SlideTransition, SlideUpTransition } from '@/transitions'
+import OptionCheckMark from './partials/OptionCheckMark'
 import waitTransition from '@/hacks/waitTransition'
 
 export default {
   name: 'customizeFood',
   components: {
+    Currency,
     OptionCheckMark,
     SlideTransition,
     SlideUpTransition
@@ -115,6 +121,9 @@ export default {
     },
     hasOptionals() {
       return this.$session.started && this.item.optionals.length
+    },
+    subtotal() {
+      return this.item.total()
     }
   },
   watch: {
@@ -132,13 +141,15 @@ export default {
     "add": "Adicionar",
     "back": "Voltar",
     "of": "de",
-    "choose_an_option": "Escolha uma opção"
+    "choose_an_option": "Escolha uma opção",
+    "subtotal": "Subtotal"
   },
   "en": {
     "add": "Add",
     "back": "Back",
     "of": "of",
-    "choose_an_option": "Choose an option"
+    "choose_an_option": "Choose an option",
+    "subtotal": "Subtotal"
   }
 }
 </i18n>
