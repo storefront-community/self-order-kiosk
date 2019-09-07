@@ -1,13 +1,13 @@
 <template>
   <ScaleTransition>
-    <button type="button" class="card bg-transparent h-100" @click="$emit('click', food)">
-      <img :src="food.imageUrl" class="card-img-top" :alt="food.name">
+    <button type="button" class="card bg-transparent h-100" @click="$emit('click', item)">
+      <img :src="item.imageUrl" class="card-img-top" :alt="item.name">
       <div class="card-body d-flex align-items-center">
         <div class="card-text">
           <div class="mb-2">
-            {{ food.name }}
+            {{ item.name }}
           </div>
-          <Currency :amount="food.price"/>
+          <Currency :amount="item.price"/>
         </div>
       </div>
     </button>
@@ -22,7 +22,7 @@ import { Item } from '@/models'
 export default {
   name: 'itemCardButton',
   props: {
-    food: {
+    item: {
       type: Item,
       required: true
     }
