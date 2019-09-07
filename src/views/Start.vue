@@ -1,5 +1,8 @@
 <template>
   <div class="app-body">
+    <div class="ap-header text-center">
+      <img :src="`/livedemo/logo/${$i18n.locale}.svg`" class="logo">
+    </div>
     <div class="app-content">
       <div class="container">
         <div class="row">
@@ -7,9 +10,6 @@
             <h1 class="display-3 text-center mb-5">
               {{ $t('title') }}
             </h1>
-            <p class="text-center mb-5">
-              {{ $t('subtitle') }}
-            </p>
             <button type="button" class="btn btn-primary btn-lg m-auto p-5" @click="start">
               <span class="text-uppercase">
                 {{ $t('start_button') }}
