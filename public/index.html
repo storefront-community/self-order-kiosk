@@ -11,14 +11,70 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.3.0/css/flag-icon.min.css" integrity="sha256-NkXMfPcpoih3/xWDcrJcAX78pHpfwxkhNj0bAf8AMTs=" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.lineicons.com/1.0.1/LineIcons.min.css">
     <title>Self-Order Kiosk</title>
+    <style>
+      .fullscreen {
+        display: flex;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+      }
+
+      .loader {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        height: 92px;
+        width: 128px;
+      }
+
+      .circle {
+        display: block;
+        width: 12px;
+        height: 12px;
+        border-radius: 12px;
+        margin: 0 4px;
+      }
+
+      .circle-salad { border: 5px solid #2ecc71; animation: salad 3s infinite alternate; }
+
+      .circle-ketchup { border: 5px solid #fc1460; animation: ketchup 3s infinite alternate; }
+
+      .circle-mustard { border: 5px solid #f39c12; animation: mustard 3s infinite alternate; }
+
+      @keyframes salad {
+        0%, 50% { transform: translate(0, 0); width: 12px; height: 12px; }
+        60%, 100% { transform: translate(24px, -18px); width: 24px; height: 24px; }
+      }
+
+      @keyframes ketchup {
+        0%, 50% { transform: translate(0, 0); width: 12px; height: 12px; }
+        60%, 100% { transform: translate(-18px, 22px); width: 24px; height: 24px; }
+      }
+
+      @keyframes mustard {
+        0%, 50% { transform: translate(0,0 ); width: 12px; height: 12px; }
+        60%, 100% { transform: translate(-20px, -18px); width: 24px; height: 24px; }
+      }
+    </style>
   </head>
   <body>
     <noscript>
       <strong>
-        We're sorry but pos doesn't work properly without JavaScript enabled. Please enable it to continue.
+        We're sorry but this app doesn't work properly without JavaScript enabled. Please enable it to continue.
       </strong>
     </noscript>
-    <div id="app"></div>
+    <div id="app">
+      <div class="fullscreen">
+        <div class="loader">
+          <div class="circle circle-salad"></div>
+          <div class="circle circle-ketchup"></div>
+          <div class="circle circle-mustard"></div>
+        </div>
+      </div>
+    </div>
     <!-- built files will be auto injected -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/js/all.min.js" integrity="sha256-xzrHBImM2jn9oDLORlHS1/0ekn1VyypEkV1ALvUx8lU=" crossorigin="anonymous"></script>
   </body>
