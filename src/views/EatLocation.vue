@@ -11,13 +11,13 @@
       <div class="container">
         <div class="row">
           <div class="col d-flex flex-column">
-            <button type="button" class="btn btn-outline-primary py-5" @click="select('eatHere')">
+            <button type="button" class="btn btn-outline-primary py-5 flex-grow-1" @click="select('eatHere')">
               <i class="fa fa-4x fa-utensils mb-5"></i>
               <h4 class="font-weight-normal">{{ $t('eat_here') }}</h4>
             </button>
           </div>
           <div class="col d-flex flex-column">
-            <button type="button" class="btn btn-outline-primary py-5" @click="select('takeOut')">
+            <button type="button" class="btn btn-outline-primary py-5 flex-grow-1" @click="select('takeOut')">
               <i class="fa fa-4x fa-shopping-bag mb-5"></i>
               <h4 class="font-weight-normal">{{ $t('take_out') }}</h4>
             </button>

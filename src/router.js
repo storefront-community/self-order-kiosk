@@ -9,11 +9,17 @@ import Identification from './views/Identification.vue'
 import OrderCompleted from './views/OrderCompleted.vue'
 import OrderSummary from './views/OrderSummary.vue'
 import Start from './views/Start.vue'
+import UpdateAvailable from './views/UpdateAvailable.vue'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {
+      path: '/update-available',
+      name: 'updateAvailable',
+      component: UpdateAvailable
+    },
     {
       path: '/',
       name: 'start',

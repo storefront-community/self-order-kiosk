@@ -12,9 +12,9 @@
 </style>
 
 <script>
+import waitTransition from '@/hacks/waitTransition'
 import { IdleTime } from '@/components'
 import { SlideTransition } from '@/transitions'
-import waitTransition from '@/hacks/waitTransition'
 
 export default {
   name: 'app',
@@ -22,9 +22,15 @@ export default {
     IdleTime,
     SlideTransition
   },
-  mounted() {
-    if (this.$session.started) return
-    waitTransition(() => this.start())
+  async mounted() {
+    const app = await this.$app.info()
+
+    if (process.env.VUE_APP_VERSION !== app.version) {
+      waitTransition(() => this.updateAvailable())
+    } else {
+      if (this.$session.started) return
+      waitTransition(() => this.start())
+    }
   },
   data() {
     return {
@@ -33,8 +39,14 @@ export default {
   },
   methods: {
     start() {
+      if (this.$route.name === 'updateAvailable') return
       if (this.$route.name === 'start') return
+
       this.$router.push({ name: 'start' })
+    },
+    updateAvailable() {
+      if (this.$route.name === 'updateAvailable') return
+      this.$router.push({ name: 'updateAvailable' })
     }
   },
   watch: {
