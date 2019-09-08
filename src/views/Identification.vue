@@ -35,7 +35,7 @@
             <i class="fa fa-check"></i>
             <span class="ml-3">{{ $t('complete') }}</span>
           </button>
-          <div class="ml-auto p-3 text-right text-primary" v-else>
+          <div class="d-flex align-items-center ml-auto px-3 text-right text-primary" v-else>
             {{ $t('type_your_name') }}
           </div>
         </SlideUpTransition>
