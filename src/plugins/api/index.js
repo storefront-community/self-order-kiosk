@@ -1,7 +1,7 @@
-import ItemGroupApi from './itemGroups'
-import ItemApi from './items'
-import OptionGroupApi from './optionGroups'
-import OptionApi from './options'
+import ItemGroupApi from './ItemGroupApi'
+import ItemApi from './ItemApi'
+import OptionGroupApi from './OptionGroupApi'
+import OptionApi from './OptionApi'
 
 class Api {
   constructor() {
