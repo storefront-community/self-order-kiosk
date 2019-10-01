@@ -1,7 +1,7 @@
 import axios from 'axios'
-import { Optional } from '@/models';
+import { OptionGroup } from '@/models';
 
-export default class OptionalApi {
+export default class OptionGroupApi {
   constructor() {
     this.locale = ''
   }
@@ -11,7 +11,7 @@ export default class OptionalApi {
     const response = await axios.get(path)
 
     if (response && response.status === 200) {
-      return response.data.optionals.map(params => new Optional(params))
+      return response.data.optionals.map(params => new OptionGroup(params))
     }
 
     return null

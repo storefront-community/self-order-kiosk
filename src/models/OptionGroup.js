@@ -1,6 +1,6 @@
 import Option from './Option'
 
-export default class Optional {
+export default class OptionGroup {
   constructor(params = {}) {
     this.id = params.id || ''
     this.title = params.title || ''

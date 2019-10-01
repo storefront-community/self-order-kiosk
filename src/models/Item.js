@@ -4,7 +4,7 @@ export default class Item {
     this.name = params.name || ''
     this.price = params.price || 0
     this.imageUrl = params.imageUrl || ''
-    this.optionals = []
+    this.optionGroups = []
     this.quantity = 1
   }
 
@@ -21,8 +21,8 @@ export default class Item {
   }
 
   options() {
-    return this.optionals
-      .map(optional => optional.options
+    return this.optionGroups
+      .map(optionGroup => optionGroup.options
         .filter(option => option.checked))
       .reduce((all, options) => all.concat(options), [])
   }

@@ -1,5 +1,5 @@
 <template>
-  <form class="app-body" @submit.prevent="next" v-if="hasOptionals">
+  <form class="app-body" @submit.prevent="next" v-if="hasOptionGroups">
     <div class="app-header">
       <div class="container d-block d-md-flex align-items-center">
         <div class="d-flex align-items-center">
@@ -7,8 +7,8 @@
             <img :src="item.imageUrl">
           </div>
           <SlideUpTransition :direction="slide">
-            <span :key="currentOptional.id">
-              {{ currentOptional.title }}
+            <span :key="currentOptionGroup.id">
+              {{ currentOptionGroup.title }}
             </span>
           </SlideUpTransition>
         </div>
@@ -20,9 +20,9 @@
     <div class="app-content">
       <SlideTransition :direction="slide">
         <OptionCheckMark
-          :options="currentOptional.options"
-          :multichoice="currentOptional.multichoice"
-          :key="currentOptional.id"/>
+          :options="currentOptionGroup.options"
+          :multichoice="currentOptionGroup.multichoice"
+          :key="currentOptionGroup.id"/>
       </SlideTransition>
     </div>
     <div class="app-footer">
@@ -64,9 +64,9 @@ export default {
   async mounted() {
     if (!this.$session.started) return
 
-    this.item.optionals = await this.$api.optionals.list(this.$session.itemGroup.id)
+    this.item.optionGroups = await this.$api.optionGroups.list(this.$session.itemGroup.id)
 
-    if (!this.hasOptionals) {
+    if (!this.hasOptionGroups) {
       waitTransition(() => this.next())
     }
   },
@@ -104,7 +104,7 @@ export default {
       return this.currentPage < this.numberOfPages
     },
     numberOfPages() {
-      return this.item.optionals.length
+      return this.item.optionGroups.length
     },
     isLastPage() {
       return this.currentPage === this.numberOfPages
@@ -113,13 +113,13 @@ export default {
       return this.currentIndex + 1
     },
     formIsValid() {
-      return !this.item.optionals.length || this.currentOptional.isValid()
+      return !this.item.optionGroups.length || this.currentOptionGroup.isValid()
     },
-    currentOptional() {
-      return this.item.optionals[this.currentIndex]
+    currentOptionGroup() {
+      return this.item.optionGroups[this.currentIndex]
     },
-    hasOptionals() {
-      return this.$session.started && this.item.optionals.length
+    hasOptionGroups() {
+      return this.$session.started && this.item.optionGroups.length
     },
     subtotal() {
       return this.item.total()
