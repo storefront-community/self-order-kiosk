@@ -1,6 +1,7 @@
 import ItemGroupApi from './itemGroups'
 import ItemApi from './items'
 import OptionGroupApi from './optionGroups'
+import OptionApi from './options'
 
 class Api {
   constructor() {
@@ -8,6 +9,7 @@ class Api {
     this.itemGroups = new ItemGroupApi()
     this.items = new ItemApi()
     this.optionGroups = new OptionGroupApi()
+    this.options = new OptionApi()
   }
 
   get locale() {
@@ -19,6 +21,7 @@ class Api {
     this.items.locale = value
     this.itemGroups.locale = value
     this.optionGroups.locale = value
+    this.options.locale = value
   }
 }
 

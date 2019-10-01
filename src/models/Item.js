@@ -21,10 +21,12 @@ export default class Item {
   }
 
   options() {
-    return this.optionGroups
-      .map(optionGroup => optionGroup.options
-        .filter(option => option.checked))
-      .reduce((all, options) => all.concat(options), [])
+    return []
+    // TODO
+    // return this.optionGroups
+    //   .map(optionGroup => optionGroup.options
+    //     .filter(option => option.checked))
+    //   .reduce((all, options) => all.concat(options), [])
   }
 
   total() {

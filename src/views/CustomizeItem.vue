@@ -20,7 +20,7 @@
     <div class="app-content">
       <SlideTransition :direction="slide">
         <OptionCheckMark
-          :options="currentOptionGroup.options"
+          :optionGroup="currentOptionGroup"
           :multichoice="currentOptionGroup.multichoice"
           :key="currentOptionGroup.id"/>
       </SlideTransition>

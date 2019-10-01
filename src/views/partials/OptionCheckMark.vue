@@ -1,5 +1,5 @@
 <template>
-  <SlideTransition direction="left">
+  <SlideTransition direction="left" v-if="options">
     <div ref="swiper" class="container swiper-container">
       <div class="swiper-wrapper">
         <label class="swiper-slide card" v-for="option in options" :key="option.id">
@@ -28,13 +28,14 @@
 <script>
 import Swiper from 'swiper';
 import { Currency } from '@/components'
+import { OptionGroup } from '@/models'
 import { SlideTransition } from '@/transitions'
 
 export default {
   name: 'OptionCheckMark',
   props: {
-    options: {
-      type: Array,
+    optionGroup: {
+      type: OptionGroup,
       required: true
     },
     multichoice: {
@@ -46,7 +47,14 @@ export default {
     Currency,
     SlideTransition
   },
-  mounted() {
+  data() {
+    return {
+      options: null
+    }
+  },
+  async mounted() {
+    this.options = await this.$api.options.list(this.optionGroup.id)
+
     this.$nextTick(() => {
       new Swiper(this.$refs.swiper, {
         slidesPerView: 5,
