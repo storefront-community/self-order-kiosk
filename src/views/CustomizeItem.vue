@@ -7,8 +7,8 @@
             <img :src="item.imageUrl">
           </div>
           <SlideUpTransition :direction="slide">
-            <span :key="currentOptionGroup.id">
-              {{ currentOptionGroup.title }}
+            <span :key="optionGroup.id">
+              {{ optionGroup.title }}
             </span>
           </SlideUpTransition>
         </div>
@@ -20,9 +20,9 @@
     <div class="app-content">
       <SlideTransition :direction="slide">
         <OptionCheckMark
-          :optionGroup="currentOptionGroup"
-          :multichoice="currentOptionGroup.multichoice"
-          :key="currentOptionGroup.id"/>
+          :optionGroup="optionGroup"
+          :multichoice="optionGroup.multichoice"
+          :key="optionGroup.id"/>
       </SlideTransition>
     </div>
     <div class="app-footer">
@@ -113,9 +113,9 @@ export default {
       return this.currentIndex + 1
     },
     formIsValid() {
-      return !this.item.optionGroups.length || this.currentOptionGroup.isValid()
+      return !this.item.optionGroups.length || this.optionGroup.isValid()
     },
-    currentOptionGroup() {
+    optionGroup() {
       return this.item.optionGroups[this.currentIndex]
     },
     hasOptionGroups() {
