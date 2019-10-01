@@ -7,7 +7,7 @@ export default class ItemApi {
   }
 
   async list(itemGroupId) {
-    const path = `/livedemo/data/${this.locale}/items/${itemGroupId}.json`
+    const path = `${process.env.VUE_APP_API_BASE_URL}/menu/${this.locale}/items/${itemGroupId}.json`
     const response = await axios.get(path)
 
     if (response && response.status === 200) {
