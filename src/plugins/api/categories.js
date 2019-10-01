@@ -7,7 +7,7 @@ export default class CategoryApi {
   }
 
   async list() {
-    const path = `/livedemo/data/${this.locale}/categories.json`
+    const path = `${process.env.VUE_APP_API_BASE_URL}/menu/${this.locale}/item-groups.json`
     const response = await axios.get(path)
 
     if (response && response.status === 200) {
