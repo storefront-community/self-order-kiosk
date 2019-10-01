@@ -19,10 +19,7 @@
     </div>
     <div class="app-content">
       <SlideTransition :direction="slide">
-        <OptionCheckMark
-          :optionGroup="optionGroup"
-          :multichoice="optionGroup.multichoice"
-          :key="optionGroup.id"/>
+        <OptionCheckMark :optionGroup="optionGroup" :key="optionGroup.id"/>
       </SlideTransition>
     </div>
     <div class="app-footer">

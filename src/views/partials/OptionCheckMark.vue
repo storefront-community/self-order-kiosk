@@ -4,7 +4,7 @@
       <div class="swiper-wrapper">
         <label class="swiper-slide card" v-for="option in options" :key="option.id">
           <div class="card-body d-flex align-items-center">
-            <div class="checkbox checkbox-primary" v-if="multichoice">
+            <div class="checkbox checkbox-primary" v-if="optionGroup.multichoice">
               <input type="checkbox" v-model="option.checked">
               <span class="check-mark"></span> {{ option.name }}
             </div>
@@ -36,10 +36,6 @@ export default {
   props: {
     optionGroup: {
       type: OptionGroup,
-      required: true
-    },
-    multichoice: {
-      type: Boolean,
       required: true
     }
   },
