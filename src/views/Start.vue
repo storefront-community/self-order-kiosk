@@ -67,7 +67,7 @@ export default {
       this.$session.locale = locale
     },
     start() {
-      this.$router.push({ name: 'chooseCategory' })
+      this.$router.push({ name: 'chooseItemGroup' })
     }
   }
 }

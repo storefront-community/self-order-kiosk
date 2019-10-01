@@ -72,7 +72,7 @@ export default {
   },
   methods: {
     addItem() {
-      this.$router.push({ name: 'chooseCategory' })
+      this.$router.push({ name: 'chooseItemGroup' })
     },
     cancelOrder() {
       this.$router.push({ name: 'cancelOrder' })

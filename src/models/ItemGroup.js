@@ -1,4 +1,4 @@
-export default class Category {
+export default class ItemGroup {
   constructor(params = {}) {
     this.id = params.id || ''
     this.name = params.name || ''

@@ -3,7 +3,7 @@
     <div class="app-header">
       <div class="container">
         <div class="text-center">
-          {{ category.name }}
+          {{ itemGroup.name }}
         </div>
       </div>
     </div>
@@ -39,14 +39,14 @@ export default {
   },
   data() {
     return {
-      category: this.$session.category,
+      itemGroup: this.$session.itemGroup,
       items: []
     }
   },
   async mounted() {
     if (!this.$session.started) return
 
-    this.items = await this.$api.items.list(this.$session.category.id)
+    this.items = await this.$api.items.list(this.$session.itemGroup.id)
 
     if (!this.$refs.swiper) return
 
@@ -69,7 +69,7 @@ export default {
   },
   methods: {
     back() {
-      this.$router.push({ name: 'chooseCategory' })
+      this.$router.push({ name: 'chooseItemGroup' })
     },
     select(item) {
       this.$session.item = item

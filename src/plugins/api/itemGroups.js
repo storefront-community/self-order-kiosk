@@ -1,7 +1,7 @@
 import axios from 'axios'
-import { Category } from '@/models';
+import { ItemGroup } from '@/models';
 
-export default class CategoryApi {
+export default class ItemGroupApi {
   constructor() {
     this.locale = ''
   }
@@ -11,7 +11,7 @@ export default class CategoryApi {
     const response = await axios.get(path)
 
     if (response && response.status === 200) {
-      return response.data.categories.map(params => new Category(params))
+      return response.data.itemGroups.map(params => new ItemGroup(params))
     }
 
     return null

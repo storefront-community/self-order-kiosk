@@ -14,8 +14,8 @@
     </div>
     <div class="app-content">
       <SwiperContainer ref="swiper">
-        <SwiperSlide v-for="category in categories" :key="category.id">
-            <CategoryButton :category="category" @click="select(category)" />
+        <SwiperSlide v-for="itemGroup in itemGroups" :key="itemGroup.id">
+            <ItemGroupButton :itemGroup="itemGroup" @click="select(itemGroup)" />
         </SwiperSlide>
       </SwiperContainer>
     </div>
@@ -32,20 +32,20 @@
 
 <script>
 import { SwiperContainer, SwiperSlide } from '@/components'
-import CategoryButton from './partials/CategoryButton'
+import ItemGroupButton from './partials/ItemGroupButton'
 import breakpoints from '@/constants/breakpoints'
 
 export default {
-  name: 'chooseCategory',
+  name: 'chooseItemGroup',
   components: {
-    CategoryButton,
+    ItemGroupButton,
     SwiperContainer,
     SwiperSlide
   },
   data() {
     return {
       order: this.$session.order,
-      categories: []
+      itemGroups: []
     }
   },
   async mounted() {
@@ -53,22 +53,22 @@ export default {
 
     if (!this.$session.started) return
 
-    this.categories = await this.$api.categories.list()
+    this.itemGroups = await this.$api.itemGroups.list()
 
     if (!this.$refs.swiper) return
 
     this.$refs.swiper.init({
-      slidesPerView: Math.min(this.categories.length, 3.5),
+      slidesPerView: Math.min(this.itemGroups.length, 3.5),
       centeredSlides: false,
       spaceBetween: 30,
       direction: 'horizontal',
-      shadowEnabled: this.categories.length > 3,
+      shadowEnabled: this.itemGroups.length > 3,
       breakpoints: {
         [breakpoints.MD]: {
-          slidesPerView: Math.min(this.categories.length, 2.5)
+          slidesPerView: Math.min(this.itemGroups.length, 2.5)
         },
         [breakpoints.SM]: {
-          slidesPerView: Math.min(this.categories.length, 1.5),
+          slidesPerView: Math.min(this.itemGroups.length, 1.5),
           centeredSlides: true
         }
       }
@@ -79,8 +79,8 @@ export default {
       const routeName = this.orderHasItem ? 'orderSummary' : 'start'
       this.$router.push({ name: routeName })
     },
-    select(category) {
-      this.$session.category = category
+    select(itemGroup) {
+      this.$session.itemGroup = itemGroup
       this.$router.push({ name: 'chooseItem' })
     }
   },

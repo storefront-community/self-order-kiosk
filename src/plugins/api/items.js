@@ -6,8 +6,8 @@ export default class ItemApi {
     this.locale = ''
   }
 
-  async list(categoryId) {
-    const path = `/livedemo/data/${this.locale}/items/${categoryId}.json`
+  async list(itemGroupId) {
+    const path = `/livedemo/data/${this.locale}/items/${itemGroupId}.json`
     const response = await axios.get(path)
 
     if (response && response.status === 200) {

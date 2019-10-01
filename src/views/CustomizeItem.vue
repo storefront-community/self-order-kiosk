@@ -64,7 +64,7 @@ export default {
   async mounted() {
     if (!this.$session.started) return
 
-    this.item.optionals = await this.$api.optionals.list(this.$session.category.id)
+    this.item.optionals = await this.$api.optionals.list(this.$session.itemGroup.id)
 
     if (!this.hasOptionals) {
       waitTransition(() => this.next())
