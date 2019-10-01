@@ -3,7 +3,7 @@
     <button type="button" class="card border-0 bg-transparent align-items-center w-100"
       @click="$emit('click', itemGroup)">
       <div class="rounded-clipping rounded-clipping-lg">
-        <img :src="itemGroup.imageUrl" class="card-img-top" :alt="itemGroup.name">
+        <ProgressiveImage :image="itemGroup" :alt="itemGroup.name"/>
       </div>
       <div class="card-body d-flex flex-column">
         <h2 class="card-title flex-grow-1 text-center font-weight-normal">
@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import { ProgressiveImage } from '@/components'
 import { ScaleTransition } from '@/transitions'
 import { ItemGroup } from '@/models'
 
@@ -27,6 +28,7 @@ export default {
     }
   },
   components: {
+    ProgressiveImage,
     ScaleTransition
   },
 }

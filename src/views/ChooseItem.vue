@@ -53,16 +53,15 @@ export default {
     this.$refs.swiper.init({
       slidesPerView: Math.min(this.items.length, 3.5),
       centeredSlides: false,
-      spaceBetween: 30,
+      spaceBetween: 20,
       direction: 'horizontal',
       shadowEnabled: this.items.length > 3,
       breakpoints: {
-        [breakpoints.MD]: {
+        [breakpoints.LG]: {
           slidesPerView: Math.min(this.items.length, 2.5)
         },
-        [breakpoints.SM]: {
-          slidesPerView: Math.min(this.items.length, 1.5),
-          centeredSlides: true
+        [breakpoints.MD]: {
+          slidesPerView: Math.min(this.items.length, 1.5)
         }
       }
     })

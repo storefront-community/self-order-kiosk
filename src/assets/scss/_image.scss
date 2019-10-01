@@ -3,6 +3,59 @@
   margin: 2rem 0;
 }
 
+.img-progressive {
+  background: $gray-100;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: 256px;
+  height: 192px;
+
+  &.loading {
+    .original {
+      opacity: 0;
+    }
+  }
+
+  svg {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    // Fix to firefox
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  .original,
+  .thumbnail {
+    display: block;
+    height: 100%;
+    width: auto;
+    transition: opacity .5s ease-in;
+  }
+
+  .original {
+    position: relative;
+    opacity: 1;
+    z-index: 100;
+  }
+
+  .thumbnail {
+    filter: url("#svgBlurFilter");
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+}
+
 .rounded-clipping {
   width: 64px;
   height: 64px;
@@ -10,10 +63,11 @@
   position: relative;
   overflow: hidden;
 
-  > img {
-    display: inline-block;
+  > img,
+  > .img-progressive,
+  > .img-progressive img {
+    display: block;
     margin: 0 auto;
-    margin-left: -25%; // centers the image
     height: 100%;
     width: auto;
   }
