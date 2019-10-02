@@ -1,6 +1,6 @@
 <template>
   <ScaleTransition>
-    <button type="button" class="card border-0 bg-transparent align-items-center w-100"
+    <button type="button" class="btn btn-card border-0 align-items-center"
       @click="$emit('click', itemGroup)">
       <div class="rounded-clipping rounded-clipping-lg">
         <ProgressiveImage :image="itemGroup" :alt="itemGroup.name"/>

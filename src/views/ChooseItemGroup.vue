@@ -15,7 +15,7 @@
     <div class="app-content">
       <SwiperContainer ref="swiper">
         <SwiperSlide v-for="itemGroup in itemGroups" :key="itemGroup.id">
-            <ItemGroupButton :itemGroup="itemGroup" @click="select(itemGroup)" />
+          <ItemGroupButton :itemGroup="itemGroup" @click="select(itemGroup)" />
         </SwiperSlide>
       </SwiperContainer>
     </div>

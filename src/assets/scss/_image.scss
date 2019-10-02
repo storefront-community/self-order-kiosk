@@ -8,8 +8,6 @@
   display: block;
   position: relative;
   overflow: hidden;
-  width: 256px;
-  height: 192px;
 
   &.loading {
     .original {
@@ -22,7 +20,7 @@
     height: 0;
     overflow: hidden;
     visibility: hidden;
-    // Fix to firefox
+    // Fix to Firefox
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -36,8 +34,8 @@
   .original,
   .thumbnail {
     display: block;
-    height: 100%;
-    width: auto;
+    height: auto;
+    width: 100%;
     transition: opacity .5s ease-in;
   }
 
@@ -52,6 +50,8 @@
     position: absolute;
     top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 0;
   }
 }
@@ -66,10 +66,15 @@
   > img,
   > .img-progressive,
   > .img-progressive img {
-    display: block;
     margin: 0 auto;
     height: 100%;
     width: auto;
+  }
+
+  > img,
+  > .img-progressive img {
+    display: inline-block; // centers the image
+    margin-left: -25%;
   }
 
   @include breakpoint-down-to-sm {

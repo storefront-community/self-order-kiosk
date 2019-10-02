@@ -7,8 +7,8 @@
         <feComposite in2="SourceGraphic" operator="in"></feComposite>
       </filter>
     </svg>
-    <img :src="thumbnail" class="thumbnail">
-    <img :src="standard" class="original">
+    <img :src="thumbnail" class="thumbnail" @load="load">
+    <img :src="standard" class="original" v-if="!preloading">
   </span>
 </template>
 
@@ -25,13 +25,18 @@ export default {
   },
   data() {
     return {
+      preloading: true,
       loading: true
     }
   },
-  mounted() {
-    const image = new Image()
-    image.onload = () => this.loading = false
-    image.src = this.standard
+  methods: {
+    load() {
+      this.preloading = false
+
+      const image = new Image()
+      image.onload = () => this.loading = false
+      image.src = this.standard
+    }
   },
   computed: {
     gallery() {

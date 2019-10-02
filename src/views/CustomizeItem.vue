@@ -4,7 +4,7 @@
       <div class="container d-block d-md-flex align-items-center">
         <div class="d-flex align-items-center">
           <div class="rounded-clipping mr-3 flex-shrink-0">
-            <img :src="item.imageUrl">
+            <ProgressiveImage :image="item" :alt="item.name"/>
           </div>
           <SlideUpTransition :direction="slide">
             <span :key="optionGroup.id">
@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import { Currency } from '@/components'
+import { Currency, ProgressiveImage } from '@/components'
 import { SlideTransition, SlideUpTransition } from '@/transitions'
 import OptionCheckMark from './partials/OptionCheckMark'
 import waitTransition from '@/hacks/waitTransition'
@@ -55,6 +55,7 @@ export default {
   components: {
     Currency,
     OptionCheckMark,
+    ProgressiveImage,
     SlideTransition,
     SlideUpTransition
   },

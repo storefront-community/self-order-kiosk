@@ -1,14 +1,13 @@
-button.card {
+.btn-card {
+  @extend .shadow-none;
   color: $body-color;
-  outline: none;
+  display: flex;
+  flex-direction: column;
   padding: 0;
+  height: 100%;
+  width: 100%;
+  border: $border-width $border-color solid;
   text-align: left;
-  white-space: normal;
-  width: 256px;
-
-  .card-body {
-    width: 100%
-  }
 }
 
 .btn.btn-flag {
