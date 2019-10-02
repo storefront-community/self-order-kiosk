@@ -1,10 +1,10 @@
 <template>
   <div class="app-body">
-    <div class="ap-header text-center">
-      <img :src="`/livedemo/logo/${$i18n.locale}.png`" class="logo">
-    </div>
     <div class="app-content">
       <div class="container d-flex flex-column h-100">
+        <div class="text-center">
+          <Logo/>
+        </div>
         <h2 class="font-weight-normal text-center d-flex flex-grow-1 align-items-center">
           <span class="m-auto">
             {{ $t('title') }}
@@ -50,11 +50,13 @@
 </template>
 
 <script>
+import { Logo } from '@/components'
 import QRCode from '@chenfengyuan/vue-qrcode'
 
 export default {
   name: 'start',
   components: {
+    Logo,
     QRCode
   },
   mounted() {
