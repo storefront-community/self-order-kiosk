@@ -24,8 +24,6 @@
 </template>
 
 <script>
-import waitTransition from '@/hacks/waitTransition'
-
 export default {
   name: 'updateAvailable',
   data() {
@@ -39,7 +37,7 @@ export default {
     this.updateAvailable = process.env.VUE_APP_VERSION !== app.version
 
     if (!this.updateAvailable) {
-      waitTransition(() => this.start())
+      this.$delay(() => this.start())
     }
   },
   methods: {

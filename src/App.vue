@@ -12,7 +12,6 @@
 </style>
 
 <script>
-import waitTransition from '@/hacks/waitTransition'
 import { IdleTime } from '@/components'
 import { SlideTransition } from '@/transitions'
 
@@ -26,10 +25,10 @@ export default {
     const app = await this.$app.info()
 
     if (process.env.VUE_APP_VERSION !== app.version) {
-      waitTransition(() => this.updateAvailable())
+      this.$delay(() => this.updateAvailable())
     } else {
       if (this.$session.started) return
-      waitTransition(() => this.start())
+      this.$delay(() => this.start())
     }
   },
   data() {
