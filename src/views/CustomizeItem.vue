@@ -48,7 +48,6 @@
 import { Currency, ProgressiveImage } from '@/components'
 import { SlideTransition, SlideUpTransition } from '@/transitions'
 import OptionCheckMark from './partials/OptionCheckMark'
-import waitTransition from '@/hacks/waitTransition'
 
 export default {
   name: 'customizeItem',
@@ -67,7 +66,7 @@ export default {
     }
 
     if (!this.hasOptionGroups) {
-      waitTransition(() => this.next())
+      this.$delay(() => this.next())
     }
   },
   data() {
