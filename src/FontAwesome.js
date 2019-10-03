@@ -15,6 +15,10 @@ import {
   faUser
 } from '@fortawesome/free-solid-svg-icons'
 
+import {
+  faSmile
+} from '@fortawesome/free-regular-svg-icons'
+
 library.add(faArrowLeft)
 library.add(faArrowRight)
 library.add(faBackspace)
@@ -22,6 +26,7 @@ library.add(faCheck)
 library.add(faMinus)
 library.add(faPlus)
 library.add(faShoppingBag)
+library.add(faSmile)
 library.add(faSyncAlt)
 library.add(faTimesCircle)
 library.add(faUtensils)
