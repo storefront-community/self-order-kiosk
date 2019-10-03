@@ -7,7 +7,7 @@
         <feComposite in2="SourceGraphic" operator="in"></feComposite>
       </filter>
     </svg>
-    <img :src="thumbnail" class="thumbnail" @load="load">
+    <img :src="thumbnail" class="thumbnail" @load="preload">
     <img :src="standard" class="original" v-if="!preloading">
   </span>
 </template>
@@ -18,6 +18,10 @@ import { ItemGroup, Item } from '@/models'
 export default {
   name: 'progressiveImage',
   props: {
+    autoload: {
+      type: Boolean,
+      default: () => false
+    },
     image: {
       type: Object,
       required: true
@@ -30,9 +34,15 @@ export default {
     }
   },
   methods: {
-    load() {
+    preload() {
       this.preloading = false
+      this.$emit('preload')
 
+      if (this.autoload) {
+        this.load()
+      }
+    },
+    load() {
       const image = new Image()
       image.onload = () => this.loading = false
       image.src = this.standard
@@ -46,9 +56,6 @@ export default {
     },
     host() {
       return `${process.env.VUE_APP_API_BASE_URL}/gallery`
-    },
-    imageUrl() {
-      return this.loading ? this.thumbnail : this.standard
     },
     imagePrefix() {
       return `${this.host}/${this.image.id}.${this.gallery}`

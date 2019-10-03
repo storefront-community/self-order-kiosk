@@ -15,7 +15,8 @@
     <div class="app-content">
       <SwiperContainer ref="swiper">
         <SwiperSlide v-for="itemGroup in itemGroups" :key="itemGroup.id">
-          <ItemGroupButton :itemGroup="itemGroup" @click="select(itemGroup)" />
+          <ItemGroupButton ref="itemGroupButton" :itemGroup="itemGroup"
+            @click="select(itemGroup)" @imagePreload="loadImages"/>
         </SwiperSlide>
       </SwiperContainer>
     </div>
@@ -78,6 +79,15 @@ export default {
     back() {
       const routeName = this.orderHasItem ? 'orderSummary' : 'start'
       this.$router.push({ name: routeName })
+    },
+    loadImages() {
+      const preloading = this.$refs.itemGroupButton
+        .map(button => button.image.preloading)
+        .includes(true)
+
+      if (preloading) return
+
+      this.$refs.itemGroupButton.forEach(button => button.image.load())
     },
     select(itemGroup) {
       this.$session.itemGroup = itemGroup

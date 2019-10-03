@@ -4,7 +4,7 @@
       <div class="container d-block d-md-flex align-items-center">
         <div class="d-flex align-items-center">
           <div class="rounded-clipping mr-3 flex-shrink-0">
-            <ProgressiveImage :image="item" :alt="item.name"/>
+            <ProgressiveImage :image="item" :alt="item.name" :autoload="true"/>
           </div>
           <SlideUpTransition :direction="slide">
             <span :key="optionGroup.id">
