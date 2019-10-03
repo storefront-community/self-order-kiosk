@@ -73,8 +73,8 @@
 
   > img,
   > .img-progressive img {
-    display: inline-block; // centers the image
-    margin-left: -25%;
+    display: inline-block;
+    margin-left: -25%; // centers the image
   }
 
   @include breakpoint-down-to-sm {
