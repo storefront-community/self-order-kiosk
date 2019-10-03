@@ -19,8 +19,6 @@ function enter() {
 }
 
 function exit() {
-  // TODO: Exit automatically only if is mobile
-
   if (isActive()) {
     if (document.exitFullscreen) {
       document.exitFullscreen()

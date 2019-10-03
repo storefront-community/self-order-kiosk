@@ -60,7 +60,10 @@ export default {
     QRCode
   },
   mounted() {
-    this.$fullscreen.exit()
+    if (this.$device.isMobile()) {
+      this.$fullscreen.exit()
+    }
+
     this.$session.start()
   },
   methods: {
