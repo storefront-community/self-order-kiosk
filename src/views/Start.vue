@@ -60,6 +60,7 @@ export default {
     QRCode
   },
   mounted() {
+    this.$fullscreen.exit()
     this.$session.start()
   },
   methods: {
@@ -69,6 +70,7 @@ export default {
       this.$session.locale = locale
     },
     start() {
+      this.$fullscreen.enter()
       this.$router.push({ name: 'chooseItemGroup' })
     }
   }
