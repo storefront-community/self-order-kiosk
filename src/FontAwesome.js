@@ -11,7 +11,8 @@ import {
   faShoppingBag,
   faSyncAlt,
   faTimesCircle,
-  faUtensils
+  faUtensils,
+  faUser
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faArrowLeft)
@@ -24,6 +25,7 @@ library.add(faShoppingBag)
 library.add(faSyncAlt)
 library.add(faTimesCircle)
 library.add(faUtensils)
+library.add(faUser)
 
 export default {
   install (Vue) {

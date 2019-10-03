@@ -13,7 +13,7 @@
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text">
-                <i class="lni-user ml-3"></i>
+                <FontAwesome icon="user" class="ml-3"/>
               </span>
             </div>
             <div class="form-control form-control-lg border-left-0">
