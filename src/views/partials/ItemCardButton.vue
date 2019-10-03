@@ -1,16 +1,17 @@
 <template>
   <ScaleTransition>
-      <button type="button" class="btn btn-card" @click="$emit('click', item)">
-        <ProgressiveImage :image="item" :alt="item.name" class="card-img-top"/>
-        <div class="card-body d-flex align-items-center">
-          <div class="card-text">
-            <div class="mb-2">
-              {{ item.name }}
-            </div>
-            <Currency :amount="item.price"/>
+    <button type="button" class="btn btn-card" @click="$emit('click', item)">
+      <ProgressiveImage ref="image" :image="item" :alt="item.name" @preload="$emit('imagePreload')"
+        class="card-img-top"/>
+      <div class="card-body d-flex align-items-center">
+        <div class="card-text">
+          <div class="mb-2">
+            {{ item.name }}
           </div>
+          <Currency :amount="item.price"/>
         </div>
-      </button>
+      </div>
+    </button>
   </ScaleTransition>
 </template>
 
@@ -32,5 +33,10 @@ export default {
     ProgressiveImage,
     ScaleTransition
   },
+  computed: {
+    image() {
+      return this.$refs.image
+    }
+  }
 }
 </script>

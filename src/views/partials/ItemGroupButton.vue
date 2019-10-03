@@ -3,7 +3,7 @@
     <button type="button" class="btn btn-card border-0 align-items-center"
       @click="$emit('click', itemGroup)">
       <div class="rounded-clipping rounded-clipping-lg">
-        <ProgressiveImage :image="itemGroup" :alt="itemGroup.name"/>
+        <ProgressiveImage ref="image" :image="itemGroup" :alt="itemGroup.name" @preload="$emit('imagePreload')"/>
       </div>
       <div class="card-body d-flex flex-column">
         <h2 class="card-title flex-grow-1 text-center font-weight-normal">
@@ -31,5 +31,10 @@ export default {
     ProgressiveImage,
     ScaleTransition
   },
+  computed: {
+    image() {
+      return this.$refs.image
+    }
+  }
 }
 </script>

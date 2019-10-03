@@ -10,7 +10,7 @@
     <div class="app-content">
       <SwiperContainer ref="swiper">
         <SwiperSlide v-for="item in itemGroup.items" :key="item.id">
-          <ItemCardButton :item="item" @click="select(item)" />
+          <ItemCardButton ref="itemCardButton" :item="item" @click="select(item)" @imagePreload="loadImages"/>
         </SwiperSlide>
       </SwiperContainer>
     </div>
@@ -68,6 +68,15 @@ export default {
   methods: {
     back() {
       this.$router.push({ name: 'chooseItemGroup' })
+    },
+    loadImages() {
+      const preloading = this.$refs.itemCardButton
+        .map(card => card.image.preloading)
+        .includes(true)
+
+      if (preloading) return
+
+      this.$refs.itemCardButton.forEach(card => card.image.load())
     },
     select(item) {
       this.$session.item = item

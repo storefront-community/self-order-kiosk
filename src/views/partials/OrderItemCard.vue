@@ -2,7 +2,7 @@
   <div class="card h-100">
     <div class="card-body d-block d-md-flex">
       <div class="rounded-clipping mr-3 flex-shrink-0">
-        <ProgressiveImage :image="item" :alt="item.name"/>
+        <ProgressiveImage :image="item" :alt="item.name" :autoload="true"/>
       </div>
       <div class="flex-grow-1">
         <div class="d-flex font-weight-bold py-3">
