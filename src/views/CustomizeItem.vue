@@ -1,14 +1,14 @@
 <template>
-  <form class="app-body" @submit.prevent="next" v-if="hasOptionals">
+  <form class="app-body" @submit.prevent="next" v-if="hasOptionGroups">
     <div class="app-header">
       <div class="container d-block d-md-flex align-items-center">
         <div class="d-flex align-items-center">
           <div class="rounded-clipping mr-3 flex-shrink-0">
-            <img :src="item.imageUrl">
+            <ProgressiveImage :image="item" :alt="item.name"/>
           </div>
           <SlideUpTransition :direction="slide">
-            <span :key="currentOptional.id">
-              {{ currentOptional.title }}
+            <span :key="optionGroup.id">
+              {{ optionGroup.title }}
             </span>
           </SlideUpTransition>
         </div>
@@ -19,10 +19,7 @@
     </div>
     <div class="app-content">
       <SlideTransition :direction="slide">
-        <OptionCheckMark
-          :options="currentOptional.options"
-          :multichoice="currentOptional.multichoice"
-          :key="currentOptional.id"/>
+        <OptionCheckMark :optionGroup="optionGroup" :key="optionGroup.id"/>
       </SlideTransition>
     </div>
     <div class="app-footer">
@@ -48,7 +45,7 @@
 </template>
 
 <script>
-import { Currency } from '@/components'
+import { Currency, ProgressiveImage } from '@/components'
 import { SlideTransition, SlideUpTransition } from '@/transitions'
 import OptionCheckMark from './partials/OptionCheckMark'
 import waitTransition from '@/hacks/waitTransition'
@@ -58,15 +55,18 @@ export default {
   components: {
     Currency,
     OptionCheckMark,
+    ProgressiveImage,
     SlideTransition,
     SlideUpTransition
   },
   async mounted() {
     if (!this.$session.started) return
 
-    this.item.optionals = await this.$api.optionals.list(this.$session.category.id)
+    if (!this.item.optionGroups) {
+      this.item.optionGroups = await this.$api.optionGroups.list(this.$session.itemGroup.id)
+    }
 
-    if (!this.hasOptionals) {
+    if (!this.hasOptionGroups) {
       waitTransition(() => this.next())
     }
   },
@@ -104,7 +104,7 @@ export default {
       return this.currentPage < this.numberOfPages
     },
     numberOfPages() {
-      return this.item.optionals.length
+      return this.item.optionGroups.length
     },
     isLastPage() {
       return this.currentPage === this.numberOfPages
@@ -113,13 +113,13 @@ export default {
       return this.currentIndex + 1
     },
     formIsValid() {
-      return !this.item.optionals.length || this.currentOptional.isValid()
+      return !this.item.optionGroups.length || this.optionGroup.isValid()
     },
-    currentOptional() {
-      return this.item.optionals[this.currentIndex]
+    optionGroup() {
+      return this.item.optionGroups[this.currentIndex]
     },
-    hasOptionals() {
-      return this.$session.started && this.item.optionals.length
+    hasOptionGroups() {
+      return this.$session.started && this.item.optionGroups && this.item.optionGroups.length
     },
     subtotal() {
       return this.item.total()

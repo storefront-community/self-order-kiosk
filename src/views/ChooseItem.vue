@@ -3,13 +3,13 @@
     <div class="app-header">
       <div class="container">
         <div class="text-center">
-          {{ category.name }}
+          {{ itemGroup.name }}
         </div>
       </div>
     </div>
     <div class="app-content">
       <SwiperContainer ref="swiper">
-        <SwiperSlide v-for="item in items" :key="item.id">
+        <SwiperSlide v-for="item in itemGroup.items" :key="item.id">
           <ItemCardButton :item="item" @click="select(item)" />
         </SwiperSlide>
       </SwiperContainer>
@@ -39,37 +39,35 @@ export default {
   },
   data() {
     return {
-      category: this.$session.category,
-      items: []
+      itemGroup: this.$session.itemGroup
     }
   },
   async mounted() {
     if (!this.$session.started) return
 
-    this.items = await this.$api.items.list(this.$session.category.id)
+    this.itemGroup.items = await this.$api.items.list(this.$session.itemGroup.id)
 
     if (!this.$refs.swiper) return
 
     this.$refs.swiper.init({
-      slidesPerView: Math.min(this.items.length, 3.5),
+      slidesPerView: Math.min(this.itemGroup.items.length, 3.5),
       centeredSlides: false,
-      spaceBetween: 30,
+      spaceBetween: 20,
       direction: 'horizontal',
-      shadowEnabled: this.items.length > 3,
+      shadowEnabled: this.itemGroup.items.length > 3,
       breakpoints: {
-        [breakpoints.MD]: {
-          slidesPerView: Math.min(this.items.length, 2.5)
+        [breakpoints.LG]: {
+          slidesPerView: Math.min(this.itemGroup.items.length, 2.5)
         },
-        [breakpoints.SM]: {
-          slidesPerView: Math.min(this.items.length, 1.5),
-          centeredSlides: true
+        [breakpoints.MD]: {
+          slidesPerView: Math.min(this.itemGroup.items.length, 1.5)
         }
       }
     })
   },
   methods: {
     back() {
-      this.$router.push({ name: 'chooseCategory' })
+      this.$router.push({ name: 'chooseItemGroup' })
     },
     select(item) {
       this.$session.item = item

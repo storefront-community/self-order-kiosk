@@ -1,13 +1,13 @@
 <template>
   <ScaleTransition>
-    <button type="button" class="card border-0 bg-transparent align-items-center w-100"
-      @click="$emit('click', category)">
+    <button type="button" class="btn btn-card border-0 align-items-center"
+      @click="$emit('click', itemGroup)">
       <div class="rounded-clipping rounded-clipping-lg">
-        <img :src="category.imageUrl" class="card-img-top" :alt="category.name">
+        <ProgressiveImage :image="itemGroup" :alt="itemGroup.name"/>
       </div>
       <div class="card-body d-flex flex-column">
         <h2 class="card-title flex-grow-1 text-center font-weight-normal">
-          {{ category.name }}
+          {{ itemGroup.name }}
         </h2>
       </div>
     </button>
@@ -15,18 +15,20 @@
 </template>
 
 <script>
+import { ProgressiveImage } from '@/components'
 import { ScaleTransition } from '@/transitions'
-import { Category } from '@/models'
+import { ItemGroup } from '@/models'
 
 export default {
-  name: 'categoryButton',
+  name: 'itemGroupButton',
   props: {
-    category: {
-      type: Category,
+    itemGroup: {
+      type: ItemGroup,
       required: true
     }
   },
   components: {
+    ProgressiveImage,
     ScaleTransition
   },
 }

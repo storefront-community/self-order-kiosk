@@ -4,7 +4,7 @@
       <div class="container d-flex align-items-center">
         <div>{{ $t('title') }}</div>
         <div class="text-right ml-auto">
-          <Currency :amount="order.total" class="text-primary font-weight-bold"/>
+          <Currency :amount="order.total()" class="text-primary font-weight-bold"/>
         </div>
       </div>
     </div>
@@ -72,7 +72,7 @@ export default {
   },
   methods: {
     addItem() {
-      this.$router.push({ name: 'chooseCategory' })
+      this.$router.push({ name: 'chooseItemGroup' })
     },
     cancelOrder() {
       this.$router.push({ name: 'cancelOrder' })

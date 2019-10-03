@@ -1,21 +1,21 @@
 <template>
   <ScaleTransition>
-    <button type="button" class="card bg-transparent h-100" @click="$emit('click', item)">
-      <img :src="item.imageUrl" class="card-img-top" :alt="item.name">
-      <div class="card-body d-flex align-items-center">
-        <div class="card-text">
-          <div class="mb-2">
-            {{ item.name }}
+      <button type="button" class="btn btn-card" @click="$emit('click', item)">
+        <ProgressiveImage :image="item" :alt="item.name" class="card-img-top"/>
+        <div class="card-body d-flex align-items-center">
+          <div class="card-text">
+            <div class="mb-2">
+              {{ item.name }}
+            </div>
+            <Currency :amount="item.price"/>
           </div>
-          <Currency :amount="item.price"/>
         </div>
-      </div>
-    </button>
+      </button>
   </ScaleTransition>
 </template>
 
 <script>
-import { Currency } from '@/components'
+import { Currency, ProgressiveImage } from '@/components'
 import { ScaleTransition } from '@/transitions'
 import { Item } from '@/models'
 
@@ -29,6 +29,7 @@ export default {
   },
   components: {
     Currency,
+    ProgressiveImage,
     ScaleTransition
   },
 }

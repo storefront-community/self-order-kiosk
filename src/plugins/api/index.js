@@ -1,13 +1,15 @@
-import CategoryApi from './categories'
-import ItemApi from './items'
-import OptionalApi from './optionals'
+import ItemGroupApi from './ItemGroupApi'
+import ItemApi from './ItemApi'
+import OptionGroupApi from './OptionGroupApi'
+import OptionApi from './OptionApi'
 
 class Api {
   constructor() {
     this._locale = ''
-    this.categories = new CategoryApi()
+    this.itemGroups = new ItemGroupApi()
     this.items = new ItemApi()
-    this.optionals = new OptionalApi()
+    this.optionGroups = new OptionGroupApi()
+    this.options = new OptionApi()
   }
 
   get locale() {
@@ -17,8 +19,9 @@ class Api {
   set locale(value) {
     this._locale = value
     this.items.locale = value
-    this.categories.locale = value
-    this.optionals.locale = value
+    this.itemGroups.locale = value
+    this.optionGroups.locale = value
+    this.options.locale = value
   }
 }
 

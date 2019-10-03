@@ -4,7 +4,7 @@ export default class AppSession {
   constructor(locale) {
     this.locale = locale
     this.order = null
-    this.category = null
+    this.itemGroup = null
     this.item = null
     this.started = false
   }
@@ -16,7 +16,7 @@ export default class AppSession {
 
   addItemToOrder() {
     this.order.add(this.item)
-    this.category = null
+    this.itemGroup = null
     this.item = null
   }
 }

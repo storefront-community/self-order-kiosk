@@ -5,26 +5,22 @@ export default class Order {
     this.mobile = ''
     this.takeOut = false
     this.items = []
-    this.total = 0
   }
 
   add(item) {
     this.items.push(item)
-    this.calculate()
   }
 
   increment(item) {
     item.increment()
-    this.calculate()
   }
 
   decrement(item) {
     item.decrement()
-    this.calculate()
   }
 
-  calculate() {
-    this.total = this.items
+  total() {
+    return this.items
       .map(item => item.total())
       .reduce((total, subtotal) => total + subtotal, 0)
   }

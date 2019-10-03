@@ -1,5 +1,5 @@
 <template>
-  <img src="/img/storefront-community.svg" :height="height">
+  <img :src="imageUrl" class="logo">
 </template>
 
 <script>
@@ -7,6 +7,9 @@ export default {
   name: 'logo',
   props: ['size'],
   computed: {
+    imageUrl() {
+      return `${process.env.VUE_APP_API_BASE_URL}/gallery/logo.jpg`
+    },
     height() {
       switch (this.size) {
         case 'x-large': return '92px'

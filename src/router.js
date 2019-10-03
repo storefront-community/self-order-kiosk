@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import CancelOrder from './views/CancelOrder.vue'
-import ChooseCategory from './views/ChooseCategory.vue'
+import ChooseItemGroup from './views/ChooseItemGroup.vue'
 import ChooseItem from './views/ChooseItem.vue'
 import CustomizeItem from './views/CustomizeItem.vue'
 import EatLocation from './views/EatLocation.vue'
@@ -27,9 +27,9 @@ export default new Router({
       meta: { step: 0 }
     },
     {
-      path: '/choose-category',
-      name: 'chooseCategory',
-      component: ChooseCategory,
+      path: '/choose-itemGroup',
+      name: 'chooseItemGroup',
+      component: ChooseItemGroup,
       meta: { step: 1 }
     },
     {

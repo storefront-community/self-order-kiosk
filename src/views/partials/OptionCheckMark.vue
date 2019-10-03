@@ -1,10 +1,10 @@
 <template>
-  <SlideTransition direction="left">
+  <SlideTransition direction="left" v-if="hasOptions">
     <div ref="swiper" class="container swiper-container">
       <div class="swiper-wrapper">
-        <label class="swiper-slide card" v-for="option in options" :key="option.id">
+        <label class="swiper-slide card" v-for="option in optionGroup.options" :key="option.id">
           <div class="card-body d-flex align-items-center">
-            <div class="checkbox checkbox-primary" v-if="multichoice">
+            <div class="checkbox checkbox-primary" v-if="optionGroup.multichoice">
               <input type="checkbox" v-model="option.checked">
               <span class="check-mark"></span> {{ option.name }}
             </div>
@@ -28,17 +28,14 @@
 <script>
 import Swiper from 'swiper';
 import { Currency } from '@/components'
+import { OptionGroup } from '@/models'
 import { SlideTransition } from '@/transitions'
 
 export default {
   name: 'OptionCheckMark',
   props: {
-    options: {
-      type: Array,
-      required: true
-    },
-    multichoice: {
-      type: Boolean,
+    optionGroup: {
+      type: OptionGroup,
       required: true
     }
   },
@@ -46,7 +43,11 @@ export default {
     Currency,
     SlideTransition
   },
-  mounted() {
+  async mounted() {
+    if (!this.optionGroup.options) {
+      this.optionGroup.options = await this.$api.options.list(this.optionGroup.id)
+    }
+
     this.$nextTick(() => {
       new Swiper(this.$refs.swiper, {
         slidesPerView: 5,
@@ -56,12 +57,17 @@ export default {
   },
   methods: {
     toggle($event, current) {
-      this.options
+      this.optionGroup.options
         .filter(option => option.id !== current.id)
         .forEach(option => option.checked = false)
 
       $event.target.checked = true
       current.checked = true
+    }
+  },
+  computed: {
+    hasOptions() {
+      return !!this.optionGroup.options
     }
   }
 }
