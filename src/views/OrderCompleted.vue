@@ -10,7 +10,7 @@
     <div class="app-content">
       <div class="container">
         <p class="text-center mb-4">
-          <i class="far fa-4x fa-smile"></i>
+          <FontAwesome :icon="['far', 'smile']" size="4x"/>
         </p>
         <h3 class="text-center mb-4">
           {{ $t('thank_you') }}
