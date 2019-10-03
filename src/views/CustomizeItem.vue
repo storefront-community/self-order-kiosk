@@ -25,14 +25,14 @@
     <div class="app-footer">
       <div class="container d-flex">
         <button type="button" class="btn btn-outline-primary mr-auto px-md-5 py-md-4 text-nowrap" @click="back">
-          <i class="fa fa-arrow-left"></i>
+          <FontAwesome icon="arrow-left"/>
           <span class="ml-3">{{ $t('back') }}</span>
         </button>
         <SlideUpTransition>
           <button type="submit" class="btn btn-primary ml-auto px-md-5 py-md-4 text-nowrap" v-if="formIsValid">
             <span class="mr-3" v-if="isLastPage">{{ $t('add') }}</span>
             <span class="mr-3" v-else>{{ currentPage }} {{ $t('of') }} {{ numberOfPages }}</span>
-            <i class="fa fa-arrow-right"></i>
+            <FontAwesome icon="arrow-right"/>
           </button>
           <div class="d-flex flex-column justify-content-center text-primary px-2"  v-else>
             <span>{{ currentPage }} {{ $t('of') }} {{ numberOfPages }}</span>

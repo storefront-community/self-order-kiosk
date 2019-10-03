@@ -12,13 +12,13 @@
         <div class="row">
           <div class="col d-flex flex-column">
             <button type="button" class="btn btn-outline-primary py-5 flex-grow-1" @click="select('eatHere')">
-              <i class="fa fa-4x fa-utensils mb-5"></i>
+              <FontAwesome icon="utensils" size="4x" class="mb-5"/>
               <h4 class="font-weight-normal">{{ $t('eat_here') }}</h4>
             </button>
           </div>
           <div class="col d-flex flex-column">
             <button type="button" class="btn btn-outline-primary py-5 flex-grow-1" @click="select('takeOut')">
-              <i class="fa fa-4x fa-shopping-bag mb-5"></i>
+              <FontAwesome icon="shopping-bag" size="4x" class="mb-5"/>
               <h4 class="font-weight-normal">{{ $t('take_out') }}</h4>
             </button>
           </div>
@@ -28,7 +28,7 @@
     <div class="app-footer">
       <div class="container d-flex">
         <button type="button" class="btn btn-outline-primary mr-auto px-md-5 py-md-4 text-nowrap" @click="back">
-          <i class="fa fa-arrow-left"></i>
+          <FontAwesome icon="arrow-left"/>
           <span class="ml-3">{{ $t('back') }}</span>
         </button>
       </div>

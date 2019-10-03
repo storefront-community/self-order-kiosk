@@ -32,7 +32,7 @@
       <button type="button" class="btn btn-key" @click="type('N')">N</button>
       <button type="button" class="btn btn-key" @click="type('M')">M</button>
       <button type="button" class="btn btn-key btn-backspace" @click="backspace()">
-        <i class="fa fa-backspace"></i>
+        <FontAwesome icon="backspace"/>
       </button>
     </div>
     <div class="text-center">

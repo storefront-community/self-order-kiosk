@@ -3,7 +3,7 @@
     <div class="app-content">
       <div class="container">
         <p class="text-center text-primary mb-4">
-          <i class="fa fa-4x fa-sync-alt"></i><br>
+          <FontAwesome icon="sync-alt" size="4x"/>
         </p>
         <h3 class="text-center px-3 p-md-0 mb-4">
           {{ $t('title') }}

@@ -22,12 +22,12 @@
         </button>
         <div class="btn-group">
           <button type="button" class="btn btn-outline-primary px-md-5 py-md-4 text-nowrap" @click="addItem">
-            <i class="fa fa-plus"></i>
+            <FontAwesome icon="plus"/>
             <span class="ml-2">{{ $t('add_item') }}</span>
           </button>
           <button type="submit" class="btn btn-primary ml-auto px-md-5 py-md-4 text-nowrap">
             <span class="mr-3">{{ $t('continue') }}</span>
-            <i class="fa fa-arrow-right"></i>
+            <FontAwesome icon="arrow-right"/>
           </button>
         </div>
       </div>

@@ -27,12 +27,12 @@
     <div class="app-footer">
       <div class="container d-flex">
         <button type="button" class="btn btn-outline-primary mr-auto px-md-5 py-md-4 text-nowrap" @click="back">
-          <i class="fa fa-arrow-left"></i>
+          <FontAwesome icon="arrow-left"/>
           <span class="ml-3">{{ $t('back') }}</span>
         </button>
         <SlideUpTransition>
           <button type="submit" class="btn btn-primary ml-auto px-md-5 py-md-4 text-nowrap" v-if="formIsValid">
-            <i class="fa fa-check"></i>
+            <FontAwesome icon="check"/>
             <span class="ml-3">{{ $t('complete') }}</span>
           </button>
           <div class="d-flex align-items-center ml-auto px-3 text-right text-primary" v-else>
