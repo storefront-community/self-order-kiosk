@@ -22,7 +22,7 @@
     <div class="app-footer">
       <div class="container d-flex">
         <button type="button" class="btn btn-outline-primary mr-auto px-md-5 py-md-4 text-nowrap" @click="back">
-          <i class="fa fa-arrow-left"></i>
+          <FontAwesome icon="arrow-left"/>
           <span class="ml-3">{{ $t('back') }}</span>
         </button>
       </div>

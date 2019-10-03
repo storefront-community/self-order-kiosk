@@ -26,13 +26,13 @@
     </div>
     <div class="card-footer border-top-0 d-flex align-items-center">
       <button type="button" class="btn btn-outline-primary btn-rounded d-flex justify-content-center" @click="decrement">
-        <i class="fa fa-minus m-auto"></i>
+        <FontAwesome icon="minus" class="m-auto"/>
       </button>
       <span class="mx-3">
         {{ item.quantity }}
       </span>
       <button type="button" class="btn btn-outline-primary btn-rounded d-flex justify-content-center" @click="increment">
-        <i class="fa fa-plus m-auto"></i>
+        <FontAwesome icon="plus" class="m-auto"/>
       </button>
       <div class="text-primary text-right font-weight-bold m-0 ml-auto">
         <Currency :amount="item.total()"/>
