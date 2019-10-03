@@ -1,8 +1,8 @@
 <template>
-  <SlideTransition direction="left" v-if="options">
+  <SlideTransition direction="left" v-if="hasOptions">
     <div ref="swiper" class="container swiper-container">
       <div class="swiper-wrapper">
-        <label class="swiper-slide card" v-for="option in options" :key="option.id">
+        <label class="swiper-slide card" v-for="option in optionGroup.options" :key="option.id">
           <div class="card-body d-flex align-items-center">
             <div class="checkbox checkbox-primary" v-if="optionGroup.multichoice">
               <input type="checkbox" v-model="option.checked">
@@ -43,13 +43,10 @@ export default {
     Currency,
     SlideTransition
   },
-  data() {
-    return {
-      options: null
-    }
-  },
   async mounted() {
-    this.options = await this.$api.options.list(this.optionGroup.id)
+    if (!this.optionGroup.options) {
+      this.optionGroup.options = await this.$api.options.list(this.optionGroup.id)
+    }
 
     this.$nextTick(() => {
       new Swiper(this.$refs.swiper, {
@@ -60,12 +57,17 @@ export default {
   },
   methods: {
     toggle($event, current) {
-      this.options
+      this.optionGroup.options
         .filter(option => option.id !== current.id)
         .forEach(option => option.checked = false)
 
       $event.target.checked = true
       current.checked = true
+    }
+  },
+  computed: {
+    hasOptions() {
+      return !!this.optionGroup.options
     }
   }
 }

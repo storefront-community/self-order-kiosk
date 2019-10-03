@@ -3,9 +3,8 @@ export default class Item {
     this.id = params.id || ''
     this.name = params.name || ''
     this.price = params.price || 0
-    this.imageUrl = params.imageUrl || ''
-    this.optionGroups = []
     this.quantity = 1
+    this.optionGroups = null
   }
 
   increment() {
@@ -21,12 +20,10 @@ export default class Item {
   }
 
   options() {
-    return []
-    // TODO
-    // return this.optionGroups
-    //   .map(optionGroup => optionGroup.options
-    //     .filter(option => option.checked))
-    //   .reduce((all, options) => all.concat(options), [])
+    return (this.optionGroups || [])
+      .map(optionGroup => (optionGroup.options || [])
+        .filter(option => option.checked))
+      .reduce((all, options) => all.concat(options), [])
   }
 
   total() {

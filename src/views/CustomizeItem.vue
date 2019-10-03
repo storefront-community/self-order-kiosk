@@ -62,7 +62,9 @@ export default {
   async mounted() {
     if (!this.$session.started) return
 
-    this.item.optionGroups = await this.$api.optionGroups.list(this.$session.itemGroup.id)
+    if (!this.item.optionGroups) {
+      this.item.optionGroups = await this.$api.optionGroups.list(this.$session.itemGroup.id)
+    }
 
     if (!this.hasOptionGroups) {
       waitTransition(() => this.next())
@@ -117,7 +119,7 @@ export default {
       return this.item.optionGroups[this.currentIndex]
     },
     hasOptionGroups() {
-      return this.$session.started && this.item.optionGroups.length
+      return this.$session.started && this.item.optionGroups && this.item.optionGroups.length
     },
     subtotal() {
       return this.item.total()

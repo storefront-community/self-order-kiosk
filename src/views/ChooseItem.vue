@@ -9,7 +9,7 @@
     </div>
     <div class="app-content">
       <SwiperContainer ref="swiper">
-        <SwiperSlide v-for="item in items" :key="item.id">
+        <SwiperSlide v-for="item in itemGroup.items" :key="item.id">
           <ItemCardButton :item="item" @click="select(item)" />
         </SwiperSlide>
       </SwiperContainer>
@@ -39,29 +39,28 @@ export default {
   },
   data() {
     return {
-      itemGroup: this.$session.itemGroup,
-      items: []
+      itemGroup: this.$session.itemGroup
     }
   },
   async mounted() {
     if (!this.$session.started) return
 
-    this.items = await this.$api.items.list(this.$session.itemGroup.id)
+    this.itemGroup.items = await this.$api.items.list(this.$session.itemGroup.id)
 
     if (!this.$refs.swiper) return
 
     this.$refs.swiper.init({
-      slidesPerView: Math.min(this.items.length, 3.5),
+      slidesPerView: Math.min(this.itemGroup.items.length, 3.5),
       centeredSlides: false,
       spaceBetween: 20,
       direction: 'horizontal',
-      shadowEnabled: this.items.length > 3,
+      shadowEnabled: this.itemGroup.items.length > 3,
       breakpoints: {
         [breakpoints.LG]: {
-          slidesPerView: Math.min(this.items.length, 2.5)
+          slidesPerView: Math.min(this.itemGroup.items.length, 2.5)
         },
         [breakpoints.MD]: {
-          slidesPerView: Math.min(this.items.length, 1.5)
+          slidesPerView: Math.min(this.itemGroup.items.length, 1.5)
         }
       }
     })

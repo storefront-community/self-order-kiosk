@@ -4,19 +4,18 @@ export default class OptionGroup {
     this.title = params.title || ''
     this.required = params.required || false
     this.multichoice = params.multichoice || false
+    this.options = null
   }
 
   isValid() {
-    return true;
+    const options = this.options || []
 
-    // TODO
+    const required = !this.required || options
+      .filter(option => option.checked).length >= 1
 
-    // const required = !this.required || this.options
-    //   .filter(option => option.checked).length >= 1
+    const multichoice = this.multichoice || options
+      .filter(option => option.checked).length <= 1
 
-    // const multichoice = this.multichoice || this.options
-    //   .filter(option => option.checked).length <= 1
-
-    // return required && multichoice
+    return required && multichoice
   }
 }
