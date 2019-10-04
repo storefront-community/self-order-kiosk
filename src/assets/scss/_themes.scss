@@ -1,5 +1,11 @@
 $themes: (
-  "filazero": #530f6d
+  "filazero": #530f6d,
+  "green": #16a085,
+  "blue": #2980b9,
+  "purple": #8e44ad,
+  "dark": #2c3e50,
+  "red": #c0392b,
+  "orange": #d35400
 );
 
 @each $name, $color in $themes {
