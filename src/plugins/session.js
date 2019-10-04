@@ -1,8 +1,8 @@
 import { Order } from '@/models'
 
-export default class AppSession {
-  constructor(locale) {
-    this.locale = locale
+class AppSession {
+  constructor() {
+    this.locale = ''
     this.order = null
     this.itemGroup = null
     this.item = null
@@ -18,5 +18,11 @@ export default class AppSession {
     this.order.add(this.item)
     this.itemGroup = null
     this.item = null
+  }
+}
+
+export default {
+  install (Vue) {
+    Vue.prototype.$session = new AppSession()
   }
 }
