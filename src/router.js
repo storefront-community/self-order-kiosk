@@ -16,6 +16,10 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
+      path: '/',
+      redirect: '/burger-place'
+    },
+    {
       path: '/:tenant/update-available',
       name: 'updateAvailable',
       component: UpdateAvailable
