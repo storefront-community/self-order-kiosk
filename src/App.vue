@@ -22,7 +22,7 @@ export default {
     SlideTransition
   },
   async mounted() {
-    const app = await this.$app.info()
+    const app = await this.$api.settings.info()
 
     this.theme = app.theme || 'default'
 
