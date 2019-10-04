@@ -9,7 +9,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Maven+Pro:300,400,500,700">
     <title>Self-Order Kiosk</title>
     <style>
-      .fullscreen {
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
+
+      .splash-screen {
         display: flex;
         position: absolute;
         top: 0;
@@ -18,19 +22,19 @@
         right: 0;
       }
 
-      .loader {
+      .preloader {
         display: flex;
         align-items: center;
         justify-content: center;
         margin: auto;
-        height: 92px;
-        width: 128px;
+        height: 256px;
+        width: 256px;
       }
 
       .circle {
         display: block;
-        width: 12px;
-        height: 12px;
+        width: 24px;
+        height: 24px;
         border-radius: 12px;
         margin: 0 4px;
       }
@@ -42,18 +46,18 @@
       .circle-mustard { border: 5px solid #f39c12; animation: mustard 3s infinite alternate; }
 
       @keyframes salad {
-        0%, 50% { transform: translate(0, 0); width: 12px; height: 12px; }
-        60%, 100% { transform: translate(24px, -18px); width: 24px; height: 24px; }
+        0%, 50% { transform: translate(0, 0); width: 24px; height: 24px; }
+        60%, 100% { transform: translate(36px, -20px); width: 48px; height: 48px; }
       }
 
       @keyframes ketchup {
-        0%, 50% { transform: translate(0, 0); width: 12px; height: 12px; }
-        60%, 100% { transform: translate(-18px, 22px); width: 24px; height: 24px; }
+        0%, 50% { transform: translate(0, 0); width: 24px; height: 24px; }
+        60%, 100% { transform: translate(-20px, 34px); width: 48px; height: 48px; }
       }
 
       @keyframes mustard {
-        0%, 50% { transform: translate(0,0 ); width: 12px; height: 12px; }
-        60%, 100% { transform: translate(-20px, -18px); width: 24px; height: 24px; }
+        0%, 50% { transform: translate(0,0 ); width: 24px; height: 24px; }
+        60%, 100% { transform: translate(-22px, -20px); width: 48px; height: 48px; }
       }
     </style>
   </head>
@@ -64,8 +68,8 @@
       </strong>
     </noscript>
     <div id="app">
-      <div class="fullscreen">
-        <div class="loader">
+      <div class="splash-screen">
+        <div class="preloader">
           <div class="circle circle-salad"></div>
           <div class="circle circle-ketchup"></div>
           <div class="circle circle-mustard"></div>
