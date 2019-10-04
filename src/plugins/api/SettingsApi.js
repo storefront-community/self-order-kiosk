@@ -6,7 +6,7 @@ export default class SettingsApi {
     this.tenant = ''
   }
 
-  async info() {
+  async get() {
     const path = `${process.env.VUE_APP_API_BASE_URL}/${this.tenant}/app.json`
     const response = await axios.get(path)
 

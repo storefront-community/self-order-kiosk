@@ -25,7 +25,7 @@ export default {
     this.$api.tenant = this.$route.params.tenant
   },
   async mounted() {
-    const app = await this.$api.settings.info()
+    const app = await this.$api.settings.get()
 
     this.theme = app.theme || 'default'
 

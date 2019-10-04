@@ -32,7 +32,7 @@ export default {
     }
   },
   async mounted() {
-    const app = await this.$api.settings.info()
+    const app = await this.$api.settings.get()
 
     this.updateAvailable = process.env.VUE_APP_VERSION !== app.version
 
