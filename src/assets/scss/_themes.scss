@@ -1,0 +1,23 @@
+$themes: (
+  "filazero": #530f6d
+);
+
+@each $name, $color in $themes {
+  .theme-#{$name} {
+    .btn.btn-primary {
+      @include button-variant($color, $color);
+    }
+
+    .btn.btn-outline-primary {
+      @include button-outline-variant($color);
+    }
+
+    .text-primary {
+      color: $color !important;
+    }
+
+    @include checkbox-variant("primary", $color);
+
+    @include radio-variant("primary", $color);
+  }
+}

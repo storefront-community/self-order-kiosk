@@ -6,8 +6,6 @@ import plugins from './plugins'
 import router from './router'
 import FontAwesome from './FontAwesome'
 import 'flag-icon-css/css/flag-icon.css'
-import 'popper.js'
-import 'bootstrap'
 import './registerServiceWorker'
 
 Vue.config.productionTip = false
