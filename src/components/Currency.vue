@@ -15,7 +15,7 @@ export default {
   },
   computed: {
     locale() {
-      return this.$session.locale
+      return this.$i18n.locale
     },
     symbol() {
       return this.locale === 'br' ? 'R$' : '$'
