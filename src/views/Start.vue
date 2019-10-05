@@ -2,7 +2,7 @@
   <div class="app-body">
     <div class="app-content">
       <div class="container d-flex flex-column h-100">
-        <div class="text-center mb-3">
+        <div class="text-center">
           <Logo/>
         </div>
         <div class="d-flex flex-column flex-grow-1 justify-content-center">
