@@ -57,10 +57,16 @@ export default {
       shadowEnabled: this.itemGroup.items.length > 3,
       breakpoints: {
         [breakpoints.LG]: {
-          slidesPerView: Math.min(this.itemGroup.items.length, 2.5)
+          slidesPerView: Math.min(this.itemGroup.items.length, 2.5),
+          centeredSlides: false
         },
         [breakpoints.MD]: {
-          slidesPerView: Math.min(this.itemGroup.items.length, 1.5)
+          slidesPerView: Math.min(this.itemGroup.items.length, 1.5),
+          centeredSlides: false
+        },
+        [breakpoints.SM]: {
+          slidesPerView: Math.min(this.itemGroup.items.length, 1.5),
+          centeredSlides: true
         }
       }
     })
