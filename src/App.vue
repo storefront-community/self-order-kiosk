@@ -45,9 +45,9 @@ export default {
   methods: {
     start() {
       if (this.$route.name === 'updateAvailable') return
-      if (this.$route.name === 'start') return
+      if (this.$route.name === 'startOrder') return
 
-      this.$router.push({ name: 'start' })
+      this.$router.push({ name: 'startOrder' })
     },
     updateAvailable() {
       if (this.$route.name === 'updateAvailable') return

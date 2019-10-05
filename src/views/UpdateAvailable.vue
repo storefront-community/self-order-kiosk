@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     start() {
-      this.$router.push({ name: 'start' })
+      this.$router.push({ name: 'startOrder' })
     },
     update() {
       window.location.hash = this.$api.tenant

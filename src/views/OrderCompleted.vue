@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     exit() {
-      this.$router.push({ name: 'start' })
+      this.$router.push({ name: 'startOrder' })
     }
   }
 }

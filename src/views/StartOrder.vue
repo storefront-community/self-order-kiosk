@@ -51,7 +51,7 @@ import { Logo } from '@/components'
 import QRCode from '@chenfengyuan/vue-qrcode'
 
 export default {
-  name: 'start',
+  name: 'startOrder',
   components: {
     Logo,
     QRCode

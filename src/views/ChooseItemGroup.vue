@@ -75,7 +75,7 @@ export default {
   },
   methods: {
     back() {
-      const routeName = this.orderHasItem ? 'orderSummary' : 'start'
+      const routeName = this.orderHasItem ? 'orderSummary' : 'startOrder'
       this.$router.push({ name: routeName })
     },
     loadImages() {

@@ -8,7 +8,7 @@ import EatLocation from './views/EatLocation.vue'
 import Identification from './views/Identification.vue'
 import OrderCompleted from './views/OrderCompleted.vue'
 import OrderSummary from './views/OrderSummary.vue'
-import Start from './views/Start.vue'
+import StartOrder from './views/StartOrder.vue'
 import UpdateAvailable from './views/UpdateAvailable.vue'
 
 Vue.use(Router)
@@ -26,8 +26,8 @@ export default new Router({
     },
     {
       path: '/:tenant',
-      name: 'start',
-      component: Start,
+      name: 'startOrder',
+      component: StartOrder,
       meta: { step: 0 }
     },
     {
