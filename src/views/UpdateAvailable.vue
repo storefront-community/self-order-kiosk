@@ -43,6 +43,7 @@ export default {
       this.$router.push({ name: 'start' })
     },
     update() {
+      window.location.hash = this.$api.tenant
       window.location.reload(true)
     }
   }
