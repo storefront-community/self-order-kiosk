@@ -10,13 +10,17 @@ $gray-800: #343a40;
 $gray-900: #212529;
 $black: #000;
 
-$primary: #fc1460;
+$primary: $gray-600;
 $secondary: $gray-100;
 $info: #39d;
 $success: #2ecc71;
 $danger: #e43;
 $warning: #f39c12;
 $light: $white;
+
+$theme-colors: (
+  "primary": $primary
+);
 
 $body-color: $gray-700;
 
