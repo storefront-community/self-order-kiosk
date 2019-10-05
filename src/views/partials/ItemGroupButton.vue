@@ -6,9 +6,9 @@
         <ProgressiveImage ref="image" :image="itemGroup" :alt="itemGroup.name" @preload="$emit('imagePreload')"/>
       </div>
       <div class="card-body d-flex flex-column">
-        <h2 class="card-title flex-grow-1 text-center font-weight-normal">
+        <p class="display-3 card-title flex-grow-1 text-center font-weight-normal">
           {{ itemGroup.name }}
-        </h2>
+        </p>
       </div>
     </button>
   </ScaleTransition>
