@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :class="`theme-${theme}`">
+  <div id="app" :class="`theme-${theme}`" v-if="loaded">
     <div class="beta-badge"></div>
     <SlideTransition :direction="slide">
       <router-view/>
@@ -28,6 +28,7 @@ export default {
     const app = await this.$api.settings.get()
 
     this.theme = app.theme || 'default'
+    this.loaded = true
 
     if (process.env.VUE_APP_VERSION !== app.version) {
       this.$delay(() => this.updateAvailable())
@@ -39,6 +40,7 @@ export default {
   data() {
     return {
       slide: 'left',
+      loaded: false,
       theme: ''
     }
   },
