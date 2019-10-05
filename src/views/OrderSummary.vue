@@ -21,11 +21,11 @@
           {{ $t('cancel_order') }}
         </button>
         <div class="btn-group">
-          <button type="button" class="btn btn-outline-primary px-md-5 py-md-4 text-nowrap" @click="addItem">
+          <button type="button" class="btn btn-primary px-md-5 py-md-4 text-nowrap" @click="addItem">
             <FontAwesome icon="plus"/>
             <span class="ml-2">{{ $t('add_item') }}</span>
           </button>
-          <button type="submit" class="btn btn-primary ml-auto px-md-5 py-md-4 text-nowrap">
+          <button type="submit" class="btn btn-outline-primary ml-auto px-md-5 py-md-4 text-nowrap">
             <span class="mr-3">{{ $t('continue') }}</span>
             <FontAwesome icon="arrow-right"/>
           </button>
