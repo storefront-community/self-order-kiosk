@@ -54,8 +54,6 @@
   }
 }
 
-@include checkbox-variant("danger", $danger);
-@include checkbox-variant("info", $info);
-@include checkbox-variant("primary", $primary);
-@include checkbox-variant("success", $success);
-@include checkbox-variant("warning", $warning);
+@each $color, $value in $theme-colors {
+  @include checkbox-variant($color, $value);
+}

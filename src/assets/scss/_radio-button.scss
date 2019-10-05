@@ -65,8 +65,6 @@
   }
 }
 
-@include radio-variant("danger", $danger);
-@include radio-variant("info", $info);
-@include radio-variant("primary", $primary);
-@include radio-variant("success", $success);
-@include radio-variant("warning", $warning);
+@each $color, $value in $theme-colors {
+  @include radio-variant($color, $value);
+}
