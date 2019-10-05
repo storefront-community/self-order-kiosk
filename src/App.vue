@@ -29,7 +29,7 @@ export default {
 
     this.theme = app.theme || 'default'
 
-    if (process.env.VUE_APP_VERSION !== app.version) {
+    if (!this.$version.isUpToDate(app.version)) {
       this.$delay(() => this.updateAvailable())
     } else {
       if (this.$session.started) return
