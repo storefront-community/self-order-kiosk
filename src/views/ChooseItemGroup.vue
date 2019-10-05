@@ -67,7 +67,7 @@ export default {
           slidesPerView: Math.min(this.itemGroups.length, 2.5)
         },
         [breakpoints.SM]: {
-          slidesPerView: Math.min(this.itemGroups.length, 1.5),
+          slidesPerView: Math.min(this.itemGroups.length, 1.75),
           centeredSlides: true
         }
       }
