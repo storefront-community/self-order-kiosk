@@ -11,13 +11,11 @@
         <p class="text-center px-3 p-md-0">
           {{ $t('message') }}
         </p>
-      </div>
-    </div>
-    <div class="app-footer">
-      <div class="container d-flex">
-        <button type="button" class="btn btn-primary mx-auto px-md-5 py-md-4" @click="update">
-          {{ $t('update') }}
-        </button>
+        <div class="text-center mt-4">
+          <button type="button" class="btn btn-primary px-md-5 py-md-4" @click="update">
+            {{ $t('update') }}
+          </button>
+        </div>
       </div>
     </div>
   </form>
@@ -45,6 +43,7 @@ export default {
       this.$router.push({ name: 'start' })
     },
     update() {
+      window.location.hash = this.$api.tenant
       window.location.reload(true)
     }
   }
