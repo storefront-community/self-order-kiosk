@@ -34,7 +34,7 @@ export default {
   async mounted() {
     const app = await this.$api.settings.get()
 
-    this.updateAvailable = process.env.VUE_APP_VERSION !== app.version
+    this.updateAvailable = !this.$version.isUpToDate(app.version)
 
     if (!this.updateAvailable) {
       this.$delay(() => this.start())

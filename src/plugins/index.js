@@ -4,6 +4,7 @@ import device from './device'
 import fullscreen from './fullscreen'
 import locale from './locale'
 import session from './session'
+import version from './version'
 
 export default {
   install (Vue) {
@@ -13,5 +14,6 @@ export default {
     Vue.use(fullscreen)
     Vue.use(locale)
     Vue.use(session)
+    Vue.use(version)
   }
 }
