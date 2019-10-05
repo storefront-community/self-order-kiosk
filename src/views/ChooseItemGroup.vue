@@ -50,8 +50,6 @@ export default {
     }
   },
   async mounted() {
-    this.$i18n.locale = this.$session.locale
-
     if (!this.$session.started) return
 
     this.itemGroups = await this.$api.itemGroups.list()

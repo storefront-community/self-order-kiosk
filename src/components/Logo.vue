@@ -8,7 +8,7 @@ export default {
   props: ['size'],
   computed: {
     imageUrl() {
-      return `${process.env.VUE_APP_API_BASE_URL}/gallery/logo.jpg`
+      return `${process.env.VUE_APP_API_BASE_URL}/${this.$api.tenant}/gallery/logo.jpg`
     },
     height() {
       switch (this.size) {

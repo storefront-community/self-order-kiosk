@@ -16,60 +16,64 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/update-available',
+      path: '/',
+      redirect: '/burger-place'
+    },
+    {
+      path: '/:tenant/update-available',
       name: 'updateAvailable',
       component: UpdateAvailable
     },
     {
-      path: '/',
+      path: '/:tenant',
       name: 'start',
       component: Start,
       meta: { step: 0 }
     },
     {
-      path: '/choose-itemGroup',
+      path: '/:tenant/choose-itemGroup',
       name: 'chooseItemGroup',
       component: ChooseItemGroup,
       meta: { step: 1 }
     },
     {
-      path: '/choose-item',
+      path: '/:tenant/choose-item',
       name: 'chooseItem',
       component: ChooseItem,
       meta: { step: 2 }
     },
     {
-      path: '/customize-item',
+      path: '/:tenant/customize-item',
       name: 'customizeItem',
       component: CustomizeItem,
       meta: { step: 3 }
     },
     {
-      path: '/order-summary',
+      path: '/:tenant/order-summary',
       name: 'orderSummary',
       component: OrderSummary,
       meta: { step: 4 }
     },
     {
-      path: '/eat-location',
+      path: '/:tenant/eat-location',
       name: 'eatLocation',
       component: EatLocation,
       meta: { step: 5 }
     },
     {
-      path: '/identification',
+      path: '/:tenant/identification',
       name: 'identification',
       component: Identification,
       meta: { step: 6 }
     },
     {
-      path: '/cancel-order',
+      path: '/:tenant/cancel-order',
       name: 'cancelOrder',
       component: CancelOrder,
       meta: { step: 7 }
     },
     {
-      path: '/order-completed',
+      path: '/:tenant/order-completed',
       name: 'orderCompleted',
       component: OrderCompleted,
       meta: { step: 8 }
