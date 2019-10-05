@@ -27,7 +27,7 @@
             <div class="col-12 col-md-6 d-none d-md-flex">
               <div class="d-flex flex-column ml-md-5">
                 <div class="d-flex justify-content-center">
-                  <QRCode value="https://kiosk.storefront.community" :options="{ width: 256 }"/>
+                  <QRCode :value="url" :options="{ width: 256 }"/>
                 </div>
                 <div class="text-center d-none">
                   <small>
@@ -72,6 +72,11 @@ export default {
     start() {
       this.$fullscreen.enter()
       this.$router.push({ name: 'chooseItemGroup' })
+    }
+  },
+  computed: {
+    url() {
+      return `${process.env.VUE_APP_BASE_URL}#${this.$api.tenant}`
     }
   }
 }
