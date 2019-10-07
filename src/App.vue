@@ -1,11 +1,11 @@
 <template>
-  <div id="app" :class="`theme-${theme}`">
+  <SafeArea :class="`app theme-${theme}`">
     <div class="beta-badge"></div>
     <SlideTransition :direction="slide">
       <router-view/>
     </SlideTransition>
     <IdleTime @timeout="start"/>
-  </div>
+  </SafeArea>
 </template>
 
 <style lang="scss" src="@/assets/scss/app.scss">
@@ -13,12 +13,14 @@
 
 <script>
 import { IdleTime } from '@/components'
+import { SafeArea } from '@/components'
 import { SlideTransition } from '@/transitions'
 
 export default {
   name: 'app',
   components: {
     IdleTime,
+    SafeArea,
     SlideTransition
   },
   beforeCreate() {

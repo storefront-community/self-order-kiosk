@@ -4,6 +4,7 @@ import ProgressiveImage from './ProgressiveImage'
 import Keyboard from './Keyboard'
 import Loader from './Loader'
 import Logo from './Logo'
+import SafeArea from './SafeArea'
 import SwiperContainer from './SwiperContainer'
 import SwiperSlide from './SwiperSlide'
 
@@ -14,6 +15,7 @@ export {
   Keyboard,
   Loader,
   Logo,
+  SafeArea,
   SwiperContainer,
   SwiperSlide
 }
