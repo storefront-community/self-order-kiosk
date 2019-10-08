@@ -69,7 +69,7 @@ export default {
   },
   computed: {
     url() {
-      return `${process.env.VUE_APP_BASE_URL}#${this.$api.tenant}`
+      return `${process.env.VUE_APP_BASE_URL}#?code=${this.session.code}`
     }
   }
 }

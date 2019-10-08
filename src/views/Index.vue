@@ -80,9 +80,9 @@ export default {
       let auth = null
 
       if (this.code) {
-        const code = this.code.replace('*', '').toUpperCase()
+        this.session.code = this.code.replace('*', '').toUpperCase()
 
-        auth = await this.$api.auth.getToken(code)
+        auth = await this.$api.auth.getToken(this.session.code)
 
         if (auth) {
           this.$api.virtualPath = auth.virtualPath
