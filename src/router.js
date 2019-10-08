@@ -6,7 +6,7 @@ import ChooseItemGroup from './views/ChooseItemGroup.vue'
 import ChooseItem from './views/ChooseItem.vue'
 import CustomizeItem from './views/CustomizeItem.vue'
 import EatLocation from './views/EatLocation.vue'
-import Identification from './views/Identification.vue'
+import WhoIAm from './views/WhoIAm.vue'
 import Index from './views/Index.vue'
 import OrderCompleted from './views/OrderCompleted.vue'
 import OrderSummary from './views/OrderSummary.vue'
@@ -54,9 +54,9 @@ export default new Router({
       meta: { step: 6 }
     },
     {
-      path: '/identification',
-      name: 'identification',
-      component: Identification,
+      path: '/whoIAm',
+      name: 'whoIAm',
+      component: WhoIAm,
       meta: { step: 7 }
     },
     {

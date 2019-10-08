@@ -51,7 +51,7 @@ import { Keyboard, SafeArea } from '@/components'
 import { SlideUpTransition } from '@/transitions'
 
 export default {
-  name: 'identification',
+  name: 'whoIAm',
   components: {
     Keyboard,
     SafeArea,

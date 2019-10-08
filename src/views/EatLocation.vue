@@ -52,7 +52,7 @@ export default {
     },
     select(location) {
       this.session.order.takeOut = location === 'takeOut'
-      this.$router.push({ name: 'identification' })
+      this.$router.push({ name: 'whoIAm' })
     }
   }
 }
