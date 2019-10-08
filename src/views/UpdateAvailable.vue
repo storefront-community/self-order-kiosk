@@ -61,7 +61,6 @@ export default {
   },
   methods: {
     update() {
-      window.location.hash = this.$api.tenant
       window.location.reload(true)
     }
   },
