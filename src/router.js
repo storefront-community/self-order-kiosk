@@ -21,49 +21,49 @@ export default new Router({
       path: '/start-order',
       name: 'startOrder',
       component: StartOrder,
-      meta: { step: 0 }
+      meta: { step: 1 }
     },
     {
       path: '/choose-item-group',
       name: 'chooseItemGroup',
       component: ChooseItemGroup,
-      meta: { step: 1 }
+      meta: { step: 2 }
     },
     {
       path: '/choose-item',
       name: 'chooseItem',
       component: ChooseItem,
-      meta: { step: 2 }
+      meta: { step: 3 }
     },
     {
       path: '/customize-item',
       name: 'customizeItem',
       component: CustomizeItem,
-      meta: { step: 3 }
+      meta: { step: 4 }
     },
     {
       path: '/order-summary',
       name: 'orderSummary',
       component: OrderSummary,
-      meta: { step: 4 }
+      meta: { step: 5 }
     },
     {
       path: '/eat-location',
       name: 'eatLocation',
       component: EatLocation,
-      meta: { step: 5 }
+      meta: { step: 6 }
     },
     {
       path: '/identification',
       name: 'identification',
       component: Identification,
-      meta: { step: 6 }
+      meta: { step: 7 }
     },
     {
       path: '/cancel-order',
       name: 'cancelOrder',
       component: CancelOrder,
-      meta: { step: 7 }
+      meta: { step: 8 }
     },
     {
       path: '/order-completed',
@@ -74,13 +74,14 @@ export default new Router({
     {
       path: '/update',
       name: 'update',
-      component: UpdateAvailable
+      component: UpdateAvailable,
+      meta: { step: -1 }
     },
     {
       path: '/',
       name: 'index',
       component: Index,
-      meta: { step: -1 }
+      meta: { step: 0 }
     },
     {
       path: '*',
