@@ -2,6 +2,7 @@ import { Order } from '@/models'
 
 class AppSession {
   constructor() {
+    this.theme = ''
     this.locale = ''
     this.order = null
     this.itemGroup = null
