@@ -1,3 +1,4 @@
+import AuthApi from './AuthApi'
 import ItemGroupApi from './ItemGroupApi'
 import ItemApi from './ItemApi'
 import OptionGroupApi from './OptionGroupApi'
@@ -8,6 +9,8 @@ class Api {
   constructor() {
     this._locale = ''
     this._virtualPath = ''
+    this._token = ''
+    this.auth = new AuthApi()
     this.itemGroups = new ItemGroupApi()
     this.items = new ItemApi()
     this.optionGroups = new OptionGroupApi()
@@ -38,6 +41,14 @@ class Api {
     this.optionGroups.virtualPath = this._virtualPath
     this.options.virtualPath = this._virtualPath
     this.settings.virtualPath = this._virtualPath
+  }
+
+  get token() {
+    return this._token
+  }
+
+  set token(value) {
+    this._token = `Bearer ${value}`
   }
 }
 
