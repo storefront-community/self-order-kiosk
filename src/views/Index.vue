@@ -31,7 +31,7 @@
             </p>
             <form @submit.prevent="signIn">
               <div class="form-group">
-                <input :type="type" maxlength="20" class="form-control text-center text-uppercase" v-model="code"
+                <input type="text" maxlength="20" class="form-control text-center text-uppercase" v-model="code"
                   :disabled="loading">
               </div>
               <button type="submit" class="btn btn-block btn-primary" :disabled="loading">
@@ -80,7 +80,7 @@ export default {
       let auth = null
 
       if (this.code) {
-        this.session.code = this.code.replace('*', '').toUpperCase()
+        this.session.code = this.code.toUpperCase()
 
         auth = await this.$api.auth.getToken(this.session.code)
 
@@ -100,11 +100,6 @@ export default {
     },
     updateAvailable() {
       this.$router.replace({ name: 'update' })
-    }
-  },
-  computed: {
-    type() {
-      return this.code && this.code.startsWith('*') ? 'password' : 'text'
     }
   }
 }
