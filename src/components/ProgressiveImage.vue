@@ -55,7 +55,7 @@ export default {
       return ''
     },
     host() {
-      return `${process.env.VUE_APP_API_BASE_URL}/${this.$api.tenant}/gallery`
+      return `${process.env.VUE_APP_API_BASE_URL}${this.$api.virtualPath}/gallery`
     },
     imagePrefix() {
       return `${this.host}/${this.image.id}.${this.gallery}`
