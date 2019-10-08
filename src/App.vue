@@ -4,7 +4,6 @@
     <SlideTransition :direction="slide">
       <router-view/>
     </SlideTransition>
-    <IdleTime @timeout="start"/>
   </SafeArea>
 </template>
 
@@ -12,48 +11,19 @@
 </style>
 
 <script>
-import { IdleTime } from '@/components'
 import { SafeArea } from '@/components'
 import { SlideTransition } from '@/transitions'
 
 export default {
   name: 'app',
   components: {
-    IdleTime,
     SafeArea,
     SlideTransition
-  },
-  beforeCreate() {
-    this.$api.tenant = this.$route.params.tenant
-  },
-  async mounted() {
-    const app = await this.$api.settings.get()
-
-    this.theme = app.theme || 'default'
-
-    if (!this.$version.isUpToDate(app.version)) {
-      this.$delay(() => this.updateAvailable())
-    } else {
-      if (this.$session.started) return
-      this.$delay(() => this.start())
-    }
   },
   data() {
     return {
       slide: 'left',
-      theme: 'loading'
-    }
-  },
-  methods: {
-    start() {
-      if (this.$route.name === 'updateAvailable') return
-      if (this.$route.name === 'startOrder') return
-
-      this.$router.push({ name: 'startOrder' })
-    },
-    updateAvailable() {
-      if (this.$route.name === 'updateAvailable') return
-      this.$router.push({ name: 'updateAvailable' })
+      theme: 'default' // 'loading'
     }
   },
   watch: {
