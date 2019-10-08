@@ -11,6 +11,11 @@ $themes: (
 
 @each $name, $color in $themes {
   .theme-#{$name} {
+    ::selection {
+      color: $white;
+      background: $color;
+    }
+
     .btn.btn-primary {
       @include button-variant($color, $color);
     }
