@@ -1,29 +1,23 @@
 <template>
-  <SafeArea :class="`app theme-${theme}`">
-    <div class="beta-badge"></div>
-    <SlideTransition :direction="slide">
-      <router-view/>
-    </SlideTransition>
-  </SafeArea>
+  <SlideTransition :direction="slide">
+    <router-view/>
+  </SlideTransition>
 </template>
 
 <style lang="scss" src="@/assets/scss/app.scss">
 </style>
 
 <script>
-import { SafeArea } from '@/components'
-import { SlideTransition } from '@/transitions'
+import { SlideTransition } from "@/transitions"
 
 export default {
   name: 'app',
   components: {
-    SafeArea,
     SlideTransition
   },
   data() {
     return {
-      slide: 'left',
-      theme: 'default' // 'loading'
+      slide: 'left'
     }
   },
   watch: {

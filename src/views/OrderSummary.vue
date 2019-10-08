@@ -1,42 +1,44 @@
 <template>
-  <form class="app-body" @submit.prevent="complete" v-if="$session.started">
-    <div class="app-header">
-      <div class="container d-flex align-items-center">
-        <div>{{ $t('title') }}</div>
-        <div class="text-right ml-auto">
-          <Currency :amount="order.total()" class="text-primary font-weight-bold"/>
+  <SafeArea :class="`app theme-${session.theme}`">
+    <form class="app-body" @submit.prevent="complete" v-if="session.started">
+      <div class="app-header">
+        <div class="container d-flex align-items-center">
+          <div>{{ $t('title') }}</div>
+          <div class="text-right ml-auto">
+            <Currency :amount="session.order.total()" class="text-primary font-weight-bold"/>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="app-content">
-      <SwiperContainer ref="swiper" class="h-100">
-        <SwiperSlide class="h-100" v-for="item in order.items" :key="item.id">
-          <OrderItemCard class="swiper-slide" :item="item"/>
-        </SwiperSlide>
-      </SwiperContainer>
-    </div>
-    <div class="app-footer">
-      <div class="container d-flex">
-        <button type="button" class="btn btn-outline-primary mr-auto px-md-5 py-md-4 text-nowrap" @click="cancelOrder">
-          {{ $t('cancel_order') }}
-        </button>
-        <div class="btn-group">
-          <button type="button" class="btn btn-primary px-md-5 py-md-4 text-nowrap" @click="addItem">
-            <FontAwesome icon="plus"/>
-            <span class="ml-2">{{ $t('add_item') }}</span>
+      <div class="app-content">
+        <SwiperContainer ref="swiper" class="h-100">
+          <SwiperSlide class="h-100" v-for="item in session.order.items" :key="item.id">
+            <OrderItemCard class="swiper-slide" :item="item"/>
+          </SwiperSlide>
+        </SwiperContainer>
+      </div>
+      <div class="app-footer">
+        <div class="container d-flex">
+          <button type="button" class="btn btn-outline-primary mr-auto px-md-5 py-md-4 text-nowrap" @click="cancelOrder">
+            {{ $t('cancel_order') }}
           </button>
-          <button type="submit" class="btn btn-outline-primary ml-auto px-md-5 py-md-4 text-nowrap">
-            <span class="mr-3">{{ $t('continue') }}</span>
-            <FontAwesome icon="arrow-right"/>
-          </button>
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary px-md-5 py-md-4 text-nowrap" @click="addItem">
+              <FontAwesome icon="plus"/>
+              <span class="ml-2">{{ $t('add_item') }}</span>
+            </button>
+            <button type="submit" class="btn btn-outline-primary ml-auto px-md-5 py-md-4 text-nowrap">
+              <span class="mr-3">{{ $t('continue') }}</span>
+              <FontAwesome icon="arrow-right"/>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-  </form>
+    </form>
+  </SafeArea>
 </template>
 
 <script>
-import { SwiperContainer, SwiperSlide } from '@/components'
+import { SafeArea, SwiperContainer, SwiperSlide } from '@/components'
 import { Currency } from '@/components'
 import OrderItemCard from './partials/OrderItemCard'
 import breakpoints from '@/constants/breakpoints'
@@ -46,26 +48,22 @@ export default {
   components: {
     Currency,
     OrderItemCard,
+    SafeArea,
     SwiperContainer,
     SwiperSlide
-  },
-  data() {
-    return {
-      order: this.$session.order
-    }
   },
   mounted() {
     if (!this.$refs.swiper) return
 
     this.$refs.swiper.init({
-      slidesPerView: Math.min(this.order.items.length, 2.25),
+      slidesPerView: Math.min(this.session.order.items.length, 2.25),
       centeredSlides: false,
       spaceBetween: 20,
       direction: 'horizontal',
-      shadowEnabled: this.order.items.length > 1,
+      shadowEnabled: this.session.order.items.length > 1,
       breakpoints: {
         [breakpoints.LG]: {
-          slidesPerView: Math.min(this.order.items.length, 1.25)
+          slidesPerView: Math.min(this.session.order.items.length, 1.25)
         }
       }
     })

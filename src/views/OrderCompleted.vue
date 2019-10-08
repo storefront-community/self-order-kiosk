@@ -1,42 +1,44 @@
 <template>
-  <form class="app-body" @submit.prevent="exit" v-if="$session.started">
-    <div class="app-header">
-      <div class="container">
-        <div class="text-center">
-          {{ $t('title') }}
+  <SafeArea :class="`app theme-${session.theme}`">
+    <form class="app-body" @submit.prevent="exit" v-if="session.started">
+      <div class="app-header">
+        <div class="container">
+          <div class="text-center">
+            {{ $t('title') }}
+          </div>
         </div>
       </div>
-    </div>
-    <div class="app-content">
-      <div class="container">
-        <p class="text-center mb-4">
-          <FontAwesome :icon="['far', 'smile']" size="4x"/>
-        </p>
-        <h3 class="text-center mb-4">
-          {{ $t('thank_you') }}
-        </h3>
-        <p class="text-center">
-          {{ $t('instructions') }}
-        </p>
+      <div class="app-content">
+        <div class="container">
+          <p class="text-center mb-4">
+            <FontAwesome :icon="['far', 'smile']" size="4x"/>
+          </p>
+          <h3 class="text-center mb-4">
+            {{ $t('thank_you') }}
+          </h3>
+          <p class="text-center">
+            {{ $t('instructions') }}
+          </p>
+        </div>
       </div>
-    </div>
-    <div class="app-footer">
-      <div class="container d-flex">
-        <button type="submit" class="btn btn-primary px-md-5 py-md-4 mx-auto">
-          {{ $t('exit') }}
-        </button>
+      <div class="app-footer">
+        <div class="container d-flex">
+          <button type="submit" class="btn btn-primary px-md-5 py-md-4 mx-auto">
+            {{ $t('exit') }}
+          </button>
+        </div>
       </div>
-    </div>
-  </form>
+    </form>
+  </SafeArea>
 </template>
 
 <script>
+import { SafeArea } from '@/components'
+
 export default {
   name: 'orderCompleted',
-  data() {
-    return {
-      order: this.$session.order
-    }
+  components: {
+    SafeArea
   },
   methods: {
     exit() {

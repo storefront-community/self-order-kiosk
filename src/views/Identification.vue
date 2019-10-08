@@ -1,76 +1,82 @@
 <template>
-  <form class="app-body" @submit.prevent="next" v-if="$session.started">
-    <div class="app-header">
-      <div class="container">
-        <div class="text-center">
-          {{ $t('title') }}
-        </div>
-      </div>
-    </div>
-    <div class="app-content">
-      <div class="container container-sm">
-        <div class="form-group">
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text">
-                <FontAwesome icon="user" class="ml-3"/>
-              </span>
-            </div>
-            <div class="form-control form-control-lg border-left-0">
-              {{ order.name }}_
-            </div>
+  <SafeArea :class="`app theme-${session.theme}`">
+    <form class="app-body" @submit.prevent="next" v-if="session.started">
+      <div class="app-header">
+        <div class="container">
+          <div class="text-center">
+            {{ $t('title') }}
           </div>
         </div>
       </div>
-      <Keyboard v-model="order.name" :maxlength="20"/>
-    </div>
-    <div class="app-footer">
-      <div class="container d-flex">
-        <button type="button" class="btn btn-outline-primary mr-auto px-md-5 py-md-4 text-nowrap" @click="back">
-          <FontAwesome icon="arrow-left"/>
-          <span class="ml-3">{{ $t('back') }}</span>
-        </button>
-        <SlideUpTransition>
-          <button type="submit" class="btn btn-primary ml-auto px-md-5 py-md-4 text-nowrap" v-if="formIsValid">
-            <FontAwesome icon="check"/>
-            <span class="ml-3">{{ $t('complete') }}</span>
+      <div class="app-content">
+        <div class="container container-sm">
+          <div class="form-group">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <FontAwesome icon="user" class="ml-3"/>
+                </span>
+              </div>
+              <div class="form-control form-control-lg border-left-0">
+                {{ name }}_
+              </div>
+            </div>
+          </div>
+        </div>
+        <Keyboard v-model="name" :maxlength="20"/>
+      </div>
+      <div class="app-footer">
+        <div class="container d-flex">
+          <button type="button" class="btn btn-outline-primary mr-auto px-md-5 py-md-4 text-nowrap" @click="back">
+            <FontAwesome icon="arrow-left"/>
+            <span class="ml-3">{{ $t('back') }}</span>
           </button>
-          <div class="d-flex align-items-center ml-auto px-3 text-right text-primary" v-else>
-            {{ $t('type_your_name') }}
-          </div>
-        </SlideUpTransition>
+          <SlideUpTransition>
+            <button type="submit" class="btn btn-primary ml-auto px-md-5 py-md-4 text-nowrap" v-if="formIsValid">
+              <FontAwesome icon="check"/>
+              <span class="ml-3">{{ $t('complete') }}</span>
+            </button>
+            <div class="d-flex align-items-center ml-auto px-3 text-right text-primary" v-else>
+              {{ $t('type_your_name') }}
+            </div>
+          </SlideUpTransition>
+        </div>
       </div>
-    </div>
-  </form>
+    </form>
+  </SafeArea>
 </template>
 
 <script>
-import { Keyboard } from '@/components'
+import { Keyboard, SafeArea } from '@/components'
 import { SlideUpTransition } from '@/transitions'
 
 export default {
   name: 'identification',
   components: {
     Keyboard,
+    SafeArea,
     SlideUpTransition
   },
   data() {
     return {
-      order: this.$session.order
+      name: ''
     }
+  },
+  mounted() {
+    this.name = this.session.order.name
   },
   methods: {
     back() {
       this.$router.push({ name: 'eatLocation' })
     },
     next() {
-      this.order.name = this.order.name.trim()
+      this.session.order.name = this.name.trim()
       this.$router.push({ name: 'orderCompleted' })
     }
   },
   computed: {
     formIsValid() {
-      return this.order.name.trim().length >= 3
+      return this.name.trim().length >= 3
     }
   }
 }

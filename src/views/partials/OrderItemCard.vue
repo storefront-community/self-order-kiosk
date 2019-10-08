@@ -59,10 +59,10 @@ export default {
   },
   methods: {
     increment() {
-      this.$session.order.increment(this.item)
+      this.session.order.increment(this.item)
     },
     decrement() {
-      this.$session.order.decrement(this.item)
+      this.session.order.decrement(this.item)
     }
   }
 }
