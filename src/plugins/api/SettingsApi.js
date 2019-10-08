@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { AppSettings } from '@/models';
+import { Settings } from '@/models';
 
 export default class SettingsApi {
   constructor() {
@@ -11,7 +11,7 @@ export default class SettingsApi {
     const response = await axios.get(path)
 
     if (response && response.status === 200) {
-      return new AppSettings(response.data)
+      return new Settings(response.data)
     }
 
     return null
