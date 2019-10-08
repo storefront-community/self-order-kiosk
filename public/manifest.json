@@ -1,6 +1,6 @@
 {
-  "name": "Self-Order",
-  "short_name": "Self-Order",
+  "name": "Kiosk",
+  "short_name": "Kiosk",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",
