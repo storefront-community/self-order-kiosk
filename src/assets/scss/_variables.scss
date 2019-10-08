@@ -10,12 +10,22 @@ $gray-800: #343a40;
 $gray-900: #212529;
 $black: #000;
 
+$pink: #fc1460;
+$filazero: #530f6d;
+$green: #16a085;
+$blue: #2980b9;
+$purple: #8e44ad;
+$dark: #2c3e50;
+$red: #c0392b;
+$orange: #d35400;
+$yellow: #f39c12;
+
 $primary: $gray-600;
 $secondary: $gray-100;
-$info: #39d;
-$success: #2ecc71;
-$danger: #e43;
-$warning: #f39c12;
+$info: $blue;
+$success: $green;
+$danger: $red;
+$warning: $yellow;
 $light: $white;
 
 $theme-colors: (
