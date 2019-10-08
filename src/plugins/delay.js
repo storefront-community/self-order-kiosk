@@ -1,4 +1,4 @@
-const DELAY = 50
+const DELAY = 100
 
 function delay(callback) {
   setTimeout(callback, DELAY)
