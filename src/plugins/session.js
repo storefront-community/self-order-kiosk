@@ -24,5 +24,13 @@ class AppSession {
 export default {
   install (Vue) {
     Vue.prototype.$session = new AppSession()
+
+    Vue.mixin({
+      data() {
+        return {
+          session: this.$session
+        }
+      }
+    })
   }
 }
