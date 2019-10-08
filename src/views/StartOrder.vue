@@ -30,14 +30,6 @@
                   <div class="d-flex justify-content-center">
                     <QRCode :value="url" :options="{ width: 256 }"/>
                   </div>
-                  <div class="text-center d-none">
-                    <small>
-                      Do not have an app?<br>
-                      <span class="text-primary">
-                        qrcode.watch
-                      </span>
-                    </small>
-                  </div>
                 </div>
               </div>
             </div>
@@ -62,10 +54,6 @@ export default {
   async mounted() {
     const app = await this.$api.settings.get()
 
-    if (this.$device.isMobile()) {
-        this.$fullscreen.exit()
-    }
-
     this.session.theme = app.theme
     this.session.start()
   },
@@ -76,7 +64,6 @@ export default {
       this.session.locale = locale
     },
     start() {
-      this.$fullscreen.enter()
       this.$router.push({ name: 'chooseItemGroup' })
     }
   },
