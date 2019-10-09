@@ -46,7 +46,7 @@ import { Logo, SafeArea } from '@/components'
 import { Order } from '@/models'
 
 export default {
-  name: 'startOrder',
+  name: 'newOrder',
   components: {
     Logo,
     QRCode,

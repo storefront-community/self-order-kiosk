@@ -90,7 +90,7 @@ export default {
 
           this.session.started = true
 
-          this.$router.replace({ name: 'startOrder' })
+          this.$router.replace({ name: 'newOrder' })
         }
       }
 

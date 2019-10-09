@@ -8,9 +8,9 @@ import CustomizeItem from './views/CustomizeItem.vue'
 import EatLocation from './views/EatLocation.vue'
 import WhoIAm from './views/WhoIAm.vue'
 import Index from './views/Index.vue'
+import NewOrder from './views/NewOrder.vue'
 import OrderCompleted from './views/OrderCompleted.vue'
 import OrderSummary from './views/OrderSummary.vue'
-import StartOrder from './views/StartOrder.vue'
 import UpdateAvailable from './views/UpdateAvailable.vue'
 
 Vue.use(Router)
@@ -19,8 +19,8 @@ export default new Router({
   routes: [
     {
       path: '/start-order',
-      name: 'startOrder',
-      component: StartOrder,
+      name: 'newOrder',
+      component: NewOrder,
       meta: { step: 1 }
     },
     {

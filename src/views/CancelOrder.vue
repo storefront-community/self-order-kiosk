@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     cancel() {
-      this.$router.push({ name: 'startOrder' })
+      this.$router.push({ name: 'newOrder' })
     },
     neverMind() {
       this.$router.push({ name: this.previousRoute })
