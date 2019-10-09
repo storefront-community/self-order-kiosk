@@ -53,7 +53,10 @@ export default {
     SwiperSlide
   },
   mounted() {
-    if (!this.$refs.swiper) return
+    if (!this.session.started) {
+      this.$delay(() => this.$router.push({ name: 'start' }))
+      return
+    }
 
     this.$refs.swiper.init({
       slidesPerView: Math.min(this.session.order.items.length, 2.25),

@@ -55,6 +55,7 @@ export default {
   async mounted() {
     if (!this.session.started) {
       this.$delay(() => this.$router.push({ name: 'start' }))
+      return
     }
 
     const app = await this.$api.settings.get()

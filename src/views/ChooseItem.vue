@@ -41,7 +41,10 @@ export default {
     SwiperSlide
   },
   async mounted() {
-    if (!this.session.started) return
+    if (!this.session.started) {
+      this.$delay(() => this.$router.push({ name: 'start' }))
+      return
+    }
 
     this.session.itemGroup.items = await this.$api.items.list(this.session.itemGroup.id)
 

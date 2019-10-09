@@ -41,6 +41,11 @@ export default {
       vm.previousRoute = from.name
     })
   },
+  mounted() {
+    if (!this.session.started) {
+      this.$delay(() => this.$router.push({ name: 'start' }))
+    }
+  },
   data() {
     return {
       previousRoute: null

@@ -63,6 +63,11 @@ export default {
     }
   },
   mounted() {
+    if (!this.session.started) {
+      this.$delay(() => this.$router.push({ name: 'start' }))
+      return
+    }
+
     this.name = this.session.order.name
   },
   methods: {

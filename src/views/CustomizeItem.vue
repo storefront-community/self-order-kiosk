@@ -62,7 +62,10 @@ export default {
     SlideUpTransition
   },
   async mounted() {
-    if (!this.session.started) return
+    if (!this.session.started) {
+      this.$delay(() => this.$router.push({ name: 'start' }))
+      return
+    }
 
     if (!this.session.item.optionGroups) {
       this.session.item.optionGroups = await this.$api.optionGroups.list(this.session.itemGroup.id)

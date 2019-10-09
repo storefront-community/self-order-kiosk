@@ -46,6 +46,11 @@ export default {
   components: {
     SafeArea
   },
+  mounted() {
+    if (!this.session.started) {
+      this.$delay(() => this.$router.push({ name: 'start' }))
+    }
+  },
   methods: {
     back() {
       this.$router.push({ name: 'orderSummary' })

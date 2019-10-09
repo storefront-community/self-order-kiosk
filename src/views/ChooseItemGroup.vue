@@ -52,7 +52,10 @@ export default {
     }
   },
   async mounted() {
-    if (!this.session.started) return
+    if (!this.session.started) {
+      this.$delay(() => this.$router.push({ name: 'start' }))
+      return
+    }
 
     this.itemGroups = await this.$api.itemGroups.list()
 
