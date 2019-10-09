@@ -54,7 +54,7 @@ export default new Router({
       meta: { step: 6 }
     },
     {
-      path: '/whoIAm',
+      path: '/who',
       name: 'whoIAm',
       component: WhoIAm,
       meta: { step: 7 }
