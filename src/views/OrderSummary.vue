@@ -1,44 +1,46 @@
 <template>
-  <SafeArea :class="`app theme-${session.theme}`" v-if="session.started">
-    <form class="app-body" @submit.prevent="complete">
-      <div class="app-header">
-        <div class="container d-flex align-items-center">
-          <div>{{ $t('title') }}</div>
-          <div class="text-right ml-auto">
-            <Currency :amount="session.order.total()" class="text-primary font-weight-bold"/>
+  <TimedPage>
+    <SafeArea :class="`app theme-${session.theme}`" v-if="session.started">
+      <form class="app-body" @submit.prevent="complete">
+        <div class="app-header">
+          <div class="container d-flex align-items-center">
+            <div>{{ $t('title') }}</div>
+            <div class="text-right ml-auto">
+              <Currency :amount="session.order.total()" class="text-primary font-weight-bold"/>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="app-content">
-        <SwiperContainer ref="swiper" class="h-100">
-          <SwiperSlide class="h-100" v-for="item in session.order.items" :key="item.id">
-            <OrderItemCard class="swiper-slide" :item="item"/>
-          </SwiperSlide>
-        </SwiperContainer>
-      </div>
-      <div class="app-footer">
-        <div class="container d-flex">
-          <button type="button" class="btn btn-outline-primary mr-auto px-md-5 py-md-4 text-nowrap" @click="cancelOrder">
-            {{ $t('cancel_order') }}
-          </button>
-          <div class="btn-group">
-            <button type="button" class="btn btn-primary px-md-5 py-md-4 text-nowrap" @click="addItem">
-              <FontAwesome icon="plus"/>
-              <span class="ml-2">{{ $t('add_item') }}</span>
+        <div class="app-content">
+          <SwiperContainer ref="swiper" class="h-100">
+            <SwiperSlide class="h-100" v-for="item in session.order.items" :key="item.id">
+              <OrderItemCard class="swiper-slide" :item="item"/>
+            </SwiperSlide>
+          </SwiperContainer>
+        </div>
+        <div class="app-footer">
+          <div class="container d-flex">
+            <button type="button" class="btn btn-outline-primary mr-auto px-md-5 py-md-4 text-nowrap" @click="cancelOrder">
+              {{ $t('cancel_order') }}
             </button>
-            <button type="submit" class="btn btn-outline-primary ml-auto px-md-5 py-md-4 text-nowrap">
-              <span class="mr-3">{{ $t('continue') }}</span>
-              <FontAwesome icon="arrow-right"/>
-            </button>
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary px-md-5 py-md-4 text-nowrap" @click="addItem">
+                <FontAwesome icon="plus"/>
+                <span class="ml-2">{{ $t('add_item') }}</span>
+              </button>
+              <button type="submit" class="btn btn-outline-primary ml-auto px-md-5 py-md-4 text-nowrap">
+                <span class="mr-3">{{ $t('continue') }}</span>
+                <FontAwesome icon="arrow-right"/>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    </form>
-  </SafeArea>
+      </form>
+    </SafeArea>
+  </TimedPage>
 </template>
 
 <script>
-import { SafeArea, SwiperContainer, SwiperSlide } from '@/components'
+import { SafeArea, SwiperContainer, SwiperSlide, TimedPage } from '@/components'
 import { Currency } from '@/components'
 import OrderItemCard from './partials/OrderItemCard'
 import breakpoints from '@/constants/breakpoints'
@@ -50,7 +52,8 @@ export default {
     OrderItemCard,
     SafeArea,
     SwiperContainer,
-    SwiperSlide
+    SwiperSlide,
+    TimedPage
   },
   mounted() {
     if (!this.session.started) {

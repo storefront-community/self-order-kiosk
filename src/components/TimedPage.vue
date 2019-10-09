@@ -1,11 +1,14 @@
+<template>
+  <div>
+    <slot></slot>
+  </div>
+</template>
+
 <script>
 import $ from 'jquery'
 
 export default {
-  name: 'idleTime',
-  render(createElement) {
-    return createElement()
-  },
+  name: 'timedPage',
   mounted() {
     this.idleSeconds = 0
     this.interval = setInterval(() => this.incrementIdleMinutes(), 1000)
@@ -20,8 +23,7 @@ export default {
   methods: {
     incrementIdleMinutes() {
       if (++this.idleSeconds >= 60) {
-        this.idleSeconds = 0
-        this.$emit('timeout')
+        this.$router.push({ name: 'newOrder' })
       }
     }
   }

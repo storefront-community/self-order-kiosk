@@ -1,34 +1,36 @@
 <template>
-  <SafeArea :class="`app theme-${session.theme}`" v-if="session.started">
-    <form class="app-body" @submit.prevent="add">
-      <div class="app-header">
-        <div class="container">
-          <div class="text-center">
-            {{ session.itemGroup.name }}
+  <TimedPage>
+    <SafeArea :class="`app theme-${session.theme}`" v-if="session.started">
+      <form class="app-body" @submit.prevent="add">
+        <div class="app-header">
+          <div class="container">
+            <div class="text-center">
+              {{ session.itemGroup.name }}
+            </div>
           </div>
         </div>
-      </div>
-      <div class="app-content">
-        <SwiperContainer ref="swiper">
-          <SwiperSlide v-for="item in session.itemGroup.items" :key="item.id">
-            <ItemCardButton ref="itemCardButton" :item="item" @click="select(item)" @imagePreload="loadImages"/>
-          </SwiperSlide>
-        </SwiperContainer>
-      </div>
-      <div class="app-footer">
-        <div class="container d-flex">
-          <button type="button" class="btn btn-outline-primary mr-auto px-md-5 py-md-4 text-nowrap" @click="back">
-            <FontAwesome icon="arrow-left"/>
-            <span class="ml-3">{{ $t('back') }}</span>
-          </button>
+        <div class="app-content">
+          <SwiperContainer ref="swiper">
+            <SwiperSlide v-for="item in session.itemGroup.items" :key="item.id">
+              <ItemCardButton ref="itemCardButton" :item="item" @click="select(item)" @imagePreload="loadImages"/>
+            </SwiperSlide>
+          </SwiperContainer>
         </div>
-      </div>
-    </form>
-  </SafeArea>
+        <div class="app-footer">
+          <div class="container d-flex">
+            <button type="button" class="btn btn-outline-primary mr-auto px-md-5 py-md-4 text-nowrap" @click="back">
+              <FontAwesome icon="arrow-left"/>
+              <span class="ml-3">{{ $t('back') }}</span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </SafeArea>
+  </TimedPage>
 </template>
 
 <script>
-import { SafeArea, SwiperContainer, SwiperSlide } from '@/components'
+import { SafeArea, SwiperContainer, SwiperSlide, TimedPage } from '@/components'
 import ItemCardButton from './partials/ItemCardButton'
 import breakpoints from '@/constants/breakpoints'
 
@@ -38,7 +40,8 @@ export default {
     ItemCardButton,
     SafeArea,
     SwiperContainer,
-    SwiperSlide
+    SwiperSlide,
+    TimedPage
   },
   async mounted() {
     if (!this.session.started) {
