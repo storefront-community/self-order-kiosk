@@ -33,7 +33,7 @@
             {{ version }} {{ $t('upToDate.message') }}
           </p>
           <div class="text-center mt-4">
-            <router-link :to="{ name: 'index' }" class="btn btn-primary px-md-5 py-md-4">
+            <router-link :to="{ name: 'start' }" class="btn btn-primary px-md-5 py-md-4">
               {{ $t('upToDate.ok') }}
             </router-link>
           </div>

@@ -50,7 +50,7 @@ import { SafeArea } from '@/components'
 import { ShakeTransition } from "@/transitions"
 
 export default {
-  name: 'index',
+  name: 'start',
   components: {
     SafeArea,
     ShakeTransition

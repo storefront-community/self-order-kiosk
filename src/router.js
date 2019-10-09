@@ -7,7 +7,7 @@ import ChooseItem from './views/ChooseItem.vue'
 import CustomizeItem from './views/CustomizeItem.vue'
 import EatLocation from './views/EatLocation.vue'
 import WhoIAm from './views/WhoIAm.vue'
-import Index from './views/Index.vue'
+import Start from './views/Start.vue'
 import NewOrder from './views/NewOrder.vue'
 import OrderCompleted from './views/OrderCompleted.vue'
 import OrderSummary from './views/OrderSummary.vue'
@@ -79,8 +79,8 @@ export default new Router({
     },
     {
       path: '/',
-      name: 'index',
-      component: Index,
+      name: 'start',
+      component: Start,
       meta: { step: 0 }
     },
     {
