@@ -1,5 +1,5 @@
 <template>
-  <SafeArea :class="`app theme-${session.theme}`">
+  <SafeArea :class="`app theme-${session.theme}`" v-if="session.started">
     <div class="app-body">
       <div class="app-content">
         <div class="container d-flex flex-column h-100">
@@ -41,8 +41,9 @@
 </template>
 
 <script>
-import { Logo, SafeArea } from '@/components'
 import QRCode from '@chenfengyuan/vue-qrcode'
+import { Logo, SafeArea } from '@/components'
+import { Order } from '@/models'
 
 export default {
   name: 'startOrder',
@@ -52,10 +53,12 @@ export default {
     SafeArea
   },
   async mounted() {
-    const app = await this.$api.settings.get()
+    if (!this.session.started) {
+      this.$delay(() => this.$router.push({ name: 'index' }))
+    }
 
+    const app = await this.$api.settings.get()
     this.session.theme = app.theme
-    this.session.start()
   },
   methods: {
     changeLocale(locale) {
@@ -64,6 +67,7 @@ export default {
       this.session.locale = locale
     },
     start() {
+      this.session.order = new Order()
       this.$router.push({ name: 'chooseItemGroup' })
     }
   },

@@ -1,5 +1,3 @@
-import { Order } from '@/models'
-
 class AppSession {
   constructor() {
     this.code = ''
@@ -9,11 +7,6 @@ class AppSession {
     this.itemGroup = null
     this.item = null
     this.started = false
-  }
-
-  start() {
-    this.order = new Order()
-    this.started = true
   }
 
   addItemToOrder() {

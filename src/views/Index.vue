@@ -88,6 +88,8 @@ export default {
           this.$api.virtualPath = auth.virtualPath
           this.$api.token = auth.token
 
+          this.session.started = true
+
           this.$router.replace({ name: 'startOrder' })
         }
       }

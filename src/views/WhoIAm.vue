@@ -1,6 +1,6 @@
 <template>
-  <SafeArea :class="`app theme-${session.theme}`">
-    <form class="app-body" @submit.prevent="next" v-if="session.started">
+  <SafeArea :class="`app theme-${session.theme}`" v-if="session.started">
+    <form class="app-body" @submit.prevent="next">
       <div class="app-header">
         <div class="container">
           <div class="text-center">

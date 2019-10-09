@@ -1,6 +1,6 @@
 <template>
-  <SafeArea :class="`app theme-${session.theme}`">
-    <div class="app-body" v-if="session.started">
+  <SafeArea :class="`app theme-${session.theme}`" v-if="session.started">
+    <div class="app-body">
       <div class="app-header">
         <div class="container">
           <div class="text-center">

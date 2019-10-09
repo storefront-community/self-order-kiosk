@@ -1,5 +1,5 @@
 <template>
-  <SafeArea :class="`app theme-${session.theme}`">
+  <SafeArea :class="`app theme-${session.theme}`" v-if="session.started">
     <form class="app-body" @submit.prevent="next" v-if="hasOptionGroups">
       <div class="app-header">
         <div class="container d-block d-md-flex align-items-center">
@@ -120,7 +120,7 @@ export default {
       return this.session.item.optionGroups[this.currentIndex]
     },
     hasOptionGroups() {
-      return this.session.started && this.session.item.optionGroups && this.session.item.optionGroups.length
+      return this.session.item.optionGroups && this.session.item.optionGroups.length
     },
     subtotal() {
       return this.session.item.total()

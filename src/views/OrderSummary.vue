@@ -1,6 +1,6 @@
 <template>
-  <SafeArea :class="`app theme-${session.theme}`">
-    <form class="app-body" @submit.prevent="complete" v-if="session.started">
+  <SafeArea :class="`app theme-${session.theme}`" v-if="session.started">
+    <form class="app-body" @submit.prevent="complete">
       <div class="app-header">
         <div class="container d-flex align-items-center">
           <div>{{ $t('title') }}</div>
