@@ -1,5 +1,5 @@
 <template>
-  <SlideTransition :direction="getRouteDirection" v-if="routeDirection">
+  <SlideTransition :direction="getRouteDirection">
     <SafeArea class="app theme-default">
       <ShakeTransition ref="shake">
         <div class="app-body">

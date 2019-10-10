@@ -1,21 +1,11 @@
 export default {
   install (Vue) {
+    const routing = {}
+
     Vue.mixin({
       beforeRouteEnter(to, from, next) {
-        next(vm => {
-          const comeToMe = vm.$options.name === to.name
-          const imTheNext = to.meta.step > from.meta.step
-          const forward = comeToMe && imTheNext
-
-          vm.routeDirection = forward ? 'left' : 'right'
-        })
-      },
-      beforeRouteLeave(to, from ,next) {
-        const fromMe = this.$options.name === from.name
-        const imThePrevious = to.meta.step > from.meta.step
-        const forward = fromMe && imThePrevious
-
-        this.routeDirection = forward ? 'left' : 'right'
+        routing.to = to
+        routing.from = from
 
         next()
       },
@@ -26,7 +16,8 @@ export default {
       },
       methods: {
         getRouteDirection() {
-          return this.routeDirection
+          const forward = routing.to.meta.step > routing.from.meta.step
+          return forward ? 'left' : 'right'
         }
       }
     })

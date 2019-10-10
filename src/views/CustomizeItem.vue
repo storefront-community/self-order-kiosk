@@ -1,5 +1,5 @@
 <template>
-  <SlideTransition :direction="getRouteDirection" @enter="listOptionGroups" v-if="routeDirection">
+  <SlideTransition :direction="getRouteDirection" @enter="listOptionGroups">
     <TimedPage>
       <SafeArea :class="`app theme-${session.theme}`" v-if="session.started">
         <form class="app-body" @submit.prevent="next" v-if="hasOptionGroups">

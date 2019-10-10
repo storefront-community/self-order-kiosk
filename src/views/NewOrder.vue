@@ -1,5 +1,5 @@
 <template>
-  <SlideTransition :direction="getRouteDirection" @enter="init" v-if="routeDirection">
+  <SlideTransition :direction="getRouteDirection" @enter="init">
     <SafeArea>
       <div :class="`app theme-${session.theme}`" v-if="session.started">
         <div class="app-body">
