@@ -18,7 +18,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/start-order',
+      path: '/new-order',
       name: 'newOrder',
       component: NewOrder,
       meta: { step: 1 }
@@ -73,7 +73,7 @@ export default new Router({
     },
     {
       path: '/update',
-      name: 'update',
+      name: 'updateAvailable',
       component: UpdateAvailable,
       meta: { step: -1 }
     },

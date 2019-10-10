@@ -11,24 +11,24 @@ export default {
   name: 'slideTransition',
   props: {
     direction: {
-      type: String,
-      required: true,
-      validator(value) {
-        return ['left', 'right'].includes(value)
-      }
+      type: [Function, String],
+      default: () => 'left'
     }
   },
   methods: {
     enter(el, done) {
       TweenMax.fromTo(el, .2, {
         autoAlpha: 0,
-        xPercent: this.direction === 'left' ? 10 : -10
+        xPercent: this.directionName === 'left' ? 10 : -10
       }, {
         autoAlpha: 1,
         delay: .1,
         xPercent: 0,
         ease: Power4.easeIn,
-        onComplete: done
+        onComplete: () => {
+          done()
+          this.$emit('enter')
+        }
       })
     },
     leave(el, done) {
@@ -37,10 +37,18 @@ export default {
         xPercent: 0
       }, {
         autoAlpha: 0,
-        xPercent: this.direction === 'left' ? -10 : 10,
+        xPercent: this.directionName === 'left' ? -10 : 10,
         ease: Power4.easeIn,
-        onComplete: done
+        onComplete: () => {
+          done()
+          this.$emit('leave')
+        }
       })
+    }
+  },
+  computed: {
+    directionName() {
+      return typeof this.direction === 'function' ? this.direction() : this.direction
     }
   }
 }
