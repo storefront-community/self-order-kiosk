@@ -64,6 +64,12 @@ export default {
       loading: false
     }
   },
+  async mounted() {
+    await this.checkForUpdate()
+
+    this.code = this.$route.query.code
+    if (this.code) await this.signIn()
+  },
   methods: {
     async signIn() {
       this.loading = true
@@ -78,9 +84,7 @@ export default {
         if (auth) {
           this.$api.virtualPath = auth.virtualPath
           this.$api.token = auth.token
-
           this.session.started = true
-
           this.$router.replace({ name: 'newOrder' })
         }
       }
@@ -94,12 +98,6 @@ export default {
     async checkForUpdate() {
       if (await this.$version.isUpToDate()) return
       this.$router.replace({ name: 'updateAvailable' })
-    },
-    async init() {
-      await this.checkForUpdate()
-
-      this.code = this.$route.query.code
-      if (this.code) await this.signIn()
     }
   }
 }
