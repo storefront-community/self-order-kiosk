@@ -1,3 +1,5 @@
+import fullscreen from './screen/fullscreen'
+
 function isMobile() {
   return navigator.userAgent.match(/Android/i)
     || navigator.userAgent.match(/webOS/i)
@@ -10,6 +12,9 @@ function isMobile() {
 
 export default {
   install (Vue) {
-    Vue.prototype.$device = { isMobile }
+    Vue.prototype.$device = {
+      isMobile,
+      screen: { fullscreen }
+    }
   }
 }
