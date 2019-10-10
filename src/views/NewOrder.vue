@@ -18,10 +18,10 @@
                     </button>
                     <div class="text-center">
                       <button type="button" class="btn btn-flag" @click="changeLocale('br')">
-                        <span class="flag-icon flag-icon-br"></span>
+                        <VectorFlagBR class="flag-icon"/>
                       </button>
                       <button type="button" class="btn btn-flag" @click="changeLocale('en')">
-                        <span class="flag-icon flag-icon-us"></span>
+                        <VectorFlagUS class="flag-icon"/>
                       </button>
                     </div>
                   </div>
@@ -47,6 +47,7 @@ import QRCode from '@chenfengyuan/vue-qrcode'
 import { Logo, SafeArea } from '@/components'
 import { Order } from '@/models'
 import { SlideTransition } from '@/transitions'
+import { VectorFlagBR, VectorFlagUS } from '@/vectors'
 
 export default {
   name: 'newOrder',
@@ -54,7 +55,9 @@ export default {
     Logo,
     QRCode,
     SafeArea,
-    SlideTransition
+    SlideTransition,
+    VectorFlagBR,
+    VectorFlagUS
   },
   async mounted() {
     if (!this.session.started) {
