@@ -1,5 +1,5 @@
 <template>
-  <SlideTransition :direction="nextRouteDirection" @enter="listOptionGroups" v-if="routeDirection">
+  <SlideTransition :direction="getRouteDirection" @enter="listOptionGroups" v-if="routeDirection">
     <TimedPage>
       <SafeArea :class="`app theme-${session.theme}`" v-if="session.started">
         <form class="app-body" @submit.prevent="next" v-if="hasOptionGroups">
@@ -21,7 +21,7 @@
             </div>
           </div>
           <div class="app-content">
-            <SlideTransition :direction="nextFormDirection">
+            <SlideTransition :direction="getFormDirection">
               <OptionCheckMark :optionGroup="optionGroup" :key="optionGroup.id"/>
             </SlideTransition>
           </div>
@@ -93,6 +93,9 @@ export default {
         this.$router.push({ name: 'chooseItem' })
       }
     },
+    getFormDirection() {
+      return this.formDirection
+    },
     next() {
       if (!this.formIsValid) return
 
@@ -103,9 +106,6 @@ export default {
         this.session.addItemToOrder()
         this.$router.push({ name: 'orderSummary' })
       }
-    },
-    nextFormDirection() {
-      return this.formDirection
     },
     restart() {
       this.$router.push({ name: 'start' })

@@ -1,5 +1,5 @@
 <template>
-  <SlideTransition :direction="nextRouteDirection" v-if="routeDirection">
+  <SlideTransition :direction="getRouteDirection" v-if="routeDirection">
     <SafeArea class="app theme-default">
       <div class="app-body" v-if="updateAvailable">
         <div class="app-content">

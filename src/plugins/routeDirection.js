@@ -25,7 +25,7 @@ export default {
         }
       },
       methods: {
-        nextRouteDirection() {
+        getRouteDirection() {
           return this.routeDirection
         }
       }

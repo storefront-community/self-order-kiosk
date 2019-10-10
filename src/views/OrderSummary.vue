@@ -1,5 +1,5 @@
 <template>
-  <SlideTransition :direction="nextRouteDirection" @enter="initSwipeGesture" v-if="routeDirection">
+  <SlideTransition :direction="getRouteDirection" @enter="initSwipeGesture" v-if="routeDirection">
     <TimedPage>
       <SafeArea :class="`app theme-${session.theme}`" v-if="session.started">
         <form class="app-body" @submit.prevent="complete">
