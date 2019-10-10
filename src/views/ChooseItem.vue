@@ -1,5 +1,5 @@
 <template>
-  <SlideTransition :direction="getRouteDirection" @enter="init">
+  <SlideTransition :direction="getRouteDirection">
     <TimedPage>
       <SafeArea :class="`app theme-${session.theme}`" v-if="session.started">
         <form class="app-body" @submit.prevent="add">
@@ -47,16 +47,16 @@ export default {
     SwiperSlide,
     TimedPage
   },
-  mounted() {
+  async mounted() {
     if (!this.session.started) {
       this.restart()
+      return
     }
+
+    await this.listItems()
+    this.initSwipeGesture()
   },
   methods: {
-    async init() {
-      await this.listItems()
-      this.initSwipeGesture()
-    },
     async listItems() {
       this.session.itemGroup.items = await this.$api.items.list(this.session.itemGroup.id)
     },

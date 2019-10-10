@@ -28,10 +28,7 @@ export default {
         delay: .1,
         xPercent: 0,
         ease: Power4.easeIn,
-        onComplete: () => {
-          done()
-          this.$emit('enter')
-        }
+        onComplete: done
       })
     },
     leave(el, done) {
@@ -42,10 +39,7 @@ export default {
         autoAlpha: 0,
         xPercent: this.getDirection() === 'left' ? -10 : 10,
         ease: Power4.easeIn,
-        onComplete: () => {
-          done()
-          this.$emit('leave')
-        }
+        onComplete: done
       })
     }
   }

@@ -1,5 +1,5 @@
 <template>
-  <SlideTransition :direction="getRouteDirection" @enter="init">
+  <SlideTransition :direction="getRouteDirection">
     <TimedPage>
       <SafeArea :class="`app theme-${session.theme}`" v-if="session.started">
         <form class="app-body" @submit.prevent="add">
@@ -58,16 +58,16 @@ export default {
       itemGroups: []
     }
   },
-  mounted() {
+  async mounted() {
     if (!this.session.started) {
       this.restart()
+      return
     }
+
+    await this.listItemGroups()
+    this.initSwipeGesture()
   },
   methods: {
-    async init() {
-      await this.listItemGroups()
-      this.initSwipeGesture()
-    },
     async listItemGroups() {
       this.itemGroups = await this.$api.itemGroups.list()
     },

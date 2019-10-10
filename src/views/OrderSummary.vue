@@ -1,5 +1,5 @@
 <template>
-  <SlideTransition :direction="getRouteDirection" @enter="initSwipeGesture">
+  <SlideTransition :direction="getRouteDirection">
     <TimedPage>
       <SafeArea :class="`app theme-${session.theme}`" v-if="session.started">
         <form class="app-body" @submit.prevent="complete">
@@ -61,7 +61,10 @@ export default {
   mounted() {
     if (!this.session.started) {
       this.restart()
+      return
     }
+
+    this.initSwipeGesture()
   },
   methods: {
     addItem() {

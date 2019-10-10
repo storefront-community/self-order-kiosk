@@ -1,5 +1,5 @@
 <template>
-  <SlideTransition :direction="getRouteDirection" @enter="listOptionGroups">
+  <SlideTransition :direction="getRouteDirection">
     <TimedPage>
       <SafeArea :class="`app theme-${session.theme}`" v-if="session.started">
         <form class="app-body" @submit.prevent="next" v-if="hasOptionGroups">
@@ -72,10 +72,13 @@ export default {
       formDirection: 'left'
     }
   },
-  mounted() {
+  async mounted() {
     if (!this.session.started) {
       this.restart()
+      return
     }
+
+    await this.listOptionGroups()
   },
   methods: {
     async listOptionGroups() {

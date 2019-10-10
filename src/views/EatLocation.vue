@@ -56,6 +56,7 @@ export default {
   mounted() {
     if (!this.session.started) {
       this.restart()
+      return
     }
   },
   methods: {

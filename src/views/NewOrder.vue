@@ -1,5 +1,5 @@
 <template>
-  <SlideTransition :direction="getRouteDirection" @enter="init">
+  <SlideTransition :direction="getRouteDirection">
     <SafeArea>
       <div :class="`app theme-${session.theme}`" v-if="session.started">
         <div class="app-body">
@@ -58,16 +58,16 @@ export default {
     SafeArea,
     SlideTransition
   },
-  mounted() {
+  async mounted() {
     if (!this.session.started) {
       this.restart()
+      return
     }
+
+    const app = await this.$api.settings.get()
+    this.session.theme = app.theme
   },
   methods: {
-    async init() {
-      const app = await this.$api.settings.get()
-      this.session.theme = app.theme
-    },
     changeLocale(locale) {
       this.$api.locale = locale
       this.$i18n.locale = locale
