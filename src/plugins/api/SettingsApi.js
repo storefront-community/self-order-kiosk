@@ -1,17 +1,17 @@
 import axios from 'axios'
-import { AppSettings } from '@/models';
+import { Settings } from '@/models';
 
 export default class SettingsApi {
   constructor() {
-    this.tenant = ''
+    this.virtualPath = ''
   }
 
   async get() {
-    const path = `${process.env.VUE_APP_API_BASE_URL}/${this.tenant}/app.json`
+    const path = `${process.env.VUE_APP_API_BASE_URL}${this.virtualPath}/app.json`
     const response = await axios.get(path)
 
     if (response && response.status === 200) {
-      return new AppSettings(response.data)
+      return new Settings(response.data)
     }
 
     return null

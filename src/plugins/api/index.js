@@ -1,3 +1,4 @@
+import AuthApi from './AuthApi'
 import ItemGroupApi from './ItemGroupApi'
 import ItemApi from './ItemApi'
 import OptionGroupApi from './OptionGroupApi'
@@ -7,7 +8,9 @@ import SettingsApi from './SettingsApi'
 class Api {
   constructor() {
     this._locale = ''
-    this._tenant = ''
+    this._virtualPath = ''
+    this._token = ''
+    this.auth = new AuthApi()
     this.itemGroups = new ItemGroupApi()
     this.items = new ItemApi()
     this.optionGroups = new OptionGroupApi()
@@ -27,17 +30,25 @@ class Api {
     this.options.locale = value
   }
 
-  get tenant() {
-    return this._tenant
+  get virtualPath() {
+    return this._virtualPath
   }
 
-  set tenant(value) {
-    this._tenant = value
-    this.items.tenant = value
-    this.itemGroups.tenant = value
-    this.optionGroups.tenant = value
-    this.options.tenant = value
-    this.settings.tenant = value
+  set virtualPath(value) {
+    this._virtualPath = value ? `/${value}` : ''
+    this.items.virtualPath = this._virtualPath
+    this.itemGroups.virtualPath = this._virtualPath
+    this.optionGroups.virtualPath = this._virtualPath
+    this.options.virtualPath = this._virtualPath
+    this.settings.virtualPath = this._virtualPath
+  }
+
+  get token() {
+    return this._token
+  }
+
+  set token(value) {
+    this._token = `Bearer ${value}`
   }
 }
 

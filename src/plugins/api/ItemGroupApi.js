@@ -4,11 +4,11 @@ import { ItemGroup } from '@/models';
 export default class ItemGroupApi {
   constructor() {
     this.locale = ''
-    this.tenant = ''
+    this.virtualPath = ''
   }
 
   async list() {
-    const path = `${process.env.VUE_APP_API_BASE_URL}/${this.tenant}/menu/${this.locale}/item-groups.json`
+    const path = `${process.env.VUE_APP_API_BASE_URL}${this.virtualPath}/menu/${this.locale}/item-groups.json`
     const response = await axios.get(path)
 
     if (response && response.status === 200) {

@@ -1,16 +1,22 @@
 $themes: (
-  "default": #fc1460,
-  "filazero": #530f6d,
-  "green": #16a085,
-  "blue": #2980b9,
-  "purple": #8e44ad,
-  "dark": #2c3e50,
-  "red": #c0392b,
-  "orange": #d35400
+  "default": $pink,
+  "filazero": $filazero,
+  "green": $green,
+  "blue": $blue,
+  "purple": $purple,
+  "dark": $dark,
+  "red": $red,
+  "orange": $orange,
+  "yellow": $yellow
 );
 
 @each $name, $color in $themes {
   .theme-#{$name} {
+    ::selection {
+      color: $white;
+      background: $color;
+    }
+
     .btn.btn-primary {
       @include button-variant($color, $color);
     }

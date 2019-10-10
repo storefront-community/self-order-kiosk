@@ -1,19 +1,21 @@
 import Currency from './Currency'
-import IdleTime from './IdleTime'
-import ProgressiveImage from './ProgressiveImage'
 import Keyboard from './Keyboard'
 import Loader from './Loader'
 import Logo from './Logo'
+import ProgressiveImage from './ProgressiveImage'
+import SafeArea from './SafeArea'
 import SwiperContainer from './SwiperContainer'
 import SwiperSlide from './SwiperSlide'
+import TimedPage from './TimedPage'
 
 export {
   Currency,
-  IdleTime,
-  ProgressiveImage,
   Keyboard,
   Loader,
   Logo,
+  ProgressiveImage,
+  SafeArea,
   SwiperContainer,
-  SwiperSlide
+  SwiperSlide,
+  TimedPage
 }

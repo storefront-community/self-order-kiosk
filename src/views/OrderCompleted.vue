@@ -1,45 +1,62 @@
 <template>
-  <form class="app-body" @submit.prevent="exit" v-if="$session.started">
-    <div class="app-header">
-      <div class="container">
-        <div class="text-center">
-          {{ $t('title') }}
-        </div>
-      </div>
-    </div>
-    <div class="app-content">
-      <div class="container">
-        <p class="text-center mb-4">
-          <FontAwesome :icon="['far', 'smile']" size="4x"/>
-        </p>
-        <h3 class="text-center mb-4">
-          {{ $t('thank_you') }}
-        </h3>
-        <p class="text-center">
-          {{ $t('instructions') }}
-        </p>
-      </div>
-    </div>
-    <div class="app-footer">
-      <div class="container d-flex">
-        <button type="submit" class="btn btn-primary px-md-5 py-md-4 mx-auto">
-          {{ $t('exit') }}
-        </button>
-      </div>
-    </div>
-  </form>
+  <SlideTransition :direction="getRouteDirection">
+    <TimedPage>
+      <SafeArea :class="`app theme-${session.theme}`" v-if="session.started">
+        <form class="app-body" @submit.prevent="exit">
+          <div class="app-header">
+            <div class="container">
+              <div class="text-center">
+                {{ $t('title') }}
+              </div>
+            </div>
+          </div>
+          <div class="app-content">
+            <div class="container">
+              <p class="text-center mb-4">
+                <FontAwesome :icon="['far', 'smile']" size="4x"/>
+              </p>
+              <h3 class="text-center mb-4">
+                {{ $t('thank_you') }}
+              </h3>
+              <p class="text-center">
+                {{ $t('instructions') }}
+              </p>
+            </div>
+          </div>
+          <div class="app-footer">
+            <div class="container d-flex">
+              <button type="submit" class="btn btn-primary px-md-5 py-md-4 mx-auto">
+                {{ $t('exit') }}
+              </button>
+            </div>
+          </div>
+        </form>
+      </SafeArea>
+    </TimedPage>
+  </SlideTransition>
 </template>
 
 <script>
+import { SafeArea, TimedPage } from '@/components'
+import { SlideTransition } from '@/transitions'
+
 export default {
   name: 'orderCompleted',
-  data() {
-    return {
-      order: this.$session.order
+  components: {
+    SafeArea,
+    SlideTransition,
+    TimedPage
+  },
+  mounted() {
+    if (!this.session.started) {
+      this.restart()
     }
   },
   methods: {
     exit() {
+      this.$router.push({ name: 'newOrder' })
+    },
+    restart() {
       this.$router.push({ name: 'start' })
     }
   }

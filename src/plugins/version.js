@@ -1,10 +1,15 @@
+import axios from 'axios'
+
 class AppVersion {
   constructor() {
     this.current = process.env.VUE_APP_VERSION
   }
 
-  isUpToDate(available) {
-    return this._onlyNumbers(this.current) >= this._onlyNumbers(available)
+  async isUpToDate() {
+    const response = await axios.get('/version.json')
+    const version = response.data.version
+
+    return this._onlyNumbers(this.current) >= this._onlyNumbers(version)
   }
 
   _onlyNumbers(version) {

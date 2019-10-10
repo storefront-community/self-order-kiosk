@@ -1,8 +1,7 @@
-#app .app-body .app-content {
+.app .app-body .app-content {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  overflow: hidden;
   min-height: 2rem;
   padding: 0;
   margin: 40px 0;
