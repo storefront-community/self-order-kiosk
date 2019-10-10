@@ -9,11 +9,6 @@ export default {
 
         next()
       },
-      data() {
-        return {
-          routeDirection: ''
-        }
-      },
       methods: {
         getRouteDirection() {
           const forward = routing.to.meta.step > routing.from.meta.step
