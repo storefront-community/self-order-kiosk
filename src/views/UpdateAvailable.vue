@@ -1,7 +1,7 @@
 <template>
   <SlideTransition :direction="getRouteDirection">
     <SafeArea class="app theme-default">
-      <div class="app-body" v-if="updateAvailable">
+      <div class="app-body" v-if="updateAvailable === true">
         <div class="app-content">
           <div class="container">
             <p class="text-center text-primary mb-4">
@@ -21,7 +21,7 @@
           </div>
         </div>
       </div>
-      <div class="app-body" v-else>
+      <div class="app-body" v-if="updateAvailable === false">
         <div class="app-content">
           <div class="container">
             <p class="text-center text-primary mb-4">
@@ -57,7 +57,7 @@ export default {
   },
   data() {
     return {
-      updateAvailable: false
+      updateAvailable: null
     }
   },
   async mounted() {
