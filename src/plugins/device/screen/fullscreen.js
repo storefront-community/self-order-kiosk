@@ -32,8 +32,4 @@ function exit() {
   }
 }
 
-export default {
-  install (Vue) {
-    Vue.prototype.$fullscreen = { enter, exit }
-  }
-}
+export default { enter, exit }
