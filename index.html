@@ -1,0 +1,50 @@
+<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"><meta name=theme-color content=#ffffff><!--[if IE]><link rel="icon" href="/favicon.ico"><![endif]--><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Maven+Pro:300,400,500,700"><title>Self-Order Kiosk</title><style>*, *::before, *::after {
+        box-sizing: border-box;
+      }
+
+      .splash-screen {
+        display: flex;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+      }
+
+      .preloader {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        height: 256px;
+        width: 256px;
+      }
+
+      .circle {
+        display: block;
+        width: 24px;
+        height: 24px;
+        border-radius: 12px;
+        margin: 0 4px;
+      }
+
+      .circle-salad { border: 8px solid #2ecc71; animation: salad 3s infinite alternate; }
+
+      .circle-ketchup { border: 8px solid #fc1460; animation: ketchup 3s infinite alternate; }
+
+      .circle-mustard { border: 8px solid #f39c12; animation: mustard 3s infinite alternate; }
+
+      @keyframes salad {
+        0%, 50% { transform: translate(0, 0); width: 24px; height: 24px; }
+        60%, 100% { transform: translate(36px, -20px); width: 48px; height: 48px; }
+      }
+
+      @keyframes ketchup {
+        0%, 50% { transform: translate(0, 0); width: 24px; height: 24px; }
+        60%, 100% { transform: translate(-20px, 34px); width: 48px; height: 48px; }
+      }
+
+      @keyframes mustard {
+        0%, 50% { transform: translate(0,0 ); width: 24px; height: 24px; }
+        60%, 100% { transform: translate(-22px, -20px); width: 48px; height: 48px; }
+      }</style><link href=/css/app.d2b3bc89.css rel=preload as=style><link href=/js/app.f6a8e34a.js rel=preload as=script><link href=/js/chunk-vendors.0f6652f2.js rel=preload as=script><link href=/css/app.d2b3bc89.css rel=stylesheet><link rel=icon type=image/png sizes=32x32 href=/img/icons/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/img/icons/favicon-16x16.png><link rel=manifest href=/manifest.json><meta name=theme-color content=#4DBA87><meta name=apple-mobile-web-app-capable content=no><meta name=apple-mobile-web-app-status-bar-style content=default><meta name=apple-mobile-web-app-title content=@storefront.community/kiosk><link rel=apple-touch-icon href=/img/icons/apple-touch-icon-152x152.png><link rel=mask-icon href=/img/icons/safari-pinned-tab.svg color=#4DBA87><meta name=msapplication-TileImage content=/img/icons/msapplication-icon-144x144.png><meta name=msapplication-TileColor content=#000000></head><body><noscript><strong>We're sorry but this app doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div class=beta-badge></div><div id=app><div class=splash-screen><div class=preloader><div class="circle circle-salad"></div><div class="circle circle-ketchup"></div><div class="circle circle-mustard"></div></div></div></div><script src=/js/chunk-vendors.0f6652f2.js></script><script src=/js/app.f6a8e34a.js></script></body></html>
