@@ -1,44 +1,43 @@
 <template>
   <SlideTransition :direction="getRouteDirection">
-    <TimedPage>
-      <SafeArea :class="`app theme-${session.theme}`" v-if="session.started">
-        <form class="app-body" @submit.prevent="add">
-          <div class="app-header">
-            <div class="container">
-              <div class="text-center">
-                <span v-if="orderHasItem">
-                  {{ $t('title_with_items') }}
-                </span>
-                <span v-else>
-                  {{ $t('title_without_items') }}
-                </span>
-              </div>
+    <SafeArea :class="`app theme-${session.theme}`" v-if="session.started">
+      <IdleTime/>
+      <form class="app-body" @submit.prevent="add">
+        <div class="app-header">
+          <div class="container">
+            <div class="text-center">
+              <span v-if="orderHasItem">
+                {{ $t('title_with_items') }}
+              </span>
+              <span v-else>
+                {{ $t('title_without_items') }}
+              </span>
             </div>
           </div>
-          <div class="app-content">
-            <SwiperContainer ref="swiper">
-              <SwiperSlide v-for="itemGroup in itemGroups" :key="itemGroup.id">
-                <ItemGroupButton ref="itemGroupButton" :itemGroup="itemGroup"
-                  @click="select(itemGroup)" @imagePreload="loadImages"/>
-              </SwiperSlide>
-            </SwiperContainer>
+        </div>
+        <div class="app-content">
+          <SwiperContainer ref="swiper">
+            <SwiperSlide v-for="itemGroup in itemGroups" :key="itemGroup.id">
+              <ItemGroupButton ref="itemGroupButton" :itemGroup="itemGroup"
+                @click="select(itemGroup)" @imagePreload="loadImages"/>
+            </SwiperSlide>
+          </SwiperContainer>
+        </div>
+        <div class="app-footer">
+          <div class="container d-flex">
+            <button type="button" class="btn btn-outline-primary mr-auto px-md-5 py-md-4 text-nowrap" @click="back">
+              <FontAwesome icon="arrow-left"/>
+              <span class="ml-3">{{ $t('back') }}</span>
+            </button>
           </div>
-          <div class="app-footer">
-            <div class="container d-flex">
-              <button type="button" class="btn btn-outline-primary mr-auto px-md-5 py-md-4 text-nowrap" @click="back">
-                <FontAwesome icon="arrow-left"/>
-                <span class="ml-3">{{ $t('back') }}</span>
-              </button>
-            </div>
-          </div>
-        </form>
-      </SafeArea>
-    </TimedPage>
+        </div>
+      </form>
+    </SafeArea>
   </SlideTransition>
 </template>
 
 <script>
-import { SafeArea, SwiperContainer, SwiperSlide, TimedPage } from '@/components'
+import { IdleTime, SafeArea, SwiperContainer, SwiperSlide } from '@/components'
 import { SlideTransition } from '@/transitions'
 import ItemGroupButton from './partials/ItemGroupButton'
 import breakpoints from '@/constants/breakpoints'
@@ -46,12 +45,12 @@ import breakpoints from '@/constants/breakpoints'
 export default {
   name: 'chooseItemGroup',
   components: {
+    IdleTime,
     ItemGroupButton,
     SafeArea,
     SlideTransition,
     SwiperContainer,
-    SwiperSlide,
-    TimedPage
+    SwiperSlide
   },
   data() {
     return {
