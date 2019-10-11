@@ -1,6 +1,6 @@
 {
-  "name": "pos",
-  "version": "0.1.0",
+  "name": "@storefront.community/kiosk",
+  "version": "0.8.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
