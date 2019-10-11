@@ -2,7 +2,7 @@
 
 Touch screen app for ordering food in restaurants and cafes.
 
-View the [live demo](https://kiosk.storefront.community).
+View the [live demo](https://kiosk.storefront.community#?code=APP001).
 
 ## Status
 
