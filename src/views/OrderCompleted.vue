@@ -1,51 +1,50 @@
 <template>
   <SlideTransition :direction="getRouteDirection">
-    <TimedPage>
-      <SafeArea :class="`app theme-${session.theme}`" v-if="session.started">
-        <form class="app-body" @submit.prevent="exit">
-          <div class="app-header">
-            <div class="container">
-              <div class="text-center">
-                {{ $t('title') }}
-              </div>
+    <SafeArea :class="`app theme-${session.theme}`" v-if="session.started">
+      <IdleTime :seconds="30"/>
+      <form class="app-body" @submit.prevent="exit">
+        <div class="app-header">
+          <div class="container">
+            <div class="text-center">
+              {{ $t('title') }}
             </div>
           </div>
-          <div class="app-content">
-            <div class="container">
-              <p class="text-center mb-4">
-                <FontAwesome :icon="['far', 'smile']" size="4x"/>
-              </p>
-              <h3 class="text-center mb-4">
-                {{ $t('thank_you') }}
-              </h3>
-              <p class="text-center">
-                {{ $t('instructions') }}
-              </p>
-            </div>
+        </div>
+        <div class="app-content">
+          <div class="container">
+            <p class="text-center mb-4">
+              <FontAwesome :icon="['far', 'smile']" size="4x"/>
+            </p>
+            <h3 class="text-center mb-4">
+              {{ $t('thank_you') }}
+            </h3>
+            <p class="text-center">
+              {{ $t('instructions') }}
+            </p>
           </div>
-          <div class="app-footer">
-            <div class="container d-flex">
-              <button type="submit" class="btn btn-primary px-md-5 py-md-4 mx-auto">
-                {{ $t('exit') }}
-              </button>
-            </div>
+        </div>
+        <div class="app-footer">
+          <div class="container d-flex">
+            <button type="submit" class="btn btn-primary px-md-5 py-md-4 mx-auto">
+              {{ $t('exit') }}
+            </button>
           </div>
-        </form>
-      </SafeArea>
-    </TimedPage>
+        </div>
+      </form>
+    </SafeArea>
   </SlideTransition>
 </template>
 
 <script>
-import { SafeArea, TimedPage } from '@/components'
+import { IdleTime, SafeArea } from '@/components'
 import { SlideTransition } from '@/transitions'
 
 export default {
   name: 'orderCompleted',
   components: {
+    IdleTime,
     SafeArea,
-    SlideTransition,
-    TimedPage
+    SlideTransition
   },
   mounted() {
     if (!this.session.started) {
