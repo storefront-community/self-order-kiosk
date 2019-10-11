@@ -29,8 +29,7 @@
                 <span class="ml-2">{{ $t('add_item') }}</span>
               </button>
               <button type="submit" class="btn btn-outline-primary ml-auto px-md-5 py-md-4 text-nowrap">
-                <span class="mr-3">{{ $t('continue') }}</span>
-                <FontAwesome icon="arrow-right"/>
+                {{ $t('continue') }}
               </button>
             </div>
           </div>
@@ -103,13 +102,13 @@ export default {
   "br": {
     "add_item": "Item",
     "cancel_order": "Cancelar",
-    "continue": "Continuar",
+    "continue": "Pedir",
     "title": "Seu pedido"
   },
   "en": {
     "add_item": "Item",
     "cancel_order": "Cancel",
-    "continue": "Continue",
+    "continue": "Send",
     "title": "Your order"
   }
 }
