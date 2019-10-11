@@ -9,6 +9,7 @@
 export default {
   name: 'app',
   beforeCreate() {
+    this.$device.contextmenu.disable()
     this.$device.screen.zoom.disable()
   }
 }

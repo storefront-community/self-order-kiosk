@@ -1,3 +1,4 @@
+import contextmenu from './contextmenu'
 import fullscreen from './screen/fullscreen'
 import zoom from './screen/zoom'
 
@@ -14,6 +15,7 @@ function isMobile() {
 export default {
   install (Vue) {
     Vue.prototype.$device = {
+      contextmenu,
       isMobile,
       screen: { fullscreen, zoom }
     }
