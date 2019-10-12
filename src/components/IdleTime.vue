@@ -1,6 +1,4 @@
 <script>
-import $ from 'jquery'
-
 export default {
   name: 'idleTime',
   props: {
@@ -16,9 +14,8 @@ export default {
     this.idleSeconds = 0
     this.interval = setInterval(() => this.incrementIdleMinutes(), 1000)
 
-    $(document).on('mousemove keypress', () => {
-      this.idleSeconds = 0
-    })
+    document.addEventListener('keypress', this.reset)
+    document.addEventListener('mousemove', this.reset)
   },
   destroyed() {
     clearInterval(this.interval)
@@ -28,6 +25,9 @@ export default {
       if (++this.idleSeconds >= this.seconds) {
         this.$router.push({ name: 'newOrder' })
       }
+    },
+    reset() {
+      this.idleSeconds = 0
     }
   }
 }

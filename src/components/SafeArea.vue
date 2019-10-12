@@ -5,21 +5,25 @@
 </template>
 
 <script>
-import $ from 'jquery'
-
 export default {
   name: 'safeArea',
   mounted() {
     this.cover()
-    $(window).on('resize', () => this.cover())
+    window.addEventListener('resize', this.cover)
   },
   methods: {
     cover() {
-      $('html').css('height', window.innerHeight)
-      $('body').css('height', window.innerHeight)
-      $('.app').css('height', window.innerHeight)
+      document.body.style.height = `${window.innerHeight}px`
+      document.body.style.width = `${window.innerWidth}px`
 
-      $(window).scrollTop(0);
+      this.$el.style.height = `${window.innerHeight}px`
+      this.$el.style.width = `${window.innerWidth}px`
+
+      this.scrollTop()
+    },
+    scrollTop() {
+      document.body.scrollTop = 0
+      document.documentElement.scrollTop = 0
     }
   }
 }
