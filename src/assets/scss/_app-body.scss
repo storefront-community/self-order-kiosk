@@ -26,9 +26,44 @@ html, body {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-}
-
-.app-body {
   height: 100%;
   width: 100%;
+}
+
+.app .app-body .app-header {
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: $border-width $border-color solid;
+  padding: $grid-gutter-width;
+
+  h1 {
+    font-size: 18pt;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  @include breakpoint-down-to-sm {
+    padding: $grid-gutter-width / 2;
+  }
+}
+
+.app .app-body .app-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-height: 2rem;
+  padding: 0;
+  margin: 40px 0;
+
+  @include flex-vertical-align();
+
+  @include breakpoint-down-to-sm {
+    margin: 20px 0;
+  }
+}
+
+.app .app-body .app-footer {
+  flex-shrink: 0;
 }
