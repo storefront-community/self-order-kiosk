@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import $ from 'jquery'
 import Swiper from 'swiper'
 
 export default {
@@ -17,9 +16,8 @@ export default {
       options.on = options.on || {}
 
       options.on.progress = (value) => {
-        $(this.$el)
-          .toggleClass('shadow-start', options.shadowEnabled && value > 0)
-          .toggleClass('shadow-end', options.shadowEnabled && value < 1)
+        this.$el.classList.toggle('shadow-start', options.shadowEnabled && value > 0)
+        this.$el.classList.toggle('shadow-end', options.shadowEnabled && value < 1)
       }
 
       this.$nextTick(() => new Swiper(this.$el, options))
