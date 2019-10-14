@@ -16,12 +16,14 @@
           </div>
         </div>
         <div class="app-content">
-          <SwiperContainer ref="swiper">
-            <SwiperSlide v-for="itemGroup in itemGroups" :key="itemGroup.id">
-              <ItemGroupButton ref="itemGroupButton" :itemGroup="itemGroup"
-                @click="select(itemGroup)" @imagePreload="loadImages"/>
-            </SwiperSlide>
-          </SwiperContainer>
+          <div ref="swiper" class="container swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide" v-for="itemGroup in itemGroups" :key="itemGroup.id">
+                <ItemGroupButton ref="itemGroupButton" :itemGroup="itemGroup"
+                  @click="select(itemGroup)" @imagePreload="loadImages"/>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="app-footer">
           <div class="container d-flex">
@@ -37,7 +39,8 @@
 </template>
 
 <script>
-import { IdleTime, SafeArea, SwiperContainer, SwiperSlide } from '@/components'
+import Swiper from 'swiper'
+import { IdleTime, SafeArea } from '@/components'
 import { SlideTransition } from '@/transitions'
 import ItemGroupButton from './partials/ItemGroupButton'
 import breakpoints from '@/constants/breakpoints'
@@ -48,9 +51,7 @@ export default {
     IdleTime,
     ItemGroupButton,
     SafeArea,
-    SlideTransition,
-    SwiperContainer,
-    SwiperSlide
+    SlideTransition
   },
   data() {
     return {
@@ -64,7 +65,7 @@ export default {
     }
 
     await this.listItemGroups()
-    this.initSwipeGesture()
+    this.$nextTick(() => this.initSwipeGesture())
   },
   methods: {
     async listItemGroups() {
@@ -77,7 +78,7 @@ export default {
     initSwipeGesture() {
       if (!this.$refs.swiper) return
 
-      this.$refs.swiper.init({
+      new Swiper(this.$refs.swiper, {
         slidesPerView: Math.min(this.itemGroups.length, 3.5),
         centeredSlides: false,
         spaceBetween: 30,

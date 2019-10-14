@@ -11,11 +11,13 @@
           </div>
         </div>
         <div class="app-content">
-          <SwiperContainer ref="swiper">
-            <SwiperSlide v-for="item in session.itemGroup.items" :key="item.id">
-              <ItemCardButton ref="itemCardButton" :item="item" @click="select(item)" @imagePreload="loadImages"/>
-            </SwiperSlide>
-          </SwiperContainer>
+          <div ref="swiper" class="container swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide" v-for="item in session.itemGroup.items" :key="item.id">
+                <ItemCardButton ref="itemCardButton" :item="item" @click="select(item)" @imagePreload="loadImages"/>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="app-footer">
           <div class="container d-flex">
@@ -31,7 +33,8 @@
 </template>
 
 <script>
-import { IdleTime, SafeArea, SwiperContainer, SwiperSlide } from '@/components'
+import Swiper from 'swiper'
+import { IdleTime, SafeArea } from '@/components'
 import { SlideTransition } from '@/transitions'
 import ItemCardButton from './partials/ItemCardButton'
 import breakpoints from '@/constants/breakpoints'
@@ -42,9 +45,7 @@ export default {
     IdleTime,
     ItemCardButton,
     SafeArea,
-    SlideTransition,
-    SwiperContainer,
-    SwiperSlide
+    SlideTransition
   },
   async mounted() {
     if (!this.session.started) {
@@ -53,7 +54,7 @@ export default {
     }
 
     await this.listItems()
-    this.initSwipeGesture()
+    this.$nextTick(() => this.initSwipeGesture())
   },
   methods: {
     async listItems() {
@@ -65,12 +66,11 @@ export default {
     initSwipeGesture() {
       if (!this.$refs.swiper) return
 
-      this.$refs.swiper.init({
+      new Swiper(this.$refs.swiper, {
         slidesPerView: Math.min(this.session.itemGroup.items.length, 3.5),
         centeredSlides: false,
         spaceBetween: 20,
         direction: 'horizontal',
-        shadowEnabled: this.session.itemGroup.items.length > 3,
         breakpoints: {
           [breakpoints.LG]: {
             slidesPerView: Math.min(this.session.itemGroup.items.length, 2.5),
@@ -83,6 +83,13 @@ export default {
           [breakpoints.SM]: {
             slidesPerView: Math.min(this.session.itemGroup.items.length, 1.5),
             centeredSlides: true
+          }
+        },
+        on: {
+          progress: (value) => {
+            if (!this.$refs.swiper) return
+            this.$refs.swiper.classList.toggle('shadow-start', value > 0)
+            this.$refs.swiper.classList.toggle('shadow-end', value < 1)
           }
         }
       })

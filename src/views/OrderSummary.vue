@@ -12,11 +12,13 @@
           </div>
         </div>
         <div class="app-content">
-          <SwiperContainer ref="swiper" class="h-100">
-            <SwiperSlide class="h-100" v-for="item in session.order.items" :key="item.id">
-              <OrderItemCard class="swiper-slide" :item="item"/>
-            </SwiperSlide>
-          </SwiperContainer>
+          <div ref="swiper" class="container swiper-container h-100">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide h-100" v-for="item in session.order.items" :key="item.id">
+                <OrderItemCard class="swiper-slide" :item="item"/>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="app-footer">
           <div class="container d-flex">
@@ -40,7 +42,8 @@
 </template>
 
 <script>
-import { Currency, IdleTime, SafeArea, SwiperContainer, SwiperSlide } from '@/components'
+import Swiper from 'swiper'
+import { Currency, IdleTime, SafeArea } from '@/components'
 import { SlideTransition } from '@/transitions'
 import OrderItemCard from './partials/OrderItemCard'
 import breakpoints from '@/constants/breakpoints'
@@ -52,9 +55,7 @@ export default {
     IdleTime,
     OrderItemCard,
     SafeArea,
-    SlideTransition,
-    SwiperContainer,
-    SwiperSlide
+    SlideTransition
   },
   mounted() {
     if (!this.session.started) {
@@ -62,7 +63,7 @@ export default {
       return
     }
 
-    this.initSwipeGesture()
+    this.$nextTick(() => this.initSwipeGesture())
   },
   methods: {
     addItem() {
@@ -77,7 +78,7 @@ export default {
     initSwipeGesture() {
       if (!this.$refs.swiper) return
 
-      this.$refs.swiper.init({
+      new Swiper(this.$refs.swiper, {
         slidesPerView: Math.min(this.session.order.items.length, 2.25),
         centeredSlides: false,
         spaceBetween: 20,

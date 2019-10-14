@@ -5,8 +5,6 @@ import Loader from './Loader'
 import Logo from './Logo'
 import ProgressiveImage from './ProgressiveImage'
 import SafeArea from './SafeArea'
-import SwiperContainer from './SwiperContainer'
-import SwiperSlide from './SwiperSlide'
 
 export {
   Currency,
@@ -15,7 +13,5 @@ export {
   Loader,
   Logo,
   ProgressiveImage,
-  SafeArea,
-  SwiperContainer,
-  SwiperSlide
+  SafeArea
 }
