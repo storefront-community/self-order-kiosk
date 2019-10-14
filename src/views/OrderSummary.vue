@@ -84,7 +84,7 @@ export default {
         spaceBetween: 20,
         direction: 'horizontal',
         breakpoints: {
-          [breakpoints.LG]: {
+          [breakpoints.HORIZONTAL.LG]: {
             slidesPerView: Math.min(this.session.order.items.length, 1.25)
           }
         },

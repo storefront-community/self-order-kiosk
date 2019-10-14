@@ -85,10 +85,10 @@ export default {
         direction: 'horizontal',
         shadowEnabled: this.itemGroups.length > 3,
         breakpoints: {
-          [breakpoints.MD]: {
+          [breakpoints.HORIZONTAL.MD]: {
             slidesPerView: Math.min(this.itemGroups.length, 2.5)
           },
-          [breakpoints.SM]: {
+          [breakpoints.HORIZONTAL.SM]: {
             slidesPerView: Math.min(this.itemGroups.length, 1.75),
             centeredSlides: true
           }

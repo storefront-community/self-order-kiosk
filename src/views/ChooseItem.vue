@@ -67,20 +67,20 @@ export default {
       if (!this.$refs.swiper) return
 
       new Swiper(this.$refs.swiper, {
-        slidesPerView: Math.min(this.session.itemGroup.items.length, 3.5),
-        centeredSlides: false,
-        spaceBetween: 20,
         direction: 'horizontal',
+        slidesPerView: Math.min(this.session.itemGroup.items.length, 3.5),
+        spaceBetween: 20,
+        centeredSlides: false,
         breakpoints: {
-          [breakpoints.LG]: {
+          [breakpoints.HORIZONTAL.LG]: {
             slidesPerView: Math.min(this.session.itemGroup.items.length, 2.5),
             centeredSlides: false
           },
-          [breakpoints.MD]: {
+          [breakpoints.HORIZONTAL.MD]: {
             slidesPerView: Math.min(this.session.itemGroup.items.length, 1.5),
             centeredSlides: false
           },
-          [breakpoints.SM]: {
+          [breakpoints.HORIZONTAL.SM]: {
             slidesPerView: Math.min(this.session.itemGroup.items.length, 1.5),
             centeredSlides: true
           }

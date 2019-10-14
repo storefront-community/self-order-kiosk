@@ -50,6 +50,7 @@
 import Swiper from 'swiper'
 import { Currency, ProgressiveImage } from '@/components'
 import { Item } from '@/models'
+import breakpoints from '@/constants/breakpoints'
 
 export default {
   name: 'orderItemCard',
@@ -89,10 +90,10 @@ export default {
       })
     },
     slidesPerView() {
-      if (this.$device.screen.safeArea.height() >= 1280) return 11.25
-      else if (this.$device.screen.safeArea.height() >= 960) return 8.25
-      else if (this.$device.screen.safeArea.height() >= 800) return 7.25
-      else if (this.$device.screen.safeArea.height() >= 640) return 5.25
+      if (this.$device.screen.safeArea.height() >= breakpoints.VERTICAL.XL) return 11.25
+      else if (this.$device.screen.safeArea.height() >= breakpoints.VERTICAL.LG) return 8.25
+      else if (this.$device.screen.safeArea.height() >= breakpoints.VERTICAL.MD) return 7.25
+      else if (this.$device.screen.safeArea.height() >= breakpoints.VERTICAL.SM) return 5.25
       else return 3.25
     }
   },
