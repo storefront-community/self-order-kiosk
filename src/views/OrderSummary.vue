@@ -14,7 +14,7 @@
         <div class="app-content">
           <div ref="swiper" class="container swiper-container h-100">
             <div class="swiper-wrapper">
-              <div class="swiper-slide h-100" v-for="item in session.order.items" :key="item.id">
+              <div class="swiper-slide" v-for="item in session.order.items" :key="item.id">
                 <OrderItemCard class="swiper-slide" :item="item"/>
               </div>
             </div>
@@ -83,10 +83,17 @@ export default {
         centeredSlides: false,
         spaceBetween: 20,
         direction: 'horizontal',
-        shadowEnabled: this.session.order.items.length > 1,
         breakpoints: {
           [breakpoints.LG]: {
             slidesPerView: Math.min(this.session.order.items.length, 1.25)
+          }
+        },
+        on: {
+          progress: (value) => {
+            if (!this.$refs.swiper) return
+            if (this.session.order.items.length === 1) return
+            this.$refs.swiper.classList.toggle('shadow-start', value > 0)
+            this.$refs.swiper.classList.toggle('shadow-end', value < 1)
           }
         }
       })
