@@ -1,9 +1,0 @@
-.container {
-  &.container-sm {
-    max-width: 640px;
-  }
-
-  @include breakpoint-down-to-sm {
-    padding: 0;
-  }
-}
