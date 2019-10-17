@@ -23,7 +23,7 @@ export default {
       default: () => false
     },
     image: {
-      type: Object,
+      type: [ItemGroup, Item],
       required: true
     }
   },
