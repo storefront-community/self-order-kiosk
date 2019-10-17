@@ -9,3 +9,12 @@ export {
   SlideTransition,
   SlideUpTransition
 }
+
+export default {
+  install (Vue) {
+    Vue.component('ScaleTransition', ScaleTransition)
+    Vue.component('ShakeTransition', ShakeTransition)
+    Vue.component('SlideTransition', SlideTransition)
+    Vue.component('SlideUpTransition', SlideUpTransition)
+  }
+}
