@@ -2,60 +2,49 @@
   <SlideTransition :direction="getRouteDirection">
     <SafeArea :class="`app theme-${session.theme}`" v-if="session.started">
       <IdleTime/>
-      <form class="app-body" @submit.prevent="complete">
-        <div class="app-header">
-          <div class="container d-flex align-items-center">
-            <div>{{ $t('title') }}</div>
-            <div class="text-right ml-auto">
-              <Currency :amount="session.order.total()" class="text-primary font-weight-bold"/>
+      <div class="app-header">
+        <div>{{ $t('title') }}</div>
+        <h3 class="text-right my-0 ml-auto">
+          <Currency :amount="session.order.total()" class="text-primary font-weight-bold"/>
+        </h3>
+      </div>
+      <div class="app-content">
+        <div ref="swiper" class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide d-flex align-items-center px-3 px-lg-5 border-bottom"
+              v-for="item in session.order.items" :key="item.id">
+              <OrderItemCard :item="item"/>
             </div>
           </div>
         </div>
-        <div class="app-content">
-          <div ref="swiper" class="container swiper-container h-100">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide" v-for="item in session.order.items" :key="item.id">
-                <OrderItemCard class="swiper-slide" :item="item"/>
-              </div>
-            </div>
-          </div>
+      </div>
+      <div class="app-footer">
+        <button type="button" class="btn btn-outline-primary" @click="cancelOrder">
+          {{ $t('cancel_order') }}
+        </button>
+        <div class="btn-group ml-auto">
+          <button type="button" class="btn btn-primary" @click="addItem">
+            <FontAwesome icon="plus"/>
+            <span class="ml-2">{{ $t('add_item') }}</span>
+          </button>
+          <button type="button" class="btn btn-outline-primary" @click="complete">
+            {{ $t('continue') }}
+          </button>
         </div>
-        <div class="app-footer">
-          <div class="container d-flex">
-            <button type="button" class="btn btn-outline-primary mr-auto px-md-5 py-md-4 text-nowrap" @click="cancelOrder">
-              {{ $t('cancel_order') }}
-            </button>
-            <div class="btn-group">
-              <button type="button" class="btn btn-primary px-md-5 py-md-4 text-nowrap" @click="addItem">
-                <FontAwesome icon="plus"/>
-                <span class="ml-2">{{ $t('add_item') }}</span>
-              </button>
-              <button type="submit" class="btn btn-outline-primary ml-auto px-md-5 py-md-4 text-nowrap">
-                {{ $t('continue') }}
-              </button>
-            </div>
-          </div>
-        </div>
-      </form>
+      </div>
     </SafeArea>
   </SlideTransition>
 </template>
 
 <script>
 import Swiper from 'swiper'
-import { Currency, IdleTime, SafeArea } from '@/components'
-import { SlideTransition } from '@/transitions'
 import OrderItemCard from './partials/OrderItemCard'
 import breakpoints from '@/constants/breakpoints'
 
 export default {
   name: 'orderSummary',
   components: {
-    Currency,
-    IdleTime,
-    OrderItemCard,
-    SafeArea,
-    SlideTransition
+    OrderItemCard
   },
   mounted() {
     if (!this.session.started) {
@@ -78,28 +67,24 @@ export default {
     initSwipeGesture() {
       if (!this.$refs.swiper) return
 
-      new Swiper(this.$refs.swiper, {
-        slidesPerView: Math.min(this.session.order.items.length, 2.25),
+      const swiper = new Swiper(this.$refs.swiper, {
+        slidesPerView: this.slidesPerView(),
         centeredSlides: false,
         spaceBetween: 20,
-        direction: 'horizontal',
-        breakpoints: {
-          [breakpoints.HORIZONTAL.LG]: {
-            slidesPerView: Math.min(this.session.order.items.length, 1.25)
-          }
-        },
-        on: {
-          progress: (value) => {
-            if (!this.$refs.swiper) return
-            if (this.session.order.items.length === 1) return
-            this.$refs.swiper.classList.toggle('shadow-start', value > 0)
-            this.$refs.swiper.classList.toggle('shadow-end', value < 1)
-          }
-        }
+        direction: 'vertical'
+      })
+
+      window.addEventListener('resize', () => {
+        swiper.params.slidesPerView = this.slidesPerView()
+        swiper.update()
       })
     },
     restart() {
       this.$router.push({ name: 'start' })
+    },
+    slidesPerView() {
+      if (this.$device.screen.size.height() >= breakpoints[1920]) return 3.5
+      else return 1.5
     }
   }
 }

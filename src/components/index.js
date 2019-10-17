@@ -6,16 +6,6 @@ import Logo from './Logo'
 import ProgressiveImage from './ProgressiveImage'
 import SafeArea from './SafeArea'
 
-export {
-  Currency,
-  IdleTime,
-  Keyboard,
-  Loader,
-  Logo,
-  ProgressiveImage,
-  SafeArea
-}
-
 export default {
   install (Vue) {
     Vue.component('Currency', Currency)

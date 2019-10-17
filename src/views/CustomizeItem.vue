@@ -2,68 +2,52 @@
   <SlideTransition :direction="getRouteDirection">
     <SafeArea :class="`app theme-${session.theme}`" v-if="session.started">
       <IdleTime/>
-      <form class="app-body" @submit.prevent="next" v-if="hasOptionGroups">
-        <div class="app-header">
-          <div class="container d-block d-md-flex align-items-center">
-            <div class="d-flex align-items-center">
-              <div class="rounded-clipping mr-3 flex-shrink-0">
-                <ProgressiveImage :image="session.item" :alt="session.item.name" :autoload="true"/>
-              </div>
-              <SlideUpTransition>
-                <span :key="optionGroup.id">
-                  {{ optionGroup.title }}
-                </span>
-              </SlideUpTransition>
-            </div>
-            <div class="text-right text-primary font-weight-bold ml-auto">
-              <Currency :amount="subtotal"/>
-            </div>
+      <div class="app-header" v-if="hasOptionGroups">
+        <div class="rounded-clipping mr-3 flex-shrink-0">
+          <ProgressiveImage :image="session.item" :alt="session.item.name" :autoload="true"/>
+        </div>
+        <SlideUpTransition>
+          <div class="m-auto" :key="optionGroup.id">
+            {{ optionGroup.title }}
           </div>
+        </SlideUpTransition>
+        <div class="text-right text-primary font-weight-bold pl-3 ml-auto">
+          <Currency :amount="subtotal"/>
         </div>
-        <div class="app-content">
-          <SlideTransition :direction="getFormDirection">
-            <OptionCheckMark :optionGroup="optionGroup" :key="optionGroup.id"/>
-          </SlideTransition>
-        </div>
-        <div class="app-footer">
-          <div class="container d-flex">
-            <button type="button" class="btn btn-outline-primary mr-auto px-md-5 py-md-4 text-nowrap" @click="back">
-              <FontAwesome icon="arrow-left"/>
-              <span class="ml-3">{{ $t('back') }}</span>
-            </button>
-            <SlideUpTransition>
-              <button type="submit" class="btn btn-primary ml-auto px-md-5 py-md-4 text-nowrap" v-if="formIsValid">
-                <span class="mr-3" v-if="isLastPage">{{ $t('add') }}</span>
-                <span class="mr-3" v-else>{{ currentPage }} {{ $t('of') }} {{ numberOfPages }}</span>
-                <FontAwesome icon="arrow-right"/>
-              </button>
-              <div class="d-flex flex-column justify-content-center text-primary px-2"  v-else>
-                <span>{{ currentPage }} {{ $t('of') }} {{ numberOfPages }}</span>
-                <small>{{ $t('choose_an_option') }}</small>
-              </div>
-            </SlideUpTransition>
+      </div>
+      <div class="app-content m-0" v-if="hasOptionGroups">
+        <SlideTransition :direction="getFormDirection">
+          <OptionCheckMark :optionGroup="optionGroup" :key="optionGroup.id"/>
+        </SlideTransition>
+      </div>
+      <div class="app-footer" v-if="hasOptionGroups">
+        <button type="button" class="btn btn-outline-primary" @click="back">
+          <FontAwesome icon="arrow-left"/>
+          <span class="ml-3">{{ $t('back') }}</span>
+        </button>
+        <SlideUpTransition>
+          <button type="button" class="btn btn-primary ml-auto" @click="next" v-if="formIsValid">
+            <span class="mr-3" v-if="isLastPage">{{ $t('add') }}</span>
+            <span class="mr-3" v-else>{{ currentPage }} {{ $t('of') }} {{ numberOfPages }}</span>
+            <FontAwesome icon="arrow-right"/>
+          </button>
+          <div class="d-flex flex-column justify-content-center text-primary pr-3 ml-auto" v-else>
+            <span>{{ currentPage }} {{ $t('of') }} {{ numberOfPages }}</span>
+            <small>{{ $t('choose_an_option') }}</small>
           </div>
-        </div>
-      </form>
+        </SlideUpTransition>
+      </div>
     </SafeArea>
   </SlideTransition>
 </template>
 
 <script>
-import { Currency, IdleTime, ProgressiveImage, SafeArea } from '@/components'
-import { SlideTransition, SlideUpTransition } from '@/transitions'
 import OptionCheckMark from './partials/OptionCheckMark'
 
 export default {
   name: 'customizeItem',
   components: {
-    Currency,
-    IdleTime,
-    OptionCheckMark,
-    ProgressiveImage,
-    SafeArea,
-    SlideTransition,
-    SlideUpTransition
+    OptionCheckMark
   },
   data() {
     return {

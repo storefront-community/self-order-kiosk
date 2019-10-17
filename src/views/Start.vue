@@ -2,25 +2,23 @@
   <SlideTransition :direction="getRouteDirection">
     <SafeArea class="app theme-default">
       <ShakeTransition ref="shake">
-        <div class="app-body">
-          <div class="app-content">
-            <div class="container d-flex flex-column align-items-center">
-              <div class="mb-3">
-                <VectorReadQRCode/>
-              </div>
-              <p class="text-center p-3">
-                {{ $t('instructions') }}
-              </p>
-              <form @submit.prevent="signIn">
-                <div class="form-group">
-                  <input type="text" maxlength="20" class="form-control text-center text-uppercase" v-model="code"
-                    :disabled="loading">
-                </div>
-                <button type="submit" class="btn btn-block btn-primary" :disabled="loading">
-                  {{ $t('submit') }}
-                </button>
-              </form>
+        <div class="app-content">
+          <div class="d-flex flex-column align-items-center">
+            <div class="mb-3">
+              <VectorReadQRCode/>
             </div>
+            <p class="text-center p-3">
+              {{ $t('instructions') }}
+            </p>
+            <form @submit.prevent="signIn">
+              <div class="form-group">
+                <input type="text" maxlength="20" class="form-control text-center text-uppercase" v-model="code"
+                  :disabled="loading">
+              </div>
+              <button type="submit" class="btn btn-block btn-primary" :disabled="loading">
+                {{ $t('submit') }}
+              </button>
+            </form>
           </div>
         </div>
       </ShakeTransition>
@@ -29,16 +27,11 @@
 </template>
 
 <script>
-import { SafeArea } from '@/components'
-import { ShakeTransition, SlideTransition } from "@/transitions"
 import { VectorReadQRCode } from '@/vectors'
 
 export default {
   name: 'start',
   components: {
-    SafeArea,
-    ShakeTransition,
-    SlideTransition,
     VectorReadQRCode
   },
   data() {
@@ -89,12 +82,12 @@ export default {
 <i18n>
 {
   "br": {
-    "instructions": "Use seu smartphone para escanar o código QR ou digite o código alfanumérico.",
-    "submit": "Enviar código"
+    "instructions": "Escaneie o código QR ou digite o código impresso.",
+    "submit": "Conectar"
   },
   "en": {
-    "instructions": "Use your mobile phone to scan the QR code or enter the alphanumeric code.",
-    "submit": "Send code"
+    "instructions": "Scan the QR code or enter the printed code.",
+    "submit": "Connect"
   }
 }
 </i18n>

@@ -34,19 +34,11 @@ $theme-colors: (
 
 $body-color: $gray-700;
 
-$font-family-base: 'Maven Pro', sans-serif, Arial;
-$font-size-base: 1.05rem;
-$font-size-base-lg: 1.5rem;
+$font-family-base: 'Maven Pro', sans-serif;
+$font-size-base: 1rem;
 $font-weight-base: 300;
 
-$display1-size: 2.5rem;
-$display2-size: 2rem;
-$display3-size: 1.75rem;
-$display4-size: 1.5rem;
-
 $link-hover-decoration: none;
-
-$container-padding-x: 15px;
 
 $border-color: $gray-200;
 $border-radius: 0;
@@ -55,13 +47,9 @@ $border-radius-sm: 0;
 
 $input-padding-y: 1rem;
 $input-padding-x: 1rem;
-$input-border-color: $gray-500;
+$input-border-color: $gray-400;
 $input-btn-padding-y: .75rem;
 $input-btn-padding-x: 1.25rem;
-$input-btn-padding-y-lg: 1rem;
-$input-btn-padding-x-lg: 2.5rem;
 $input-group-addon-color: $gray-500;
 $input-group-addon-bg: $white;
 $input-placeholder-color: $gray-500;
-
-$card-cap-bg: $gray-100;

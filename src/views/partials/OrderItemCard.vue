@@ -1,56 +1,37 @@
 <template>
-  <div class="card h-100">
-    <div class="card-body d-flex flex-column flex-md-row">
-      <div class="rounded-clipping mr-3 flex-shrink-0">
-        <ProgressiveImage :image="item" :alt="item.name" :autoload="true"/>
-      </div>
-      <div class="d-flex flex-column flex-grow-1">
-        <div class="d-flex font-weight-bold py-3">
-          <span>
-            {{ item.name }}
-          </span>
-          <span class="ml-auto">
-            <Currency :amount="item.price"/>
-          </span>
-        </div>
-        <div ref="swiper" class="container swiper-container flex-grow-1">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide" v-for="option in options" :key="option.id">
-              <div class="d-flex border-bottom border-bottom-dashed">
-                <span>
-                  {{ option.name }}
-                </span>
-                <span class="ml-auto">
-                  <Currency :amount="option.price"/>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="card-footer border-top-0 d-flex align-items-center">
-      <button type="button" class="btn btn-outline-primary btn-rounded d-flex justify-content-center" @click="decrement">
+  <div class="d-flex flex-column w-100">
+    <div class="d-flex align-items-center mb-3">
+      <button type="button" class="btn btn-outline-primary btn-rounded" @click="decrement">
         <FontAwesome icon="minus" class="m-auto"/>
       </button>
-      <span class="mx-3">
-        {{ item.quantity }}
-      </span>
-      <button type="button" class="btn btn-outline-primary btn-rounded d-flex justify-content-center" @click="increment">
+      <div class="counter mx-2">
+        <div class="rounded-clipping">
+          <ProgressiveImage :image="item" :alt="item.name" :autoload="true"/>
+        </div>
+        <div class="rounded-count">
+          <span class="mx-auto">
+            {{ item.quantity }}
+          </span>
+        </div>
+      </div>
+      <button type="button" class="btn btn-outline-primary btn-rounded" @click="increment">
         <FontAwesome icon="plus" class="m-auto"/>
       </button>
-      <div class="text-primary text-right font-weight-bold m-0 ml-auto">
+      <div class="text-right font-weight-bold ml-auto">
         <Currency :amount="item.total()"/>
       </div>
     </div>
+    <div class="mb-1 font-weight-bold">
+      {{ item.name }}
+    </div>
+    <small>
+      {{ options }}
+    </small>
   </div>
 </template>
 
 <script>
-import Swiper from 'swiper'
-import { Currency, ProgressiveImage } from '@/components'
 import { Item } from '@/models'
-import breakpoints from '@/constants/breakpoints'
 
 export default {
   name: 'orderItemCard',
@@ -60,46 +41,17 @@ export default {
       required: true
     }
   },
-  components: {
-    Currency,
-    ProgressiveImage
-  },
-  mounted() {
-    this.$nextTick(() => this.initSwipeGesture())
-  },
   methods: {
-    increment() {
-      this.session.order.increment(this.item)
-    },
     decrement() {
       this.session.order.decrement(this.item)
     },
-    initSwipeGesture() {
-      if (!this.$refs.swiper) return
-
-      const swiper = new Swiper(this.$refs.swiper, {
-        slidesPerView: this.slidesPerView(),
-        centeredSlides: false,
-        direction: 'vertical',
-        nested: true
-      })
-
-      window.addEventListener('resize', () => {
-        swiper.params.slidesPerView = this.slidesPerView()
-        swiper.update()
-      })
-    },
-    slidesPerView() {
-      if (this.$device.screen.safeArea.height() >= breakpoints.VERTICAL.XL) return 11.25
-      else if (this.$device.screen.safeArea.height() >= breakpoints.VERTICAL.LG) return 8.25
-      else if (this.$device.screen.safeArea.height() >= breakpoints.VERTICAL.MD) return 7.25
-      else if (this.$device.screen.safeArea.height() >= breakpoints.VERTICAL.SM) return 5.25
-      else return 3.25
+    increment() {
+      this.session.order.increment(this.item)
     }
   },
   computed: {
     options() {
-      return this.item.options()
+      return this.item.options().map(option => option.name.toLowerCase()).join(', ')
     }
   }
 }

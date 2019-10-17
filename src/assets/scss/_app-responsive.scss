@@ -1,0 +1,94 @@
+.app {
+  @media (min-height: 480px) {
+    // TODO
+  }
+
+  @media (min-height: 600px) {
+    font-size: 13pt;
+  }
+
+  @media (min-height: 800px) {
+    .app-footer .btn {
+      padding: 30px 60px;
+    }
+  }
+
+  @media (min-height: 960px) {
+    // TODO
+  }
+
+  @media (min-height: 1080px) {
+    // TODO
+  }
+
+  @media (min-height: 1280px) {
+    // TODO
+  }
+
+  @media (min-height: 1440px) {
+    // TODO
+  }
+
+  @media (min-height: 1920px) {
+    &,
+    .btn,
+    .form-control {
+      font-size: 32pt;
+    }
+
+    .app-header {
+      padding: 50px;
+    }
+
+    .form-control {
+      padding: 60px 40px;
+    }
+
+    .rounded-clipping {
+      width: 128px;
+      height: 128px;
+    }
+
+    .btn.btn-rounded {
+      width: 72px;
+      height: 72px;
+    }
+
+    .radio input[type=checkbox] + .check-mark  {
+      height: 42px;
+      width: 42px;
+
+      &:before,
+      &:after {
+        top: 3px;
+        left: 3px;
+        width: 36px;
+        height: 36px;
+      }
+
+      &:after {
+        border-width: 5px;
+      }
+    }
+
+    .checkbox input[type=checkbox] + .check-mark {
+      height: 42px;
+      width: 42px;
+
+      &::after {
+        border-width: 0 3px 3px 0;
+      }
+    }
+
+    .logo {
+      max-height: 512px;
+      max-width: 512px;
+    }
+
+    .counter .rounded-count {
+      border-width: 5px;
+      width: 64px;
+      height: 64px;
+    }
+  }
+}

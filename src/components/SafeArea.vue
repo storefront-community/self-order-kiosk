@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div @click="$emit('click')">
     <slot></slot>
   </div>
 </template>
@@ -7,9 +7,11 @@
 <script>
 export default {
   name: 'safeArea',
+  created() {
+    window.addEventListener('resize', () => this.cover())
+  },
   mounted() {
     this.cover()
-    window.addEventListener('resize', this.cover)
   },
   methods: {
     cover() {

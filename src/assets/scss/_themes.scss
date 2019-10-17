@@ -17,20 +17,29 @@ $themes: (
       background: $color;
     }
 
-    .btn.btn-primary {
+    .btn-primary {
       @include button-variant($color, $color);
     }
 
-    .btn.btn-outline-primary {
+    .btn-outline-primary {
       @include button-outline-variant($color);
+    }
+
+    .checkbox-primary {
+      @include checkbox-variant($color);
+    }
+
+    .radio-primary {
+      @include radio-variant($color);
     }
 
     .text-primary {
       color: $color !important;
     }
 
-    @include checkbox-variant("primary", $color);
-
-    @include radio-variant("primary", $color);
+    .bg-primary {
+      background: $color !important;
+      color: color-yiq($color); // contrast
+    }
   }
 }

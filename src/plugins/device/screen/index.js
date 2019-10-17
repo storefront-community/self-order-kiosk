@@ -1,11 +1,11 @@
 import fullscreen from './fullscreen'
-import resolution from './resolution'
 import safeArea from './safeArea'
+import size from './size'
 import zoom from './zoom'
 
 export default {
   fullscreen,
-  resolution,
   safeArea,
+  size,
   zoom
 }

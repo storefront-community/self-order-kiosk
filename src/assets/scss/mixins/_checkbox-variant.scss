@@ -1,7 +1,11 @@
-@mixin checkbox-variant($name, $color) {
-  .checkbox-#{$name} input[type=checkbox] {
+@mixin checkbox-variant($color) {
+  input[type=checkbox] {
     + .check-mark {
       border-color: $color;
+    }
+
+    &:focus + .check-mark {
+      box-shadow: 0 0 0 .2rem rgba($color, .25);
     }
 
     &:checked + .check-mark {
@@ -11,10 +15,6 @@
     &:checked:disabled + .check-mark {
       background: lighten($color, 20%);
       border-color: lighten($color, 20%);
-    }
-
-    &:focus + .check-mark {
-      box-shadow: 0 0 0 .2rem rgba($color, .25);
     }
   }
 }

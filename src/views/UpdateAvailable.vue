@@ -1,44 +1,36 @@
 <template>
   <SlideTransition :direction="getRouteDirection">
     <SafeArea class="app theme-default">
-      <div class="app-body" v-if="updateAvailable === true">
-        <div class="app-content">
-          <div class="container">
-            <p class="text-center text-primary mb-4">
-              <FontAwesome icon="sync-alt" size="4x"/>
-            </p>
-            <h3 class="text-center px-3 p-md-0 mb-4">
-              {{ $t('updateAvailable.title') }}
-            </h3>
-            <p class="text-center px-3 p-md-0">
-              {{ $t('updateAvailable.message') }}
-            </p>
-            <div class="text-center mt-4">
-              <button type="button" class="btn btn-primary px-md-5 py-md-4" @click="update">
-                {{ $t('updateAvailable.update') }}
-              </button>
-            </div>
-          </div>
+      <div class="app-content" v-if="updateAvailable === true">
+        <p class="text-center text-primary mb-4">
+          <FontAwesome icon="sync-alt" size="4x"/>
+        </p>
+        <h3 class="text-center px-3 p-md-0 mb-4">
+          {{ $t('updateAvailable.title') }}
+        </h3>
+        <p class="text-center px-3 p-md-0">
+          {{ $t('updateAvailable.message') }}
+        </p>
+        <div class="text-center mt-4">
+          <button type="button" class="btn btn-primary" @click="update">
+            {{ $t('updateAvailable.update') }}
+          </button>
         </div>
       </div>
-      <div class="app-body" v-if="updateAvailable === false">
-        <div class="app-content">
-          <div class="container">
-            <p class="text-center text-primary mb-4">
-              <FontAwesome icon="check" size="4x"/>
-            </p>
-            <h3 class="text-center px-3 p-md-0 mb-4">
-              {{ $t('upToDate.title') }}
-            </h3>
-            <p class="text-center px-3 p-md-0">
-              {{ version }} {{ $t('upToDate.message') }}
-            </p>
-            <div class="text-center mt-4">
-              <router-link :to="{ name: 'start' }" class="btn btn-primary px-md-5 py-md-4">
-                {{ $t('upToDate.ok') }}
-              </router-link>
-            </div>
-          </div>
+      <div class="app-content" v-if="updateAvailable === false">
+        <p class="text-center text-primary mb-4">
+          <FontAwesome icon="check" size="4x"/>
+        </p>
+        <h3 class="text-center px-3 p-md-0 mb-4">
+          {{ $t('upToDate.title') }}
+        </h3>
+        <p class="text-center px-3 p-md-0">
+          {{ version }} {{ $t('upToDate.message') }}
+        </p>
+        <div class="text-center mt-4">
+          <router-link :to="{ name: 'start' }" class="btn btn-primary">
+            {{ $t('upToDate.ok') }}
+          </router-link>
         </div>
       </div>
     </SafeArea>
@@ -46,15 +38,8 @@
 </template>
 
 <script>
-import { SafeArea } from '@/components'
-import { SlideTransition } from '@/transitions'
-
 export default {
   name: 'updateAvailable',
-  components: {
-    SafeArea,
-    SlideTransition
-  },
   data() {
     return {
       updateAvailable: null

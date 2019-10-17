@@ -1,64 +1,28 @@
 <template>
   <SlideTransition :direction="getRouteDirection">
-    <SafeArea :class="`app theme-${session.theme}`" v-if="session.started">
-      <div class="app-body">
-        <div class="app-content">
-          <div class="container d-flex flex-column h-100">
-            <div class="text-center">
-              <Logo/>
-            </div>
-            <div class="d-flex flex-column flex-grow-1 justify-content-center">
-              <div class="row">
-                <div class="col-12 col-md-6 d-flex flex-grow-1 justify-content-center justify-content-md-end">
-                  <div class="d-flex flex-column mr-md-5">
-                    <button type="button" class="btn btn-primary btn-lg m-auto p-5" @click="newOrder">
-                      <span class="text-uppercase">
-                        {{ $t('start_button') }}
-                      </span>
-                    </button>
-                    <div class="text-center">
-                      <button type="button" class="btn btn-flag" @click="changeLocale('br')">
-                        <VectorFlagBR class="flag-icon"/>
-                      </button>
-                      <button type="button" class="btn btn-flag" @click="changeLocale('en')">
-                        <VectorFlagUS class="flag-icon"/>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 d-none d-md-flex">
-                  <div class="d-flex flex-column ml-md-5">
-                    <div class="d-flex justify-content-center">
-                      <QRCode :value="url" :options="{ width: 256 }"/>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <SafeArea :class="`app theme-${session.theme}`" v-if="session.started" @click="newOrder">
+      <div class="app-header d-none d-lg-flex">
+        <h1 class="m-auto font-weight-bold">
+          {{ $t('order_here') }}
+        </h1>
+      </div>
+      <div class="app-content">
+        <Logo class="m-auto"/>
+      </div>
+      <div class="app-footer bg-primary p-3 p-md-5">
+        <span class="text-uppercase m-auto">
+          {{ $t('start_button') }}
+        </span>
       </div>
     </SafeArea>
   </SlideTransition>
 </template>
 
 <script>
-import QRCode from '@chenfengyuan/vue-qrcode'
-import { Logo, SafeArea } from '@/components'
 import { Order } from '@/models'
-import { SlideTransition } from '@/transitions'
-import { VectorFlagBR, VectorFlagUS } from '@/vectors'
 
 export default {
   name: 'newOrder',
-  components: {
-    Logo,
-    QRCode,
-    SafeArea,
-    SlideTransition,
-    VectorFlagBR,
-    VectorFlagUS
-  },
   async mounted() {
     if (!this.session.started) {
       this.restart()
@@ -69,17 +33,12 @@ export default {
     this.session.theme = app.theme
   },
   methods: {
-    changeLocale(locale) {
-      this.$api.locale = locale
-      this.$i18n.locale = locale
-      this.session.locale = locale
-    },
-    restart() {
-      this.$router.push({ name: 'start' })
-    },
     newOrder() {
       this.session.order = new Order()
       this.$router.push({ name: 'chooseItemGroup' })
+    },
+    restart() {
+      this.$router.push({ name: 'start' })
     }
   },
   computed: {
@@ -93,10 +52,12 @@ export default {
 <i18n>
 {
   "br": {
-    "start_button": "Faça seu pedido"
+    "order_here": "Peça aqui",
+    "start_button": "Toque para começar"
   },
   "en": {
-    "start_button": "Make your order"
+    "order_here": "Order here",
+    "start_button": "Touch to start"
   }
 }
 </i18n>
