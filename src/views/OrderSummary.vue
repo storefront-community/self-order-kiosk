@@ -20,8 +20,7 @@
       </div>
       <div class="app-footer">
         <button type="button" class="btn btn-outline-primary" @click="addItem">
-          <FontAwesome icon="arrow-left" fixed-width/>
-          <span class="ml-2">{{ $t('back') }}</span>
+          {{ $t('back') }}
         </button>
         <div class="btn-group ml-auto">
           <button type="button" class="btn btn-outline-primary" @click="cancelOrder">
@@ -94,13 +93,13 @@ export default {
 <i18n>
 {
   "br": {
-    "back": "Voltar",
+    "back": "Cardápio",
     "cancel_order": "Cancelar",
     "continue": "Finalizar",
     "title": "Seu pedido"
   },
   "en": {
-    "back": "Back",
+    "back": "Menu",
     "cancel_order": "Cancel",
     "continue": "Complete",
     "title": "Your order"

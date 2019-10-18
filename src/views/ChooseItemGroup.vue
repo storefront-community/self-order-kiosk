@@ -27,10 +27,7 @@
           </span>
         </button>
         <button type="button" class="btn btn-primary ml-auto" @click="back" v-if="orderHasItem">
-          <span class="mr-3">
-            {{ $t('order_summary') }}
-          </span>
-          <FontAwesome icon="arrow-right"/>
+          {{ $t('order_summary') }}
         </button>
       </div>
     </SafeArea>
