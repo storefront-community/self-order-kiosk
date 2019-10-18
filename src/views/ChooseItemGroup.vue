@@ -8,7 +8,7 @@
         </div>
       </div>
       <div class="app-content">
-        <div class="d-block">
+        <div class="d-block h-100">
           <div ref="swiper" class="swiper-container">
             <div class="swiper-wrapper">
               <div class="swiper-slide text-center" v-for="itemGroup in itemGroups" :key="itemGroup.id">

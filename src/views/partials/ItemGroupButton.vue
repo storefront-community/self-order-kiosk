@@ -1,13 +1,15 @@
 <template>
   <ScaleTransition>
-    <button type="button" class="btn shadow-none p-0" @click="$emit('click', itemGroup)">
-      <div ref="clipping" class="rounded-clipping">
-        <ProgressiveImage ref="image" :image="itemGroup" :alt="itemGroup.name" @preload="$emit('imagePreload')"/>
-      </div>
-      <div class="font-weight-bold py-3 py-lg-5">
-        {{ itemGroup.name }}
-      </div>
-    </button>
+    <div class="d-inline-flex align-items-center h-100">
+      <button type="button" class="btn shadow-none p-0" @click="$emit('click', itemGroup)">
+        <div ref="clipping" class="rounded-clipping">
+          <ProgressiveImage ref="image" :image="itemGroup" :alt="itemGroup.name" @preload="$emit('imagePreload')"/>
+        </div>
+        <div class="font-weight-bold py-3 py-lg-5">
+          {{ itemGroup.name }}
+        </div>
+      </button>
+    </div>
   </ScaleTransition>
 </template>
 
