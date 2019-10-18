@@ -1,6 +1,6 @@
 describe('Start page', () => {
   it('Visits the app root url', () => {
     cy.visit('/')
-    cy.contains('button', 'Send code')
+    cy.contains('button', 'Connect')
   })
 })

@@ -1,0 +1,104 @@
+.app {
+  @media (min-height: 600px) {
+    &,
+    .btn,
+    .form-control {
+      font-size: 13pt;
+    }
+
+    .app-header {
+      padding: 20px;
+    }
+  }
+
+  @media (min-height: 800px), (min-width: 800px) {
+    &,
+    .btn,
+    .form-control {
+      font-size: 22pt;
+    }
+
+    .app-header {
+      padding: 30px;
+    }
+
+    .app-footer .btn {
+      padding: 30px 60px;
+    }
+
+    .btn.btn-rounded {
+      width: 56px;
+      height: 56px;
+    }
+
+    .rounded-clipping {
+      width: 96px;
+      height: 96px;
+    }
+
+    .counter .rounded-count {
+      border-width: 4px;
+      width: 44px;
+      height: 44px;
+    }
+  }
+
+  @media (min-height: 1280px) {
+    &,
+    .btn,
+    .form-control {
+      font-size: 32pt;
+    }
+
+    .app-header {
+      padding: 50px;
+    }
+
+    .radio input[type=checkbox] + .check-mark  {
+      height: 42px;
+      width: 42px;
+
+      &:before,
+      &:after {
+        top: 3px;
+        left: 3px;
+        width: 36px;
+        height: 36px;
+      }
+
+      &:after {
+        border-width: 5px;
+      }
+    }
+
+    .checkbox input[type=checkbox] + .check-mark {
+      height: 42px;
+      width: 42px;
+
+      &::after {
+        border-width: 0 3px 3px 0;
+      }
+    }
+
+    .btn.btn-rounded {
+      width: 72px;
+      height: 72px;
+    }
+
+    .logo {
+      max-height: 512px;
+      max-width: 512px;
+    }
+
+    .rounded-clipping {
+      width: 128px;
+      height: 128px;
+    }
+
+    .counter .rounded-count {
+      border-width: 5px;
+      width: 64px;
+      height: 64px;
+    }
+  }
+}

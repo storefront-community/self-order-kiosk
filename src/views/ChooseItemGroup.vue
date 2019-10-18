@@ -2,55 +2,47 @@
   <SlideTransition :direction="getRouteDirection">
     <SafeArea :class="`app theme-${session.theme}`" v-if="session.started">
       <IdleTime/>
-      <form class="app-body" @submit.prevent="add">
-        <div class="app-header">
-          <div class="container">
-            <div class="text-center">
-              <span v-if="orderHasItem">
-                {{ $t('title_with_items') }}
-              </span>
-              <span v-else>
-                {{ $t('title_without_items') }}
-              </span>
+      <div class="app-header">
+        <div class="m-auto">
+          {{ title }}
+        </div>
+      </div>
+      <div class="app-content">
+        <div class="d-block h-100">
+          <div ref="swiper" class="swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide text-center" v-for="itemGroup in itemGroups" :key="itemGroup.id">
+                <ItemGroupButton ref="itemGroupButton" :itemGroup="itemGroup"
+                  @click="select(itemGroup)" @imagePreload="loadImages"/>
+              </div>
             </div>
           </div>
         </div>
-        <div class="app-content">
-          <SwiperContainer ref="swiper">
-            <SwiperSlide v-for="itemGroup in itemGroups" :key="itemGroup.id">
-              <ItemGroupButton ref="itemGroupButton" :itemGroup="itemGroup"
-                @click="select(itemGroup)" @imagePreload="loadImages"/>
-            </SwiperSlide>
-          </SwiperContainer>
-        </div>
-        <div class="app-footer">
-          <div class="container d-flex">
-            <button type="button" class="btn btn-outline-primary mr-auto px-md-5 py-md-4 text-nowrap" @click="back">
-              <FontAwesome icon="arrow-left"/>
-              <span class="ml-3">{{ $t('back') }}</span>
-            </button>
-          </div>
-        </div>
-      </form>
+      </div>
+      <div class="app-footer">
+        <button type="button" class="btn btn-outline-primary" @click="back" v-if="!orderHasItem">
+          <FontAwesome icon="arrow-left"/>
+          <span class="ml-3">
+            {{ $t('back') }}
+          </span>
+        </button>
+        <button type="button" class="btn btn-primary ml-auto" @click="back" v-if="orderHasItem">
+          {{ $t('order_summary') }}
+        </button>
+      </div>
     </SafeArea>
   </SlideTransition>
 </template>
 
 <script>
-import { IdleTime, SafeArea, SwiperContainer, SwiperSlide } from '@/components'
-import { SlideTransition } from '@/transitions'
+import Swiper from 'swiper'
 import ItemGroupButton from './partials/ItemGroupButton'
 import breakpoints from '@/constants/breakpoints'
 
 export default {
   name: 'chooseItemGroup',
   components: {
-    IdleTime,
-    ItemGroupButton,
-    SafeArea,
-    SlideTransition,
-    SwiperContainer,
-    SwiperSlide
+    ItemGroupButton
   },
   data() {
     return {
@@ -64,7 +56,7 @@ export default {
     }
 
     await this.listItemGroups()
-    this.initSwipeGesture()
+    this.$nextTick(() => this.initSwipeGesture())
   },
   methods: {
     async listItemGroups() {
@@ -74,24 +66,24 @@ export default {
       const routeName = this.orderHasItem ? 'orderSummary' : 'newOrder'
       this.$router.push({ name: routeName })
     },
+    centeredSlides() {
+      const slidesPerView = this.slidesPerView()
+      return parseInt(slidesPerView) === 1
+    },
     initSwipeGesture() {
       if (!this.$refs.swiper) return
 
-      this.$refs.swiper.init({
-        slidesPerView: Math.min(this.itemGroups.length, 3.5),
-        centeredSlides: false,
-        spaceBetween: 30,
+      const swiper = new Swiper(this.$refs.swiper, {
         direction: 'horizontal',
-        shadowEnabled: this.itemGroups.length > 3,
-        breakpoints: {
-          [breakpoints.MD]: {
-            slidesPerView: Math.min(this.itemGroups.length, 2.5)
-          },
-          [breakpoints.SM]: {
-            slidesPerView: Math.min(this.itemGroups.length, 1.75),
-            centeredSlides: true
-          }
-        }
+        slidesPerView: this.slidesPerView(),
+        centeredSlides: this.centeredSlides(),
+        spaceBetween: 30
+      })
+
+      window.addEventListener('resize', () => {
+        swiper.slidesPerView = this.slidesPerView()
+        swiper.centeredSlides = this.centeredSlides()
+        swiper.update()
       })
     },
     loadImages() {
@@ -109,11 +101,27 @@ export default {
     select(itemGroup) {
       this.session.itemGroup = itemGroup
       this.$router.push({ name: 'chooseItem' })
+    },
+    slidesPerView() {
+      if (this.$device.screen.orientation() === 'horizontal') {
+        if (this.$device.screen.safeArea.width() >= breakpoints[1280]) {
+          return Math.min(this.itemGroups.length, 3.5)
+        }
+
+        if (this.$device.screen.safeArea.width() >= breakpoints[800]) {
+          return Math.min(this.itemGroups.length, 2.5)
+        }
+      }
+
+      return 1.75
     }
   },
   computed: {
     orderHasItem() {
       return !!this.session.order.items.length
+    },
+    title() {
+      return this.orderHasItem ? this.$t('title_with_items') : this.$t('title_without_items')
     }
   }
 }
@@ -125,13 +133,15 @@ export default {
     "back": "Voltar",
     "tap_to_select": "Toque para selecionar",
     "title_with_items": "O que mais você gostaria hoje?",
-    "title_without_items": "O que você gostaria hoje?"
+    "title_without_items": "O que você gostaria hoje?",
+    "order_summary": "Meu pedido"
   },
   "en": {
     "back": "Back",
     "tap_to_select": "Tap to select",
     "title_with_items": "What else would you like today?",
-    "title_without_items": "What would you like today?"
+    "title_without_items": "What would you like today?",
+    "order_summary": "My order"
   }
 }
 </i18n>

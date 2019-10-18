@@ -1,22 +1,19 @@
 <template>
   <ScaleTransition>
-    <button type="button" class="btn btn-card border-0 align-items-center"
-      @click="$emit('click', itemGroup)">
-      <div class="rounded-clipping rounded-clipping-lg">
-        <ProgressiveImage ref="image" :image="itemGroup" :alt="itemGroup.name" @preload="$emit('imagePreload')"/>
-      </div>
-      <div class="card-body d-flex flex-column">
-        <p class="display-3 card-title flex-grow-1 text-center font-weight-normal">
+    <div ref="wrapper" class="d-inline-flex align-items-center h-100">
+      <button type="button" class="btn shadow-none p-0" @click="$emit('click', itemGroup)">
+        <div ref="clipping" class="rounded-clipping">
+          <ProgressiveImage ref="image" :image="itemGroup" :alt="itemGroup.name" @preload="$emit('imagePreload')"/>
+        </div>
+        <div class="font-weight-bold py-3 py-lg-5">
           {{ itemGroup.name }}
-        </p>
-      </div>
-    </button>
+        </div>
+      </button>
+    </div>
   </ScaleTransition>
 </template>
 
 <script>
-import { ProgressiveImage } from '@/components'
-import { ScaleTransition } from '@/transitions'
 import { ItemGroup } from '@/models'
 
 export default {
@@ -27,9 +24,25 @@ export default {
       required: true
     }
   },
-  components: {
-    ProgressiveImage,
-    ScaleTransition
+  created() {
+    window.addEventListener('resize', () => this.resize())
+  },
+  mounted() {
+    this.resize()
+  },
+  methods: {
+    resize() {
+      if (!this.$refs.clipping) return
+
+      const width = this.$device.screen.safeArea.width()
+      const height = this.$device.screen.safeArea.height()
+      const safeArea = Math.min(width, height)
+      const wrapper = this.$refs.wrapper.offsetHeight
+      const size = Math.min(safeArea, wrapper) / 2
+
+      this.$refs.clipping.style.width = `${size}px`
+      this.$refs.clipping.style.height = `${size}px`
+    }
   },
   computed: {
     image() {

@@ -5,6 +5,9 @@ html, body {
 
 .app {
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
   width: 100%;
   user-select: none;
   transition: filter .5s ease-in;
@@ -16,19 +19,33 @@ html, body {
   &.theme-loading {
     filter: grayscale(100%);
   }
-
-  @include breakpoint-up-to-md {
-    font-size: $font-size-base-lg;
-  }
 }
 
-.app .app-body {
+.app .app-header {
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: $border-width $border-color solid;
+  padding: 20px 15px;
+}
+
+.app .app-content {
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
+  flex-grow: 1;
+  min-height: 2rem;
+  padding: 0;
+  margin: ($grid-gutter-width / 2) 0;
+
+  @include flex-vertical-align();
 }
 
-.app-body {
-  height: 100%;
-  width: 100%;
+.app .app-footer {
+  display: flex;
+  flex-shrink: 0;
+
+  .btn {
+    white-space: nowrap;
+  }
 }

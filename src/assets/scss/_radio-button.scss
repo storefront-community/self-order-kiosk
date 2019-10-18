@@ -66,5 +66,7 @@
 }
 
 @each $color, $value in $theme-colors {
-  @include radio-variant($color, $value);
+  .radio-#{$color} {
+    @include radio-variant($value);
+  }
 }

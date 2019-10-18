@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div @click="$emit('click')">
     <slot></slot>
   </div>
 </template>
@@ -7,17 +7,22 @@
 <script>
 export default {
   name: 'safeArea',
+  created() {
+    window.addEventListener('resize', () => this.cover())
+  },
   mounted() {
     this.cover()
-    window.addEventListener('resize', this.cover)
   },
   methods: {
     cover() {
-      document.body.style.height = `${window.innerHeight}px`
-      document.body.style.width = `${window.innerWidth}px`
+      const height = `${this.$device.screen.safeArea.height()}px`
+      const width = `${this.$device.screen.safeArea.width()}px`
 
-      this.$el.style.height = `${window.innerHeight}px`
-      this.$el.style.width = `${window.innerWidth}px`
+      document.body.style.height = height
+      document.body.style.width = width
+
+      this.$el.style.height = height
+      this.$el.style.width = width
 
       this.scrollTop()
     },
