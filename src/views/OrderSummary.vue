@@ -19,15 +19,15 @@
         </div>
       </div>
       <div class="app-footer">
-        <button type="button" class="btn btn-outline-primary" @click="cancelOrder">
-          {{ $t('cancel_order') }}
+        <button type="button" class="btn btn-outline-primary" @click="addItem">
+          <FontAwesome icon="arrow-left" fixed-width/>
+          <span class="ml-2">{{ $t('back') }}</span>
         </button>
         <div class="btn-group ml-auto">
-          <button type="button" class="btn btn-primary" @click="addItem">
-            <FontAwesome icon="plus"/>
-            <span class="ml-2">{{ $t('add_item') }}</span>
+          <button type="button" class="btn btn-outline-primary" @click="cancelOrder">
+            {{ $t('cancel_order') }}
           </button>
-          <button type="button" class="btn btn-outline-primary" @click="complete">
+          <button type="button" class="btn btn-primary" @click="complete">
             {{ $t('continue') }}
           </button>
         </div>
@@ -93,15 +93,15 @@ export default {
 <i18n>
 {
   "br": {
-    "add_item": "Item",
+    "back": "Voltar",
     "cancel_order": "Cancelar",
-    "continue": "Pedir",
+    "continue": "Finalizar",
     "title": "Seu pedido"
   },
   "en": {
-    "add_item": "Item",
+    "back": "Back",
     "cancel_order": "Cancel",
-    "continue": "Send",
+    "continue": "Complete",
     "title": "Your order"
   }
 }

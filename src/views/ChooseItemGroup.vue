@@ -20,11 +20,17 @@
         </div>
       </div>
       <div class="app-footer">
-        <button type="button" class="btn btn-outline-primary" @click="back">
+        <button type="button" class="btn btn-outline-primary" @click="back" v-if="!orderHasItem">
           <FontAwesome icon="arrow-left"/>
           <span class="ml-3">
             {{ $t('back') }}
           </span>
+        </button>
+        <button type="button" class="btn btn-primary ml-auto" @click="back" v-if="orderHasItem">
+          <span class="mr-3">
+            {{ $t('order_summary') }}
+          </span>
+          <FontAwesome icon="arrow-right"/>
         </button>
       </div>
     </SafeArea>
@@ -106,13 +112,15 @@ export default {
     "back": "Voltar",
     "tap_to_select": "Toque para selecionar",
     "title_with_items": "O que mais você gostaria hoje?",
-    "title_without_items": "O que você gostaria hoje?"
+    "title_without_items": "O que você gostaria hoje?",
+    "order_summary": "Meu pedido"
   },
   "en": {
     "back": "Back",
     "tap_to_select": "Tap to select",
     "title_with_items": "What else would you like today?",
-    "title_without_items": "What would you like today?"
+    "title_without_items": "What would you like today?",
+    "order_summary": "My order"
   }
 }
 </i18n>

@@ -14,11 +14,11 @@
         </p>
       </div>
       <div class="app-footer">
-        <button type="button" class="btn btn-primary" @click="neverMind">
-          {{ $t('no') }}
-        </button>
-        <button type="button" class="btn btn-outline-primary ml-auto" @click="cancel">
+        <button type="button" class="btn btn-outline-primary" @click="cancel">
           {{ $t('yes') }}
+        </button>
+        <button type="button" class="btn btn-primary ml-auto" @click="neverMind">
+          {{ $t('no') }}
         </button>
       </div>
     </SafeArea>
