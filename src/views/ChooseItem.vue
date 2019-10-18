@@ -59,11 +59,16 @@ export default {
 
       const swiper = new Swiper(this.$refs.swiper, {
         direction: 'horizontal',
-        slidesPerView: Math.min(this.session.itemGroup.items.length, 2.25),
+        slidesPerView: Math.min(this.session.itemGroup.items.length, 3.25),
         slidesPerColumn: this.slidesPerColumn(),
         spaceBetween: 50,
         centeredSlides: false,
         breakpoints: {
+          [breakpoints[1280]]: {
+            slidesPerView: Math.min(this.session.itemGroup.items.length, 2.25),
+            spaceBetween: 30,
+            centeredSlides: false
+          },
           [breakpoints[600]]: {
             slidesPerView: Math.min(this.session.itemGroup.items.length, 1.5),
             spaceBetween: 20,

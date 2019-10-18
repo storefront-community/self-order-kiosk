@@ -84,7 +84,7 @@ export default {
     },
     slidesPerView() {
       if (this.$device.screen.safeArea.height() >= breakpoints[1280]) return 3.5
-      if (this.$device.screen.safeArea.height() >= breakpoints[600]) return 2.5
+      if (this.$device.screen.safeArea.height() >= breakpoints[800]) return 2.5
       else return 1.5
     }
   }

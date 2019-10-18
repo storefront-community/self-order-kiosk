@@ -40,6 +40,7 @@
 <script>
 import Swiper from 'swiper'
 import ItemGroupButton from './partials/ItemGroupButton'
+import breakpoints from '@/constants/breakpoints'
 
 export default {
   name: 'chooseItemGroup',
@@ -68,14 +69,24 @@ export default {
       const routeName = this.orderHasItem ? 'orderSummary' : 'newOrder'
       this.$router.push({ name: routeName })
     },
+    centeredSlides() {
+      const slidesPerView = this.slidesPerView()
+      return parseInt(slidesPerView) === 1
+    },
     initSwipeGesture() {
       if (!this.$refs.swiper) return
 
-      new Swiper(this.$refs.swiper, {
+      const swiper = new Swiper(this.$refs.swiper, {
         direction: 'horizontal',
-        slidesPerView: 1.75,
-        centeredSlides: true,
+        slidesPerView: this.slidesPerView(),
+        centeredSlides: this.centeredSlides(),
         spaceBetween: 30
+      })
+
+      window.addEventListener('resize', () => {
+        swiper.slidesPerView = this.slidesPerView()
+        swiper.centeredSlides = this.centeredSlides()
+        swiper.update()
       })
     },
     loadImages() {
@@ -93,6 +104,19 @@ export default {
     select(itemGroup) {
       this.session.itemGroup = itemGroup
       this.$router.push({ name: 'chooseItem' })
+    },
+    slidesPerView() {
+      if (this.$device.screen.orientation() === 'horizontal') {
+        if (this.$device.screen.safeArea.width() >= breakpoints[1280]) {
+          return Math.min(this.itemGroups.length, 3.5)
+        }
+
+        if (this.$device.screen.safeArea.width() >= breakpoints[800]) {
+          return Math.min(this.itemGroups.length, 2.5)
+        }
+      }
+
+      return 1.75
     }
   },
   computed: {
