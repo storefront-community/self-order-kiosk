@@ -1,6 +1,6 @@
 <template>
   <ScaleTransition>
-    <div class="d-inline-flex align-items-center h-100">
+    <div ref="wrapper" class="d-inline-flex align-items-center h-100">
       <button type="button" class="btn shadow-none p-0" @click="$emit('click', itemGroup)">
         <div ref="clipping" class="rounded-clipping">
           <ProgressiveImage ref="image" :image="itemGroup" :alt="itemGroup.name" @preload="$emit('imagePreload')"/>
@@ -24,9 +24,11 @@ export default {
       required: true
     }
   },
+  created() {
+    window.addEventListener('resize', () => this.resize())
+  },
   mounted() {
     this.resize()
-    window.addEventListener('resize', this.resize)
   },
   methods: {
     resize() {
@@ -34,7 +36,9 @@ export default {
 
       const width = this.$device.screen.safeArea.width()
       const height = this.$device.screen.safeArea.height()
-      const size = Math.min(width, height) / 2
+      const safeArea = Math.min(width, height)
+      const wrapper = this.$refs.wrapper.offsetHeight
+      const size = Math.min(safeArea, wrapper) / 2
 
       this.$refs.clipping.style.width = `${size}px`
       this.$refs.clipping.style.height = `${size}px`
