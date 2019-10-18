@@ -1,35 +1,49 @@
 .app {
-  @media (min-height: 480px) {
-    // TODO
-  }
-
   @media (min-height: 600px) {
-    font-size: 13pt;
-  }
+    &,
+    .btn,
+    .form-control {
+      font-size: 13pt;
+    }
 
-  @media (min-height: 800px) {
-    .app-footer .btn {
-      padding: 30px 60px;
+    .app-header {
+      padding: 20px;
     }
   }
 
-  @media (min-height: 960px) {
-    // TODO
-  }
+  @media (min-height: 800px) {
+    &,
+    .btn,
+    .form-control {
+      font-size: 22pt;
+    }
 
-  @media (min-height: 1080px) {
-    // TODO
+    .app-header {
+      padding: 30px;
+    }
+
+    .app-footer .btn {
+      padding: 30px 60px;
+    }
+
+    .btn.btn-rounded {
+      width: 56px;
+      height: 56px;
+    }
+
+    .rounded-clipping {
+      width: 96px;
+      height: 96px;
+    }
+
+    .counter .rounded-count {
+      border-width: 4px;
+      width: 44px;
+      height: 44px;
+    }
   }
 
   @media (min-height: 1280px) {
-    // TODO
-  }
-
-  @media (min-height: 1440px) {
-    // TODO
-  }
-
-  @media (min-height: 1920px) {
     &,
     .btn,
     .form-control {
@@ -38,20 +52,6 @@
 
     .app-header {
       padding: 50px;
-    }
-
-    .form-control {
-      padding: 60px 40px;
-    }
-
-    .rounded-clipping {
-      width: 128px;
-      height: 128px;
-    }
-
-    .btn.btn-rounded {
-      width: 72px;
-      height: 72px;
     }
 
     .radio input[type=checkbox] + .check-mark  {
@@ -80,9 +80,19 @@
       }
     }
 
+    .btn.btn-rounded {
+      width: 72px;
+      height: 72px;
+    }
+
     .logo {
       max-height: 512px;
       max-width: 512px;
+    }
+
+    .rounded-clipping {
+      width: 128px;
+      height: 128px;
     }
 
     .counter .rounded-count {
