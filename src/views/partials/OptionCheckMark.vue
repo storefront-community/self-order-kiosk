@@ -59,10 +59,10 @@ export default {
       })
     },
     slidesPerView() {
-      if (this.$device.screen.size.height() >= breakpoints[1280]) return 12.5
-      else if (this.$device.screen.size.height() >= breakpoints[960]) return 9.5
-      else if (this.$device.screen.size.height() >= breakpoints[800]) return 8.5
-      else if (this.$device.screen.size.height() >= breakpoints[600]) return 5.5
+      if (this.$device.screen.safeArea.height() >= breakpoints[1280]) return 12.5
+      else if (this.$device.screen.safeArea.height() >= breakpoints[960]) return 9.5
+      else if (this.$device.screen.safeArea.height() >= breakpoints[800]) return 8.5
+      else if (this.$device.screen.safeArea.height() >= breakpoints[600]) return 5.5
       else return 4.5
     },
     toggle($event, current) {

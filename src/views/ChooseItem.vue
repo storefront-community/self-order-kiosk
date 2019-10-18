@@ -94,7 +94,7 @@ export default {
       this.$router.push({ name: 'customizeItem' })
     },
     slidesPerColumn() {
-      if (this.$device.screen.size.height() >= breakpoints[1280]) return 2
+      if (this.$device.screen.safeArea.height() >= breakpoints[1440]) return 2
       else return 1
     }
   }
