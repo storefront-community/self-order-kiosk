@@ -9,8 +9,8 @@
       </div>
       <div class="app-content">
         <div class="form-group">
-          <div class="form-control form-control-lg text-center">
-            {{ name }}
+          <div class="form-control text-center border-0">
+            {{ name }}_
           </div>
         </div>
         <Keyboard v-model="name" :maxlength="20"/>
